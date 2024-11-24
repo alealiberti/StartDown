@@ -1,0 +1,13 @@
+account: 
+ruolo
+nome
+cognome
+email
+password
+telefono
+indirizzo
+
+scuola/gruppo/scout/famiglia/private/partiteiva
+
+richieste:
+stato
