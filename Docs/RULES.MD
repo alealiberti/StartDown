@@ -1,21 +1,22 @@
-# Regole di Utilizzo Condiviso di GIT
-Alcune regole per vivere meglio tra di noi:
+# Shared GIT Usage Rules  
+Some guidelines for a better collaboration:  
 
-1. **Creazione di un Nuovo Branch**
-   - Ognuno di noi deve creare un nuovo branch per ogni nuova funzionalità o bug fix
-   - Il nome del branch deve seguire il formato: `feat/nome-funzionalita` o `fix/nome-bug`
+1. **Creating a New Branch**  
+   - Everyone should create a new branch for each new feature or bug fix.  
+   - Branch names should follow this format: `feat/feature-name` or `fix/bug-name`.  
 
-2. **Commit**
-   - Utilizzare messaggi di commit chiari e concisi che descrivano le modifiche apportate
-   - Utilizzare prefissi specifici per ogni tipologia di commit per facilitare la comprensione del tipo di modifica apportata
-   
-   - **Esempi di prefissi:**
-     - `init:` per inizializzazione del progetto o di branch
-     - `feat:` per nuove funzionalità (es. `feat: aggiunta autenticazione utente`)
-     - `fix:` per correzioni di bug (es. `fix: risolto problema di caricamento pagina`)
-     - `docs:` per modifiche alla documentazione (es. `docs: aggiornato README.md con istruzioni di ...`)
-     - `style:` per modifiche di stile (es. `style: cambiamento dello stile della classe .X`)
-     - `test:` per aggiunta o modifica di test (es. `test: aggiunti test per la funzione di login`)
+2. **Commits**  
+   - Use clear and concise commit messages that describe the changes made.  
+   - Use specific prefixes for each type of commit to make it easier to understand the nature of the change.  
 
-3. **Pull Request**
-   - Prima di creare una pull request, assicurarsi che il branch sia aggiornato con il branch principale (`main`)
+   - **Examples of prefixes:**  
+     - `init:` for project or branch initialization  
+     - `feat:` for new features (e.g., `feat: add user authentication`)  
+     - `fix:` for bug fixes (e.g., `fix: resolve page loading issue`)  
+     - `docs:` for documentation changes (e.g., `docs: update README.md with ... instructions`)  
+     - `style:` for style changes (e.g., `style: update .X class styling`)  
+     - `test:` for adding or modifying tests (e.g., `test: add tests for login function`)  
+
+3. **Pull Requests**  
+   - Before creating a pull request, ensure the branch is up to date with the main branch (`main`).  
+
