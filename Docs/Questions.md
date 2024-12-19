@@ -1,3 +1,8 @@
-- portale vetrina solo per la parte formazione o per tutto il sito?  
-- portale solo per scuole o anche per private/altri gruppi?
-- quali sono realmente i competitors o se sono eventualmente associati tutti quanti a Liberia
+- Il portale educazione deve avere una sua identita’ o deve prendere l'identità gia’ presente?
+- Quanto vogliamo che il sito sia diverso? 
+- Quanto vogliamo che gli utenti che entrano nel sito di cascina si rendano conto che la parte di educazione e’ un portale a parte?
+- Quanto vogliamo che il sito sia in cima alle classifiche di google, vogliamo dare una particolare attenzione alla SEO? nel sito principale non e’ stata data.
+- Si vuole una particolare cura sull'estetica della sezione dedicata all'educazione?
+- Potrebbe interessare nel backoffice (per la gestione delle prenotazioni e delle domande), una sezione dedicata alle ultime novità tra domande e richieste di prenotazioni?
+- le prenotazioni vogliono essere gestite tramite un calendario, una lista di giorni contente ognuna le prenotazioni di quella giornata, direttamente tutte le prenotazioni mostrare quando aperta la sezione specifica?
+- 
