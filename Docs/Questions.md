@@ -5,4 +5,3 @@
 - Si vuole una particolare cura sull'estetica della sezione dedicata all'educazione?
 - Potrebbe interessare nel backoffice (per la gestione delle prenotazioni e delle domande), una sezione dedicata alle ultime novità tra domande e richieste di prenotazioni?
 - le prenotazioni vogliono essere gestite tramite un calendario, una lista di giorni contente ognuna le prenotazioni di quella giornata, direttamente tutte le prenotazioni mostrare quando aperta la sezione specifica?
-- 

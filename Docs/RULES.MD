@@ -20,3 +20,4 @@ Some guidelines for a better collaboration:
 3. **Pull Requests**  
    - Before creating a pull request, ensure the branch is up to date with the main branch (`main`).  
 
+$ git config user.email ""
