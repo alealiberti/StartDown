@@ -1,0 +1,50 @@
+/* center the container which contains the form for the LOGIN of admin */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    min-height: 100vh;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    height: 600px;
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+
+.adminLogo {
+    position: absolute;
+    top: -70px;
+    /* center the logo X assex */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background-color: var(--third-color);
+    border: 2px solid black;
+    border-radius: 100px;
+}
+
+
+h1 {
+    font-size: 35px;
+    font-family: var(--font-title);
+    color: var(--black-text-color);
+}
+
+
+.field {
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
+}

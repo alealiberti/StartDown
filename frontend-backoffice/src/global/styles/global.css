@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+
+
+/**
+ * style.css
+ *
+ *
+ * let's sets also the box-sizing property to border-box for all elements of the pages
+ *
+ */
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+
+/* -------------------------------------- */
+
+
+:root {
+    /* colors backgrounds */
+    --primary-color: #F4F4F9;
+    --secondary-color: #EBEBEB;
+    --third-color: #979797;
+    --fourth-color: #454545;
+    --fifth-color: #454545;
+    --background-color: #2A2A2A;
+
+    /* colors texts */
+    --dark-text-color: #242424;
+    --white-text-color: #FFFFFF;
+
+    /* fonts (titles && texts) */
+    --font-title: 'Inria Sans', serif;
+    --font-text: 'Roboto', sans-serif;
+}
