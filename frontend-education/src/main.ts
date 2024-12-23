@@ -1,4 +1,4 @@
-import "./styles/style.css";
+import "./styles/root/style.css";
 import { age } from "./scripts/hello.ts"
 
 
