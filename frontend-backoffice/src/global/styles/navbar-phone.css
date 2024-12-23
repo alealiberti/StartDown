@@ -1,0 +1,50 @@
+/* START FROM THE MINIMUM NAVBAR WHIT ONLY ICONS ON THE LEFT OF THE PAGES */
+
+/* is positioned on the left corner of the page fixed while scrolling, will be showed there only the icons of the pages */
+nav#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 47px;
+    height: 100vh;
+    background-color: var(--background-color-nav);
+    overflow: hidden;
+}
+
+
+nav button.toggleBtn {
+    background: none;
+    border: 0px;
+}
+
+
+
+nav ul.navList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 600px;
+    background-color: rgb(68, 68, 28);
+    text-align: center;
+}
+
+
+nav ul.navList li {}
+
+nav ul.navList li a {
+    text-decoration: none;
+    color: var(--white-text-color);
+}
+
+
+nav ul.navList li a ion-icon {
+    font-size: 2rem;
+}
+
+nav ul.navList li a span.navLabel {
+    display: none;
+    font-size: 1.2rem;
+}

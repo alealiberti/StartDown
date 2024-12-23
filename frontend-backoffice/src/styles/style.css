@@ -8,24 +8,27 @@ body {
 }
 
 
+/* container which contain the title and the form fields */
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    gap: 30px;
     align-items: center;
     position: relative;
-    width: 300px;
-    height: 600px;
+    width: 85%;
+    min-height: 600px;
     background-color: var(--secondary-color);
-    padding: 30px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     border-radius: 15px;
 }
 
 
+/* logo admin placeholder || photo of the admin, positioned on the top of the container whit position: absolute */
 .adminLogo {
     position: absolute;
-    top: -70px;
-    /* center the logo X assex */
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
@@ -37,14 +40,44 @@ body {
 
 
 h1 {
-    font-size: 35px;
+    font-size: 1.9rem;
     font-family: var(--font-title);
-    color: var(--black-text-color);
 }
 
 
+/* form flex which contain the fields label + input && the submit button */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* container which contains the label and the input */
 .field {
     display: flex;
     flex-direction: column;
-    min-height: 120px;
+    gap: 10px;
+    width: 250px;
+    min-height: 130px;
+}
+
+.field label {
+    font-size: 0.85rem;
+}
+
+input {
+    background-color: var(--third-color);
+    border: 0px;
+    font-size: 0.7rem;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+button {
+    background-color: var(--third-color);
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    padding: 2px 60px;
+    border-radius: 5px;
 }

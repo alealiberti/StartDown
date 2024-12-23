@@ -1,7 +1,10 @@
 # Structure of the backoffice
 
-# Src
 
+---
+
+
+# Src
 
 ## Pages structure
 - index.html: form Login
@@ -10,8 +13,15 @@
 - src/pages/reservations/index.html: page containing the reservations
 - src/pages/settings/index.html: TODO implement!
 
-
 ## Vite config ts
 
+## Global
 
-# Global
+
+---
+
+
+# Tools integrated
+
+## (Ionicons)[https://ionic.io/ionicons]
+
