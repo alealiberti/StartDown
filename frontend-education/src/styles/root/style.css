@@ -1,0 +1,149 @@
+/*
+* name: style.css
+* author: Burbulia Alessio
+* 
+* description: Root File contains the base style of the project
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+/* Root variables for base styling */
+:root {
+    /* Color variables logo */
+    --orange-color-logo: #E69731; /* logo color */
+    --magenta-color-logo: #D2277C; /* Secondary color */
+    --yellow-color-logo: #FDE039; /* Tertiary color */
+    
+    /* Color variables */
+    --orange-color: #E07B00; /* logo color */
+    --magenta-color: #DE0A7D; /* Secondary color */
+    --yellow-color: #FFDC00; /* Tertiary color */
+    
+    /* text and background colors */
+    --text-color: #0F0F0F;   /* Text color */
+    --background-color: #f5f5f5; /* Background color */
+    
+    /* Spacing variables */
+    --spacing-xs: 8px; /* Extra small spacing */
+    --spacing-sm: 16px; /* Small spacing */
+    --spacing-md: 24px; /* Medium spacing */
+    --spacing-lg: 32px; /* Large spacing */
+    
+    /* Font variables */
+    --font-family-title: 'Arial', sans-serif; /* Font for titles */
+    --font-family-content: 'Montserrat', sans-serif; /* Font for content */
+    --font-weight-normal: 400; /* Normal font weight */
+    --font-weight-bold: 700; /* Bold font weight */
+}
+
+/* Global styles */
+
+
+*, *::before, *::after {
+    box-sizing: inherit; /* Apply box-sizing to all elements */
+}
+
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+
+
+
+body {
+    font-family: var(--font-family-content); /* Set the font for body text */
+    font-size: 18px; /* Default font size */
+    background-color: var(--background-color); /* Background color for the page */
+    color: var(--text-color); /* Text color for the body */
+    line-height: 1.6; /* Line height for readability */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3; /* Scrollbar thumb color */
+    border-radius: 4px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--background-color); /* Background color of the scrollbar track */
+    border-radius: var(--border-radius); /* Rounded corners for the track */
+}
+
+/* Spacing helpers - these classes add spacing for margin and padding */
+.mt-xs { margin-top: var(--spacing-xs); } /* Extra small margin top */
+.mt-sm { margin-top: var(--spacing-sm); } /* Small margin top */
+.mt-md { margin-top: var(--spacing-md); } /* Medium margin top */
+.mt-lg { margin-top: var(--spacing-lg); } /* Large margin top */
+
+.mb-xs { margin-bottom: var(--spacing-xs); } /* Extra small margin bottom */
+.mb-sm { margin-bottom: var(--spacing-sm); } /* Small margin bottom */
+.mb-md { margin-bottom: var(--spacing-md); } /* Medium margin bottom */
+.mb-lg { margin-bottom: var(--spacing-lg); } /* Large margin bottom */
+
+.pt-xs { padding-top: var(--spacing-xs); } /* Extra small padding top */
+.pt-sm { padding-top: var(--spacing-sm); } /* Small padding top */
+.pt-md { padding-top: var(--spacing-md); } /* Medium padding top */
+.pt-lg { padding-top: var(--spacing-lg); } /* Large padding top */
+
+.pb-xs { padding-bottom: var(--spacing-xs); } /* Extra small padding bottom */
+.pb-sm { padding-bottom: var(--spacing-sm); } /* Small padding bottom */
+.pb-md { padding-bottom: var(--spacing-md); } /* Medium padding bottom */
+.pb-lg { padding-bottom: var(--spacing-lg); } /* Large padding bottom */
+
+/* Text styles for headers and paragraphs */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title); /* Title font family */
+    font-weight: var(--font-weight-bold); /* Bold font weight for headers */
+}   
+
+p {
+    margin-bottom: var(--spacing-sm); /* Small margin at the bottom of paragraphs */
+}
+
+/* Specific style for the first level header */
+h1 {
+    font-size: 2rem; /* Font size for h1 headers */
+}
+
+.display-none {
+    display: none;
+}
+
+.img-container {
+    display: flex; /* For flexible alignment */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    overflow: hidden; /* Hides content that exceeds the container's boundaries */
+    border-radius: 8px; /* Rounds the container's corners */
+    width: 300px; /* Container width */
+    height: 200px; /* Container height */
+}
+
+.img-container img {
+    width: 100%; /* The image fills the container width */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+.black-blur{
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.41);
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary);
+}
