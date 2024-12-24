@@ -1,16 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
 
 
-/**
- * style.css
- *
- *
- * let's sets also the box-sizing property to border-box for all elements of the pages
- *
- */
 
+/*! GLOBAL SETTINGS FOR ALL THE PAGES (font-size adjusted whit REM) and responsive root font-size */
 
-/* GLOBAL SETTINGS FOR ALL THE PAGES (font-size adjusted whit REM) and responsive root font-size */
 html {
     box-sizing: border-box;
     font-size: 20px;
@@ -24,6 +17,13 @@ html {
     }
 } */
 
+main {
+    margin-left: 47px;
+    min-height: 100vh;
+    background-color: aqua;
+    padding: 10px;
+}
+
 *,
 *::after,
 *::before {
@@ -31,7 +31,7 @@ html {
 }
 
 
-/* -------------------------------------- */
+/* -------------------------------------------------------- */
 
 
 :root {

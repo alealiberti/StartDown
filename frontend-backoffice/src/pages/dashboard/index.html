@@ -10,9 +10,9 @@
     <!-- side navbar for all the devices, phone navabar is expandable whit a button and the navLabel will be hidden -->
     <nav id="sidebar">
         <!-- button showed for the device phone, will allowed to exapande the navabar full screen -->
-        <button class="toggleBtn">
+        <div class="toggleBtn">
             <ion-icon name="chevron-forward"></ion-icon>
-        </button>
+        </div>
         <!-- list of the backoffice sections/pages -->
         <ul class="navList">
             <li>
@@ -23,7 +23,7 @@
             </li>
             <li>
                 <a href="/requests.html">
-                    <ion-icon name="help-circle-outline"></ion-icon>
+                    <ion-icon name="help-outline"></ion-icon>
                     <span class="navLabel">Richieste Informazioni</span>
                 </a>
             </li>
@@ -41,11 +41,30 @@
             </li>
         </ul>
         <!-- button logout will return to the login page  -->
-        <button class="logout-btn">
-            <ion-icon name="log-out-outline"></ion-icon>
-            <span class="navLabel">Log Out</span>
-        </button>
+        <div class="logoutSection">
+            <div class="logoutBtn">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span class="navLabel">Log Out</span>
+            </div>
+        </div>
     </nav>
+
+    <!-- main sections which contains the cards whit the news requests of questions / reservations! -->
+    <main>
+        <h1>Bentornato, Admin!</h1>
+
+        <section id="requests">
+            <h2>LE ULTIME RICHIESTE:</h2>
+            <ul class="requestsList">
+                <li>card</li>
+                <li>card</li>
+                <li>card</li>
+                <li>card</li>
+                <li>card</li>
+                <li>card</li>
+            </ul>
+        </section>
+    </main>
 
 
     <script type="module" src="./main.ts"></script>
