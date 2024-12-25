@@ -31,9 +31,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 500px;
+    min-height: 410px;
     text-align: center;
-    padding: 0 10px;
 }
 
 #sidebar .navList li:hover {
