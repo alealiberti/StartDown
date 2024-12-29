@@ -1,5 +1,9 @@
-import "./styles/root/style.css";
-import { age } from "./scripts/hello.ts"
+import "./styles/root/reset.css";
+import "./styles/root/global.css";
+
+//** NAVBAR **/
+import "./styles/navbar.css";
+import "./scripts/navbar.ts";
 
 
-console.log(age);
+

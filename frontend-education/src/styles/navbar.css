@@ -1,0 +1,324 @@
+/* 
+ * Navbar Styles
+ * This file contains styles for the navigation menu, including layout and animations for mobile, tablet, and desktop views.
+ * The styles also include a hamburger menu for mobile devices and various hover effects for the links.
+ * @author: Alessio Burbulia
+ */
+
+/* General Styles for Menu */
+nav {
+  position: fixed; /* Keeps the navbar fixed at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Aligns it to the top of the page */
+  left: 0; /* Aligns it to the left of the page */
+}
+
+.menuToggle {
+  width: 100%; /* Ensures the menu toggle spans the entire width */
+}
+
+b {
+  font-weight: 500; /* Applies medium font weight to bold text */
+}
+
+/* For Smartphone: Mobile View */
+@media (max-width: 576px) {
+  
+  /* Menu styles for mobile view */
+  .menu {
+    position: fixed; /* Fixed positioning to stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 80%; /* Adjust height for mobile */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items horizontally */
+    background-color: var(--primary-color); /* Background color */
+    list-style-type: none; /* Remove default list styling */
+    -webkit-font-smoothing: antialiased; /* Smooth font rendering */
+    transform-origin: 0% 0%; /* Set transform origin */
+    transform: translateY(-100%); /* Initially hide the menu */
+    padding-top: 65px; /* Add top padding */
+    transition: transform 0.5s ease-in-out; /* Smooth transition when showing the menu */
+  }
+  
+  /* Navigation links styling */
+  .menuToggle ul.nav-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center; /* Center the items */
+    width: 100%;
+  }
+  
+  /* List item styling for navigation links */
+  .menuToggle ul.nav-list li {
+    width: 100%;
+  }
+  
+  /* Link styling in the menu */
+  .menuToggle a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none; /* Remove underline */
+    color: var(--secondary-color); /* Set link color */
+    padding: 10px 0; /* Vertical padding */
+    text-align: center; /* Center text */
+    transition: color 0.3s ease; /* Smooth color transition */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  /* Hover effect for links */
+  .menuToggle ul.nav-list a:hover {
+    color: var(--primary-color); /* Change text color */
+    background-color: var(--secondary-color); /* Change background on hover */
+  }
+  
+  /* Increase font size for mobile links */
+  .menuToggle ul.nav-list a {
+    font-size: 1.5rem;
+  }
+  
+  /* Social media links styling */
+  .menuToggle ul.social-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly; /* Evenly space items */
+    width: 100%;
+    flex-direction: row; /* Row layout for social icons */
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  /* Hover effect for social media links */
+  .menuToggle ul.social-list a:hover {
+    text-decoration: underline; /* Underline social media links on hover */
+  }
+  
+  /* Hamburger input styling for mobile */
+  .menuToggle input {
+    display: block;
+    width: 90px; /* Set width of input */
+    height: 80px; /* Set height */
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    cursor: pointer;
+    opacity: 0; /* Hide the input */
+    z-index: 2; /* Place it above other elements */
+  }
+  
+  /* Hamburger icon styling */
+  .menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: fixed;
+    right: 25px;
+    background: var(--secondary-color);
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px; /* Set rotation point */
+    
+    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease; /* Smooth transitions */
+  }
+  
+  /* Position of the first hamburger span */
+  .menuToggle span:nth-of-type(1) {
+    top: 25px;
+  }
+  
+  /* Position of the second hamburger span */
+  .menuToggle span:nth-of-type(2) {
+    top: 35px;
+  }
+  
+  /* Position of the third hamburger span */
+  .menuToggle span:nth-of-type(3) {
+    top: 45px;
+  }
+  
+  /* Transform hamburger icon when menu is toggled */
+  .menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -7px); /* Rotate the icon */
+  }
+  
+  /* Hide the first hamburger span when menu is toggled */
+  .menuToggle input:checked ~ span:nth-last-of-type(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  /* Rotate the second hamburger span when menu is toggled */
+  .menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0px, 4px);
+  }
+  
+  /* Show the menu when the checkbox is checked */
+  .menuToggle input:checked ~ div.menu {
+    transform: none;
+  }
+
+  /* Class to disable scrolling when menu is active */
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  /* Background overlay styling when menu is active */
+  #sub-background {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.222); /* Semi-transparent background */
+    backdrop-filter: blur(2px); /* Blur effect for background */
+    -webkit-backdrop-filter: blur(2px); /* For Safari compatibility */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in transition */
+  }
+
+  /* Show background when menu is active */
+  #sub-background.show {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+/* For Tablets: Medium View */
+@media (min-width: 577px) and (max-width: 980px) {
+  input, span {
+    display: none; /* Hide the input and hamburger icon */
+  }
+  
+  /* Menu styling for tablet view */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh; /* Full screen height dimanically */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Flex layout for navigation and social lists */
+  ul.nav-list, ul.social-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 100%;
+  }
+
+  ul.nav-list li, ul.social-list li{
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Navigation list styling */
+  ul.nav-list {
+    font-size: 1rem;
+    height: 50px; /* Set height */
+  }
+  
+  /* Social list styling */
+  ul.social-list {
+    font-size: 0.7rem;
+    height: 30px; /* Set height */
+  }
+  
+  /* Menu link styling */
+  .menuToggle a {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--secondary-color); /* Set link color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Hover effect for tablet */
+  .menuToggle a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color); /* Change text color */
+  }
+}
+
+/* For Desktop: Large View */
+@media (min-width: 980px) {
+  input, span {
+    display: none; /* Hide the input and hamburger icon */
+  }
+  
+  /* Menu layout for desktop */
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 55px; /* Set height for desktop */
+    background-color: var(--primary-color);
+  }
+  
+  /* Navigation and social lists styling for desktop */
+  ul.nav-list, ul.social-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 0px 40px;
+    height: 100%;
+  }
+
+  ul.nav-list li, ul.social-list li{
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Navigation list font size for desktop */
+  ul.nav-list {
+    font-size: 1rem;
+  }
+  
+  /* Social list font size for desktop */
+  ul.social-list {
+    font-size: 0.7rem;
+  }
+  
+  /* Menu link styling */
+  .menuToggle a {
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--secondary-color); /* Set link color */
+    transition: 0.3s all; /* Smooth transition */
+    padding: 0px 25px;
+  }
+  
+  /* Hover effect for desktop */
+  .menuToggle a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color); /* Change text color */
+  }
+}

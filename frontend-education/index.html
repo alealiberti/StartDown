@@ -66,27 +66,29 @@
       </p>
     </div>
   </header>
+
+  <div id="sub-background">
+
+  </div>
   
   <nav aria-label="Navigazione principale" role="navigation">
-    <div id="menuToggle">
+    <div class="menuToggle">
       
       <!--
-      Some spans to act as a hamburger.
-      
-      They are acting like a real hamburger,
-      not that McDonalds stuff.
-      -->
-      <span></span>
-      <span></span>
-      <span></span>
-      
-      <!--
-      A fake / hidden checkbox is used as click reciever,
-      so you can use the :checked selector on it.
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
       -->
       <input type="checkbox" id="menuCheckbox" />
       
-      <div id="menu">
+      <!--
+      Some spans to act as a hamburger.
+      -->
+      <span></span>
+      <span></span>
+      <span></span>
+      
+      
+      <div class="menu">
         <ul class="nav-list">
           <li>
             <a href="#home" title="Torna alla pagina iniziale">          
@@ -106,7 +108,7 @@
                 </svg>
                 <b>CONTATTACI!</b></a></li>
               </ul>
-              
+                
               <ul class="social-list">
                 <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina facebook di Cascina Caccia">Facebook</a></li>
                 <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina instagram di Cascina Caccia">Instagram</a></li>
@@ -115,6 +117,52 @@
             </div>
           </div>
         </nav>
+
+        <main>
+          <!-- Hero Section -->
+          <section class="hero">
+            <h1>Welcome to Our Blog</h1>
+            <p>Your go-to source for tech trends, coding tips, and industry insights.</p>
+            <a href="#latest-articles" class="button">Explore Articles</a>
+          </section>
+        
+          <!-- Featured Articles -->
+          <section id="latest-articles" class="articles">
+            <h2>Latest Articles</h2>
+            <div class="article">
+              <h3>Top 10 JavaScript Frameworks in 2024</h3>
+              <p>Discover the most popular frameworks and their use cases in modern web development.</p>
+              <a href="#" class="read-more">Read more</a>
+            </div>
+            <div class="article">
+              <h3>Understanding AI: A Beginner's Guide</h3>
+              <p>Learn the fundamentals of artificial intelligence and how it's shaping the future.</p>
+              <a href="#" class="read-more">Read more</a>
+            </div>
+            <div class="article">
+              <h3>5 Tips for Effective Remote Work</h3>
+              <p>Boost your productivity and maintain a healthy work-life balance while working remotely.</p>
+              <a href="#" class="read-more">Read more</a>
+            </div>
+          </section>
+        
+          <!-- About Section -->
+          <section class="about">
+            <h2>About Us</h2>
+            <p>We are a community of tech enthusiasts dedicated to sharing knowledge and insights to help you excel in your career.</p>
+            <a href="#contact" class="button">Contact Us</a>
+          </section>
+        
+          <!-- Call-to-Action -->
+          <section id="cta" class="cta">
+            <h2>Join Our Newsletter</h2>
+            <p>Get the latest articles and updates straight to your inbox.</p>
+            <form>
+              <input type="email" placeholder="Enter your email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </section>
+        </main>
         
         <script type="module" src="/src/main.ts"></script>
       </body>
