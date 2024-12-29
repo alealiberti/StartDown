@@ -104,7 +104,7 @@ html {
 h2, h3, h4, h5, h6 {
   font-family: var(--font-family-title); /* Title font family */
   font-weight: var(--font-weight-bold); /* Bold font weight for headers */
-}   
+}
 
 p {
   margin-bottom: var(--spacing-sm); /* Small margin at the bottom of paragraphs */
@@ -157,9 +157,8 @@ h1 {
 }
 
 main {
-  width: calc(100% - 240px);
-  max-width: 680px;
-  margin: 100px auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 * {
@@ -181,5 +180,75 @@ header{
   .img-container{
     width: 80%;
     max-width: 610px;
+  }
+}
+
+section{
+  width: 100%;
+  padding: 50px 0px;
+
+  .container{
+    max-width: 680px;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  h2{
+    font-size: 1.8rem;
+  }
+  p{
+    font-size: 1rem;
+  }
+
+
+}
+
+section.section-style-dark{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+
+  ul.link-list{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+
+
+  li{
+    display: inline-block;
+  }
+
+    a {
+      display: block;
+      width: 100%;
+      font-weight: var(--font-weight-bold);
+      background: linear-gradient(
+        90deg,  
+        var(--yellow-color) 33%, 
+        var(--orange-color) 33%, 
+        var(--orange-color) 66%, 
+        var(--magenta-color) 66%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+  
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+  
+      font-size: 1rem;
+  
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      text-decoration-thickness: 2px;
+      text-underline-position: under;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    a:hover{
+      transform: scale(1.1);
+    }
+
+
   }
 }

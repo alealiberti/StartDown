@@ -4,6 +4,3 @@ import "./styles/root/global.css";
 //** NAVBAR **/
 import "./styles/navbar.css";
 import "./scripts/navbar.ts";
-
-
-
