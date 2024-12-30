@@ -24,6 +24,8 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `cascina_caccia`;
 CREATE DATABASE `cascina_caccia`;
 
+USE `cascina_caccia`;
+
 -- --------------------------------------------------------
 
 --
