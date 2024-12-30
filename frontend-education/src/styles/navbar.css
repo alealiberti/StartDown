@@ -251,6 +251,8 @@ b {
     text-decoration: none;
     color: var(--secondary-color); /* Set link color */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+
+    padding: 20px;
   }
   
   /* Hover effect for tablet */
