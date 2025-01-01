@@ -1,0 +1,50 @@
+.cardQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    background-color: green;
+    padding: 8px 7px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+
+/**01. card question section header (name and surname + email + date) */
+.cardQuestion .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardQuestion .cardHeader h2.cardName {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+}
+
+.cardQuestion .cardHeader p.cardEmail {
+    font-size: 0.8rem;
+}
+
+.cardQuestion .cardHeader p.cardDate {
+    font-size: 0.8rem;
+}
+
+
+
+/**02. card body preview message text (text of the question) */
+.cardQuestion p.cardBody {
+    width: 65%;
+    font-size: 0.85rem;
+    text-decoration: underline;
+}
+
+
+
+/**03. card footer whit the icons for the fast action on the quesion (delete + archite) */
+.cardQuestion .cardActions {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.05rem;
+    gap: 15px;
+}

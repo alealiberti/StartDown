@@ -52,28 +52,29 @@
     <!-- main sections which contains the cards whit the news requests of questions / reservations! -->
     <main>
         <h1>Bentornato, Admin!</h1>
-
+        <h2>LE ULTIME RICHIESTE:</h2>
         <!-- section whit a title label and a container whit the lists of questions and reservations -->
         <section id="requests">
-            <h2>LE ULTIME RICHIESTE:</h2>
+
             <!-- this container will be filled trough TS whit the latest questions and reservations -->
             <div class="requestsList"></div>
 
+
+            <!--***  -------------------------------------------------------------------------------------------------- *** -->
             <!-- template not visbile, layout of the card QUESTIONS, will be cloned and filled through TS whit properties -->
             <div class="cardQuestion">
 
                 <div class="cardHeader">
                     <div>
-                        <h2 class="cardName">nome e cognome</h2>
+                        <h2 class="cardName">Mario Rossi</h2>
                         <p class="cardEmail">your@email.com</p>
                     </div>
                     <p class="cardDate">10/12/2024</p>
                 </div>
 
                 <p class="cardBody">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eaque
-                    fugiat cumque molestiae ipsam totam, consequatur magnam soluta error minima commodi quae veniam
-                    explicabo voluptatem! Fugiat doloremque voluptatibus voluptas ullam!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit...
+
                 </p>
 
                 <div class="cardActions">
@@ -84,12 +85,13 @@
             </div>
 
 
+            <!--***  -------------------------------------------------------------------------------------------------- *** -->
             <!-- template not visbile, layout of the card RESERVATIONS, will be cloned and filled through TS whit properties -->
             <div class="cardReservation">
 
                 <div class="cardHeader">
                     <div>
-                        <h2 class="cardName">nome e cognome</h2>
+                        <h2 class="cardName">Giorgio Bianchi</h2>
                         <p class="cardEmail">your@email.com</p>
                     </div>
                     <p class="cardDate">10/12/2024</p>
@@ -97,8 +99,8 @@
 
                 <div class="cardFooter">
                     <div class="cardState">
-                        <span class="state"></span>
-                        <p class="stateDescription"></p>
+                        <ion-icon name="ellipse"></ion-icon>
+                        <p class="stateDescription">Nuova richiesta di prenotazione</p>
                     </div>
                     <div class="cardActions">
                         <ion-icon name="archive"></ion-icon>
