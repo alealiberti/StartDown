@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+// entity class representing the table "informations" in the database
 @Entity
 @Table(name = "informations")
 @Getter

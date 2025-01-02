@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+// entity class representing the table "users" in the database
 @Entity
 @Table(name = "users")
 @Getter
