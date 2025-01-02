@@ -1,0 +1,64 @@
+.cardReservation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+    background-color: orangered;
+    padding: 8px 7px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+
+/**01. card reservation section header (name and surname + email + date) */
+.cardReservation .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardReservation .cardHeader h2.cardName {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+}
+
+.cardReservation .cardHeader p.cardEmail {
+    font-size: 0.8rem;
+}
+
+.cardReservation .cardHeader p.cardDate {
+    font-size: 0.8rem;
+}
+
+
+
+/**02. card footer which contains:
+- the status of the reservation which will updated by the admin
+- icons for the fast action on the quesion (delete + archite) */
+.cardReservation .cardFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardReservation .cardFooter .cardState {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cardReservation .cardFooter .cardState ion-icon {
+    font-size: 1rem;
+}
+
+.cardReservation .cardFooter .cardState p.stateDescription {
+    font-size: 0.7rem;
+    text-decoration: underline;
+}
+
+
+.cardReservation .cardFooter .cardActions {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.05rem;
+    gap: 15px;
+}
