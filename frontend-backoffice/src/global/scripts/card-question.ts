@@ -1,1 +1,0 @@
-export const cardQuestionTemplate: Element | null = document.querySelector(".cardQuestion");

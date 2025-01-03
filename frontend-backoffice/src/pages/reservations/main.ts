@@ -1,19 +1,20 @@
+//* -----------------------STYLES IMPORTS-------------------------------------
+
 // global styles imports
 import "../../global/styles/reset.css";
 import "../../global/styles/global.css";
 import "../../global/styles/navbar/navbar-phone.css";
 import "../../global/styles/navbar/navbar-tablet-desktop.css";
-import "../../global/styles/cards/card-question.css";
-import "../../global/styles/cards/card-reservation.css";
 
-// local styles of the reservations page
+// local styles of the reservation page
 import "./styles/style.css";
 
 
-// ----------------------------------------------------------------
 
+//* -----------------------SCRIPTS IMPORTS-------------------------------------
 
 // global scripts imports
 import "../../global/scripts/expand-navbar-phone.ts";
 
-// local scripts of the reservations page
+// local scripts of the reservation page
+import "./scripts/scriptTry.ts"

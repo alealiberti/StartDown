@@ -1,4 +1,12 @@
+//* -----------------------STYLES IMPORTS-------------------------------------
+
+// global styles imports
 import "./global/styles/reset.css";
 import "./global/styles/global.css";
 
-import "./styles/style.css"; // local style of the login admin page 
+// local styles of the first page login admin
+import "./styles/style.css";
+
+
+
+//* -----------------------SCRIPTS IMPORTS-------------------------------------

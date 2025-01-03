@@ -1,5 +1,7 @@
-<!-- template of the card QUESTIONS, will be cloned/use and filled through TS whit properties
- into the pages of the back office (code DRY) -->
+import "../../styles/cards/card-question.css";
+
+
+export const cardQuestionTemplate = `
 <div class="cardQuestion">
 
     <div class="cardHeader">
@@ -20,6 +22,4 @@
     </div>
 
 </div>
-
-
-<script type="module" src="../scripts/card-question.ts"></script>
+`;

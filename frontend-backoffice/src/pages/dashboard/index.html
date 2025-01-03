@@ -53,63 +53,8 @@
     <main>
         <h1>Bentornato, Admin!</h1>
         <h2>LE ULTIME RICHIESTE:</h2>
-        <!-- section whit a title label and a container whit the lists of questions and reservations -->
-        <section id="requests">
-
-            <!-- this container will be filled trough TS whit the latest questions and reservations -->
-            <div class="requestsList"></div>
-
-
-            <!--***  -------------------------------------------------------------------------------------------------- *** -->
-            <!-- template not visbile, layout of the card QUESTIONS, will be cloned and filled through TS whit properties -->
-            <div class="cardQuestion">
-
-                <div class="cardHeader">
-                    <div>
-                        <h2 class="cardName">Mario Rossi</h2>
-                        <p class="cardEmail">your@email.com</p>
-                    </div>
-                    <p class="cardDate">10/12/2024</p>
-                </div>
-
-                <p class="cardBody">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit...
-                </p>
-
-                <div class="cardActions">
-                    <ion-icon name="archive"></ion-icon>
-                    <ion-icon name="trash"></ion-icon>
-                </div>
-
-            </div>
-
-
-            <!--***  -------------------------------------------------------------------------------------------------- *** -->
-            <!-- template not visbile, layout of the card RESERVATIONS, will be cloned and filled through TS whit properties -->
-            <div class="cardReservation">
-
-                <div class="cardHeader">
-                    <div>
-                        <h2 class="cardName">Giorgio Bianchi</h2>
-                        <p class="cardEmail">your@email.com</p>
-                    </div>
-                    <p class="cardDate">10/12/2024</p>
-                </div>
-
-                <div class="cardFooter">
-                    <div class="cardState">
-                        <ion-icon name="ellipse"></ion-icon>
-                        <p class="stateDescription">Nuova richiesta di prenotazione</p>
-                    </div>
-                    <div class="cardActions">
-                        <ion-icon name="archive"></ion-icon>
-                        <ion-icon name="trash"></ion-icon>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
+        <!-- section which will be filled trough TS templates whit the latest questions and reservations -->
+        <section id="requests"></section>
     </main>
 
     <script type="module" src="./main.ts"></script>

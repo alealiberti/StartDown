@@ -1,5 +1,7 @@
-<!-- template of the card RESERVATIONS, will be cloned/use and filled through TS whit properties
- into the pages of the back office (code DRY) -->
+import "../../styles/cards/card-reservation.css";
+
+
+export const cardReservationTemplate = `
 <div class="cardReservation">
 
     <div class="cardHeader">
@@ -22,6 +24,4 @@
     </div>
 
 </div>
-
-
-<script type="module" src="../scripts/card-reservation.ts"></script>
+`;
