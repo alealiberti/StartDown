@@ -1,25 +1,27 @@
-<!-- template not visbile, layout of the card RESERVATIONS, will be cloned and filled through TS whit properties -->
-<template id="cardReservation">
-    <div class="card">
+<!-- template of the card RESERVATIONS, will be cloned/use and filled through TS whit properties
+ into the pages of the back office (code DRY) -->
+<div class="cardReservation">
 
-        <div class="cardHeader">
-            <div>
-                <h2 class="cardName">nome e cognome</h2>
-                <p class="cardEmail">your@email.com</p>
-            </div>
-            <p class="cardDate">10/12/2024</p>
+    <div class="cardHeader">
+        <div>
+            <h2 class="cardName">Giorgio Bianchi</h2>
+            <p class="cardEmail">your@email.com</p>
         </div>
-
-        <div class="cardFooter">
-            <div class="cardState">
-                <span class="state"></span>
-                <p class="stateDescription"></p>
-            </div>
-            <div class="cardActions">
-                <ion-icon name="home"></ion-icon>
-                <ion-icon name="settings"></ion-icon>
-            </div>
-        </div>
-
+        <p class="cardDate">10/12/2024</p>
     </div>
-</template>
+
+    <div class="cardFooter">
+        <div class="cardState">
+            <ion-icon name="ellipse"></ion-icon>
+            <p class="stateDescription">Nuova richiesta di prenotazione</p>
+        </div>
+        <div class="cardActions">
+            <ion-icon name="archive"></ion-icon>
+            <ion-icon name="trash"></ion-icon>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="module" src="../scripts/card-reservation.ts"></script>

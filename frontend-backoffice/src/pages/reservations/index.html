@@ -3,10 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reservations</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <h1>Reservations</h1>
+    <!-- side navbar for all the devices, phone navabar is expandable whit a button and the navLabel will be hidden -->
+    <nav id="sidebar">
+        <!-- button showed for the device phone, will allowed to exapande the navabar full screen -->
+        <div class="toggleBtn">
+            <ion-icon name="chevron-forward"></ion-icon>
+        </div>
+        <!-- list of the backoffice sections/pages -->
+        <ul class="navList">
+            <li>
+                <a href="../dashboard/index.html">
+                    <ion-icon name="home"></ion-icon>
+                    <span class="navLabel">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../questions/index.html">
+                    <ion-icon name="help-outline"></ion-icon>
+                    <span class="navLabel">Richieste Informazioni</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="../reservations/index.html">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <span class="navLabel">Richieste Prenotazioni</span>
+                </a>
+            </li>
+            <li>
+                <a href="../settings/index.html">
+                    <ion-icon name="settings"></ion-icon>
+                    <span class="navLabel">Impostazioni</span>
+                </a>
+            </li>
+        </ul>
+        <!-- button logout will return to the login page  -->
+        <div class="logoutSection">
+            <a href="../../../index.html" class="logoutBtn">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span class="navLabel">Log Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- main sections which contains the cards whit the news requests of questions / reservations! -->
+    <main>
+        <h1>Lista Prenotazioni</h1>
+        <!-- section whit a title label and a container whit the lists of questions and reservations -->
+        <section id="requests">
+
+            <!-- this container will be filled trough TS whit the latest questions and reservations -->
+            <div class="requestsList"></div>
+
+
+            <!--***  -------------------------------------------------------------------------------------------------- *** -->
+            <!-- template not visbile, layout of the card RESERVATIONS, will be cloned and filled through TS whit properties -->
+            <div class="cardReservation">
+
+                <div class="cardHeader">
+                    <div>
+                        <h2 class="cardName">Giorgio Bianchi</h2>
+                        <p class="cardEmail">your@email.com</p>
+                    </div>
+                    <p class="cardDate">10/12/2024</p>
+                </div>
+
+                <div class="cardFooter">
+                    <div class="cardState">
+                        <ion-icon name="ellipse"></ion-icon>
+                        <p class="stateDescription">Nuova richiesta di prenotazione</p>
+                    </div>
+                    <div class="cardActions">
+                        <ion-icon name="archive"></ion-icon>
+                        <ion-icon name="trash"></ion-icon>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
     <script type="module" src="./main.ts"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

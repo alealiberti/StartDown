@@ -1,25 +1,25 @@
-<!-- template not visbile, layout of the card QUESTIONS, will be cloned and filled through TS whit properties -->
-<template id="cardQuestion">
-    <div class="card">
+<!-- template of the card QUESTIONS, will be cloned/use and filled through TS whit properties
+ into the pages of the back office (code DRY) -->
+<div class="cardQuestion">
 
-        <div class="cardHeader">
-            <div>
-                <h2 class="cardName">nome e cognome</h2>
-                <p class="cardEmail">your@email.com</p>
-            </div>
-            <p class="cardDate">10/12/2024</p>
+    <div class="cardHeader">
+        <div>
+            <h2 class="cardName">Mario Rossi</h2>
+            <p class="cardEmail">your@email.com</p>
         </div>
-
-        <p class="cardBody">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, eaque
-            fugiat cumque molestiae ipsam totam, consequatur magnam soluta error minima commodi quae veniam
-            explicabo voluptatem! Fugiat doloremque voluptatibus voluptas ullam!
-        </p>
-
-        <div class="cardActions">
-            <ion-icon name="home"></ion-icon>
-            <ion-icon name="settings"></ion-icon>
-        </div>
-
+        <p class="cardDate">10/12/2024</p>
     </div>
-</template>
+
+    <p class="cardBody">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit...
+    </p>
+
+    <div class="cardActions">
+        <ion-icon name="archive"></ion-icon>
+        <ion-icon name="trash"></ion-icon>
+    </div>
+
+</div>
+
+
+<script type="module" src="../scripts/card-question.ts"></script>

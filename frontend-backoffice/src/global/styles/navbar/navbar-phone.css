@@ -21,7 +21,8 @@
 /* button which onclick will expand the minimal sidebar of the page into a full page navigation */
 #sidebar .toggleBtn {
     color: whitesmoke;
-    font-size: 2.5rem;
+    opacity: 0.8;
+    font-size: 2.1rem;
     text-align: center;
 }
 
@@ -31,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 410px;
+    min-height: 400px;
     text-align: center;
 }
 
@@ -49,11 +50,32 @@
     font-size: 1.5rem;
 }
 
+/* line under the icon of the actual page "ACTIVED" when the sidebar is CLOSED */
+#sidebar ul li.active a ion-icon,
+#sidebar.expanded ul li.active a .navLabel {
+    padding-bottom: 2px;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+}
+
+/* line under the label of the icon of the actual page "ACTIVED" when the sidebar is OPEN will be showed +
+HIDE the line border under the icon when the sidebar is open! */
+#sidebar.expanded ul li.active a ion-icon {
+    border-bottom: 0px;
+}
+
 
 /* logout button will return the admin on the login page */
+#sidebar .logoutSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #sidebar .logoutBtn {
     color: var(--white-text-color);
-    font-size: 2rem;
+    opacity: 0.8;
+    font-size: 1.8rem;
     text-align: center;
 }
 
@@ -62,7 +84,7 @@
 #sidebar .navLabel {
     display: none;
     font-family: var(--font-title);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
 }
 
 
@@ -95,7 +117,7 @@
 
 /* management of the lists links navigation combination label+icons of the sidebar when will be expanded */
 #sidebar.expanded .navList li {
-    margin-left: 30px;
+    margin-left: 25px;
 }
 
 #sidebar.expanded .navList li a {
@@ -104,18 +126,12 @@
 }
 
 #sidebar.expanded .navList li a ion-icon {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     margin-right: 15px;
 }
 
 
 /* redesign of the button on the bottom fo the navbar expanded for the logout of the admin */
-#sidebar.expanded .logoutSection {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #sidebar.expanded .logoutSection .logoutBtn {
     display: flex;
     align-items: center;
@@ -129,8 +145,6 @@
     font-size: 1.3rem;
     margin-left: 20px;
 }
-
-
 
 
 /* the labels of th icons navigation now will be showed on the sidebar expanded! */

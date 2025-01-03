@@ -5,17 +5,11 @@ main h1 {
     font-size: 1.9em;
     text-align: center;
     margin-top: 60px;
+    margin-bottom: 50px;
 }
 
 /* section containing the latest requests of questions / reservations */
 main section#requests {
     background-color: yellow;
     min-height: 500px;
-}
-
-main>h2 {
-    font-family: var(--font-text);
-    text-align: center;
-    text-decoration: underline;
-    margin: 40px 0;
 }

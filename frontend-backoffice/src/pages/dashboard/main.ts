@@ -17,3 +17,4 @@ import "./styles/style.css";
 import "../../global/scripts/expand-navbar-phone.ts";
 
 // local scripts of the dashboard
+import "./scripts/scriptTry.ts"
