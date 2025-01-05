@@ -1,11 +1,14 @@
 # Fix
 
-- inserire nuovo campo nel db (data di quando è stata creata la richiesta o l'informazione)
+- inserire nuovi campi nel db:
+  - data di quando è stata creata la richiesta o l'informazione
+  - boolean disability problems
 - modificate entities Information e Reservation
 
 # DAOs
 
-- find by date (ordered)
+- find by date send (ordered)
+- find by date start
 - find by status
 - find by visitors
 
