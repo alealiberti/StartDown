@@ -3,6 +3,6 @@ export interface CardQuestion {
     name: string,
     surname: string,
     email: string,
-    phone: string,
+    phone: number,
     question: string
 }
