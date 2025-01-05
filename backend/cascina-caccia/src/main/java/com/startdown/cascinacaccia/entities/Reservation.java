@@ -39,6 +39,9 @@ public class Reservation {
 	
 	@Column(name = "email", nullable = false)
 	private String email;
+
+    @Column(name = "date_send", nullable = false)
+    private LocalDate dateSend;
 	
     @Column(name = "date_start", nullable = false)
     private LocalDate dateStart;
@@ -54,11 +57,20 @@ public class Reservation {
     
     @Column(name = "status", nullable = false)
 	private String status;
+
+    @Column(name = "type_group", nullable = false)
+    private String typeGroup;
     
     @Column(name = "visitors", nullable = false)
     private Integer visitors;
+
+    @Column(name = "companions")
+    private Integer companions;
     
     @Column(name = "additional_info")
     private String additionalInfo;
-    
+
+    @Column(name = "mobility_problems", nullable = false)
+    private boolean mobilityProblems;
+
 }
