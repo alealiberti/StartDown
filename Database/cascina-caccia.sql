@@ -38,6 +38,7 @@ CREATE TABLE `informations` (
   `surname` varchar(25) NOT NULL,
   `phone` varchar(10) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
+  `date_send` date NOT NULL,
   `text` varchar(1000) NOT NULL,
   `status` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -54,13 +55,17 @@ CREATE TABLE `reservations` (
   `surname` varchar(25) NOT NULL,
   `phone` varchar(10) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
+  `date_send` date NOT NULL,
   `date_start` date NOT NULL,
   `date_finish` date DEFAULT NULL,
   `hour_start` time DEFAULT NULL,
   `hour_finish` time DEFAULT NULL,
   `status` varchar(25) NOT NULL,
+  `type_group` varchar(25) NOT NULL,
   `visitors` int(11) NOT NULL,
-  `additional_info` varchar(1000) DEFAULT NULL
+  `companions` int(11) DEFAULT NULL,
+  `additional_info` varchar(1000) DEFAULT NULL,
+  `mobility_problems` boolean NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
