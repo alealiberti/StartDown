@@ -1,3 +1,8 @@
+# Fix
+
+- inserire nuovo campo nel db (data di quando è stata creata la richiesta o l'informazione)
+- modificate entities Information e Reservation
+
 # DAOs
 
 - find by date (ordered)
