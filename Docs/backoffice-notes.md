@@ -3,8 +3,9 @@
 ## Ordinamento:
 
 - stato (stringa)
+  - ricevuta
   - aperta
-  - in attesa
+  - attesa
   - chiusa
 - data:
   - crescente
