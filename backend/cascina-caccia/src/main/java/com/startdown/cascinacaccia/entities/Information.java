@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+
 // entity class representing the table "informations" in the database
 @Entity
 @Table(name = "informations")
@@ -36,6 +38,9 @@ public class Information {
 	
 	@Column(name = "email", nullable = false)
 	private String email;
+
+	@Column(name = "date_send", nullable = false)
+	private LocalDate dateSend;
 	
 	@Column(name = "text", nullable = false)
 	private String text;
