@@ -21,7 +21,7 @@ public interface UserDAO extends JpaRepository<User, Integer> {
     Optional<User> findByEmail(String email);
 
     /**
-     * finds all thge users having a certain role
+     * finds all the users having a certain role
      *
      * @param role the role of the users to be found
      * @return a List of User containing all the Users found
