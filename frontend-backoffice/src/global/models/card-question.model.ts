@@ -1,7 +1,9 @@
 export interface CardQuestion {
-    id: string,
+    id: number,
     name: string,
+    surname: string,
+    phone: string | null,
     email: string,
-    date: string,
+    dateSend: string,
     question: string
 }

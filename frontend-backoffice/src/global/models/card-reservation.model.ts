@@ -1,14 +1,18 @@
 export interface CardReservation {
-    id: string,
+    id: number,
     name: string,
     surname: string,
+    phone: string | null,
     email: string,
-    phone: string,
-    typeGroup: string,
+    dateSend: string,
+    dateStart: string | null,
+    dateFinish: string | null,
+    hourStart: string | null,
+    hourFinish: string | null,
+    status: string,
+    typeGroup: string | null,
     NCompanions: number,
     NVisitors: number,
-    typeReservation: string,
-    //! todo implementation date management!
-    secondaryDelivery: string | null,
-    request: string | null
+    mobilityProblems: boolean,
+    additionalInfo: string | null
 }

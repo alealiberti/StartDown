@@ -18,5 +18,5 @@ import "./styles/style.css";
 // global scripts imports
 import "../../global/scripts/navbar/expand-navbar-phone.ts";
 
-// local scripts of the dashboard
+// local scripts of the dashboard for generate cards elements
 import "./scripts/scriptTry.ts"

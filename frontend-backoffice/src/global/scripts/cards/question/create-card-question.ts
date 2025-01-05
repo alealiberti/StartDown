@@ -11,9 +11,9 @@ export function createCardQuestion(data: CardQuestion, template: HTMLTemplateEle
     const cardQuestion = templateContent.querySelector(".cardQuestion") as HTMLElement;
 
     // those elements inside the container card, will recive a value (! sospended)
-    cardQuestion.querySelector(".cardHeader h2.cardName")!.textContent = data.name;
+    cardQuestion.querySelector(".cardHeader h2.cardName")!.textContent = `${data.name} ${data.surname}`;
     cardQuestion.querySelector(".cardHeader p.cardEmail")!.textContent = data.email
-    cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = data.date;
+    cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = data.dateSend;
     cardQuestion.querySelector("p.cardBody")!.textContent = data.question;
 
     return cardQuestion;
