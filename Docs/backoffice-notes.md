@@ -3,6 +3,7 @@
 ## Ordinamento:
 
 - stato (stringa)
+  - ricevuta
   - aperta
   - in attesa
   - chiusa
