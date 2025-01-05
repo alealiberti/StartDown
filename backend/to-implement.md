@@ -33,6 +33,10 @@
 - mail sender (on Create requests)
 - exceptions (optional)
 
+# DB
+
+- creazione di un utente OWNER da default alla creazione del DB
+
 # DOCS
 
 - API:
