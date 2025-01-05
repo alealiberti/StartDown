@@ -1,10 +1,3 @@
-# Fix
-
-- inserire nuovi campi nel db:
-  - data di quando è stata creata la richiesta o l'informazione
-  - boolean disability problems
-- modificate entities Information e Reservation
-
 # DAOs
 
 - find by date send (ordered)
@@ -29,6 +22,11 @@
 - SecurityConfig
 - PasswordChangeRequest
 
+# Mail Sender
+
+- a chi fa la richiesta
+- agli utenti admin
+
 # REST Controllers
 
 - mappings to use the methods above
@@ -36,3 +34,18 @@
 - exceptions (optional)
 
 # DOCS
+
+- API:
+  - Swagger
+  - Postman JSON
+- README (md):
+  - Nome Progetto
+  - Descrizione
+  - Tecnologie utilizzate
+  - Manuale Utente (link)
+  - Contatti
+- Manuale Utente:
+  - Installazione e Configurazione
+  - Variabili in Application Properties
+  - Installazione e Setup DB
+  - Installazione JAVA
