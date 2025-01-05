@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless services
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/login", "/resources/**").permitAll() // Allow public access to login and resources
-                        .requestMatchers("cascina_caccia/users/change_user_password", "cascina_caccia/users/create_user", "cascina_caccia/users/delete_user", "cascina_caccia/users/").hasRole("OWNER") // Allow the owner to access some requests
+                        .requestMatchers("cascina_caccia/users/change_user_password", "cascina_caccia/users/create_user", "cascina_caccia/users/delete_user", "cascina_caccia/users").hasRole("OWNER") // Allow the owner to access some requests
                         .anyRequest().authenticated() // All other requests require authentication
                 )
                 .httpBasic(Customizer.withDefaults()) // Enable Basic Authentication
