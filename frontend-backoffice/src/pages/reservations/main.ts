@@ -14,7 +14,7 @@ import "./styles/style.css";
 //* -----------------------SCRIPTS IMPORTS-------------------------------------
 
 // global scripts imports
-import "../../global/scripts/expand-navbar-phone.ts";
+import "../../global/scripts/navbar/expand-navbar-phone.ts";
 
 // local scripts of the reservation page
 import "./scripts/scriptTry.ts"
