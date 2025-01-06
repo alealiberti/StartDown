@@ -57,4 +57,14 @@ public class EmailService {
             throw new EmailSendException("Errore durante l'invio dell'email: " + e.getMessage());
         }
     }
+
+    /**
+     * Sends confirmation email to the user and the emails to the admins
+     *
+     * @param to the email of the person to send the email to
+     */
+    public void sendEmails(String to){
+        sendEmailConfirm(to);
+        sendEmailToAdmins();
+    }
 }
