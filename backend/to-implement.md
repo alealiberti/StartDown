@@ -19,7 +19,6 @@
 
 # Configuration
 
-- SecurityConfig
 - PasswordChangeRequest
 
 # Mail Sender
@@ -29,7 +28,6 @@
 
 # REST Controllers
 
-- mappings to use the methods above
 - mail sender (on Create requests)
 - exceptions (optional)
 
