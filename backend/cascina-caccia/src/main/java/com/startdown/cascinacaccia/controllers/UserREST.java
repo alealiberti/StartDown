@@ -21,7 +21,7 @@ import com.startdown.cascinacaccia.entities.User;
 import com.startdown.cascinacaccia.services.UserServiceImpl;
 
 @RestController
-@RequestMapping("/cascina_caccia/users")
+@RequestMapping("/cascina-caccia/users")
 public class UserREST {
 
     @Autowired
@@ -39,6 +39,7 @@ public class UserREST {
     }
 
     /**
+     * OWNER only
      * Retrieves a user by their ID.
      *
      * @param id the ID of the user to retrieve
@@ -72,7 +73,7 @@ public class UserREST {
      * @param user the user details for the new user
      * @return ResponseEntity containing the newly created user
      */
-    @PostMapping("/create_user") // Endpoint to create a new user
+    @PostMapping("/create-user") // Endpoint to create a new user
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User newUser = userService.createUser(user); // Create the new user
         return ResponseEntity.ok(newUser); // Return the created user
@@ -114,7 +115,7 @@ public class UserREST {
      * @param passwordChangeRequest the request containing the old and new passwords
      * @return ResponseEntity with the result of the password change operation
      */
-    @PutMapping("/change_password") // Endpoint to change the password of the authenticated user
+    @PutMapping("/change-password") // Endpoint to change the password of the authenticated user
     public ResponseEntity<String> changePassword(@RequestBody PasswordChangeRequest passwordChangeRequest) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication(); // Get authentication details
         String currentUsername = authentication.getName(); // Get the current user's username
@@ -132,7 +133,7 @@ public class UserREST {
      * @param newPassword the new password to set for the user
      * @return ResponseEntity with the result of the password change operation
      */
-    @PutMapping("/change_user_password/{id}") // Endpoint to change a user's password by ID
+    @PutMapping("/change-user-password/{id}") // Endpoint to change a user's password by ID
     public ResponseEntity<String> changeUserPassword(@PathVariable Integer id, @RequestBody String newPassword) {
         Optional<String> result = userService.changeUserPassword(id, newPassword); // Change the user's password
         return result.map(ResponseEntity::ok) // Return success message if password change was successful

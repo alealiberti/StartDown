@@ -32,8 +32,8 @@ public class SecurityConfig {
                                 "/swagger-ui.html" ,
                                 "/api/v1/users").hasAnyRole("OWNER", "ADMIN")
                         .requestMatchers("/login", "/resources/**").permitAll() // Allow public access to login and resources
-                        .requestMatchers("cascina_caccia/informations/create_information", "/cascina_caccia/reservations/create_reservation").permitAll() // Allow public access to the creation of information or reservation requests
-                        .requestMatchers("cascina_caccia/users/change_user_password/**", "cascina_caccia/users/create_user", "cascina_caccia/users/delete_user/**", "cascina_caccia/users", "cascina_caccia/users/email/**").hasRole("OWNER") // Allow the owner to access some requests
+                        .requestMatchers("cascina-caccia/informations/create-information", "/cascina-caccia/reservations/create-reservation").permitAll() // Allow public access to the creation of information or reservation requests
+                        .requestMatchers("cascina-caccia/users/change-user-password/**", "cascina-caccia/users/create-user", "cascina-caccia/users/delete-user/**", "cascina-caccia/users/**", "cascina-caccia/users", "cascina-caccia/users/email/**").hasRole("OWNER") // Allow the owner to access some requests
                         .anyRequest().authenticated() // All other requests require authentication
                 )
                 .httpBasic(Customizer.withDefaults()) // Enable Basic Authentication
