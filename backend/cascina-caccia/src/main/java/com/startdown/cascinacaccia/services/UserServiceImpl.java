@@ -217,4 +217,20 @@ public class UserServiceImpl implements UserService {
         return Optional.of("User password updated successfully.");
     }
 
+    /**
+     * Gets all the emails of the admins
+     *
+     * @return the emails as a Array of String
+     */
+    @Override
+    public String[] getEmails(){
+        List<User> users = getAllUsers();
+        String[] emails = new String[users.size()];
+
+        for (int i = 0; i < users.size(); i++) {
+            emails[i] = users.get(i).getEmail();
+        }
+
+        return emails;
+    }
 }
