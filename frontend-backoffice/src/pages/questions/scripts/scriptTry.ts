@@ -1,10 +1,24 @@
+/**
+ * @file        main.ts
+ * @author      Gabriele Speciale
+ * @date        2025-01-05
+ * @description 
+ */
+
+
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
-import { loadTemplate } from "../../../global/services/load-templates";
+import { loadTemplate } from "../../../services/load-templates";
 import { generateQuestionCards } from "../../../global/scripts/cards/generate-cards";
 
 
 
-//*** wait the loading of the DOM before imports the templates and create the cards question ***
+/**
+ * Nome della funzione
+ * wait the loading of the DOM before imports the templates and create the cards question
+ * @param {TipoInput1} NomeInput1 - DescrizioneInput1
+ * @param {TipoInput2} NomeInput2 - DescrizioneInput2
+ * @returns {TipoOutput} - DescrizioneOutput
+ */
 document.addEventListener("DOMContentLoaded", async () => {
 
     // await the response and recive from the fetch into the async function, the templates of question and reservation on the DOM
@@ -30,3 +44,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     generateQuestionCards(listRequests, questionTemplate);
 
 });
+
+
+
+
+
+// TODO IMPLEMENT THE LOGIC OF OPEN A DIALOG WHIT THE INFORMATION ON THE CARDS
+// cardQuestion?.addEventListener("click", () => {
+//     let provaElement = document.createElement("div");
+//     provaElement.textContent = `${question.id}`;
+//     listRequests?.appendChild(provaElement);
+// });

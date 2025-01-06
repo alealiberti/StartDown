@@ -1,21 +1,21 @@
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
-import { loadTemplate } from "../../../global/services/load-templates";
-import { generateQuestionCards, generateReservationCards } from "../../../global/scripts/cards/generate-cards";
+import { loadTemplate } from "../../../services/load-templates";
+import { generateCards, generateQuestionCards, generateReservationCards } from "../../../global/scripts/cards/generate-cards";
 
 
 
-//*** wait the loading of the DOM before imports the templates and create the cards question/reservation ***
+//*** WAIT the loading of the DOM before imports the templates and create the cards question/reservation ***
 document.addEventListener("DOMContentLoaded", async () => {
 
     // await the response and recive from the fetch into the async function, the templates of question and reservation on the DOM
     await loadTemplate("/src/global/templates/cards/card-question.html");
     await loadTemplate("/src/global/templates/cards/card-reservation.html");
+    await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
+    await loadTemplate("/src/global/templates/dialogs/dialog-card-reservation.html");
 
 
-    //* -----------------------------------------
+    // ----------------------------------------------------
 
-    // get the list which will be filled whit the cards questions / reservations
-    const listRequests = document.querySelector("section#requests") as HTMLElement;
 
     /*
     ! GOAL:
@@ -28,8 +28,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
     const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
-    //* ----------------------------------------
+    // get the list which will be filled whit the cards questions / reservations
+    const listRequests = document.querySelector("section#requests") as HTMLElement;
+
+
+    // ----------------------------------------
+
 
     generateQuestionCards(listRequests, questionTemplate);
     generateReservationCards(listRequests, reservationTemplate);
+
+    // TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
+    generateCards(listRequests, questionTemplate, reservationTemplate)
 });
