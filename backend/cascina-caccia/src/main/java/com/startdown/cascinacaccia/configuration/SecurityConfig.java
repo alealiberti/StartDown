@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/login", "/resources/**").permitAll() // Allow public access to login and resources
                         .requestMatchers("cascina_caccia/informations/create_information", "/cascina_caccia/reservations/create_reservation").permitAll() // Allow public access to the creation of information or reservation requests
-                        .requestMatchers("cascina_caccia/users/change_user_password", "cascina_caccia/users/create_user", "cascina_caccia/users/delete_user", "cascina_caccia/users").hasRole("OWNER") // Allow the owner to access some requests
+                        .requestMatchers("cascina_caccia/users/change_user_password/**", "cascina_caccia/users/create_user", "cascina_caccia/users/delete_user/**", "cascina_caccia/users", "cascina_caccia/users/email/**").hasRole("OWNER") // Allow the owner to access some requests
                         .anyRequest().authenticated() // All other requests require authentication
                 )
                 .httpBasic(Customizer.withDefaults()) // Enable Basic Authentication
