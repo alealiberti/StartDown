@@ -79,4 +79,11 @@ public interface UserService {
      */
     Optional<String> changeUserPassword(Integer id, String newPassword);
 
+    /**
+     * Gets all the users emails for the mail sender
+     *
+     * @return all the users emails
+     */
+    String[] getEmails();
+
 }
