@@ -5,11 +5,10 @@
  * @description 
  */
 
-
-
-import { questionData, reservationData } from "../../../DB/questions-reservation";
+import { questionData, reservationData } from "../../DB/questions-reservation";
 import { createCardQuestion } from "./question/create-card-question";
 import { createCardReservation } from "../../../global/scripts/cards/reservation/create-card-reservation";
+
 
 
 /**
@@ -19,7 +18,7 @@ import { createCardReservation } from "../../../global/scripts/cards/reservation
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function generateQuestionCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement) {
+export function generateQuestionCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement): void {
 
     questionData.forEach((question) => {
 
@@ -31,10 +30,19 @@ export function generateQuestionCards(listRequests: HTMLElement, questionTemplat
         if (cardQuestion) {
             listRequests?.appendChild(cardQuestion);
         }
+
+
+        const overlay = document.querySelector(".overlay") as HTMLElement;
+
+        cardQuestion?.addEventListener("click", () => {
+            overlay.style.display = "block";
+        });
+
+        overlay.addEventListener("click", () => {
+            overlay.style.display = "none";
+        })
     });
 }
-
-
 
 /**
  * Nome della funzione
@@ -43,7 +51,7 @@ export function generateQuestionCards(listRequests: HTMLElement, questionTemplat
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function generateReservationCards(listRequests: HTMLElement, reservationTemplate: HTMLTemplateElement) {
+export function generateReservationCards(listRequests: HTMLElement, reservationTemplate: HTMLTemplateElement): void {
 
     reservationData.forEach((reservation) => {
 
@@ -56,4 +64,10 @@ export function generateReservationCards(listRequests: HTMLElement, reservationT
             listRequests?.appendChild(CardReservation);
         }
     });
+}
+
+
+// TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
+export function generateCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement, reservationTemplate: HTMLTemplateElement): void {
+
 }

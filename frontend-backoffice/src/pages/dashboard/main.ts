@@ -5,8 +5,9 @@ import "../../global/styles/reset.css";
 import "../../global/styles/global.css";
 import "../../global/styles/navbar/navbar-phone.css";
 import "../../global/styles/navbar/navbar-tablet-desktop.css";
-import "../../global/styles/cards/card-question.css"
-import "../../global/styles/cards/card-reservation.css"
+import "../../global/styles/cards/card-question.css";
+import "../../global/styles/cards/card-reservation.css";
+import "../../global/styles/dialogs/overlay-dialog.css";
 
 // local styles of the dashboard
 import "./styles/style.css";
@@ -19,4 +20,4 @@ import "./styles/style.css";
 import "../../global/scripts/navbar/expand-navbar-phone.ts";
 
 // local scripts of the dashboard for generate cards elements
-import "./scripts/scriptTry.ts"
+import "./scripts/scriptTry.ts";
