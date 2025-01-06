@@ -1,5 +1,5 @@
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
-import { loadTemplate } from "../../../global/services/load-templates";
+import { loadTemplate } from "../../../services/load-templates";
 import { generateQuestionCards, generateReservationCards } from "../../../global/scripts/cards/generate-cards";
 
 
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     //* -----------------------------------------
+
 
     // get the list which will be filled whit the cards questions / reservations
     const listRequests = document.querySelector("section#requests") as HTMLElement;
@@ -28,7 +29,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
     const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
+
     //* ----------------------------------------
+
 
     generateQuestionCards(listRequests, questionTemplate);
     generateReservationCards(listRequests, reservationTemplate);

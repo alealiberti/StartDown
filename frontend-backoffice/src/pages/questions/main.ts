@@ -13,7 +13,7 @@ import "./styles/style.css";
 
 
 
-//* -----------------------SCRIPTS IMPORTS-------------------------------------
+//* -----------------------SCRIPTS IMPORTS------------------------------------
 
 // global scripts imports
 import "../../global/scripts/navbar/expand-navbar-phone.ts";
