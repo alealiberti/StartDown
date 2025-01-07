@@ -11,6 +11,7 @@ import { createCardReservation } from "../../../global/scripts/cards/reservation
 
 
 
+
 /**
  * Nome della funzione
  * Descrizione della funzione
@@ -18,56 +19,51 @@ import { createCardReservation } from "../../../global/scripts/cards/reservation
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function generateQuestionCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement): void {
-
-    questionData.forEach((question) => {
-
-        // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
-        const cardQuestion = createCardQuestion(question, questionTemplate);
-        console.log(cardQuestion);
-
-        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests
-        if (cardQuestion) {
-            listRequests?.appendChild(cardQuestion);
-        }
+export function generateCards(listRequests: HTMLElement, overlay: HTMLElement, questionTemplate?: HTMLTemplateElement, reservationTemplate?: HTMLTemplateElement): void {
 
 
-        const overlay = document.querySelector(".overlay") as HTMLElement;
+    // check if template is an HTMLelement or a null element (not passed as argument!)
+    if (questionTemplate) {
 
-        cardQuestion?.addEventListener("click", () => {
-            overlay.style.display = "block";
+        questionData.forEach((question) => {
+
+            // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
+            const cardQuestion = createCardQuestion(question, questionTemplate);
+            console.log(cardQuestion);
+
+            // if the card is actualy an HTML element and not "null", will be appended to the list of the requests
+            if (cardQuestion) {
+                listRequests?.appendChild(cardQuestion);
+            }
+
+            cardQuestion?.addEventListener("click", () => {
+                overlay.style.display = "block";
+                // show also the dialog of the questions cards
+            });
         });
-
-        overlay.addEventListener("click", () => {
-            overlay.style.display = "none";
-        })
-    });
-}
-
-/**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
- */
-export function generateReservationCards(listRequests: HTMLElement, reservationTemplate: HTMLTemplateElement): void {
-
-    reservationData.forEach((reservation) => {
-
-        // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
-        const CardReservation = createCardReservation(reservation, reservationTemplate);
-        console.log(CardReservation);
-
-        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests
-        if (CardReservation) {
-            listRequests?.appendChild(CardReservation);
-        }
-    });
-}
+    }
 
 
-// TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
-export function generateCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement, reservationTemplate: HTMLTemplateElement): void {
+
+    if (reservationTemplate) {
+
+
+        reservationData.forEach((reservation) => {
+
+            // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
+            const CardReservation = createCardReservation(reservation, reservationTemplate);
+            console.log(CardReservation);
+
+            // if the card is actualy an HTML element and not "null", will be appended to the list of the requests
+            if (CardReservation) {
+                listRequests?.appendChild(CardReservation);
+            }
+
+            CardReservation?.addEventListener("click", () => {
+                overlay.style.display = "block";
+                // show also the dialog of the questions cards
+            });
+        });
+    }
 
 }

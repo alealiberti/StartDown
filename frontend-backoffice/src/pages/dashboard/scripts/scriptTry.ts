@@ -1,6 +1,6 @@
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
 import { loadTemplate } from "../../../services/load-templates";
-import { generateCards, generateQuestionCards, generateReservationCards } from "../../../global/scripts/cards/generate-cards";
+import { generateCards } from "../../../global/scripts/cards/generate-cards";
 
 
 
@@ -28,16 +28,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
     const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
-    // get the list which will be filled whit the cards questions / reservations
+    // get the list which will be filled whit the cards questions / reservations, and the overlat when the cards are clicked
     const listRequests = document.querySelector("section#requests") as HTMLElement;
+    const overlay = document.querySelector(".overlay") as HTMLElement;
 
+    overlay.addEventListener("click", () => {
+        overlay.style.display = "none";
+    });
 
     // ----------------------------------------
 
 
-    generateQuestionCards(listRequests, questionTemplate);
-    generateReservationCards(listRequests, reservationTemplate);
+    // generateQuestionCards(listRequests, questionTemplate);
+    // generateReservationCards(listRequests, reservationTemplate);
 
     // TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
-    generateCards(listRequests, questionTemplate, reservationTemplate)
+    generateCards(listRequests, overlay, questionTemplate, reservationTemplate)
 });
