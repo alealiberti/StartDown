@@ -11,22 +11,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadTemplate("/src/global/templates/cards/card-question.html");
     await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
 
+    // ---------------------------------------------
 
-    // ----------------------------------------------------
-
-
-    /*
-    ! GOAL:
-    access the templates template#cardQuestionTemplate element, 
-    inside the <template> and dynamically fill it with datas taked from the DBs
-    IMPORTANT! a template is not directly part of the visible DOM: it contains a #document-fragment 
-    that must be cloned to be used.
-    todo we pass this template into the functions: 1. generateQuestionCards + 2.generateReservationCards, and will create clones of it
-    */
     const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
-
-    // get the list which will be filled whit the cards questions / reservations, and the overlat when the cards are clicked
-    const listRequests = document.querySelector("section#requests") as HTMLElement;
     const overlay = document.querySelector(".overlay") as HTMLElement;
 
     overlay.addEventListener("click", () => {
@@ -34,9 +21,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
 
-    // ----------------------------------------
+    // ---------------------------------------------
 
 
-    // TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
-    generateCards(listRequests, overlay, questionTemplate)
+    generateCards(overlay, questionTemplate)
 });

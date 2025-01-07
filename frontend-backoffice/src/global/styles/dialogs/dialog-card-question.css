@@ -1,0 +1,10 @@
+.modalQuestion {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 70vh;
+    background-color: purple;
+}
