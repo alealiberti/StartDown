@@ -3,6 +3,11 @@ package com.startdown.cascinacaccia.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -33,6 +38,23 @@ public class UserREST {
      *
      * @return a list of all users
      */
+    @Operation(summary = "Users list (only OWNER)", description = "Gets the list of all the users in the db")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Users retrieved successfully",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class))),
+            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(
+                                    example = "{\n" +
+                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
+                                            "  \"status\": 403,\n" +
+                                            "  \"error\": \"Forbidden\",\n" +
+                                            "  \"message\": \"Forbidden\",\n" +
+                                            "  \"path\": \"/cascina-caccia/users\"\n" +
+                                            "}"
+                            )))
+    })
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers(); // Fetch all users using the user service
