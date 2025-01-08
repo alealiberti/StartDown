@@ -5,9 +5,15 @@
  * @description 
  */
 
-import { questionData, reservationData } from "../../DB/questions-reservation";
 import { createCardQuestion } from "./question/create-card-question";
-import { createCardReservation } from "../../../global/scripts/cards/reservation/create-card-reservation";
+import { createCardReservation } from "./reservation/create-card-reservation";
+import { addEventsOnCard } from "./events-cards";
+
+import { type CardQuestion } from "../../../models/card-question.model";
+import { type CardReservation } from "../../../models/card-reservation.model";
+
+
+
 
 
 
@@ -18,56 +24,50 @@ import { createCardReservation } from "../../../global/scripts/cards/reservation
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function generateQuestionCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement): void {
+export function generateCardsQuestions(
+    listRequests: HTMLElement,
+    overlay: HTMLElement,
+    questionTemplate: HTMLTemplateElement,
+    questionsData: CardQuestion[],
+): void {
 
-    questionData.forEach((question) => {
+    const modalQuestion = document.querySelector(".modalQuestion") as HTMLElement;
 
+    questionsData.forEach((question) => {
         // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
         const cardQuestion = createCardQuestion(question, questionTemplate);
-        console.log(cardQuestion);
 
-        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests
+        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests and added the events "click"
         if (cardQuestion) {
-            listRequests?.appendChild(cardQuestion);
+            addEventsOnCard(overlay, cardQuestion, modalQuestion);
+            listRequests.appendChild(cardQuestion);
         }
-
-
-        const overlay = document.querySelector(".overlay") as HTMLElement;
-
-        cardQuestion?.addEventListener("click", () => {
-            overlay.style.display = "block";
-        });
-
-        overlay.addEventListener("click", () => {
-            overlay.style.display = "none";
-        })
     });
+
+
 }
 
-/**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
- */
-export function generateReservationCards(listRequests: HTMLElement, reservationTemplate: HTMLTemplateElement): void {
 
-    reservationData.forEach((reservation) => {
 
+export function generateCardsReservations(
+    listRequests: HTMLElement,
+    overlay: HTMLElement,
+    reservationTemplate: HTMLTemplateElement,
+    reservationsData: CardReservation[],
+): void {
+
+    const modalReservation = document.querySelector(".modalReservation") as HTMLElement;
+
+
+    reservationsData.forEach((reservation) => {
         // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
-        const CardReservation = createCardReservation(reservation, reservationTemplate);
-        console.log(CardReservation);
+        const cardQuestion = createCardReservation(reservation, reservationTemplate);
 
-        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests
-        if (CardReservation) {
-            listRequests?.appendChild(CardReservation);
+        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests and added the events "click"
+        if (cardQuestion) {
+            addEventsOnCard(overlay, cardQuestion, modalReservation);
+            listRequests.appendChild(cardQuestion);
         }
     });
-}
-
-
-// TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
-export function generateCards(listRequests: HTMLElement, questionTemplate: HTMLTemplateElement, reservationTemplate: HTMLTemplateElement): void {
 
 }

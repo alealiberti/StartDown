@@ -38,6 +38,7 @@ public class UserREST {
      *
      * @return a list of all users
      */
+
     @Operation(summary = "Users list (OWNER only)", description = "Gets the list of all the users in the db")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Users retrieved successfully",
