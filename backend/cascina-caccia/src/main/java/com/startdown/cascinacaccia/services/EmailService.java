@@ -14,7 +14,7 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     /**
      * Sends an email to the person given to confirm their request (information or reservation) or has gone alright,

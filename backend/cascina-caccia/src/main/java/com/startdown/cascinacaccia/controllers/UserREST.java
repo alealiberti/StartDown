@@ -3,6 +3,7 @@ package com.startdown.cascinacaccia.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import com.startdown.cascinacaccia.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -23,14 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.startdown.cascinacaccia.configuration.PasswordChangeRequest;
 import com.startdown.cascinacaccia.entities.User;
-import com.startdown.cascinacaccia.services.UserServiceImpl;
 
 @RestController
 @RequestMapping("/cascina-caccia/users")
+// The UserREST Controller handles the endpoints and the logic for the User-related API requests
 public class UserREST {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     /**
      * OWNER only
