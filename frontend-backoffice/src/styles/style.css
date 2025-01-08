@@ -13,8 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 30px;
     align-items: center;
+    gap: 30px;
     position: relative;
     width: 85%;
     min-height: 600px;
@@ -42,6 +42,11 @@ body {
 h1 {
     font-size: 1.9rem;
     font-family: var(--font-title);
+}
+
+h1,
+h2 {
+    text-align: center;
 }
 
 

@@ -1,6 +1,8 @@
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
-import { loadTemplate } from "../../../services/load-templates";
-import { generateCards } from "../../../global/scripts/cards/generate-cards";
+import { loadTemplate } from "../../../global/services/load-templates";
+import { generateCardsReservations } from "../../../global/scripts/cards/generate-cards";
+
+import { reservationsData } from "../../../global/DB/questions-reservation";
 
 
 
@@ -13,17 +15,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // ---------------------------------------------
 
-    const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
-    const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
-    const overlay = document.querySelector(".overlay") as HTMLElement;
 
+    // list which will be filled whit the cards
+    const listRequests = document.querySelector("section#requests") as HTMLElement;
+
+    // take from the DOM the overlay which cover all the page whit a black nurse when cards are clicked
+    const overlay = document.querySelector(".overlay") as HTMLElement;
     overlay.addEventListener("click", () => {
         overlay.style.display = "none";
     });
+
+    // take form the DOM the template reservation loaded from the fetch() in `loadTemplates.ts`
+    const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
 
     // ---------------------------------------------
 
 
-    generateCards(overlay, questionTemplate, reservationTemplate)
+    generateCardsReservations(listRequests, overlay, reservationTemplate, reservationsData);
+
 });
