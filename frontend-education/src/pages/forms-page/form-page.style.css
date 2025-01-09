@@ -1,0 +1,109 @@
+:root{
+    --accent-color: #D2277C;
+    --color-input: #f6f6f6;
+    --color-input-text: 868686;
+    --color-input-focus: #e0e0e0;
+}
+
+body{
+    background-color: white;
+    margin-top: 100px;
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+
+    .answer, .reservation{
+        display: block;
+    }
+}
+
+h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 500;
+    gap: 10px;
+}
+
+p{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 50px 30px;
+}
+
+main{
+    width: 800px;
+    max-width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .form-group-button{
+        text-align: right;
+        gap: 5px;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 25px;
+    }
+}
+
+label{
+    margin-bottom: 5px;
+    font-size: 1rem;
+    
+    .required-icon{
+        font-family: "Arial";
+        color: red;
+        font-weight: bold;
+    }
+}
+
+input, textarea{
+    font-family: 'Montserrat';
+    padding: 10px;
+    background-color: var(--color-input);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: none;
+    color: var(--color-input-text);
+}
+
+input:focus, textarea:focus{
+    outline: none;
+    background-color: var(--color-input-focus);
+}
+
+button{
+    width: 30%;
+    font-family: 'Montserrat';
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--accent-color);
+    color: #f6f6f6;
+    font-weight: bold;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+button:hover{
+    background-color: #e5549c;
+    transform: scale(1.05);
+    cursor: pointer;
+}

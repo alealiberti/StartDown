@@ -5,12 +5,19 @@
  * @author: Alessio Burbulia
  */
 
+/** Z-INDEX 100
+ ** 110: Menu
+ ** 105: Background overlay
+ ** 100: Hamburger icon
+*/
+
 /* General Styles for Menu */
 nav {
   position: fixed; /* Keeps the navbar fixed at the top */
   width: 100%; /* Full width */
   top: 0; /* Aligns it to the top of the page */
   left: 0; /* Aligns it to the left of the page */
+  z-index: 110; /* Aumenta il valore di z-index per garantire che la navbar sia sopra gli altri elementi */
 }
 
 .menuToggle {
@@ -110,9 +117,24 @@ b {
     right: -5px;
     cursor: pointer;
     opacity: 0; /* Hide the input */
-    z-index: 2; /* Place it above other elements */
+    z-index: 115; 
   }
-  
+
+  .menuToggle .hamburger-background {
+    display: block;
+  }
+
+  .menuToggle .hamburger-background {
+    position: fixed;
+    top: 8px;
+    right: 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50% ;
+    background-color: #f5f5f54b;
+    z-index: 105; 
+  }
+
   /* Hamburger icon styling */
   .menuToggle span {
     display: block;
@@ -123,10 +145,9 @@ b {
     right: 25px;
     background: var(--secondary-color);
     border-radius: 3px;
-    z-index: 1;
-    transform-origin: 4px 0px; /* Set rotation point */
-    
-    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease; /* Smooth transitions */
+    transform-origin: 4px 0px;
+    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    z-index: 114;
   }
   
   /* Position of the first hamburger span */
@@ -147,18 +168,18 @@ b {
   /* Transform hamburger icon when menu is toggled */
   .menuToggle input:checked ~ span {
     opacity: 1;
-    transform: rotate(45deg) translate(0px, -7px); /* Rotate the icon */
+    transform: rotate(45deg) translate(-6px, -15px); /* Rotate the icon */
   }
   
   /* Hide the first hamburger span when menu is toggled */
-  .menuToggle input:checked ~ span:nth-last-of-type(3) {
+  .menuToggle input:checked ~ span:nth-last-of-type(2) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
   }
   
   /* Rotate the second hamburger span when menu is toggled */
-  .menuToggle input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0px, 4px);
+  .menuToggle input:checked ~ span:nth-last-of-type(3) {
+    transform: rotate(-45deg) translate(-12px, 18px);
   }
   
   /* Show the menu when the checkbox is checked */
@@ -176,14 +197,14 @@ b {
     opacity: 0;
     width: 0;
     height: 0;
-    background-color: rgba(0, 0, 0, 0.222); /* Semi-transparent background */
-    backdrop-filter: blur(2px); /* Blur effect for background */
-    -webkit-backdrop-filter: blur(2px); /* For Safari compatibility */
+    background-color: rgba(0, 0, 0, 0.222);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 0;
-    transition: opacity 0.5s ease-in-out; /* Smooth fade-in transition */
+    transition: opacity 0.5s ease-in-out;
+    z-index: 105; 
   }
 
   /* Show background when menu is active */
@@ -195,7 +216,7 @@ b {
 }
 
 /* For Tablets: Medium View */
-@media (min-width: 577px) and (max-width: 1050px) {
+@media (min-width: 576px) and (max-width: 1050px) {
   input, span {
     display: none; /* Hide the input and hamburger icon */
   }

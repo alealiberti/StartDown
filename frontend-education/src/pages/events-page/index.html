@@ -41,19 +41,19 @@
   
   <!-- style page import -->
   <link rel="stylesheet" href="./src/styles/root/reset.css">
-  <link rel="stylesheet" href="./src/styles/root/global.css">
+  <link rel="stylesheet" href="./src/styles/root/style.css">
 </head>
 <body>
   
   <header>
     <div class="black-blur">
       <!-- Main heading for SEO -->
-      <h1 class="display-none">Cascina Caccia - Educazione, Laboratori ed Eventi con Carla e Bruno</h1>
+      <h1 class="display-none">Gli eventi di Cascina Caccia</h1>
       
       <!-- Accessible and SEO-friendly landmark for the image -->
       <figure class="img-container">
         <img 
-        src="/public/logos/logo-white.png" 
+        src="./public/logos/logo-white.png" 
         alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" 
         loading="lazy" 
         width="300" 
@@ -95,7 +95,7 @@
       <div class="menu">
         <ul class="nav-list">
           <li>
-            <a href="/home/" title="Torna alla pagina iniziale">          
+            <a href="/home" title="Torna alla pagina iniziale">          
               <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
                 <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
@@ -103,15 +103,15 @@
               </svg>
               HOME
             </a></li>
-              <li><a href="/laboratori/" title="Scopri i nostri laboratori e attività">
+              <li><a href="/laboratori" title="Scopri i nostri laboratori e attività">
                 Laboratori e attività
               </a></li>
 
-              <li><a href="/eventi/" title="Visualizza gli eventi in programma">
+              <li><a href="/eventi" title="Visualizza gli eventi in programma">
                 Eventi
               </a></li>
 
-              <li><a href="./src/pages/forms-page/index.html" title="Vai alla sezione contattaci">
+              <li><a href="/contattaci" title="Vai alla sezione contattaci">
                 <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
                   <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
@@ -119,7 +119,7 @@
                 </svg>
                 <b>CONTATTACI!</b>
                   </a>
-              </li> 
+              </li>
 
               </ul>
               
@@ -131,8 +131,8 @@
             </div>
           </div>
         </nav>
-        
         <main>
+          
           <!--* FIRST SECTION IN BLACK WITH A LIST OF LINKS -->
           <section id="about-cascina-caccia" class="hero white-style">
             <article class="container">
@@ -187,14 +187,14 @@
                 </div>
               </div>
             </section>
+            
+            
           </main>
-            
-            
 
           <footer class="mobile-footer">
             <figure class="img-container">
               <img 
-                src="/public/logos/logo-white.png" 
+                src="./public/logos/logo-white.png" 
                 alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" 
                 loading="lazy" 
                 width="300" 
@@ -213,6 +213,6 @@
             </div>
           </footer>
           
-          <script type="module" src="./src/pages/home-page/main.ts"></script>
+          <script type="module" src="/src/main.ts"></script>
         </body>
         </html>

@@ -6,10 +6,11 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 home: "./index.html", // home page of education "Cascina Cacica"
-                labs: "./src/pages/labs/index.html",
-                formQuestions: "./src/pages/form-questions/index.html",
-                formReservations: "./src/pages/form-reservations/index.html"
+                contattaci: "./src/pages/forms-page/index.html",
+                laboratori: "./src/pages/laboratory-page/index.html",
+                eventi: "./src/pages/events-page/index.html"
             }
         },
     },
 });
+
