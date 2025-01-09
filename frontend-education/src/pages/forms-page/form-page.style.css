@@ -33,8 +33,6 @@ h2{
 p{
     text-align: center;
     font-size: 1.2rem;
-    font-weight: bold;
-    padding: 50px 30px;
 }
 
 main{
@@ -42,7 +40,31 @@ main{
     max-width: 100%;
 }
 
+.steps{
+    display: flex;
+    justify-content: space-evenly;
+    div{
+        width: 30px;
+        height: 30px;
+        gap: 5px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+
+        p{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 0.8rem;
+        }
+    }
+}
+
 form{
+    position: relative; 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -53,6 +75,7 @@ form{
         gap: 5px;
         width: 80%;
         margin: 0 auto;
+        padding: 20px 0px;
     }
 
     .form-group-button{
@@ -63,6 +86,27 @@ form{
         margin-top: 25px;
     }
 }
+
+.form-section {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 0;
+    transform: translateX(100%);
+  }
+  
+  .form-section:first-child {
+    position: relative;
+  }
+  
+  .form-section.active {
+    opacity: 1;
+    z-index: 1;
+    transform: translateX(0);
+  }
 
 label{
     margin-bottom: 5px;
@@ -76,6 +120,16 @@ label{
 }
 
 input, textarea{
+    font-family: 'Montserrat';
+    padding: 10px;
+    background-color: var(--color-input);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: none;
+    color: var(--color-input-text);
+}
+
+select{
     font-family: 'Montserrat';
     padding: 10px;
     background-color: var(--color-input);

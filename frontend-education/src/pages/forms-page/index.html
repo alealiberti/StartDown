@@ -59,6 +59,9 @@
     </header> -->
     
     <!-- * NAV BAR IMPLEMENTATION -->
+    <div id="sub-background">
+    
+    </div>
     <nav aria-label="Navigazione principale" role="navigation">
         <div class="menuToggle">
             
@@ -143,13 +146,14 @@
 
         <form action="/submit-reservation" method="POST">
             <!-- Sezione 1: Informazioni Personali -->
-            <section id="informazioni-personali">
-                <h2>Dati Personali
+            <section id="1-personal-data" class="form-section">
+                <h2>
                     <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
                         <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
                         <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
                       </svg>
+                    Dati Personali
                 </h2>
                 
                 <div class="form-group">
@@ -172,16 +176,23 @@
                     <input type="tel" name="telefono" id="telefono" required placeholder="Inserisci il tuo numero di telefono">
                 </div>
                 <div class="form-group-button">
-                    <button>Prossimo</button>
+                    <button class="next">Prossimo</button>
                 </div>
             </section>
             
             <!-- Sezione 2: Tipo di Gruppo -->
-            <section id="tipo-di-gruppo">
-                <h2>Tipo di Gruppo <span class="required-icon">*</span></h2>
+            <section id="information-visit" class="form-section">
+                <h2>
+                    <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
+                        <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
+                        <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
+                      </svg>
+                    Informazioni visita
+                </h2>
                 
                 <div class="form-group">
-                    <label for="tipo-gruppo">Tipo di gruppo:</label>
+                    <label for="tipo-gruppo">Tipo di gruppo<span class="required-icon">*</span>:</label>
                     <select name="tipo-gruppo" id="tipo-gruppo" required>
                         <option value="" disabled selected>Seleziona il tipo di gruppo</option>
                         <option value="individuale">Individuale</option>
@@ -192,12 +203,12 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="numero-visitatori">Numero di visitatori:</label>
-                    <input type="number" name="numero-visitatori" id="numero-visitatori" required min="1" placeholder="Inserisci il numero di visitatori">
+                    <label for="numero-visitatori">Numero di visitatori:<span class="required-icon">*</span></label>
+                    <input type="number" name="numero-visitatori" id="numero-visitatori" required min="1" max="70" placeholder="Inserisci il numero di visitatori">
                 </div>
                 
                 <div class="form-group">
-                    <label for="tipo-visita">Tipo di visita:</label>
+                    <label for="tipo-visita">Tipo di visita:<span class="required-icon">*</span></label>
                     <select name="tipo-visita" id="tipo-visita" required>
                         <option value="" disabled selected>Seleziona il tipo di visita</option>
                         <option value="laboratorio">Laboratorio</option>
@@ -206,16 +217,24 @@
                         <option value="tour">Tour guidato</option>
                     </select>
                 </div>
+                
+                <div class="form-group-button">
+                    <button class="back">Indietro</button>
+                    <button class="next">Prossimo</button>
+                </div>
             </section>
             
-            <!-- Sezione 3: Conferma e Invio -->
-            <section id="conferma-invio">
-                <button type="submit">Prenota</button>
-            </section>
             
             <!-- Sezione 4: Informazioni Aggiuntive (facoltativa) -->
-            <section id="informazioni-aggiuntive">
-                <h2>Informazioni Aggiuntive</h2>
+            <section id="informazioni-aggiuntive" class="form-section">
+                <h2>
+                    <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
+                        <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
+                        <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
+                    </svg>
+                    Informazioni Aggiuntive
+                </h2>
                 
                 <!-- Recapito di Emergenza (facoltativo) -->
                 <div class="form-group">
@@ -236,7 +255,14 @@
                     <label for="richieste-speciali">Richieste stepsicolari o esigenze speciali:</label>
                     <textarea name="richieste-speciali" id="richieste-speciali" rows="4" placeholder="Inserisci eventuali richieste o esigenze stepsicolari"></textarea>
                 </div>
+
+                <div class="form-group-button">
+                    <button class="back">Indietro</button>
+                    <button type="submit">Invia</button>
+                </div>
             </section>
+            
+            <!-- Sezione 5: Conferma e Invio -->
         </form>
 </main>
 
