@@ -10,7 +10,7 @@
 /**
  * async function loadTemplate
  * Descrizione della funzione
- * @param {string} path - pattern of the template position into the project templates/...
+ * @param {string} path - pattern of the template to load into DOM page's project templates/...
  */
 export async function loadTemplate(path: string): Promise<void> {
 

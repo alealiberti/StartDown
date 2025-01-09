@@ -29,7 +29,6 @@ export function createCardReservation(data: CardReservation, template: HTMLTempl
     CardReservation.querySelector(".cardHeader p.cardEmail")!.textContent = data.email
     CardReservation.querySelector(".cardHeader p.cardDate")!.textContent = data.dateSend;
 
-
     switch (true) {
         case data.status === "nuova":
             CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "Nuova richiesta di prenotazione";

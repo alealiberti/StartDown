@@ -3,7 +3,7 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 
 // Dati di esempio temporanei da utilizzare per le questions 
-export const questionData: CardQuestion[] = [
+export const questionsData: CardQuestion[] = [
     { id: 0, name: "Mario", surname: "Rossi", phone: "3384465353", email: "mario@example.com", dateSend: "10/12/2024", question: "Domanda 1" },
     { id: 1, name: "Gianluigi", surname: "Romano", phone: null, email: "gianluigi@example.com", dateSend: "13/04/2023", question: "Domanda 2" },
     { id: 2, name: "Giorgio", surname: "Bianchi", phone: "3384465353", email: "giorgio@example.com", dateSend: "30/11/2022", question: "Domanda 3" },
@@ -13,7 +13,7 @@ export const questionData: CardQuestion[] = [
 ];
 
 // Dati di esempio temporanei da utilizzare per le reservations
-export const reservationData: CardReservation[] = [
+export const reservationsData: CardReservation[] = [
     {
         id: 0,
         name: "Giovanni",

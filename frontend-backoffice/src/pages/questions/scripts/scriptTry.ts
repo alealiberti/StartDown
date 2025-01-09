@@ -1,6 +1,8 @@
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
-import { loadTemplate } from "../../../services/load-templates";
-import { generateCards } from "../../../global/scripts/cards/generate-cards";
+import { loadTemplate } from "../../../global/services/load-templates";
+import { generateCardsQuestions } from "../../../global/scripts/cards/generate-cards";
+
+import { questionsData } from "../../../global/DB/questions-reservation";
 
 
 
@@ -11,32 +13,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadTemplate("/src/global/templates/cards/card-question.html");
     await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
 
+    // ---------------------------------------------
 
-    // ----------------------------------------------------
 
-
-    /*
-    ! GOAL:
-    access the templates template#cardQuestionTemplate element, 
-    inside the <template> and dynamically fill it with datas taked from the DBs
-    IMPORTANT! a template is not directly part of the visible DOM: it contains a #document-fragment 
-    that must be cloned to be used.
-    todo we pass this template into the functions: 1. generateQuestionCards + 2.generateReservationCards, and will create clones of it
-    */
-    const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
-
-    // get the list which will be filled whit the cards questions / reservations, and the overlat when the cards are clicked
+    // list which will be filled whit the cards
     const listRequests = document.querySelector("section#requests") as HTMLElement;
-    const overlay = document.querySelector(".overlay") as HTMLElement;
 
+    // take from the DOM the overlay which cover all the page whit a black nurse when cards are clicked
+    const overlay = document.querySelector(".overlay") as HTMLElement;
     overlay.addEventListener("click", () => {
         overlay.style.display = "none";
     });
 
+    // take form the DOM the template question loaded from the fetch() in `loadTemplates.ts`
+    const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
 
-    // ----------------------------------------
+
+    // ---------------------------------------------
 
 
-    // TODO IMPLEMENT A SINGLE FUNCTION WHICH GENERATES INSIDE CARDS QUESTIONS + RESERVATIONS!
-    generateCards(listRequests, overlay, questionTemplate)
+    generateCardsQuestions(listRequests, overlay, questionTemplate, questionsData);
+
 });

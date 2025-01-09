@@ -8,6 +8,8 @@ import "../../global/styles/navbar/navbar-tablet-desktop.css";
 import "../../global/styles/cards/card-question.css";
 import "../../global/styles/cards/card-reservation.css";
 import "../../global/styles/dialogs/overlay-dialog.css";
+import "../../global/styles/dialogs/dialog-card-question.css";
+import "../../global/styles/dialogs/dialog-card-reservation.css";
 
 // local styles of the dashboard
 import "./styles/style.css";
