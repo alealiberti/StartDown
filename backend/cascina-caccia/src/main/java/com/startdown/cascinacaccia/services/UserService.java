@@ -108,30 +108,33 @@ public class UserService {
      * Updates the details of an existing user.
      * Ensures the email is unique and validates new password if it's changing
      *
-     * @param id the ID of the user to be updated
+     * @param email the email of the user to be updated
      * @param userDetails the User object containing the updated details
      * @return an Optional containing the updated User object if successful, or throws exceptions if something is wrong
      */
     @Transactional
-    public Optional<User> updateUser(Integer id, User userDetails) {
-        User existingUser = dao.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found."));
+    public Optional<User> updateUser(String email, User userDetails) {
+        User existingUser = dao.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User with email " + email + " not found."));
 
         // Ensure email is unique if it's being changed
         if (!existingUser.getEmail().equals(userDetails.getEmail()) &&
                 dao.findByEmail(userDetails.getEmail()).isPresent()) {
             throw new IllegalArgumentException("Email is already taken.");
         }
-
-        // Validate non-empty name and surname
-        if (userDetails.getName() == null || userDetails.getName().trim().isEmpty()) {
-            throw new IllegalArgumentException("First name cannot be empty.");
-        }
-        if (userDetails.getSurname() == null || userDetails.getSurname().trim().isEmpty()) {
-            throw new IllegalArgumentException("Surname cannot be empty.");
+        if(userDetails.getEmail() != null && !userDetails.getEmail().trim().isEmpty()) {
+            existingUser.setEmail(userDetails.getEmail());
         }
 
-        // If a new password is provided, validate it and update
+        // Changes the name and surname if they are being changed
+        if (userDetails.getName() != null && !userDetails.getName().trim().isEmpty()) {
+            existingUser.setName(userDetails.getName());
+        }
+        if (userDetails.getSurname() != null && !userDetails.getSurname().trim().isEmpty()) {
+            existingUser.setSurname(userDetails.getSurname());
+        }
+
+        // If a new password is provided, validates and updates it
         if (userDetails.getPassword() != null && !userDetails.getPassword().isEmpty()) {
             if (!isValidPassword(userDetails.getPassword())) {
                 throw new IllegalArgumentException("Password must be at least 8 characters long, contain an uppercase letter, a lowercase letter, a digit, and a symbol.");
@@ -139,13 +142,21 @@ public class UserService {
             existingUser.setPassword(passwordEncoder.encode(userDetails.getPassword()));
         }
 
-        // Update user details with the new information
-        existingUser.setName(userDetails.getName());
-        existingUser.setSurname(userDetails.getSurname());
-        existingUser.setEmail(userDetails.getEmail());
-        existingUser.setRole(userDetails.getRole());
-
         return Optional.of(dao.save(existingUser));
+    }
+
+    /**
+     * Changes the role for a user, given their id
+     *
+     * @param id the id of the User
+     * @param role the new role for the User
+     * @return an Optional containing the updated User object if successful, or throws exceptions if something is wrong
+     */
+    public Optional<User> updateUserRole(Integer id, String role) {
+        User user = dao.findById(id)
+                .orElseThrow(() -> new UserNotFoundException("User with id " + id + " not found."));
+        user.setRole(role);
+        return Optional.of(dao.save(user));
     }
 
     /**

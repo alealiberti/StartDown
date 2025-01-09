@@ -139,7 +139,7 @@ public class UserREST {
         newUser.setSurname(user.getSurname());
         newUser.setEmail(user.getEmail());
         newUser.setPassword(user.getPassword());
-        newUser.setRole(user.getRole());
+        newUser.setRole("ADMIN");
         newUser = userService.createUser(newUser);
 
         return ResponseEntity.ok(newUser); // Return the created user
@@ -167,7 +167,39 @@ public class UserREST {
     })
     @PutMapping("/update-user") // Endpoint to update an existing user
     public ResponseEntity<User> updateUser(@RequestBody User userDetails) {
-        Optional<User> updatedUser = userService.updateUser(userDetails.getId(), userDetails); // Update user details
+        String userEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<User> updatedUser = userService.updateUser(userEmail, userDetails); // Update user details
+        return updatedUser.map(ResponseEntity::ok) // Return updated user if successful
+                .orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if user does not exist
+    }
+
+    /**
+     * OWNER only
+     * Updates the role for a given User
+     *
+     * @param userDetails a User containing the id and the new role
+     * @return ResponseEntity containing the updated user or a not found response
+     */
+    @Operation(summary = "Updates the role of a user (OWNER only)", description = "Updates the role for an existing user, with the JSON given",
+    requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+            description = "The users details",
+            content = @Content(
+                    mediaType = "application/json",
+                    schema = @Schema(example = "{\n" +
+                            "\"id\": 2,\n" +
+                            "\"role\": \"ADMIN\"\n" +
+                            "}")
+    )))
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "User updated successfully",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = User.class))),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+                    content = @Content(mediaType = "application/json"))
+    })
+    @PutMapping("/update-user-role")
+    public ResponseEntity<User> updateUserRole(@RequestBody User userDetails) {
+        Optional<User> updatedUser = userService.updateUserRole(userDetails.getId(), userDetails.getRole());
         return updatedUser.map(ResponseEntity::ok) // Return updated user if successful
                 .orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if user does not exist
     }
