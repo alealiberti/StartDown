@@ -46,8 +46,7 @@ const showSection = (index: number) => {
   });
 };
 
-// Aggiungi eventi ai pulsanti "Avanti"
-// Aggiungi eventi ai pulsanti "Avanti"
+
 nextButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
