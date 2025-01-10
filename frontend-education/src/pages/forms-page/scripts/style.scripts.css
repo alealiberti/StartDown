@@ -1,0 +1,13 @@
+.step.future {
+    background-color: var(--color-input); /* Futuro */
+}
+
+input.invalid, select.invalid, textarea.invalid {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+input.invalid:focus, select.invalid:focus, textarea.invalid:focus {
+    outline: none;
+    border-color: #500000;
+}

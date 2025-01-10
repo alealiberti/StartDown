@@ -217,7 +217,7 @@ b {
 
 /* For Tablets: Medium View */
 @media (min-width: 576px) and (max-width: 1050px) {
-  input, span {
+  .menuToggle input, span {
     display: none; /* Hide the input and hamburger icon */
   }
   
@@ -285,7 +285,7 @@ b {
 
 /* For Desktop: Large View */
 @media (min-width: 1050px) {
-  input, span {
+  .menuToggle input, span {
     display: none; /* Hide the input and hamburger icon */
   }
   
