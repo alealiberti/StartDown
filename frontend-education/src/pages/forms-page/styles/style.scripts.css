@@ -4,10 +4,12 @@
 
 input.invalid, select.invalid, textarea.invalid {
     background-color: #ff9393;
-    color: #ffffff;
+    color: #ffd2d2;
+    -webkit-text-fill-color: #ffc7c7;
 }
 
 input.invalid:focus, select.invalid:focus, textarea.invalid:focus {
     outline: none;
     border-color: #5d0000;
+    background-color: #ff7171;
 }
