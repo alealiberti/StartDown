@@ -1,14 +1,10 @@
 package com.startdown.cascinacaccia.services;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.startdown.cascinacaccia.entities.Information;
-import com.startdown.cascinacaccia.repos.InformationDAO;
 
 public interface InformationService {
 
@@ -61,11 +57,10 @@ public interface InformationService {
     List<Information> getInformationsByStatus(String status);
 
     /**
-     * Retrieves a list of informations with a specific date send
+     * Retrieves a list of all informations sorted in descending order by date send
      * 
-     * @param datesend the date send for which the informations is to be retrieved
      * @return a List containing the Information objects if found, or an empty List if not found
      */
-    List<Information> getInformationsByDateSend(LocalDate datesend);
+    List<Information> findByOrderByDateSendDesc();
 
 }

@@ -5,6 +5,7 @@ import com.startdown.cascinacaccia.entities.Information;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springdoc.core.converters.models.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
@@ -22,10 +23,11 @@ public interface InformationDAO extends JpaRepository<Information, Integer> {
     List<Information> findByStatus(String status);
 
     /**
-     * Retrieves a list of informations with a specific date send
+     * Retrieves a list of all informations sorted in descending order by date send
      * 
-     * @param datesend the date send for which the informations is to be retrieved
      * @return a List containing the Information objects if found, or an empty List if not found
      */
-    List<Information> findByDateSend(LocalDate datesend);
+    List<Information> findByOrderByDateSendDesc();
+    
+    
 }

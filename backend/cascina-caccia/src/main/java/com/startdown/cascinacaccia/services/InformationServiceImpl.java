@@ -3,15 +3,14 @@ package com.startdown.cascinacaccia.services;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.startdown.cascinacaccia.entities.Information;
-//import com.startdown.cascinacaccia.exceptions.UserNotFoundException;
+import com.startdown.cascinacaccia.exceptions.InformationNotFoundException;
 import com.startdown.cascinacaccia.repos.InformationDAO;
+import com.startdown.cascinacaccia.services.EmailService;
 
 import jakarta.transaction.Transactional;
 
@@ -20,7 +19,8 @@ public class InformationServiceImpl implements InformationService{
 
 	@Autowired
     private InformationDAO dao;
-	
+	@Autowired
+	private EmailService emailservice;
 	/**
      * Retrieves a list of all informations in the system.
      *
@@ -40,7 +40,7 @@ public class InformationServiceImpl implements InformationService{
     @Override
     public Optional<Information> getInformationById(Integer id) {
         return Optional.ofNullable(dao.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException/*UserNotFoundException*/("Information with ID " + id + " not found.")));
+                .orElseThrow(() -> new InformationNotFoundException("Information with ID " + id + " not found.")));
     }
     
     
@@ -55,15 +55,12 @@ public class InformationServiceImpl implements InformationService{
     @Transactional
     @Override
     public Information createInformation(Information information) {
-        // Validate non-empty name,surname,status,email,text,datesend
+        // Validate non-empty name,surname,email,text
         if (information.getName() == null || information.getName().trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be empty.");
         }
         if (information.getSurname() == null || information.getSurname().trim().isEmpty()) {
             throw new IllegalArgumentException("Surname cannot be empty.");
-        }
-        if (information.getStatus() == null || information.getStatus().trim().isEmpty()) {
-            throw new IllegalArgumentException("Status cannot be empty.");
         }
         if (information.getEmail() == null || information.getEmail().trim().isEmpty()) {
             throw new IllegalArgumentException("Email cannot be empty.");
@@ -71,9 +68,12 @@ public class InformationServiceImpl implements InformationService{
         if (information.getText() == null || information.getText().trim().isEmpty()) {
             throw new IllegalArgumentException("Text cannot be empty.");
         }
-        if (information.getDateSend() == null) {
-            throw new IllegalArgumentException("DateSend cannot be empty.");
-        }
+        
+        information.setStatus("Ricevuta");
+        information.setDateSend(LocalDate.now());
+        
+        
+        emailservice.sendEmails(information.getEmail(), true);
         
         //Save the information
         return dao.save(information);
@@ -89,39 +89,35 @@ public class InformationServiceImpl implements InformationService{
     @Transactional
     @Override
     public Optional<Information> updateInformation(Integer id, Information informationDetails) {
-    	Information existingInformation = dao.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException/*UserNotFoundException*/("Information with ID " + id + " not found."));
+        Information existingInformation = dao.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Information with ID " + id + " not found."));
 
-    	 // Validate non-empty name,surname,status,email,text,datesend
-        if (informationDetails.getName() == null || informationDetails.getName().trim().isEmpty()) {
-            throw new IllegalArgumentException("Name cannot be empty.");
+        // Set only if the values are not null or empty
+        if (informationDetails.getName() != null && !informationDetails.getName().trim().isEmpty()) {
+            existingInformation.setName(informationDetails.getName());
         }
-        if (informationDetails.getSurname() == null || informationDetails.getSurname().trim().isEmpty()) {
-            throw new IllegalArgumentException("Surname cannot be empty.");
+        if (informationDetails.getSurname() != null && !informationDetails.getSurname().trim().isEmpty()) {
+            existingInformation.setSurname(informationDetails.getSurname());
         }
-        if (informationDetails.getStatus() == null || informationDetails.getStatus().trim().isEmpty()) {
-            throw new IllegalArgumentException("Status cannot be empty.");
+        if (informationDetails.getStatus() != null && !informationDetails.getStatus().trim().isEmpty()) {
+            existingInformation.setStatus(informationDetails.getStatus());
         }
-        if (informationDetails.getEmail() == null || informationDetails.getEmail().trim().isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be empty.");
+        if (informationDetails.getEmail() != null && !informationDetails.getEmail().trim().isEmpty()) {
+            existingInformation.setEmail(informationDetails.getEmail());
         }
-        if (informationDetails.getText() == null || informationDetails.getText().trim().isEmpty()) {
-            throw new IllegalArgumentException("Text cannot be empty.");
+        if (informationDetails.getText() != null && !informationDetails.getText().trim().isEmpty()) {
+            existingInformation.setText(informationDetails.getText());
         }
-        if (informationDetails.getDateSend() == null) {
-            throw new IllegalArgumentException("DateSend cannot be empty.");
+        if (informationDetails.getDateSend() != null) {
+            existingInformation.setDateSend(informationDetails.getDateSend());
+        }
+        if (informationDetails.getPhone() != null && !informationDetails.getPhone().trim().isEmpty()) {
+            existingInformation.setPhone(informationDetails.getPhone());
         }
 
-        // Update information details with the new informations
-        existingInformation.setName(informationDetails.getName());
-        existingInformation.setSurname(informationDetails.getSurname());
-        existingInformation.setEmail(informationDetails.getEmail());
-        existingInformation.setStatus(informationDetails.getStatus());
-        existingInformation.setDateSend(informationDetails.getDateSend());
-        existingInformation.setText(informationDetails.getText());
-        existingInformation.setPhone(informationDetails.getPhone());
         return Optional.of(dao.save(existingInformation));
     }
+
     
     /**
      * Deletes an information by their unique ID.
@@ -135,7 +131,7 @@ public class InformationServiceImpl implements InformationService{
             dao.deleteById(id);
             return true;
         }
-        throw new IllegalArgumentException/*UserNotFoundException*/("Information with ID " + id + " not found.");
+        throw new InformationNotFoundException("Information with ID " + id + " not found.");
     }
        
     /**
@@ -151,26 +147,23 @@ public class InformationServiceImpl implements InformationService{
         }
         List<Information> informations = dao.findByStatus(status);
         if (informations.isEmpty()) {
-            throw new IllegalArgumentException/*CardNotFoundException*/("No informations found for status: " + status);
+            throw new InformationNotFoundException("No informations found for status: " + status);
         }
         return informations;
         }
         
     
     /**
-     * Retrieves a list of informations with a specific date send
+     * Retrieves a list of all informations sorted in descending order by date send
      * 
-     * @param datesend the date send for which the informations is to be retrieved
      * @return a List containing the Information objects if found, or an empty List if not found
      */
     @Override
-    public List<Information> getInformationsByDateSend(LocalDate datesend) {
-        if (datesend == null) {
-            throw new IllegalArgumentException("Datesend cannot be null or empty");
-        }
-        List<Information> informations = dao.findByDateSend(datesend);
+    public List<Information> findByOrderByDateSendDesc() {
+      
+        List<Information> informations = dao.findByOrderByDateSendDesc();
         if (informations.isEmpty()) {
-            throw new IllegalArgumentException/*CardNotFoundException*/("No informations found for status: " + datesend);
+            throw new InformationNotFoundException("No informations found ");
         }
         return informations;
         }

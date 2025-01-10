@@ -11,8 +11,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,11 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.startdown.cascinacaccia.configuration.PasswordChangeRequest;
 import com.startdown.cascinacaccia.entities.Information;
-import com.startdown.cascinacaccia.entities.User;
-import com.startdown.cascinacaccia.entities.Information;
-import com.startdown.cascinacaccia.services.InformationServiceImpl;
+import com.startdown.cascinacaccia.exceptions.InformationNotFoundException;
 import com.startdown.cascinacaccia.services.InformationServiceImpl;
 
 @RestController
@@ -47,16 +42,9 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
 	public List<Information> getAllInformations() {
@@ -64,8 +52,6 @@ public class InformationREST {
 	}
 
 	/**
-	 * OWNER only
-	 * 
 	 * Retrieves a information by their unique ID.
 	 * 
 	 * @param id the ID of the information to be retrieved
@@ -77,16 +63,9 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/{id}") // Endpoint to get a information by ID
 	public ResponseEntity<Information> getInformationById(@PathVariable Integer id) {
@@ -107,16 +86,9 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+                    content = @Content(mediaType = "application/json"))
     })
 	@PostMapping("/create-information") // Endpoint to create a new information
 	public ResponseEntity<Information> createInformation(@RequestBody Information information) {
@@ -137,16 +109,9 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
     })
 	@PutMapping("/update-information/{id}") // Endpoint to update an existing information
 	public ResponseEntity<Information> updateInformation(@PathVariable Integer id,
@@ -168,16 +133,9 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
     })
 	@DeleteMapping("/delete-information/{id}") // Endpoint to delete a information by ID
 	public ResponseEntity<Void> deleteInformation(@PathVariable Integer id) {
@@ -200,55 +158,38 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/status/{status}")
 	public List<Information> getInformationByStatus(@PathVariable String status) {
 		List<Information> informations =informationService.getInformationsByStatus(status);
 		if (informations.isEmpty()) {
-			throw new /*InformationNotFoundException*/IllegalArgumentException("No informations found with the status: " + status); // Throw exception if no informations found
+			throw new InformationNotFoundException("No informations found with the status: " + status); // Throw exception if no informations found
 		}
 		return informations;
 	}
 
 	/**
-	 * Retrieves a list of informations with a specific date send
-	 * 
-	 * @param datesend the date send for which the informations is to be retrieved
-	 * @return a List containing the Information objects if found, or an empty List if not found
-	 */
-	@Operation(summary = "Informations by date send", description = "Gets a list of all the informations with a specific date send in the db")
+     * Retrieves a list of all informations sorted in descending order by date send
+     * 
+     * @return a List containing the Information objects if found, or an empty List if not found
+     */
+	@Operation(summary = "Informations sorted by date send", description = "Gets a list of all the informations in the db sorted in descending order by date send")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(
-                                    example = "{\n" +
-                                            "  \"timestamp\": \"2025-01-06T18:18:27.786+00:00\",\n" +
-                                            "  \"status\": 403,\n" +
-                                            "  \"error\": \"Forbidden\",\n" +
-                                            "  \"message\": \"Forbidden\",\n" +
-                                            "  \"path\": \"/cascina-caccia/users\"\n" +
-                                            "}"
-                            )))
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
     })
-	@GetMapping("/datesend/{datesend}")
-	public List<Information> getInformationByDateSend(@PathVariable LocalDate datesend) {
-		List<Information> informations =informationService.getInformationsByDateSend(datesend);
-		if (informations.isEmpty()) {
-			throw new /*InformationNotFoundException*/IllegalArgumentException("No informations found with the datesend: " + datesend); // Throw exception if no informations found
-		}
+	@GetMapping("/datesend")
+	public List<Information> findByOrderByDateSendDesc() {
+		List<Information> informations =informationService.findByOrderByDateSendDesc();
+
 		return informations;
 	}
 }
