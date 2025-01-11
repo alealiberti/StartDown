@@ -1,3 +1,6 @@
+//** ROUTES **/
+import "./../../../routes.ts";
+
 //** RESET AND GLOBAL STYLE **/
 import "../../styles/reset.css";
 import "../../styles/global.css";
