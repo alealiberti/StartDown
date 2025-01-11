@@ -24,7 +24,7 @@ import com.startdown.cascinacaccia.entities.Information;
 
 @RestController
 @RequestMapping("/cascina-caccia/informations")
-// The UserREST Controller handles the endpoints and the logic for the Information-related API requests
+// The InformationREST Controller handles the endpoints and the logic for the Information-related API requests
 public class InformationREST {
 
 	@Autowired
@@ -32,8 +32,8 @@ public class InformationREST {
 
 	/**
 	 * Retrieves a list of all informations in the system.
-	 * 
-	 * @return a List of Information objects
+	 *
+	 * @return ResponseEntity containing the informations
 	 */
 	@Operation(summary = "Informations list", description = "Gets the list of all the informations in the db")
     @ApiResponses(value = {
@@ -55,7 +55,7 @@ public class InformationREST {
 	 * Retrieves a information by their unique ID.
 	 * 
 	 * @param id the ID of the information to be retrieved
-	 * @return an Optional containing the Information object if found, or an empty Optional if not found
+	 * @return ResponseEntity containing the informations or not found response
 	 */
 	@Operation(summary = "Information by ID", description = "Gets the information corresponding to the provided id")
     @ApiResponses(value = {
@@ -78,7 +78,7 @@ public class InformationREST {
 	 * Creates a new information in the system.
 	 *
 	 * @param information the Information object containing the details of the new information
-	 * @return the created Information object
+	 * @return ResponseEntity containing the informations
 	 */
 	@Operation(summary = "Create information (public access)", description = "Creates a new information and inserts it into the db")
     @ApiResponses(value = {
@@ -125,7 +125,7 @@ public class InformationREST {
 	 * Deletes an information by their unique ID.
 	 *
 	 * @param id the ID of the information to be deleted
-	 * @return true if the information was successfully deleted, false otherwise
+	 * @return no content response if everything was alright or not found response
 	 */
 	@Operation(summary = "Delete information", description = "Deletes an information and removes it from the db")
     @ApiResponses(value = {
@@ -150,7 +150,7 @@ public class InformationREST {
 	 * Retrieves a list of informations with a specific status
 	 * 
 	 * @param status the name of the status for which the informations is to be retrieved
-	 * @return a List containing the Information objects if found, or an empty List if not found
+	 * @return ResponseEntity containing the informations
 	 */
 	@Operation(summary = "Informations by status", description = "Gets a list of all the informations with a specific status in the db")
     @ApiResponses(value = {
@@ -170,8 +170,8 @@ public class InformationREST {
 
 	/**
      * Retrieves a list of all informations sorted in descending order by date send
-     * 
-     * @return a List containing the Information objects if found, or an empty List if not found
+     *
+	 * @return ResponseEntity containing the informations
      */
 	@Operation(summary = "Informations sorted by date send", description = "Gets a list of all the informations in the db sorted in descending order by date send")
     @ApiResponses(value = {

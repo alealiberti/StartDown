@@ -3,6 +3,7 @@ package com.startdown.cascinacaccia.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import com.startdown.cascinacaccia.services.ReservationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -21,19 +22,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.startdown.cascinacaccia.entities.Reservation;
 import com.startdown.cascinacaccia.exceptions.ReservationNotFoundException;
-import com.startdown.cascinacaccia.services.ReservationServiceImpl;
 
 @RestController
 @RequestMapping("/cascina-caccia/reservations")
+// The ReservationREST Controller handles the endpoints and the logic for the Reseravtion-related API requests
 public class ReservationREST {
 
 	@Autowired
-	private ReservationServiceImpl reservationService;
+	private ReservationService reservationService;
 
 	/**
 	 * Retrieves a list of all reservations in the system.
 	 * 
-	 * @return a List of Reservation objects
+	 * @return ResponseEntity ok when found all the reservations
 	 */
 	@Operation(summary = "Reservations list", description = "Gets the list of all the reservations in the db")
     @ApiResponses(value = {
@@ -46,15 +47,16 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
-	public List<Reservation> getAllReservations() {
-		return reservationService.getAllReservations(); // Fetch all reservations using the reservation service
+	public ResponseEntity<List<Reservation>> getAllReservations() {
+		List<Reservation> reservations = reservationService.getAllReservations(); // Fetch all reservations using the reservation service
+		return ResponseEntity.ok(reservations);
 	}
 
 	/**
 	 * Retrieves a reservation by their unique ID.
 	 * 
 	 * @param id the ID of the reservation to be retrieved
-	 * @return an Optional containing the Reservation object if found, or an empty Optional if not found
+	 * @return ResponseEntity containing the reservation or not found response
 	 */
 	@Operation(summary = "Reservation by ID", description = "Gets the reservation corresponding to the provided id")
     @ApiResponses(value = {
@@ -75,9 +77,10 @@ public class ReservationREST {
 
 	/**
 	 * Creates a new reservation in the system.
+	 * Sends confirmation emails to the person making the request and to the admins
 	 *
 	 * @param reservation the Reservation object containing the details of the new reservation
-	 * @return the created Reservation object
+	 * @return ResponseEntity containing the created reservation
 	 */
 	@Operation(summary = "Create reservation (public access)", description = "Creates a new reservation and inserts it into the db")
     @ApiResponses(value = {
@@ -124,7 +127,7 @@ public class ReservationREST {
 	 * Deletes an reservation by their unique ID.
 	 *
 	 * @param id the ID of the reservation to be deleted
-	 * @return true if the reservation was successfully deleted, false otherwise
+	 * @return no content response if everything was alright or not found response
 	 */
 	@Operation(summary = "Delete reservation", description = "Deletes an reservation and removes it from the db")
     @ApiResponses(value = {
@@ -149,7 +152,7 @@ public class ReservationREST {
 	 * Retrieves a list of reservations with a specific status
 	 * 
 	 * @param status the name of the status for which the reservations is to be retrieved
-	 * @return a List containing the Reservation objects if found, or an empty List if not found
+	 * @return ResponseEntity containing the reservations
 	 */
 	@Operation(summary = "Reservations by status", description = "Gets a list of all the reservations with a specific status in the db")
     @ApiResponses(value = {
@@ -162,18 +165,18 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/status/{status}")
-	public List<Reservation> getReservationByStatus(@PathVariable String status) {
+	public ResponseEntity<List<Reservation>> getReservationByStatus(@PathVariable String status) {
 		List<Reservation> reservations =reservationService.getReservationsByStatus(status);
 		if (reservations.isEmpty()) {
 			throw new ReservationNotFoundException("No reservations found with the status: " + status); // Throw exception if no reservations found
 		}
-		return reservations;
+		return ResponseEntity.ok(reservations);
 	}
 
 	/**
      * Retrieves a list of all reservations sorted in descending order by date send
-     * 
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     *
+	 * @return ResponseEntity containing the reservations
      */
 	@Operation(summary = "Reservations sorted by date send", description = "Gets a list of all the reservations in the db sorted in descending order by date send")
     @ApiResponses(value = {
@@ -186,18 +189,15 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datesend")
-	public List<Reservation> findByOrderByDateSendDesc() {
+	public ResponseEntity<List<Reservation>> getByOrderByDateSendDesc() {
 		List<Reservation> reservations =reservationService.findByOrderByDateSendDesc();
-
-		return reservations;
+		return ResponseEntity.ok(reservations);
 	}
-	
-	
 	
 	/**
      * Retrieves a list of all reservations sorted in descending order by date start and then by date finish
-     * 
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     *
+	 * @return ResponseEntity containing the reservations
      */
 	@Operation(summary = "Reservations sorted by date start", description = "Gets a list of all the reservations in the db sorted in descending order by date send and then by date finish")
     @ApiResponses(value = {
@@ -210,17 +210,15 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datestart")
-	public List<Reservation> findByOrderByDateStartDescDateFinishDesc() {
-		List<Reservation> reservations =reservationService.findByOrderByDateStartDescDateFinishDesc();
-
-		return reservations;
+	public ResponseEntity<List<Reservation>> getByOrderByDateStartDescDateFinishDesc() {
+		List<Reservation> reservations =reservationService.findByOrderByDateStartDateFinishDesc();
+		return ResponseEntity.ok(reservations);
 	}
-	
-	
+
 	/**
      * Retrieves a list of all reservations sorted in descending order by visitors
-     * 
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     *
+	 * @return ResponseEntity containing the reservations
      */
 	@Operation(summary = "Reservations sorted by date visitors", description = "Gets a list of all the reservations in the db sorted in descending order by visitors")
     @ApiResponses(value = {
@@ -233,10 +231,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/visitors")
-	public List<Reservation> findByOrderByVisitorsDesc() {
+	public ResponseEntity<List<Reservation>> getByOrderByVisitorsDesc() {
 		List<Reservation> reservations =reservationService.findByOrderByVisitorsDesc();
-
-		return reservations;
+		return ResponseEntity.ok(reservations);
 	}
-	
 }
