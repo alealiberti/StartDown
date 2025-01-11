@@ -25,11 +25,22 @@ nav {
 }
 
 b {
-  font-weight: 500; /* Applies medium font weight to bold text */
+  font-weight: 600; /* Applies medium font weight to bold text */
+}
+
+.menuToggle a {
+  transition: 0.3s text-decoration ease-in; /* Smooth transition */
+
+  font-size: 1rem;
+}
+
+/* Hover effect for desktop */
+.menuToggle a:hover {
+  text-decoration: underline;
 }
 
 /* For Smartphone: Mobile View */
-@media (max-width: 576px) {
+@media (max-width: 992px) {
   
   /* Menu styles for mobile view */
   .menu {
@@ -79,32 +90,14 @@ b {
     cursor: pointer; /* Change cursor on hover */
   }
   
-  /* Hover effect for links */
-  .menuToggle ul.nav-list a:hover {
-    color: var(--primary-color); /* Change text color */
-    background-color: var(--secondary-color); /* Change background on hover */
-  }
-  
   /* Increase font size for mobile links */
   .menuToggle ul.nav-list a {
     font-size: 1.5rem;
   }
-  
-  /* Social media links styling */
-  .menuToggle ul.social-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly; /* Evenly space items */
-    width: 100%;
-    flex-direction: row; /* Row layout for social icons */
-    padding: 10px 0;
-    text-align: center;
-    font-size: 1rem;
-  }
-  
-  /* Hover effect for social media links */
-  .menuToggle ul.social-list a:hover {
-    text-decoration: underline; /* Underline social media links on hover */
+
+  .menuToggle ul.nav-list li:last-child {
+    position: relative;
+    top: 160px;
   }
   
   /* Hamburger input styling for mobile */
@@ -126,7 +119,7 @@ b {
 
   .menuToggle .hamburger-background {
     position: fixed;
-    top: 8px;
+    top: 12px;
     right: 12px;
     width: 60px;
     height: 60px;
@@ -152,17 +145,17 @@ b {
   
   /* Position of the first hamburger span */
   .menuToggle span:nth-of-type(1) {
-    top: 25px;
+    top: 30px;
   }
   
   /* Position of the second hamburger span */
   .menuToggle span:nth-of-type(2) {
-    top: 35px;
+    top: 40px;
   }
   
   /* Position of the third hamburger span */
   .menuToggle span:nth-of-type(3) {
-    top: 45px;
+    top: 50px;
   }
   
   /* Transform hamburger icon when menu is toggled */
@@ -213,104 +206,74 @@ b {
     height: 100%;
     opacity: 1;
   }
-}
 
-/* For Tablets: Medium View */
-@media (min-width: 576px) and (max-width: 1050px) {
-  .menuToggle input, .menuToggle span {
-    display: none; /* Hide the input and hamburger icon */
-  }
-  
-  /* Menu styling for tablet view */
-  .menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100dvh; /* Full screen height dimanically */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  /* Flex layout for navigation and social lists */
-  ul.nav-list, ul.social-list {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    background-color: var(--primary-color);
-    width: 100%;
-    height: 100%;
-  }
-
-  ul.nav-list li, ul.social-list li{
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Navigation list styling */
-  ul.nav-list {
-    font-size: 1rem;
-    height: 50px; /* Set height */
-  }
-  
-  /* Social list styling */
-  ul.social-list {
-    font-size: 0.7rem;
-    height: 30px; /* Set height */
-  }
-  
-  /* Menu link styling */
-  .menuToggle a {
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: var(--secondary-color); /* Set link color */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-
-    padding: 20px;
-  }
-  
-  /* Hover effect for tablet */
-  .menuToggle a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color); /* Change text color */
+  .menuToggle figure{
+    display: none;
   }
 }
 
 /* For Desktop: Large View */
-@media (min-width: 1050px) {
+@media (min-width: 992px) and (max-width: 1400px) {
   .menuToggle input, .menuToggle span {
     display: none; /* Hide the input and hamburger icon */
+  }
+
+  .menu figure{
+    display: block;
+    margin: 0px;
+    width: 600px;
+    height: 100%;
+    padding: 5px;
+    margin-left: 30px;
+  }
+
+  .menu figure img{
+    height: 100%;
+    width:auto;
   }
   
   /* Menu layout for desktop */
   .menu {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 55px; /* Set height for desktop */
+    height: 80px; /* Set height for desktop */
     background-color: var(--primary-color);
   }
   
   /* Navigation and social lists styling for desktop */
-  ul.nav-list, ul.social-list {
+  ul.nav-list {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    flex-direction: row;
     margin: 0px 40px;
+    width: 50%;
     height: 100%;
   }
 
-  ul.nav-list li, ul.social-list li{
+  ul.nav-list li:first-child{
+    display: none;
+  }
+
+  ul.nav-list li:last-child{
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  ul.nav-list li:last-child a{
+    position: relative;
+    left: 30px;
+    bottom: 2px;
+    width: fit-content;
+  }
+
+  ul.nav-list li{
     width: 100%;
     height: 100%;
   }
@@ -343,5 +306,70 @@ b {
   .menuToggle a:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color); /* Change text color */
+  }
+}
+
+@media (min-width: 1400px) {
+  .menuToggle input, .menuToggle span {
+    display: none; /* Hide the input and hamburger icon */
+  }
+
+  .menu figure{
+    display: block;
+    margin: 0px;
+    width: 600px;
+    height: 100%;
+    padding: 5px;
+    margin-left: 30px;
+  }
+
+  .menu figure img{
+    height: 100%;
+    width:auto;
+  }
+  
+  /* Menu layout for desktop */
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px; /* Set height for desktop */
+    background-color: var(--primary-color);
+  }
+  
+  /* Navigation and social lists styling for desktop */
+  ul.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0px 40px;
+    width: 48%;
+    height: 100%;
+  }
+
+  ul.nav-list li:first-child{
+    display: none;
+  }
+
+  ul.nav-list li{
+    height: 100%;
+  }
+  
+  /* Navigation list font size for desktop */
+  ul.nav-list {
+    font-size: 1rem;
+  }
+  
+  /* Menu link styling */
+  .menuToggle a {
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--secondary-color); /* Set link color */
+    font-size: 1rem;
   }
 }
