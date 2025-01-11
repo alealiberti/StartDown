@@ -40,29 +40,33 @@
   <link rel="manifest" href="./public/favicon/site.webmanifest" />
   
   <!-- style page import -->
-  <link rel="stylesheet" href="./src/styles/root/reset.css">
-  <link rel="stylesheet" href="./src/styles/root/style.css">
+  <link rel="stylesheet" href="./../../styles/reset.css">
+  <link rel="stylesheet" href="./../../styles/global.css">
 </head>
 <body>
   
-  <header>
+  <header title="itroduzione della pagina" role="banner" class="hero">
     <div class="black-blur">
       <!-- Main heading for SEO -->
-      <h1 class="display-none">Gli eventi di Cascina Caccia</h1>
+      <h1>
+        <span class="display-none">Benvenuti a <strong>Cascina Caccia</strong>: <strong>memoria</strong>, <strong>legalità</strong> e <strong>comunità attiva</strong>
+        </span>
+        Eventi nella cascina
+      </h1>
       
       <!-- Accessible and SEO-friendly landmark for the image -->
-      <figure class="img-container">
-        <img 
-        src="./public/logos/logo-white.png" 
+      <figure class="img-container display-none">
+        <img class="display-none"
+        src="./public/images/logo/base-version-white.webp" 
         alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" 
-        loading="lazy" 
-        width="300" 
+        loading="lazy"
+        width="300"
         height="150" />
         <figcaption class="display-none">Logo ufficiale di Cascina Caccia</figcaption>
       </figure>
       
       <p class="display-none">
-        Scopri Cascina Caccia, dove Carla e Bruno offrono laboratori educativi, eventi e attività per tutte le età. Un luogo di crescita e apprendimento immerso nella natura.
+        Benvenuti a <strong>Cascina Caccia</strong>: <strong>memoria</strong>, <strong>legalità</strong> e <strong>comunità attiva</strong>
       </p>
     </div>
   </header>
@@ -84,18 +88,26 @@
       Some spans to act as a hamburger.
       -->
       
-        <span></span>
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
       
-        <div class="hamburger-background">
-
-        </div>
+      <div class="hamburger-background">
+        
+      </div>
       
       <div class="menu">
+        <figure class="logo img-container">
+          <img
+          src="./../../../public/images/logo/horizontal-version-black.webp" 
+          alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" 
+          loading="lazy" 
+          width="300" 
+          height="150" />
+        </figure>
         <ul class="nav-list">
           <li>
-            <a href="/home" title="Torna alla pagina iniziale">          
+            <a href="./index.html" title="Torna alla pagina iniziale">          
               <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
                 <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
@@ -103,116 +115,217 @@
               </svg>
               HOME
             </a></li>
-              <li><a href="/laboratori" title="Scopri i nostri laboratori e attività">
-                Laboratori e attività
-              </a></li>
-
-              <li><a href="/eventi" title="Visualizza gli eventi in programma">
-                Eventi
-              </a></li>
-
-              <li><a href="/contattaci" title="Vai alla sezione contattaci">
-                <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
-                  <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
-                  <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
-                </svg>
-                <b>CONTATTACI!</b>
-                  </a>
-              </li>
-
-              </ul>
-              
-              <ul class="social-list">
-                <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina facebook di Cascina Caccia">Facebook</a></li>
-                <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina instagram di Cascina Caccia">Instagram</a></li>
-                <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Tik Tok di Cascina Caccia">Tik Tok</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <main>
+            <li><a href="./src/pages/laboratory-page/index.html" title="Scopri i nostri laboratori e attività">
+              LABORATORI E ATTIVITA
+            </a></li>
+            
+            <li><a href="./src/pages/events-page/index.html" title="Visualizza gli eventi in programma">
+              EVENTI
+            </a></li>
+            
+            <li><a href="./src/pages/forms-page/index.html" title="Vai alla sezione contattaci">
+              <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
+                <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
+                <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
+              </svg>
+              <b>CONTATTACI!</b>
+            </a>
+          </li>
           
-          <!--* FIRST SECTION IN BLACK WITH A LIST OF LINKS -->
-          <section id="about-cascina-caccia" class="hero white-style">
-            <article class="container">
-              <h2>Cos'è Cascina Caccia?</h2>
-              <p>
-                <strong>Cascina Caccia</strong> è un luogo simbolo di 
-                <strong>educazione</strong>, <strong>memoria</strong> 
-                e comunità, situato a <strong>San Sebastiano da Po</strong>. 
-              </p>
-              <p>
-                Questo bene storico, confiscato alla mafia, è stato trasformato 
-                in un centro per <strong>laboratori educativi</strong>, <strong>
-                  eventi culturali</strong> e attività ispirate ai valori di 
-                  <strong>Carla e Bruno Caccia</strong>. 
-                </p>
-                
-                <p>
-                  Scopri <strong>Cascina Caccia</strong>: il punto di riferimento 
-                  per chi cerca tradizione, impegno sociale e legalità.
-                </p>
-              </article>
-              
-              <div class="slider-wrapper">
-                <ul class="carousel">
-                  <li class="link-image" id="slide-1">
-                    <a href="#">
-                      Scopri i Laboratori
-                    </a>
-                    <div class="blur"></div>
-                    <img src="https://picsum.photos/300/200" alt="immagine che rappresente uno dei laboratori">
-                  </li>
-                  <li class="link-image" id="slide-2">
-                    <a href="#">
-                      Scopri gli eventi
-                    </a>
-                    <div class="blur"></div>
-                    <img src="https://picsum.photos/300/200" alt="immagine che rappresenta uno degli eventi">
-                  </li>
-                  <li class="link-image" id="slide-3">
-                    <a href="#">
-                      Contattaci!
-                    </a>
-                    <div class="blur"></div>
-                    <img src="https://picsum.photos/300/200" alt="se clicchi su questa immagine puoi">
-                  </li>
-                </ul>
+          <li><a target="_blank" href="https://cascinacaccia.net/" title="Vai alla sezione contattaci">
+            TORNA SU CascinaCaccia.net
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
 
-                <div class="slider-nav">
-                  <a href="#slide-1"></a>
-                  <a href="#slide-2"></a>
-                  <a href="#slide-3"></a>
-                </div>
-              </div>
-            </section>
-            
-            
-          </main>
+<main>
 
-          <footer class="mobile-footer">
+  <!-- Sezione: Una comunità che si incontra -->
+  <article id="comunita-che-si-incontra">
+    <header>
+      <h2>Una comunità che si incontra</h2>
+    </header>
+    <p>
+      <strong>Cascina Caccia</strong> non è solo un luogo di formazione: è anche un punto di riferimento per <strong>incontri</strong>,
+      <strong>feste</strong>, cerimonie e momenti di condivisione. Organizzare o partecipare a un evento qui significa entrare in un
+      contesto dove ogni occasione diventa un’opportunità per raccontare la <strong>storia della Cascina</strong> e la missione di
+      <strong>contrasto alle mafie</strong>. Ogni evento, dal più semplice al più elaborato, ha l’obiettivo di creare legami e
+      favorire il dialogo, in un’atmosfera serena e familiare.
+    </p>
+    <p>
+      Che si tratti di un incontro culturale, di una giornata di porte aperte o di un concerto, l’idea è sempre quella di far
+      sentire tutti a proprio agio e parte di un gruppo che condivide <strong>valori comuni</strong>. Non c’è separazione tra
+      “organizzatori” e “partecipanti”: tutti sono invitati a portare il proprio contributo, a raccontare le proprie
+      esperienze, a fare domande e a proporre nuove idee. <strong>Cascina Caccia</strong> diventa così una grande piazza dove si
+      incontrano persone di tutte le età, provenienze e professionalità, unite dal desiderio di costruire un futuro migliore.
+    </p>
+    <p>
+      A fare da cornice a questi incontri ci sono gli <strong>spazi interni</strong>, caldi e accoglienti, e la <strong>natura circostante</strong>,
+      che in ogni stagione regala colori e profumi diversi. Molte famiglie scelgono di trascorrere un’intera giornata in
+      <strong>Cascina</strong>, magari partecipando a un laboratorio la mattina e godendosi un momento di convivialità il
+      pomeriggio. L’energia positiva che si respira incoraggia l’ascolto reciproco e la voglia di lasciarsi ispirare da nuove
+      prospettive.
+    </p>
+  </article>
+
+  <!-- Sezione: Ricorrenze e appuntamenti periodici -->
+  <article id="ricorrenze-periodiche">
+    <header>
+      <h2>Ricorrenze e appuntamenti periodici</h2>
+    </header>
+    <p>
+      Ogni anno, <strong>Cascina Caccia</strong> propone <strong>eventi periodici</strong> che mescolano il <strong>ricordo</strong> di chi ha lottato contro la mafia
+      con momenti di festa aperti a tutti. Tra questi, spiccano le giornate dedicate a <strong>Bruno e Carla Caccia</strong>,
+      in cui si celebrano la loro memoria e il loro coraggio. Queste ricorrenze non sono mai cupe o malinconiche: al contrario,
+      diventano un’occasione per ritrovarsi, scambiarsi opinioni, ascoltare testimonianze e, allo stesso tempo, festeggiare la
+      vita con musica, cibo e convivialità.
+    </p>
+    <p>
+      In queste occasioni, la <strong>Cascina</strong> si anima di attività che vanno dall’intrattenimento per i più piccoli
+      alle riflessioni collettive per gli adulti: <strong>conferenze</strong>, presentazioni di libri, incontri con magistrati e
+      giornalisti, mostre fotografiche e performance artistiche legate al tema della <strong>legalità</strong>. La
+      partecipazione è sempre molto alta e dimostra come, su certi argomenti, le persone sentano il bisogno di un
+      <strong>confronto aperto</strong> e di uno spazio che permetta di dare voce alle proprie domande.
+    </p>
+    <p>
+      Ci sono poi i momenti di <strong>festa pura</strong>, come concerti, mercatini solidali e pranzi sociali, pensati per
+      coinvolgere il territorio e far conoscere a un pubblico più vasto la realtà di <strong>Cascina Caccia</strong>. Anche in
+      questi casi, si cerca di mantenere un legame con il messaggio di fondo: l’<strong>impegno antimafia</strong> può e deve
+      essere anche gioia, speranza e voglia di stare insieme in modo sano e trasparente.
+    </p>
+  </article>
+
+  <!-- Sezione: Eventi privati con un significato speciale -->
+  <article id="eventi-privati">
+    <header>
+      <h2>Eventi privati con un significato speciale: matrimoni, lauree e compleanni</h2>
+    </header>
+    <p>
+      La bellezza di <strong>Cascina Caccia</strong> e il suo forte valore simbolico la rendono il luogo ideale per festeggiare
+      momenti unici della propria vita. Matrimoni, feste di laurea, compleanni e altre ricorrenze trovano qui un’atmosfera
+      diversa rispetto alle solite location: oltre alla cornice naturale e al fascino degli spazi interni, c’è la
+      consapevolezza di contribuire a un <strong>progetto più grande</strong>.
+    </p>
+    <p>
+      Scegliere di organizzare un evento privato in un <strong>bene confiscato</strong> alla mafia significa dare un
+      contributo concreto alla sua sostenibilità e alla sua crescita. Il team di <strong>Cascina Caccia</strong>, insieme ai
+      volontari, mette a disposizione la propria esperienza per aiutare gli ospiti a curare ogni dettaglio: dall’allestimento
+      degli spazi al menu, dalla musica alle attività di intrattenimento. Ma l’aspetto più importante è che gli invitati hanno
+      l’occasione di conoscere la <strong>storia del luogo</strong>, di comprendere il valore della <strong>legalità</strong>
+      e di passare una giornata di festa in un ambiente che promuove i princìpi della partecipazione e del rispetto.
+    </p>
+    <p>
+      Moltissime coppie di sposi, ad esempio, decidono di arricchire il proprio matrimonio con una visita guidata o un breve
+      racconto sulla storia di <strong>Bruno e Carla Caccia</strong> e sull’<strong>impegno</strong> contro la criminalità
+      organizzata. Allo stesso modo, chi festeggia la laurea o un traguardo personale trova nella <strong>Cascina</strong>
+      un simbolo di forza e determinazione, che ben si sposa con la gioia del momento. E così, le celebrazioni private
+      diventano esperienze di condivisione ancora più intense e autentiche.
+    </p>
+  </article>
+
+  <!-- Sezione: Come partecipare, organizzare o semplicemente conoscere -->
+  <article id="come-partecipare">
+    <header>
+      <h2>Come partecipare, organizzare o semplicemente conoscere</h2>
+    </header>
+    <p>
+      Se desideri partecipare a uno degli eventi di <strong>Cascina Caccia</strong>, è sufficiente seguire i canali ufficiali –
+      come il sito web o i profili social – per rimanere aggiornato sul <strong>calendario delle iniziative</strong>. Che si
+      tratti di una serata culturale, di un incontro formativo o di una festa a tema, troverai tutte le informazioni su orari,
+      attività previste e modalità di partecipazione.
+    </p>
+    <p>
+      Se invece hai in mente di organizzare un tuo evento privato, il primo passo è prendere contatto direttamente con il
+      <strong>team della Cascina</strong>. Potrai confrontarti con persone disponibili ad ascoltare le tue idee e a consigliarti
+      la soluzione più adatta alle tue esigenze, sia che tu abbia in programma un grande matrimonio o una piccola festa di
+      compleanno. Ti verrà illustrato il ventaglio di servizi e spazi disponibili, oltre alle possibilità di integrare
+      momenti di riflessione sulla <strong>storia</strong> e sulle <strong>attività della Cascina</strong>.
+    </p>
+    <p>
+      Anche se non hai particolari progetti, ma desideri semplicemente conoscere <strong>Cascina Caccia</strong>, sei il
+      benvenuto. Puoi venire per una <strong>visita informale</strong>, partecipare a un incontro pubblico o persino iscriverti
+      a uno dei tanti <strong>laboratori formativi</strong>. In ogni caso, il messaggio che la <strong>Cascina</strong> ti
+      trasmetterà è lo stesso: <strong>insieme</strong>, si può costruire un futuro più giusto, più solidale e più coraggioso.
+      Le porte sono aperte a chiunque voglia dare il proprio contributo, anche solo con una stretta di mano e un sorriso.
+      E così, evento dopo evento, si continua a scrivere una storia di <strong>comunità</strong> e <strong>libertà</strong> che
+      parte da un bene confiscato e restituito alla collettività.
+    </p>
+  </article>
+</main>
+
+<footer class="mobile-footer">
+  <div>
+
+    <figure class="img-container">
+      <img 
+      src="/public/images/logo/horizontal-version-white.webp" 
+      alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" 
+      loading="lazy" 
+      width="300" 
+      height="150" />
+      <figcaption class="display-none">Logo ufficiale di Cascina Caccia</figcaption>
+    </figure>
+    
+    <div class="contacts">
+      <p>
+        <a href="./src/pages/forms-page/index.html" title="Vai alla sezione contattaci">Contattaci</a>
+      </p>
+      <p>
+        Via Serra Alta, 6, San Sebastiano da Po (TO)
+      </p>
+      <p>
+        <a href="mailto:cascina.caccia[at]acmos.net">
+          acmos.net
+        </a>
+        | <a href="mailto:cascina.caccia[at]acmos.net">
+          libera.it
+        </a>
+      </p>
+    </div>
+    
+    <div class="social-container">
+      <p>
+        seguici anche su
+      </p>
+      <ul class="social-links">
+        <li>
+          <a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Facebook di Cascina Caccia">
             <figure class="img-container">
-              <img 
-                src="./public/logos/logo-white.png" 
-                alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" 
-                loading="lazy" 
-                width="300" 
-                height="150" />
-              <figcaption class="display-none">Logo ufficiale di Cascina Caccia</figcaption>
+              <img src="./public/images/social-photo/facebook-white.png" alt="">
             </figure>
-            
-            <ul class="social-links">
-              <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Facebook di Cascina Caccia">Facebook</a></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Instagram di Cascina Caccia">Instagram</a></li>
-              <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Tik Tok di Cascina Caccia">Tik Tok</a></li>
-            </ul>
-          
-            <div class="footer-info">
-              <p>&copy; 2025 Cascina Caccia. Tutti i diritti riservati.</p>
-            </div>
-          </footer>
-          
-          <script type="module" src="/src/main.ts"></script>
-        </body>
-        </html>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Facebook di Cascina Caccia">
+            <figure class="img-container">
+              <img src="./public/images/social-photo/instagram-white.png" alt="">
+            </figure>
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Facebook di Cascina Caccia">
+            <figure class="img-container">
+              <img src="./public/images/social-photo/tiktok-white.png" alt="">
+            </figure>
+          </a>
+        </li>      
+      </ul>
+    </div>
+    
+    <div class="footer-info">
+      <p>&copy; 2025 Cascina Caccia. Tutti i diritti riservati.</p>
+      <p>
+        Cookie Policy
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="./main.ts"></script>
+</body>
+</html>
