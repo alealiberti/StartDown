@@ -32,7 +32,7 @@ public interface ReservationDAO extends JpaRepository<Reservation, Integer> {
      * 
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
-    List<Reservation> findByOrderByDateStartDateFinishDesc();
+    List<Reservation> findByOrderByDateStartAscDateFinishDesc();
     
     /**
      * Retrieves a list of all reservations sorted in descending order by visitors

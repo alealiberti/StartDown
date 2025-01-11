@@ -86,7 +86,7 @@ public class InformationService {
     @Transactional
     public Optional<Information> updateInformation(Integer id, Information informationDetails) {
         Information existingInformation = dao.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Information with ID " + id + " not found."));
+                .orElseThrow(() -> new InformationNotFoundException("Information with ID " + id + " not found."));
 
         // Set only if the values are not null or empty
         if (informationDetails.getName() != null && !informationDetails.getName().trim().isEmpty()) {
@@ -135,13 +135,7 @@ public class InformationService {
      * @return a List containing the Information objects if found, or an empty List if not found
      */
     public List<Information> getInformationsByStatus(String status) {
-        if (status == null || status.trim().isEmpty()) {
-            throw new IllegalArgumentException("Status cannot be null or empty");
-        }
         List<Information> informations = dao.findByStatus(status);
-        if (informations.isEmpty()) {
-            throw new InformationNotFoundException("No informations found for status: " + status);
-        }
         return informations;
     }
 
@@ -151,12 +145,7 @@ public class InformationService {
      * @return a List containing the Information objects if found, or an empty List if not found
      */
     public List<Information> findByOrderByDateSendDesc() {
-
-        List<Information> informations = dao.findByOrderByDateSendDesc();
-        if (informations.isEmpty()) {
-            throw new InformationNotFoundException("No informations found ");
-        }
-        return informations;
+        return dao.findByOrderByDateSendDesc();
     }
 
 }

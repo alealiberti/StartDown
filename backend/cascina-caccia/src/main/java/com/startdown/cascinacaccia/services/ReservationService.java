@@ -86,7 +86,7 @@ public class ReservationService {
     @Transactional
     public Optional<Reservation> updateReservation(Integer id, Reservation reservationDetails) {
         Reservation existingReservation = dao.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Reservation with ID " + id + " not found."));
+                .orElseThrow(() -> new ReservationNotFoundException("Reservation with ID " + id + " not found."));
 
         // Set only if the values are not null or empty
         if (reservationDetails.getName() != null && !reservationDetails.getName().trim().isEmpty()) {
@@ -156,16 +156,8 @@ public class ReservationService {
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
     public List<Reservation> getReservationsByStatus(String status) {
-        if (status == null || status.trim().isEmpty()) {
-            throw new IllegalArgumentException("Status cannot be null or empty");
-        }
-        List<Reservation> reservations = dao.findByStatus(status);
-        if (reservations.isEmpty()) {
-            throw new ReservationNotFoundException("No reservations found for status: " + status);
-        }
-        return reservations;
+        return dao.findByStatus(status);
     }
-
 
     /**
      * Retrieves a list of all reservations sorted in descending order by date send
@@ -173,26 +165,7 @@ public class ReservationService {
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
     public List<Reservation> findByOrderByDateSendDesc() {
-
-        List<Reservation> reservations = dao.findByOrderByDateSendDesc();
-        if (reservations.isEmpty()) {
-            throw new ReservationNotFoundException("No reservations found ");
-        }
-        return reservations;
-    }
-
-    /**
-     * Retrieves a list of all reservations sorted in ascending order by date start and then by descending date finish
-     *
-     * @return a List containing the Reservation objects if found, or an empty List if not found
-     */
-    public List<Reservation> findByOrderByDateStartDateFinishDesc() {
-
-        List<Reservation> reservations = dao.findByOrderByDateStartDateFinishDesc();
-        if (reservations.isEmpty()) {
-            throw new ReservationNotFoundException("No reservations found ");
-        }
-        return reservations;
+        return dao.findByOrderByDateSendDesc();
     }
 
     /**
@@ -201,12 +174,15 @@ public class ReservationService {
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
     public List<Reservation> findByOrderByVisitorsDesc() {
-
-        List<Reservation> reservations = dao.findByOrderByVisitorsDesc();
-        if (reservations.isEmpty()) {
-            throw new ReservationNotFoundException("No reservations found ");
-        }
-        return reservations;
+        return dao.findByOrderByVisitorsDesc();
     }
 
+    /**
+     * Retrieves a list of all reservations sorted in ascending order by date start and then by descending date finish
+     *
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    public List<Reservation> findByOrderByDateStartAscDateFinishDesc() {
+        return dao.findByOrderByDateStartAscDateFinishDesc();
+    }
 }

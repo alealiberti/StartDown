@@ -210,8 +210,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datestart")
-	public ResponseEntity<List<Reservation>> getByOrderByDateStartDescDateFinishDesc() {
-		List<Reservation> reservations =reservationService.findByOrderByDateStartDateFinishDesc();
+	public ResponseEntity<List<Reservation>> getByOrderByDateStartAscDateFinishDesc() {
+		List<Reservation> reservations =reservationService.findByOrderByDateStartAscDateFinishDesc();
 		return ResponseEntity.ok(reservations);
 	}
 
