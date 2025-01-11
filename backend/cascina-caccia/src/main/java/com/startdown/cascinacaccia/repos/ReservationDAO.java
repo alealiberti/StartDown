@@ -2,10 +2,8 @@ package com.startdown.cascinacaccia.repos;
 
 import com.startdown.cascinacaccia.entities.Reservation;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springdoc.core.converters.models.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
@@ -28,6 +26,20 @@ public interface ReservationDAO extends JpaRepository<Reservation, Integer> {
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
     List<Reservation> findByOrderByDateSendDesc();
+    
+    /**
+     * Retrieves a list of all reservations sorted in descending order by date start and then by date finish
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    List<Reservation> findByOrderByDateStartDescDateFinishDesc();
+    
+    /**
+     * Retrieves a list of all reservations sorted in descending order by visitors
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    List<Reservation> findByOrderByVisitorsDesc();
     
     
 }

@@ -1,6 +1,5 @@
 package com.startdown.cascinacaccia.services;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,5 +61,19 @@ public interface ReservationService {
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
     List<Reservation> findByOrderByDateSendDesc();
+    
+    /**
+     * Retrieves a list of all reservations sorted in descending order by date start and then by date finish
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    List<Reservation> findByOrderByDateStartDescDateFinishDesc();
+    
+    /**
+     * Retrieves a list of all reservations sorted in descending order by visitors
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    List<Reservation> findByOrderByVisitorsDesc();
 
 }

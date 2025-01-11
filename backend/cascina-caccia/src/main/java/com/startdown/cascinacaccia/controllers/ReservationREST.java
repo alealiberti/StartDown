@@ -1,6 +1,5 @@
 package com.startdown.cascinacaccia.controllers;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -192,4 +191,52 @@ public class ReservationREST {
 
 		return reservations;
 	}
+	
+	
+	
+	/**
+     * Retrieves a list of all reservations sorted in descending order by date start and then by date finish
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+	@Operation(summary = "Reservations sorted by date start", description = "Gets a list of all the reservations in the db sorted in descending order by date send and then by date finish")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Reservation.class))),
+            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
+    })
+	@GetMapping("/datestart")
+	public List<Reservation> findByOrderByDateStartDescDateFinishDesc() {
+		List<Reservation> reservations =reservationService.findByOrderByDateStartDescDateFinishDesc();
+
+		return reservations;
+	}
+	
+	
+	/**
+     * Retrieves a list of all reservations sorted in descending order by visitors
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+	@Operation(summary = "Reservations sorted by date visitors", description = "Gets a list of all the reservations in the db sorted in descending order by visitors")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
+                    content = @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Reservation.class))),
+            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "500", description = "Internal server error",
+            content = @Content(mediaType = "application/json"))
+    })
+	@GetMapping("/visitors")
+	public List<Reservation> findByOrderByVisitorsDesc() {
+		List<Reservation> reservations =reservationService.findByOrderByVisitorsDesc();
+
+		return reservations;
+	}
+	
 }

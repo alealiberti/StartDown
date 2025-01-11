@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.startdown.cascinacaccia.entities.Reservation;
 import com.startdown.cascinacaccia.exceptions.ReservationNotFoundException;
 import com.startdown.cascinacaccia.repos.ReservationDAO;
-import com.startdown.cascinacaccia.services.EmailService;
 
 import jakarta.transaction.Transactional;
 
@@ -42,10 +41,7 @@ public class ReservationServiceImpl implements ReservationService{
         return Optional.ofNullable(dao.findById(id)
                 .orElseThrow(() -> new ReservationNotFoundException("Reservation with ID " + id + " not found.")));
     }
-    
-    
-    
-    
+     
     /**
      * Creates a new reservation in the system.
      *
@@ -189,6 +185,36 @@ public class ReservationServiceImpl implements ReservationService{
     public List<Reservation> findByOrderByDateSendDesc() {
       
         List<Reservation> reservations = dao.findByOrderByDateSendDesc();
+        if (reservations.isEmpty()) {
+            throw new ReservationNotFoundException("No reservations found ");
+        }
+        return reservations;
+        }
+    
+    /**
+     * Retrieves a list of all reservations sorted in descending order by date start and then by date finish
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    @Override
+    public List<Reservation> findByOrderByDateStartDescDateFinishDesc() {
+      
+        List<Reservation> reservations = dao.findByOrderByDateStartDescDateFinishDesc();
+        if (reservations.isEmpty()) {
+            throw new ReservationNotFoundException("No reservations found ");
+        }
+        return reservations;
+        }
+    
+    /**
+     * Retrieves a list of all reservations sorted in descending order by visitors
+     * 
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    @Override
+    public List<Reservation> findByOrderByVisitorsDesc() {
+      
+        List<Reservation> reservations = dao.findByOrderByVisitorsDesc();
         if (reservations.isEmpty()) {
             throw new ReservationNotFoundException("No reservations found ");
         }
