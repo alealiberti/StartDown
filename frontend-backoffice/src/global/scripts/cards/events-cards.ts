@@ -12,11 +12,10 @@ export function addEventsOnCard(overlay: HTMLElement, card: HTMLElement, modal: 
         overlay.style.display = "block";
         modal.style.display = "block";
     });
+
+    // add events listener on the overlay when is visibile (display true), click will close it
     overlay.addEventListener("click", () => {
         modal.style.display = "none";
     });
-
-    console.log(card);
-
 
 }

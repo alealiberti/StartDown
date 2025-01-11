@@ -2,7 +2,7 @@
 import { loadTemplate } from "../../../global/services/load-templates";
 import { generateCardsQuestions, generateCardsReservations } from "../../../global/scripts/cards/generate-cards";
 
-import { questionsData, reservationsData } from "../../../global/DB/questions-reservation";
+import { questionsData, reservationsData } from "../../../global/DB/questions-reservation-DB";
 
 
 
