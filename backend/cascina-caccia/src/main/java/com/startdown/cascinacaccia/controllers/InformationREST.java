@@ -1,9 +1,9 @@
 package com.startdown.cascinacaccia.controllers;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+import com.startdown.cascinacaccia.services.InformationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -21,15 +21,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.startdown.cascinacaccia.entities.Information;
-import com.startdown.cascinacaccia.exceptions.InformationNotFoundException;
-import com.startdown.cascinacaccia.services.InformationServiceImpl;
 
 @RestController
 @RequestMapping("/cascina-caccia/informations")
+// The UserREST Controller handles the endpoints and the logic for the Information-related API requests
 public class InformationREST {
 
 	@Autowired
-	private InformationServiceImpl informationService;
+	private InformationService informationService;
 
 	/**
 	 * Retrieves a list of all informations in the system.
@@ -47,8 +46,9 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
-	public List<Information> getAllInformations() {
-		return informationService.getAllInformations(); // Fetch all informations using the information service
+	public ResponseEntity<List<Information>> getAllInformations() {
+		List<Information> informations = informationService.getAllInformations();
+		return ResponseEntity.ok(informations); // Fetch all informations using the information service
 	}
 
 	/**
@@ -163,12 +163,9 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/status/{status}")
-	public List<Information> getInformationByStatus(@PathVariable String status) {
+	public ResponseEntity<List<Information>> getInformationByStatus(@PathVariable String status) {
 		List<Information> informations =informationService.getInformationsByStatus(status);
-		if (informations.isEmpty()) {
-			throw new InformationNotFoundException("No informations found with the status: " + status); // Throw exception if no informations found
-		}
-		return informations;
+		return ResponseEntity.ok(informations);
 	}
 
 	/**
@@ -187,9 +184,8 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datesend")
-	public List<Information> findByOrderByDateSendDesc() {
+	public ResponseEntity<List<Information>> getInformationsByOrderByDateSendDesc() {
 		List<Information> informations =informationService.findByOrderByDateSendDesc();
-
-		return informations;
+		return ResponseEntity.ok(informations);
 	}
 }

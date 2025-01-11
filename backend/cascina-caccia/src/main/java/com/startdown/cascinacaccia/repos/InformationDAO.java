@@ -2,10 +2,8 @@ package com.startdown.cascinacaccia.repos;
 
 import com.startdown.cascinacaccia.entities.Information;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springdoc.core.converters.models.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
@@ -28,6 +26,5 @@ public interface InformationDAO extends JpaRepository<Information, Integer> {
      * @return a List containing the Information objects if found, or an empty List if not found
      */
     List<Information> findByOrderByDateSendDesc();
-    
-    
+
 }
