@@ -131,6 +131,9 @@ public class ReservationService {
         if (reservationDetails.getAdditionalInfo() != null && !reservationDetails.getAdditionalInfo().trim().isEmpty()) {
             existingReservation.setAdditionalInfo(reservationDetails.getAdditionalInfo());
         }
+        if (reservationDetails.isMobilityProblems()){
+            existingReservation.setMobilityProblems(true);
+        }
 
         return Optional.of(dao.save(existingReservation));
     }
