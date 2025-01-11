@@ -129,7 +129,7 @@ public class ReservationService {
             existingReservation.setCompanions(reservationDetails.getCompanions());
         }
         if (reservationDetails.getAdditionalInfo() != null && !reservationDetails.getAdditionalInfo().trim().isEmpty()) {
-            existingReservation.setAdditionalInfo(reservationDetails.getAdditionalInfo());;
+            existingReservation.setAdditionalInfo(reservationDetails.getAdditionalInfo());
         }
 
         return Optional.of(dao.save(existingReservation));
