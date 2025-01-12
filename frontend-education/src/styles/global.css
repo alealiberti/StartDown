@@ -64,6 +64,13 @@ html {
   scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
+html, body {
+  height: 100%; /* Imposta la altezza al 100% per l'intera pagina */
+  margin: 0; /* Rimuove il margine predefinito */
+  overflow-y: scroll; /* Abilita lo scorrimento verticale */
+  overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
+}
+
 /* Stile per il resto della pagina */
 body *:not(.carousel)::-webkit-scrollbar {
   width: 10px;
@@ -161,8 +168,6 @@ h1 {
   align-items: center;
   justify-content: center;
   color: var(--color-secondary);
-  
-  transition: all 0.5s ease-in-out;
 }
 
 .bold{
