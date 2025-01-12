@@ -3,7 +3,7 @@
 @media (max-width: 992px) {
     header.hero {
       /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('../../../public/images/backgrounds/header/background-header-mobile.jpg');
+      background-image: url('./../../../public/images/home-images/header/cascina-caccia-756px.webp');
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
@@ -15,7 +15,7 @@
   @media (min-width: 992px) and (max-width: 1400px) {
     header.hero {
       /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('../../../public/images/backgrounds/header/background-header-desktop.jpg');
+      background-image: url('./../../../public/images/home-images/header/cascina-caccia-992px.webp');
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
@@ -27,7 +27,7 @@
   @media (min-width: 1400px) {
     header.hero {
       /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('../../../public/images/backgrounds/header/background-header-desktop.jpg');
+      background-image: url('./../../../public/images/home-images/header/cascina-caccia-1400px.webp');
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */

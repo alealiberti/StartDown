@@ -51,7 +51,6 @@ b {
     height: 80%; /* Adjust height for mobile */
     display: flex;
     flex-direction: column; /* Stack items vertically */
-    justify-content: space-between; /* Space between items */
     align-items: center; /* Center items horizontally */
     background-color: var(--primary-color); /* Background color */
     list-style-type: none; /* Remove default list styling */
@@ -98,6 +97,10 @@ b {
   .menuToggle ul.nav-list li:last-child {
     position: relative;
     top: 160px;
+  }
+
+  .menuToggle ul.nav-list li:last-child a{
+    font-size: 1rem;
   }
   
   /* Hamburger input styling for mobile */
@@ -220,11 +223,13 @@ b {
 
   .menu figure{
     display: block;
+    position: relative;
     margin: 0px;
-    width: 600px;
+    width: 300px;
+    left: -30px;
     height: 100%;
     padding: 5px;
-    margin-left: 30px;
+    margin-left: 30px
   }
 
   .menu figure img{
@@ -291,7 +296,6 @@ b {
   /* Menu link styling */
   .menuToggle a {
     white-space: nowrap;
-    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;

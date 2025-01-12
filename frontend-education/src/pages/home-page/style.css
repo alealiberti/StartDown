@@ -3,34 +3,34 @@
 @media (max-width: 992px) {
   header.hero {
     /* Impostazioni generali per l'immagine di sfondo */
-    background-image: url('../../../public/images/backgrounds/header/background-header-mobile.jpg');
-    background-size: cover; /* Adatta l'immagine senza tagliarla */
-    background-position: center; /* Posiziona la parte superiore dell'immagine */
-    background-attachment: scroll; /* Evita problemi di scorrimento */
-    height: 100vh;
+    background-image: url('../../../public/images/home-images/header/cascina-caccia-756px.webp');
   }
 }
 
 @media (min-width: 992px) and (max-width: 1400px) {
   header.hero {
     /* Impostazioni generali per l'immagine di sfondo */
-    background-image: url('../../../public/images/backgrounds/header/background-header-desktop.jpg');
-    background-size: cover; /* Adatta l'immagine senza tagliarla */
-    background-position: center; /* Posiziona la parte superiore dell'immagine */
-    background-attachment: scroll; /* Evita problemi di scorrimento */
-    height: 100vh;
+    background-image: url('../../../public/images/home-images/header/cascina-caccia-992px.webp');
   }
 }
 
-@media (min-width: 1400px) {
+@media  (min-width: 1400px) {
   header.hero {
     /* Impostazioni generali per l'immagine di sfondo */
-    background-image: url('../../../public/images/backgrounds/header/background-header-desktop.jpg');
-    background-size: cover; /* Adatta l'immagine senza tagliarla */
-    background-position: center; /* Posiziona la parte superiore dell'immagine */
-    background-attachment: scroll; /* Evita problemi di scorrimento */
-    height: 100vh;
+    background-image: url('../../../public/images/home-images/header/cascina-caccia-1400px.webp');
   }
+}
+
+header.hero p{
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+header.hero {
+  background-size: cover; /* Adatta l'immagine senza tagliarla */
+  background-position: center; /* Posiziona la parte superiore dell'immagine */
+  background-attachment: scroll; /* Evita problemi di scorrimento */
+  height: 100vh;
 }
 
 /* Animazione del logo */
@@ -50,15 +50,96 @@ header.hero {
   width: 100%;
   animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
 }
+
 header.hero .img-container img {
   opacity: 0; /* Stato iniziale */
   animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
 }
 
-header.hero .img-container {
-  width: 80%;
-  max-width: 610px;
+
+header.hero .header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 900px;
 }
+
+header.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 5.5rem);  
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+header.hero hr {
+  border: none; /* Rimuove il bordo predefinito */
+  height: 7px; /* Altezza della linea */
+  width: 85%;
+  background: linear-gradient(
+    to right,
+    var(--orange-color-logo) 0%,
+    var(--orange-color-logo) 33.33%,
+    var(--magenta-color-logo) 33.33%,
+    var(--magenta-color-logo) 66.66%,
+    var(--yellow-color-logo) 66.66%,
+    var(--yellow-color-logo) 100%
+  );
+  margin: 20px 0; /* Spaziatura sopra e sotto */
+}
+
+@media  (min-width: 1400px) {
+  header.hero h1{
+    position: absolute;
+    top: 80px;
+    right: 120px;
+  }
+
+  header.hero hr:first-of-type{
+    position: absolute;
+    top: 240px;
+  }
+}
+
+header.hero .img-container {
+  width: 100%;
+}
+
+hr{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 main{
   display: flex;
@@ -66,8 +147,6 @@ main{
   align-items: center;
   width: 100%;
 }
-
-
 
 article{
   display: block;
