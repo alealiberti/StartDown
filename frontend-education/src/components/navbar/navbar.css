@@ -305,12 +305,6 @@ b {
     transition: 0.3s all; /* Smooth transition */
     padding: 0px 25px;
   }
-  
-  /* Hover effect for desktop */
-  .menuToggle a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color); /* Change text color */
-  }
 }
 
 @media (min-width: 1400px) {
