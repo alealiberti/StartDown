@@ -7,7 +7,7 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 // Dati di esempio temporanei da utilizzare per le questions 
 export const questionsData: CardQuestion[] = [
-    { id: 0, name: "Mario", surname: "Rossi", phone: "3384465353", email: "mario@example.com", dateSend: "01/15/2024", question: "Domanda 1" },
+    { id: 0, name: "Mario", surname: "Rossi", phone: "3384465353", email: "mario@example.com", dateSend: "10/23/2021", question: "Domanda 1" },
     { id: 1, name: "Gianluigi", surname: "Romano", phone: null, email: "gianluigi@example.com", dateSend: "12/05/2023", question: "Domanda 2" },
     { id: 2, name: "Giorgio", surname: "Bianchi", phone: "3384465353", email: "giorgio@example.com", dateSend: "03/22/2023", question: "Domanda 3" },
     { id: 3, name: "Francesca", surname: "Verdi", phone: null, email: "francesca@example.com", dateSend: "04/13/2023", question: "Domanda 4" },
@@ -41,7 +41,7 @@ export const reservationsData: CardReservation[] = [
         surname: "Rossi",
         phone: "0987654321",
         email: "anna@example.com",
-        dateSend: "03/22/2022",
+        dateSend: "03/22/2024",
         dateStart: "08/15/2022",
         dateFinish: "01/18/2023",
         hourStart: "09:00",
@@ -59,7 +59,7 @@ export const reservationsData: CardReservation[] = [
         surname: "Bianchi",
         phone: "1122334455",
         email: "luca@example.com",
-        dateSend: "01/01/2022",
+        dateSend: "01/01/2024",
         dateStart: "02/01/2022",
         dateFinish: "02/03/2022",
         hourStart: "15:00",
@@ -76,8 +76,9 @@ export const reservationsData: CardReservation[] = [
 
 
 // Dati di esempi temporanei da utilizzzare per le ultime 5 questions/reservations mixate nella dashboard!
+
 // accetta come parametri i questionsData e reservationsData, verrà ritornato come valore nella funzione un array mixato tramite il destructuring e riordinato per data
-export const latestQuestionsReservations = (questionsData: CardQuestion[], reservationsData: CardReservation[])
+const latestQuestionsReservations = (questionsData: CardQuestion[], reservationsData: CardReservation[])
     : (CardQuestion | CardReservation)[] => {
 
     // destructuring dei 2 array
@@ -90,7 +91,7 @@ export const latestQuestionsReservations = (questionsData: CardQuestion[], reser
         const dateA = new Date(a.dateSend).getTime();
         const dateB = new Date(b.dateSend).getTime();
 
-        return dateB - dateA;
+        return dateB - dateA; // scambio di posizione
     });
 
     // restituiamo come array mixato ordinato per data le ultime 5 RICHIESTE
@@ -98,4 +99,5 @@ export const latestQuestionsReservations = (questionsData: CardQuestion[], reser
 }
 
 
+export const latestRequests = latestQuestionsReservations(questionsData, reservationsData);
 console.log(latestQuestionsReservations(questionsData, reservationsData));

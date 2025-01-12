@@ -16,7 +16,7 @@ import { CardQuestion } from "../../../../models/card-question.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createCardQuestion(data: CardQuestion, template: HTMLTemplateElement): HTMLElement | null {
+export function createCardQuestion(data: CardQuestion, template: HTMLTemplateElement): HTMLElement {
 
 
     // Clona il contenuto del template preso come argomento dal DOM (per distinguere le card e non sovrascriverle)

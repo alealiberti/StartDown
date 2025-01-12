@@ -15,11 +15,15 @@ import { CardReservation } from "../../../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createCardReservation(data: CardReservation, template: HTMLTemplateElement): HTMLElement | null {
+export function createCardReservation(data: CardReservation, template: HTMLTemplateElement): HTMLElement {
 
+    // Verifica che il template sia quello giusto
+    console.log('Template passato:', template);
 
     // Clona il contenuto del template preso come argomento dal DOM (per distinguere le card e non sovrascriverle)
     const templateContent = template?.content.cloneNode(true) as DocumentFragment;
+    console.log(templateContent);
+
 
     // Trova il div principale della card all'interno del document-fragment, qui andranno popolati i dati delle richieste
     const CardReservation = templateContent.querySelector(".cardReservation") as HTMLElement;

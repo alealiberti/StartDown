@@ -40,8 +40,8 @@ export function generateCardsQuestions(
             listRequests.appendChild(cardQuestion);
         }
     });
-
 }
+
 
 
 /**
@@ -60,16 +60,59 @@ export function generateCardsReservations(
 
     const modalReservation = document.querySelector(".modalReservation") as HTMLElement;
 
-
     reservationsData.forEach((reservation) => {
         // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
-        const cardQuestion = createCardReservation(reservation, reservationTemplate);
+        const cardReservation = createCardReservation(reservation, reservationTemplate);
 
         // if the card is actualy an HTML element and not "null", will be appended to the list of the requests and added the events "click"
-        if (cardQuestion) {
-            addEventsOnCard(overlay, cardQuestion, modalReservation);
-            listRequests.appendChild(cardQuestion);
+        if (cardReservation) {
+            addEventsOnCard(overlay, cardReservation, modalReservation);
+            listRequests.appendChild(cardReservation);
         }
     });
-
 }
+
+
+
+/**
+ * Nome della funzione
+ * Descrizione della funzione
+ * @param {TipoInput1} NomeInput1 - DescrizioneInput1
+ * @param {TipoInput2} NomeInput2 - DescrizioneInput2
+ * @returns {TipoOutput} - DescrizioneOutput
+ */
+export function generateCardsLatestRequests(
+    listRequests: HTMLElement,
+    overlay: HTMLElement,
+    questionTemplate: HTMLTemplateElement,
+    reservationTemplate: HTMLTemplateElement,
+    latestRequests: (CardQuestion | CardReservation)[],
+): void {
+
+    // take from the DOM the modal of cards when clicked
+    const modalQuestion = document.querySelector(".modalQuestion") as HTMLElement;
+    const modalReservation = document.querySelector(".modalReservation") as HTMLElement;
+
+    latestRequests.forEach((request) => {
+
+        // check of the request if it is question || reservation from the properities! using:  "in"
+        // also say to typescript the type of the request using:  "as"
+        if ("question" in request) {
+            console.log("domandaaaa");
+            const cardQuestion = createCardQuestion(request as CardQuestion, questionTemplate);
+            if (cardQuestion) {
+                addEventsOnCard(overlay, cardQuestion, modalQuestion);
+                listRequests.appendChild(cardQuestion);
+            }
+
+        } else if ("status" in request) {
+            console.log("prenotazionee");
+            const cardReservation = createCardReservation(request as CardReservation, reservationTemplate);
+            if (cardReservation) {
+                addEventsOnCard(overlay, cardReservation, modalReservation);
+                listRequests.appendChild(cardReservation);
+            }
+        }
+
+    });
+} 
