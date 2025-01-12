@@ -13,7 +13,7 @@
 
 /* General Styles for Menu */
 nav {
-  position: fixed; /* Keeps the navbar fixed at the top */
+  position: sticky; /* Keeps the navbar fixed at the top */
   width: 100%; /* Full width */
   top: 0; /* Aligns it to the top of the page */
   left: 0; /* Aligns it to the left of the page */
@@ -30,7 +30,6 @@ b {
 
 .menuToggle a {
   transition: 0.3s text-decoration ease-in; /* Smooth transition */
-
   font-size: 1rem;
 }
 
@@ -304,12 +303,6 @@ b {
     color: var(--secondary-color); /* Set link color */
     transition: 0.3s all; /* Smooth transition */
     padding: 0px 25px;
-  }
-  
-  /* Hover effect for desktop */
-  .menuToggle a:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color); /* Change text color */
   }
 }
 

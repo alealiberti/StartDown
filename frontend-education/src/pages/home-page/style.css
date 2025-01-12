@@ -91,23 +91,10 @@ header.hero hr {
 }
 
 @media  (min-width: 1400px) {
-  header.hero h1{
-    position: absolute;
-    top: 80px;
-    right: 120px;
-  }
-
-  header.hero hr:first-of-type{
-    position: absolute;
-    top: 240px;
-  }
 }
 
 header.hero .img-container {
   width: 100%;
-}
-
-hr{
 }
 
 
