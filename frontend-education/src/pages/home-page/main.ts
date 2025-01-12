@@ -9,6 +9,10 @@ import "../../styles/global.css";
 import "../../components/navbar/navbar.css";
 import "../../components/navbar/navbar.ts";
 
+//** CAROUSEL **/
+import "../../components/carousel/carousel.css";
+import "../../components/carousel/carousel.ts";
+
 //** FOOTER **/
 import "../../components/footer/footer.css";
 

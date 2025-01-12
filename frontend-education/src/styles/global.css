@@ -140,6 +140,10 @@ h1 {
   display: none;
 }
 
+.display-block {
+  display: block;
+}
+
 .img-container {
   display: flex; /* For flexible alignment */
   justify-content: center; /* Centers the image horizontally */
@@ -152,7 +156,7 @@ h1 {
 
 .img-container img {  
   width: 100%; /* The image fills the container width */
-  height: auto; /* Maintains the aspect ratio */
+  height: auto; /* Maintains the aspect ratio */  
 }
 
 .black-blur{

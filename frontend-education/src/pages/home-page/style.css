@@ -150,71 +150,75 @@ header .black-blur a:hover {
   header .img-container img{
     display: none;
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
 }
 
-article{
-  display: block;
-    margin: 20px;
-    width: 100%;
-    max-width: 900px;
+article .img-container {
+  float: none; /* Su schermi più piccoli, disabilitiamo il float */
+  width: 100%; /* Adatta alla larghezza del contenitore */
 }
 
-article .img-container{
-  width: 100%;
-  max-width: 900px;
+@media (min-width: 1400px) {
+  article .img-container {
+    position: relative;
+    top: 40px;
+    float: right; /* L'immagine sarà a sinistra */
+    margin-left: 30px; /* Spazio tra immagine e testo */
+    margin-bottom: 50px;
+    max-width: 65%; /* L'immagine non occupa tutto lo spazio */
+  }
+}
 
-  figcaption{
+article header h2{
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  padding: 0px 20px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 10px;
+  z-index: 1;
+  background-color: var(--primary-color);
+  margin-top: 60px;
+}
+
+@media (max-width: 756px) {
+  article header h2{
+    font-size: 1.5rem;
+  }
+  article hr{
     display: none;
   }
 }
 
+article header hr{
+  position: absolute;
+  top: 93px;
+  border: none; /* Rimuove il bordo predefinito */
+  height: 3px; /* Altezza della linea */
+  width: 100%;
+  background-color: var(--secondary-color);
+  margin: 0px 0px 25 px 0px;
+  z-index: -1;
+}
 
-h2{
-  font-size: 1.5rem;
-  padding: 0px 20px;
+article p{
+  font-size: 1.2rem;
 }
 
 strong{
   font-weight: bold;
 }
 
-main p{
-  padding: 15px;
+article p{
+  padding: 30px 0px;
 }
 
 section.dark-style{

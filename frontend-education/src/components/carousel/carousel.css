@@ -1,10 +1,10 @@
 /* Wrapper del carousel */
 .slider-wrapper {
     position: relative;
-    width: 90%;
-    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     aspect-ratio: 16/9;
+    padding: 0 15px;
   }
   
   /* Lista del carousel */
@@ -12,14 +12,20 @@
     display: flex;
     gap: 10px;
     transition: transform 0.5s ease-in-out;
-
     scroll-behavior: smooth; /* Effetto smooth scrolling */
     scroll-snap-type: x mandatory;
     overflow-x: auto; /* Scroll orizzontale */
-    -webkit-overflow-scrolling: touch;
+    scroll-snap-align: center; /* Fissa gli elementi al centro quando vengono scrollati */
     overflow-y: hidden;
+  }
 
-    
+  .carousel::-webkit-scrollbar {
+    display: none;
+    /* Elementi del carousel */
+  }
+  
+  .carousel > * {
+    scroll-snap-align: center;
   }
   
   /* Elementi del carousel */
