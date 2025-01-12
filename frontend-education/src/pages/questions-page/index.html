@@ -3,9 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <!-- Title of the page -->
+    <title>Prenotazione Evento - Cascina Caccia</title>
+    
+    <!-- Meta description for search engines -->
+    <meta name="description" content="Compila il modulo di prenotazione per stepsecipare agli eventi di Cascina Caccia. Inserisci i tuoi dati per riservare il tuo posto.">
+    
+    <!-- Keywords related to the form and events -->
+    <meta name="keywords" content="form prenotazione, prenotazione evento, Cascina Caccia, prenotazione online">
+    
+    <!-- Meta tag for author (useful for branding or location) -->
+    <meta name="author" content="Cascina Caccia">
+    
+    <!-- Open Graph meta tags for social media -->
+    <meta property="og:title" content="Prenotazione Evento - Cascina Caccia">
+    <meta property="og:description" content="Completa il form di prenotazione per stepsecipare agli eventi di Cascina Caccia. Unisciti a noi per laboratori ed eventi immersi nella natura.">
+    <meta property="og:image" content="url_to_image.jpg">
+    <meta property="og:url" content="https://www.cascinacaccia.com/prenotazione">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prenotazione Evento - Cascina Caccia">
+    <meta name="twitter:description" content="Compila il modulo di prenotazione e stepsecipa agli eventi educativi e creativi di Cascina Caccia.">
+    <meta name="twitter:image" content="url_to_image.jpg">
+    
+    <!-- Link to favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="../../styles/reset.css">
+    <link rel="stylesheet" href="../../styles/global.css">
+    
 </head>
 <body>
-    
+    <!-- NAV BAR IMPLEMENTATION -->
+    <div id="sub-background"></div>
+    <nav aria-label="Navigazione principale" role="navigation">
+        <div class="menuToggle">
+            <input type="checkbox" id="menuCheckbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            
+            <div class="hamburger-background"></div>
+            
+            <div class="menu">
+                <ul class="nav-list">
+                    <li>
+                        <a href="/home/" title="Torna alla pagina iniziale">          
+                            <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
+                                <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
+                                <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
+                            </svg>
+                            HOME
+                        </a></li>
+                        <li><a href="/laboratori/" title="Scopri i nostri laboratori e attività">
+                            Laboratori e attività
+                        </a></li>
+                        
+                        <li><a href="/eventi/" title="Visualizza gli eventi in programma">
+                            Eventi
+                        </a></li>
+
+                        <li><a href="../questions-page/index.html" title="Poni una domanda!">
+                            Domanda
+                        </a></li>
+                        
+                        <li><a href="./src/pages/forms-page/index.html" title="Vai alla sezione contattaci">
+                            <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
+                                <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
+                                <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
+                            </svg>
+                            <b>CONTATTACI!</b>
+                        </a>
+                    </li> 
+                    
+                </ul>
+                <ul class="social-list">
+                    <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina facebook di Cascina Caccia">Facebook</a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina instagram di Cascina Caccia">Instagram</a></li>
+                    <li><a href="#" target="_blank" rel="noopener noreferrer" title="Vai alla pagina Tik Tok di Cascina Caccia">Tik Tok</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- FINISH NAV BAR -->
+
+    <main>
+        <div class="question">
+        <form action="/submit-questions" method="POST">
+            <!-- Sezione Domanda -->
+            <section id="1-personal-data" class="question">
+                <h2>
+                     <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
+                     <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
+                     <path d="M25.569 11.28C25.569 7.81725 23.7167 6.87449 20.51 5.67528C16.2145 4.06887 11.4269 2.40289 7.28231 4.3661C4.42472 5.71968 2.56897 8.05716 2.56897 11.28C2.56897 16.6482 7.7177 21 14.069 21C20.4202 21 25.569 16.6482 25.569 11.28Z" fill="#E69731"/>
+                     </svg>
+                  Fai una domanda!
+                 </h2>
+
+                <div class="form-group">
+                    <label for="nome">Nome: <span class="required-icon">*</span></label>
+                    <input type="text" name="nome" id="nome" required placeholder="Inserisci il tuo nome (obbligatorio)">
+                </div>
+                <div class="form-group">
+                    <label for="cognome">Cognome: <span class="required-icon">*</span></label>
+                    <input type="text" name="cognome" id="cognome" required placeholder="Inserisci il tuo cognome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: <span class="required-icon">*</span></label>
+                    <input type="email" name="email" id="email" required placeholder="Inserisci la tua email">
+                </div>
+                <div class="form-group">
+                    <label for="recapito-emergenza">Recapito di emergenza:</label>
+                    <input type="tel" name="recapito-emergenza" id="recapito-emergenza" placeholder="Inserisci un numero di emergenza">
+                </div>
+                <div class="form-group">
+                    <label for="richieste-speciali">Inserisci qui la tua domanda:</label>
+                    <textarea name="richieste-speciali" id="richieste-speciali" rows="4" placeholder="Vorrei chiedere a voi cascina..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="problemi-mobilita">
+                        <input type="checkbox" name="problemi-mobilita" id="problemi-mobilita">
+                        Dichiaro di aver letto e accettato i Termini e condizioni e l'informativa sulla privacy
+                    </label>
+                    <label for="newsletter" class="checkbox">
+                        <input type="checkbox" name="newsletter" id="newsletter">
+                        Iscriviti alla newsletter e resta aggiornato
+                    </label>
+                </div>
+                <button type="submit" class="image-button">Invia richiesta</button>        
+            </form>
+    </div>
+    </main>
+
+    <!-- Footer with contact info or additional info -->
+
+    <footer></footer>
+
+    <script type="module" src="./main.ts"></script>
 </body>
 </html>

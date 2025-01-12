@@ -1,0 +1,313 @@
+/* Root Variables for color consistency */
+:root {
+    --accent-color: #D2277C;
+    --color-input: #f6f6f6;
+    --color-input-text: #868686;
+    --color-input-focus: #e0e0e0;
+}
+
+/* Global styles */
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 100px; /* Aggiunta di margine per separare dal top della finestra */
+}
+
+/* General heading styles */
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Style for the sections answer and reservation inside h1 */
+h1 .answer, h1 .reservation {
+    display: block;
+}
+
+/* Heading 2 (h2) styles */
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 500;
+    gap: 10px;
+}
+
+/* Paragraph styles */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Main section */
+main {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 800px;
+    margin: 0 auto; /* Centrato */
+}
+
+/* div Question section styling */
+.question {
+    padding: 30px;
+    padding-top: 0;
+    margin-bottom: 60px;
+    border-radius: 8px;
+}
+
+input, textarea {
+    font-family: 'Montserrat', sans-serif; /* Applicato Montserrat */
+    width: 100%;
+    padding: 10px;
+    border: none; /* Rimosso il bordo */
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background-color: var(--color-input);
+    color: var(--color-input-text);
+}
+
+/* Form groups for spacing inputs and labels */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+.form-group label {
+    display: block;
+    font-weight: normal; /* Rimosso il bold */
+    margin-bottom: 5px;
+    color: #555;
+    font-family: 'Montserrat', sans-serif; /* Applicato Montserrat */
+}
+
+/* Styling for inputs of text, email, tel, and textarea */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none; /* Rimosso il bordo */
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--color-input);
+    color: var(--color-input-text);
+    font-family: 'Montserrat', sans-serif; /* Applicato Montserrat */
+}
+
+/* Inputs focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+    border: none; /* Rimosso il bordo al focus */
+    outline: none; /* Eliminato il bordo blu */
+}
+
+/* Checkbox styling */
+.form-group label.checkbox {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    text-align: left; 
+    font-weight: normal;
+}
+
+/* Checkbox alignment to the left */
+.form-group input[type="checkbox"] {
+    margin: 0; 
+    width: auto; 
+    height: auto; 
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 25px;
+    text-align: center;
+}
+
+.image-button {
+    width: 50%; 
+    background-image: url('../../../public/images/button-background/button-background.png');
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; 
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto; 
+}
+
+/* Assicurati che il contenitore del bottone non abbia larghezze fisse */
+button, .image-button {
+    display: block; /* Imposta il bottone come blocco */
+    max-width: 400px; /* Puoi limitare la larghezza massima se necessario */
+}
+
+/* Hover effect for button */
+button:hover {
+    transform: scale(1.05);
+}
+
+.image-button:hover {
+    opacity: 0.8; /* Effetto hover per l'immagine */
+}
+
+/* Styling for required icon */
+.required-icon {
+    color: red;
+    font-size: 14px;
+}
+
+/* Responsiveness for small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%; /* Il bottone si espande alla larghezza completa */
+        padding: 15px; /* Aggiungi un padding per il bottone */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group textarea {
+        font-size: 16px; /* Aumento della dimensione del testo per input */
+        padding: 12px; /* Aggiungi padding per una migliore esperienza */
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .steps {
+        width: 80%; /* Aumenta la larghezza per la visualizzazione sui dispositivi mobili */
+    }
+
+    .step {
+        width: 35px; /* Cambia la dimensione del cerchio dei passi */
+        height: 35px;
+    }
+}
+
+/* Responsiveness for medium screens (max-width: 992px) */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    button {
+        width: 100%; /* Il bottone si espande alla larghezza completa */
+        padding: 20px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group textarea {
+        font-size: 15px; /* Ridurre la dimensione del font per schermi medi */
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .steps {
+        width: 70%; /* Imposta una larghezza fissa per schermi medi */
+    }
+
+    .step {
+        width: 40px; /* Aumenta la dimensione del cerchio dei passi */
+        height: 40px;
+    }
+}
+
+/* Responsiveness for larger screens (desktop, min-width: 992px) */
+@media (min-width: 992px) {
+    main {
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        width: 30%; /* Imposta la larghezza del bottone per schermi larghi */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .steps {
+        width: 60%; /* Imposta una larghezza minore per schermi larghi */
+    }
+
+    .step {
+        width: 50px; /* Aumenta ulteriormente la dimensione dei passi */
+        height: 50px;
+    }
+}
+
+/* Responsiveness for large screens (min-width: 1400px) */
+@media (min-width: 1400px) {
+    main {
+        max-width: 1000px; /* Imposta una larghezza maggiore per schermi molto larghi */
+    }
+
+    .steps {
+        width: 50%; /* Riduci la larghezza per schermi molto grandi */
+    }
+}
+
+/* Menu principale */
+.menu {
+    display: flex; /* Usa flexbox per allineare le voci */
+    justify-content: space-between; /* Spaziatura equa tra gli elementi */
+    align-items: center; /* Allineamento verticale al centro */
+}
+
+.nav-list {
+    display: flex; /* Allinea gli elementi orizzontalmente */
+    gap: 20px; /* Spazio tra le voci del menù */
+    list-style: none; /* Rimuove i punti elenco */
+    padding: 0;
+}
+
+.social-list {
+    display: flex; /* Allinea le icone social orizzontalmente */
+    gap: 15px; /* Spazio tra le icone social */
+    list-style: none; /* Rimuove i punti elenco */
+    padding: 0;
+}
+
+
