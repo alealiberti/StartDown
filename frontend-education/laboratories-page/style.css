@@ -3,33 +3,36 @@
 @media (max-width: 992px) {
     header.hero {
       /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('./../../../public/images/home-images/header/cascina-caccia-756px.webp');
+      background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
       height: 30vh;
+      margin-top: 0px;
     }
   }
   
   @media (min-width: 992px) and (max-width: 1400px) {
     header.hero {
       /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('./../../../public/images/home-images/header/cascina-caccia-992px.webp');
+      background-image: urlurl('/public/images/home-images/header/cascina-caccia-922px.webp');
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
       height: 30vh;
+      margin-top: 70px;
     }
   }
   
   @media (min-width: 1400px) {
     header.hero {
       /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('./../../../public/images/home-images/header/cascina-caccia-1400px.webp');
+      background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
       height:30vh;
+      margin-top: 0px;
     }
   }
 
@@ -73,6 +76,8 @@ h1{
     align-items: center;
     width: 100%;
   }
+  
+  
   
   article{
     display: block;

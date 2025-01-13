@@ -13,6 +13,10 @@
   --orange-color-logo: #E69731; /* logo color */
   --magenta-color-logo: #D2277C; /* Secondary color */
   --yellow-color-logo: #FDE039; /* Tertiary color */
+
+  --color-input: #e0e0e0;
+  --color-input-focus: #d2d2d2;
+  --color-input-text: 868686;
   
   /* Color variables */
   --orange-color: #E07B00; /* logo color */
@@ -162,23 +166,6 @@ main {
 
 * {
   scroll-behavior: smooth;
-}
-
-section{
-  width: 100%;
-
-  .container{
-    max-width: 680px;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  h2{
-    font-size: 1.8rem;
-  }
-  p{
-    font-size: 1rem;
-  }
 }
 
 main{

@@ -1,16 +1,20 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    build: {
-        // outDir: "../src/main/resources/static", // cartella di output
-        rollupOptions: {
-            input: {
-                home: "./index.html", // home page of education "Cascina Cacica"
-                contattaci: "./src/pages/forms-page/index.html",
-                laboratori: "./src/pages/laboratory-page/index.html",
-                eventi: "./src/pages/events-page/index.html"
-            }
-        },
+  base: './', // Usa percorsi relativi per il build
+  server: {
+    open: true, // Apre automaticamente il browser
+  },
+  build: {
+    outDir: "../src/main/resources/static",
+    rollupOptions: {
+      input: {
+        main: "./index.html",
+        contattaci: "./forms-page/index.html",
+        laboratori: "./laboratories-page/index.html",
+        eventi: "./events-page/index.html",
+      },
     },
-});
+  },
+}); 
 
