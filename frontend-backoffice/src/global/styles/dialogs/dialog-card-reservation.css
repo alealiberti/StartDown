@@ -1,4 +1,4 @@
-.modalReservation {
+.dialogReservation {
     display: none;
     position: fixed;
     bottom: 0;
@@ -6,5 +6,5 @@
     z-index: 10000;
     width: 100vw;
     height: 80vh;
-    background-color: purple;
+    background-color: whitesmoke;
 }

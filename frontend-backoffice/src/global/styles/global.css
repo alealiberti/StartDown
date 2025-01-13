@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 
 
@@ -11,16 +12,11 @@ html {
     color: var(--black-text-color);
 }
 
-/* @media (max-width: 768px) {
-    html {
-        font-size: 14px;
-    }
-} */
-
+/* main on all the pages of the backoffice */
 main {
     margin-left: 47px;
     min-height: 100vh;
-    background-color: aqua;
+    background-color: var(--primary-color);
     padding: 10px;
 }
 
@@ -31,22 +27,34 @@ main {
 }
 
 
-/* -------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------- */
 
 
+/* TODO ADD CASCINA CACCIA PRIMARY COLORS FROM FIGMA */
 :root {
     /* colors backgrounds */
-    --primary-color: #F4F4F9;
-    --secondary-color: #EBEBEB;
-    --third-color: #cdcccc;
-    --fourth-color: #454545;
+    --background-primary: #F4F4F9;
+    --background-secondary: #EBEBEB;
+    --background-third: #bcbcbc;
+    --background-fourth: #454545;
     --background-color-nav: #2A2A2A;
 
     /* colors texts */
     --dark-text-color: #242424;
     --white-text-color: #FFFFFF;
 
+    /* colors MAIN of cascina caccia */
+    --cascina-primary: #FFDC00;
+    --cascina-secondary: #D2277C;
+    --cascina-tertiary: #E69731;
+
+    /* colors LIGTH cascina caccia */
+    --cascina-primary-ligth: #fff29b;
+    --cascina-secondary-ligth: #ff9fcf;
+    --cascina-tertiary-ligth: #ffcc8a;
+
     /* fonts (titles && texts) */
-    --font-title: 'Inria Sans', serif;
+    --font-title: 'Montserrat', serif;
     --font-text: 'Roboto', sans-serif;
 }

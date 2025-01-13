@@ -2,14 +2,13 @@
 
 main h1 {
     font-family: var(--font-title);
-    font-size: 1.9em;
+    font-size: 1.6em;
     text-align: center;
     margin-top: 60px;
 }
 
 /* section containing the latest requests of questions / reservations */
 main section#requests {
-    background-color: yellow;
     min-height: 500px;
 }
 

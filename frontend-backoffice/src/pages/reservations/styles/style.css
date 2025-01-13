@@ -10,6 +10,5 @@ main h1 {
 
 /* section containing the latest requests of questions / reservations */
 main section#requests {
-    background-color: yellow;
     min-height: 500px;
 }

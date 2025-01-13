@@ -15,7 +15,10 @@ export default defineConfig({
     },
 
     server: {
-        open: '/index.html', // page opened for default
+        open: '/index.html', // first and main page which browser open (login page)
         port: 3000, // server port
+        fs: {
+            allow: ['src'],    // Permetti l'accesso alla directory src
+        },
     },
 });

@@ -18,8 +18,8 @@ body {
     position: relative;
     width: 85%;
     min-height: 600px;
-    background-color: var(--secondary-color);
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-secondary);
+    box-shadow: 5px 10px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 15px;
 }
@@ -28,25 +28,19 @@ body {
 /* logo admin placeholder || photo of the admin, positioned on the top of the container whit position: absolute */
 .adminLogo {
     position: absolute;
-    top: -60px;
+    top: -80px;
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
     height: 120px;
-    background-color: var(--third-color);
-    border: 1px solid black;
+    background-color: var(--background-primary);
     border-radius: 100px;
 }
 
-
 h1 {
+    text-align: center;
     font-size: 1.9rem;
     font-family: var(--font-title);
-}
-
-h1,
-h2 {
-    text-align: center;
 }
 
 
@@ -72,18 +66,17 @@ form {
 }
 
 input {
-    background-color: var(--third-color);
+    background-color: var(--background-primary);
     border: 0px;
     font-size: 0.7rem;
-    padding: 13px 10px;
+    padding: 12px 10px;
     border-radius: 10px;
 }
 
 button {
-    background-color: var(--third-color);
+    background: linear-gradient(60deg, var(--cascina-primary), var(--cascina-secondary-ligth), var(--cascina-secondary));
     font-family: var(--font-title);
     font-size: 1.1rem;
-    padding: 2px 60px;
-    border: 1px solid black;
+    padding: 5px 60px;
     border-radius: 5px;
 }

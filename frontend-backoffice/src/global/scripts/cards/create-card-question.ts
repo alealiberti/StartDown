@@ -5,7 +5,7 @@
  * @description 
  */
 
-import { CardQuestion } from "../../../../models/card-question.model";
+import { type CardQuestion } from "../../../models/card-question.model";
 
 
 
@@ -25,11 +25,17 @@ export function createCardQuestion(data: CardQuestion, template: HTMLTemplateEle
     // Trova il div principale della card all'interno del document-fragment, qui andranno popolati i dati delle richieste
     const cardQuestion = templateContent.querySelector(".cardQuestion") as HTMLElement;
 
+    //*** -------------------------------------------------------
+
     // those elements inside the container card, will recive a value (! sospended)
     cardQuestion.querySelector(".cardHeader h2.cardName")!.textContent = `${data.name} ${data.surname}`;
     cardQuestion.querySelector(".cardHeader p.cardEmail")!.textContent = data.email
     cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = data.dateSend;
-    cardQuestion.querySelector("p.cardBody")!.textContent = data.question;
+
+    // take the request and cut it for the card preview
+    const textBody: string = data.question.slice(0, 70).concat("...");
+    cardQuestion.querySelector("p.cardBody")!.textContent = textBody;
+
 
     return cardQuestion;
 }

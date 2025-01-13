@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 140px;
-    background-color: green;
+    background-color: var(--background-secondary);
     padding: 8px 7px;
     border-radius: 5px;
     margin-bottom: 30px;
@@ -19,7 +19,8 @@
 
 .cardQuestion .cardHeader h2.cardName {
     font-family: var(--font-title);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
 }
 
 .cardQuestion .cardHeader p.cardEmail {
@@ -31,14 +32,12 @@
 }
 
 
-
 /**02. card body preview message text (text of the question) */
 .cardQuestion p.cardBody {
     width: 65%;
     font-size: 0.85rem;
     text-decoration: underline;
 }
-
 
 
 /**03. card footer whit the icons for the fast action on the quesion (delete + archite) */

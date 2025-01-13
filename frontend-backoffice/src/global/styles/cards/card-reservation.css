@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 140px;
-    background-color: orangered;
+    background-color: var(--background-secondary);
     padding: 8px 7px;
     border-radius: 5px;
     margin-bottom: 30px;
@@ -19,7 +19,8 @@
 
 .cardReservation .cardHeader h2.cardName {
     font-family: var(--font-title);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
 }
 
 .cardReservation .cardHeader p.cardEmail {
@@ -29,7 +30,6 @@
 .cardReservation .cardHeader p.cardDate {
     font-size: 0.8rem;
 }
-
 
 
 /**02. card footer which contains:
@@ -47,14 +47,15 @@
 }
 
 .cardReservation .cardFooter .cardState ion-icon {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 2px;
 }
 
 .cardReservation .cardFooter .cardState p.stateDescription {
     font-size: 0.7rem;
+    font-weight: 600;
     text-decoration: underline;
 }
-
 
 .cardReservation .cardFooter .cardActions {
     display: flex;

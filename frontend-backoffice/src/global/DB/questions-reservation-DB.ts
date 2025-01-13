@@ -7,13 +7,62 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 // Dati di esempio temporanei da utilizzare per le questions 
 export const questionsData: CardQuestion[] = [
-    { id: 0, name: "Mario", surname: "Rossi", phone: "3384465353", email: "mario@example.com", dateSend: "10/23/2021", question: "Domanda 1" },
-    { id: 1, name: "Gianluigi", surname: "Romano", phone: null, email: "gianluigi@example.com", dateSend: "12/05/2023", question: "Domanda 2" },
-    { id: 2, name: "Giorgio", surname: "Bianchi", phone: "3384465353", email: "giorgio@example.com", dateSend: "03/22/2023", question: "Domanda 3" },
-    { id: 3, name: "Francesca", surname: "Verdi", phone: null, email: "francesca@example.com", dateSend: "04/13/2023", question: "Domanda 4" },
-    { id: 4, name: "Alessandro", surname: "Neri", phone: null, email: "alessandro@example.com", dateSend: "12/10/2022", question: "Domanda 5" },
-    { id: 5, name: "Lucia", surname: "Gialli", phone: "3384465353", email: "lucia@example.com", dateSend: "11/30/2022", question: "Domanda 6" },
+    {
+        id: 0,
+        name: "Mario",
+        surname: "Rossi",
+        phone: "3384465353",
+        email: "mario@example.com",
+        dateSend: "10/23/2021",
+        question: "Salve, vorrei avere maggiori informazioni riguardo alla possibilità di prenotare un'attrezzatura sportiva per un'intera settimana. Quali sono i costi e le modalità di pagamento disponibili?"
+    },
+    {
+        id: 1,
+        name: "Gianluigi",
+        surname: "Romano",
+        phone: null,
+        email: "gianluigi@example.com",
+        dateSend: "12/05/2023",
+        question: "Buongiorno, mi chiedevo se fosse possibile avere uno sconto per gruppi numerosi. Il nostro gruppo è composto da oltre 10 persone, e siamo interessati a un noleggio giornaliero."
+    },
+    {
+        id: 2,
+        name: "Giorgio",
+        surname: "Bianchi",
+        phone: "3384465353",
+        email: "giorgio@example.com",
+        dateSend: "03/22/2023",
+        question: "Ciao, potreste fornirmi una lista dettagliata delle attrezzature sportive disponibili e delle relative condizioni d'uso? Vorrei organizzare un evento aziendale e ho bisogno di informazioni precise."
+    },
+    {
+        id: 3,
+        name: "Francesca",
+        surname: "Verdi",
+        phone: null,
+        email: "francesca@example.com",
+        dateSend: "04/13/2023",
+        question: "Vorrei sapere se offrite pacchetti speciali per famiglie. Ho due bambini piccoli e vorremmo trascorrere una giornata in palestra utilizzando le vostre attrezzature e partecipando a qualche attività organizzata."
+    },
+    {
+        id: 4,
+        name: "Alessandro",
+        surname: "Neri",
+        phone: null,
+        email: "alessandro@example.com",
+        dateSend: "12/10/2022",
+        question: "Salve, ho visto che avete opzioni di prenotazione online. Mi piacerebbe sapere se c'è una possibilità di modifica delle date una volta effettuata la prenotazione, nel caso in cui ci fossero imprevisti."
+    },
+    {
+        id: 5,
+        name: "Lucia",
+        surname: "Gialli",
+        phone: "3384465353",
+        email: "lucia@example.com",
+        dateSend: "11/30/2022",
+        question: "Buongiorno, vorrei chiedere informazioni sulla durata massima del noleggio. C'è un limite di tempo giornaliero o settimanale, e quali sono le penali in caso di ritardo nella restituzione?"
+    }
 ];
+
 
 // Dati di esempio temporanei da utilizzare per le reservations
 export const reservationsData: CardReservation[] = [
