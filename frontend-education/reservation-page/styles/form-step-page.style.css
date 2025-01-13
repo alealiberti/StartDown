@@ -94,7 +94,7 @@ form{
     position: absolute;
     top: 30px;
     left: 0;
-    height: 550px;
+    height: 850px;
     width: 100%;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
