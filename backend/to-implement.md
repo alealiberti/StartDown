@@ -1,39 +1,15 @@
-# DAOs
+# Authorization
 
-- find by date send (ordered)
-- find by date start
-- find by status
-- find by visitors
-
-# Services
-
-- get all
-- get by date
-- get by status
-- get by visitors
-
-# Service Implementations
-
-- implements all the methods above
-- exceptions (optional)
-
-# Configuration
-
-- PasswordChangeRequest
-
-# Mail Sender
-
-- a chi fa la richiesta
-- agli utenti admin
-
-# REST Controllers
-
-- mail sender (on Create requests)
-- exceptions (optional)
+- Token authorization da passare al frontend
 
 # DB
 
-- creazione di un utente OWNER da default alla creazione del DB
+- Creazione di un utente OWNER da default alla creazione del DB
+- Data dump
+
+# Protected routing
+
+- Implementazione routes protette da autenticazione
 
 # DOCS
 
