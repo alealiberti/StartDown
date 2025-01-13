@@ -1,0 +1,656 @@
+{
+  "info": {
+    "_postman_id": "344d2212-24e9-4468-b89f-bdf7f6cd794a",
+    "name": "Cascina Caccia",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32783510"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "getAllUsers",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getUserById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/2",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users", "2"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getUserByEmail",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/email/startdownadm@gmail.com",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "users",
+                    "email",
+                    "startdownadm@gmail.com"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "createUser",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Prova\",\r\n    \"surname\": \"Prova\",\r\n    \"email\": \"password@password\",\r\n    \"password\": \"Password123*\",\r\n    \"role\": \"ADMIN\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/create-user",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users", "create-user"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PUT",
+          "item": [
+            {
+              "name": "updateUser",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "username",
+                      "value": "startdownadm@password",
+                      "type": "string"
+                    },
+                    {
+                      "key": "password",
+                      "value": "Password123*",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Nome Prova\",\r\n    \"email\": \"startdownadm@gmail.com\",\r\n    \"role\": \"ADMIN\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/update-user",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users", "update-user"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "changeUserPassword",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\"Password123*\"",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/change-user-password/2",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "users",
+                    "change-user-password",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "changePassword",
+              "request": {
+                "auth": {
+                  "type": "basic",
+                  "basic": [
+                    {
+                      "key": "password",
+                      "value": "Password123*",
+                      "type": "string"
+                    },
+                    {
+                      "key": "username",
+                      "value": "startdownadm@gmail.com",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"oldPassword\": \"Password123*\",\r\n  \"newPassword\": \"Password124*\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/change-password",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users", "change-password"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateUserRole",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"id\": 2,\r\n    \"role\": \"ADIMN\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/update-user-role",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users", "update-user-role"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "DELETE",
+          "item": [
+            {
+              "name": "deleteUser",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/users/delete-user/3",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "users", "delete-user", "3"]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reservation",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "getAllReservations",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "reservations"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getReservationById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/1",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "reservations", "1"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getReservationByVisitors",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/visitors",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "reservations", "visitors"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getReservationByStatus",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/status/Aperta",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "reservations", "status", "Aperta"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getReservationByDateStart",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/datestart",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "reservations", "datestart"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getReservationByDateSend",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/datesend",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "reservations", "datesend"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "createReservation",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"string\",\r\n  \"surname\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"email\": \"startdownadm@gmail.com\",\r\n  \"dateStart\": \"2025-01-13\",\r\n  \"dateFinish\": \"2025-01-13\",\r\n  \"hourStart\": \"14:30\",\r\n  \"hourFinish\": \"15:30\",\r\n  \"typeGroup\": \"Famiglia\",\r\n  \"visitors\": 4,\r\n  \"companions\": 0,\r\n  \"additionalInfo\": \"string\",\r\n  \"mobilityProblems\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/create-reservation",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "reservations",
+                    "create-reservation"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PUT",
+          "item": [
+            {
+              "name": "updateReservation",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Franco Modificato\",\r\n    \"surname\": \"Gialli\",\r\n    \"phone\": \"3311243123\",\r\n    \"email\": \"startdownadm@gmail.com\",\r\n    \"dateStart\": \"2025-03-18\",\r\n    \"dateFinish\": null,\r\n    \"hourStart\": \"14:30:00\",\r\n    \"hourFinish\": \"15:30:00\",\r\n    \"status\": \"Ricevuta\",\r\n    \"typeGroup\": \"Famiglia\",\r\n    \"visitors\": 4,\r\n    \"companions\": null,\r\n    \"additionalInfo\": null,\r\n    \"mobilityProblems\": false\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/update-reservation/1",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "reservations",
+                    "update-reservation",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "DELETE",
+          "item": [
+            {
+              "name": "deleteReservation",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/reservations/delete-reservation/4",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "reservations",
+                    "delete-reservation",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Information",
+      "item": [
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "getAllInformations",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "informations"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getInformationByStatus",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations/status/Ricevuta",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "informations",
+                    "status",
+                    "Ricevuta"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getInformationById",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations/1",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "informations", "1"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "getInformationByDateSend",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations/datesend",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": ["cascina-caccia", "informations", "datesend"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "createInformation",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"string\",\r\n  \"surname\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"email\": \"startdownadm@gmail.com\",\r\n  \"text\": \"string\",\r\n  \"status\": \"string\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations/create-information",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "informations",
+                    "create-information"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PUT",
+          "item": [
+            {
+              "name": "updateInformation",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"string\",\r\n    \"surname\": \"string\",\r\n    \"phone\": \"string\",\r\n    \"email\": \"startdownadm@gmail.com\",\r\n    \"dateSend\": \"2025-01-13\",\r\n    \"text\": \"string\",\r\n    \"status\": \"Chiusa\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations/update-information/5",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "informations",
+                    "update-information",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "DELETE",
+          "item": [
+            {
+              "name": "deleteInformation",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/cascina-caccia/informations/delete-information/5",
+                  "protocol": "http",
+                  "host": ["localhost"],
+                  "port": "8080",
+                  "path": [
+                    "cascina-caccia",
+                    "informations",
+                    "delete-information",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "password",
+        "value": "Password123*",
+        "type": "string"
+      },
+      {
+        "key": "username",
+        "value": "startdownadm@gmail.com",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ]
+}
