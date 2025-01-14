@@ -18,7 +18,7 @@ body {
     position: relative;
     width: 85%;
     min-height: 600px;
-    background: linear-gradient(to bottom, var(--cascina-secondary), var(--background-third));
+    background-color: var(--background-third);
     box-shadow: 5px 10px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 15px;
