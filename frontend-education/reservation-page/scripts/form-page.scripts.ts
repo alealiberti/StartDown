@@ -95,3 +95,17 @@
 
   // Inizializza la prima sezione visibile
   showSection(currentSectionIndex);
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

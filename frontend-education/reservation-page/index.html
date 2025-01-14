@@ -113,7 +113,7 @@
                   EVENTI
                 </a></li>
                 
-                <li><a href="./contattaci/index.html" title="Vai alla sezione contattaci">
+                <li><a href="../reservation-page/index.html" title="Vai alla sezione contattaci">
                   <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
                     <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
@@ -180,17 +180,16 @@
                     <label for="surname">Cognome: <span class="required-icon">*</span></label>
                     <input type="text" name="surname" id="surname" required placeholder="Inserisci il tuo cognome">
                 </div>
-
-                <div class="form-group">
-                    <label for="phone">Telefono: <span class="required-icon">*</span></label>
-                    <input type="tel" name="phone" id="phone" required placeholder="Inserisci il tuo numero di telefono">
-                </div>
                 
                 <div class="form-group">
                     <label for="email">Email: <span class="required-icon">*</span></label>
                     <input type="email" name="email" id="email" required placeholder="Inserisci la tua email">
                 </div>
                 
+                <div class="form-group">
+                    <label for="phone">Telefono: </label>
+                    <input type="tel" name="phone" id="phone"  placeholder="Inserisci il tuo numero di telefono">
+                </div>
                 <div class="form-group-button">
                     <button class="next">Prossimo</button>
                 </div>
@@ -206,26 +205,6 @@
                       </svg>
                     Informazioni visita
                 </h2>
-
-                <div class="form-group">
-                  <label for="dateStart">Data di inizio:</label>
-                  <input type="date" id="dateStart" name="dateStart" class="form-control" required>
-                </div>
-              
-                <div class="form-group">
-                  <label for="hourStart">Orario di inizio:</label>
-                  <input type="time" id="hourStart" name="hourStart" class="form-control" required>
-                </div>
-              
-                <div class="form-group">
-                  <label for="dateFinish">Data di fine:</label>
-                  <input type="date" id="dateFinish" name="dateFinish" class="form-control" required>
-                </div>
-              
-                <div class="form-group">
-                  <label for="hourFinish">Orario di fine:</label>
-                  <input type="time" id="hourFinish" name="hourFinish" class="form-control" required>
-                </div>              
                 
                 <div class="form-group">
                     <label for="typeGroup">Tipo di gruppo<span class="required-icon">*</span>:</label>
@@ -238,28 +217,47 @@
                     </select>
                 </div>
                 
-                <div class="form-group">
-                    <label for="visitors">Numero di visitatori:<span class="required-icon">*</span></label>
-                    <input type="number" name="visitors" id="visitors" required min="1" max="70" placeholder="Inserisci il numero di visitatori">
-                </div>
+                <!-- Campo Numero di Accompagnatori -->
+            <div class="form-group">
+              <div>
+                  <label for="companions">N. di Accompagnatori </label>
+                  <input type="number" id="companions" name="companions" placeholder="N. accompagnatori">
+              </div>
+              <div>
+                  <label for="visitors">N. di Partecipanti <span class="required-icon">*</span></label>
+                  <input type="number" id="visitors" name="visitors" placeholder="N. partecipanti" required>
+              </div>
+          </div>
                 
-                <div class="form-group">
-                    <label for="tipo-visita">Tipo di visita:<span class="required-icon">*</span></label>
-                    <select name="tipo-visita" id="tipo-visita" required>
-                        <option value="" disabled selected>Seleziona il tipo di visita</option>
-                        <option value="laboratorio">Laboratorio</option>
-                        <option value="escursione">Escursione</option>
-                        <option value="evento">Evento speciale</option>
-                        <option value="tour">Tour guidato</option>
-                    </select>
+                <!-- Data -->
+                <div class="form-group time-group">
+                  <div class="time-input">
+                    <label for="dateStart">Data di inizio <span class="required-icon">*</span></label>
+                    <input type="date" id="dateStart" name="dateStart" required />
+                  </div>
+                  <div class="time-input">
+                    <label for="dateFinish">Data di fine </label>
+                    <input type="date" id="dateFinish" name="dateFinish" />
+                  </div>
                 </div>
-                
+
+                <!-- Orario -->
+                <div class="form-group time-group" id="time-selection">
+                  <div class="time-input">
+                    <label for="hourStart">Ora di Inizio </label>
+                    <input type="time" id="hourStart" name="hourStart" />
+                  </div>
+                  <div class="time-input">
+                    <label for="hourFinish">Ora di Fine </label>
+                    <input type="time" id="hourFinish" name="hourFinish"  />
+                  </div>
+                </div>
+
                 <div class="form-group-button">
                     <button class="next">Prossimo</button>
                     <button class="back"><i style='font-size:24px' class='fas'>&#xf359;</i></button>
                 </div>
             </section>
-            
             
             <!-- Sezione 4: Informazioni Aggiuntive (facoltativa) -->
             <section id="informazioni-aggiuntive" class="form-section">
@@ -274,26 +272,25 @@
                 
                 <!-- Richieste stepsicolari o esigenze speciali -->
                 <div class="form-group">
-                    <label for="additionalInfo">Richieste stepsicolari o esigenze speciali:</label>
-                    <textarea name="additionalInfo" id="additionalInfo" rows="4" placeholder="Inserisci eventuali richieste o esigenze stepsicolari"></textarea>
+                    <label for="additionallinfo">Richieste stepsicolari o esigenze speciali:</label>
+                    <textarea name="additionallinfo" id="additionallinfo" rows="15" placeholder="Inserisci eventuali richieste o esigenze stepsicolari"></textarea>
                 </div>
                 
                 <!-- Checkbox per Problemi di Mobilità -->
                 <div class="form-group">
-                    <label for="mobilityProblems" class="checkbox">
-                        <input type="checkbox" name="mobilityProblems" id="mobilityProblems">
-                        <span></span>
-                        Ho problemi di mobilità
-                    </label>
-                </div>
+                  <label for="mobilityProblems" class="checkbox">
+                      <input type="checkbox" name="mobilityProblems" id="mobilityProblems" value="true">
+                      <span></span>
+                      Ho problemi di mobilità
+                  </label>
+              </div>
                 
                 <div class="form-group-button">
-                    <button type="submit">Invia</button>
-                    <button class="back"><i style='font-size:24px' class='fas'>&#xf359;</i></button>  
+                  <button type="submit" id="submitButton" class="image-button">Invia richiesta</button>
+                  <button class="back"><i style='font-size:24px' class='fas'>&#xf359;</i></button>  
                 </div>
             </section>
             
-            <!-- Sezione 5: Conferma e Invio -->
         </form>
 </main>
 
@@ -312,7 +309,7 @@
       
       <div class="contacts">
         <p>
-          <a href="./src/pages/forms-page/index.html" title="Vai alla sezione contattaci">Contattaci</a>
+          <a href="../contacts-page/index.html" title="Vai alla sezione contattaci">Fai qui la tua domanda</a>
         </p>
         <p>
           Via Serra Alta, 6, San Sebastiano da Po (TO)
@@ -366,5 +363,7 @@
   </footer>
 
 <script type="module" src="./scripts/main.ts"></script>
+<script src="./scripts/script.js" defer></script>
+
 </body>
 </html>
