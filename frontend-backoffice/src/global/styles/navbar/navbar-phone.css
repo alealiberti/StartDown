@@ -84,7 +84,7 @@ HIDE the line border under the icon when the sidebar is open! */
 #sidebar .navLabel {
     display: none;
     font-family: var(--font-title);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 

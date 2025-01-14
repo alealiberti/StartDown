@@ -16,8 +16,8 @@ html {
 main {
     margin-left: 47px;
     min-height: 100vh;
-    background-color: var(--primary-color);
-    padding: 10px;
+    background-color: var(--background-secondary);
+    padding: 5px;
 }
 
 *,
@@ -34,7 +34,7 @@ main {
 /* TODO ADD CASCINA CACCIA PRIMARY COLORS FROM FIGMA */
 :root {
     /* colors backgrounds */
-    --background-primary: #F4F4F9;
+    --background-primary: #ffffff;
     --background-secondary: #EBEBEB;
     --background-third: #bcbcbc;
     --background-fourth: #454545;

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 140px;
-    background-color: var(--background-secondary);
+    background-color: var(--background-primary);
     padding: 8px 7px;
     border-radius: 5px;
     margin-bottom: 30px;

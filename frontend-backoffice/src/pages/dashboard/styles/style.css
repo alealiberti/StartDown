@@ -2,9 +2,66 @@
 
 main h1 {
     font-family: var(--font-title);
-    font-size: 1.6em;
+    font-size: 1.7rem;
     text-align: center;
-    margin-top: 60px;
+    margin: 60px 0 30px;
+}
+
+main>h2 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    text-align: center;
+    text-decoration: underline;
+    margin: 40px 0;
+}
+
+
+/* -------------------------------------------------------------- */
+
+
+/* section contains block which show an review of informations in the home dashboard */
+main section#infoToday {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*  styling the cards of each information (questions, reservations, views) */
+main section#infoToday .infoCard {
+    background-color: var(--background-primary);
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+main section#infoToday .infoCard:hover {
+    transform: translateY(-5px);
+}
+
+/* container which contains the icon and the number of the total new requests */
+main section#infoToday .iconContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+main section#infoToday .iconContainer p.total {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cascina-secondary);
+}
+
+main section#infoToday .iconContainer ion-icon {
+    font-size: 2rem;
+    color: var(--background-third)
+}
+
+/* description of the information container*/
+main section#infoToday .infoCard p.description {
+    font-size: 0.7rem;
+    color: #6c757d;
+    margin: 0;
 }
 
 /* section containing the latest requests of questions / reservations */
@@ -12,9 +69,5 @@ main section#requests {
     min-height: 500px;
 }
 
-main>h2 {
-    font-family: var(--font-text);
-    text-align: center;
-    text-decoration: underline;
-    margin: 40px 0;
-}
+
+/* -------------------------------------------------------------- */
