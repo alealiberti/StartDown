@@ -1,0 +1,229 @@
+h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 500;
+    gap: 10px;
+}
+
+p{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+main{
+    max-width: 800px;
+    width: 100%;
+}
+
+.steps{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width:100%; 
+    max-width: 400px;
+    margin: 0 auto;
+    
+}
+
+.step{
+    width: 30px;
+    height: 30px;
+    gap: 5px;
+    background-color: var(--magenta-color-logo);
+    border-radius: 50%;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}    
+.steps p{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.line-background {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--color-input);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.line-progress {
+    width: 0;
+    height: 100%;
+    background-color: var(--magenta-color-logo);
+    transition: width 0.3s ease-in-out;
+}
+
+form{
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 80%;
+        max-width: 500px;
+        margin: 20px auto;
+    }
+    
+    .form-group-button{
+        text-align: right;
+        gap: 5px;
+        width: 80%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+.form-section {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    height: 850px;
+    width: 100%;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 0;
+    transform: translateX(100%);
+}
+
+.form-section:first-child {
+    position: relative;
+    opacity: 0;
+}
+
+.form-section.active {
+    opacity: 1;
+    z-index: 1;
+    transform: translateX(0);
+}
+
+label{
+    font-size: 1rem;
+    
+    .required-icon{
+        font-family: "Arial";
+        color: red;
+        font-weight: bold;
+    }
+}
+
+input, textarea{
+    font-family: 'Montserrat';
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-input);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: none;
+    color: var(--color-input-text);
+}
+
+select{
+    font-family: 'Montserrat';
+    padding: 10px;
+    background-color: var(--color-input);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: none;
+    color: var(--color-input-text);
+}
+
+input:focus, textarea:focus{
+    outline: none;
+    background-color: var(--color-input-focus);
+}
+
+form label.checkbox input[type="checkbox"]{
+    display: none;
+}
+
+form label.checkbox{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaa;
+    border-radius: 50%; /* Crea un cerchio */
+    margin-right: 10px;
+    position: relative;
+    background-color: white;
+}
+
+/* Stile quando il checkbox è selezionato */
+.checkbox input[type="checkbox"]:checked ~ span {
+    background-color: var(--magenta-color-logo);
+    border-color: var(--magenta-color-logo);
+}
+
+.checkbox input[type="checkbox"]:checked ~ span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form .form-group-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+form button {
+    color: var(--primary-color);
+    display: block;
+    background-image: url(/public/images/button-background/button-background.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 100%;
+}
+
+form button.back{
+    background-color: #ffffff00;
+    background-image: none;
+    color: var(--color-input-focus);
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 34px;
+}
+
+button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}

@@ -1,0 +1,149 @@
+
+/** --- HEADING SESSION --- */
+@media (max-width: 992px) {
+  header.hero {
+    /* Impostazioni generali per l'immagine di sfondo */
+    background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1400px) {
+  header.hero {
+    margin-top: 30px;
+    /* Impostazioni generali per l'immagine di sfondo */
+    background-image: url('/public/images/home-images/header/cascina-caccia-992px.webp');
+  }
+}
+
+@media  (min-width: 1400px) {
+  header.hero {
+    /* Impostazioni generali per l'immagine di sfondo */
+    background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
+  }
+}
+
+header.hero p{
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+header.hero {
+  background-size: cover; /* Adatta l'immagine senza tagliarla */
+  background-position: center; /* Posiziona la parte superiore dell'immagine */
+  background-attachment: scroll; /* Evita problemi di scorrimento */
+  height: 90vh;
+}
+
+/* Animazione del logo */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(2); /* Effetto opzionale di leggero zoom */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* Ritorna alla dimensione normale */
+  }
+}
+
+header.hero {
+  /* header a schermo intero */
+  width: 100%;
+  animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
+}
+
+header.hero .img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header.hero .img-container img {
+  opacity: 0; /* Stato iniziale */
+  animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
+  max-width: 260px;
+  height: auto;
+}
+
+
+header.hero .header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height:fit-content;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);  
+  width: fit-content;
+  color: var(--primary-color);  
+}
+@media (min-width: 992px) {
+  h1 strong {
+    white-space: nowrap;
+  }
+}
+
+header.hero hr {
+  border: none; /* Rimuove il bordo predefinito */
+  height: 7px; /* Altezza della linea */
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    var(--orange-color-logo) 0%,
+    var(--orange-color-logo) 33.33%,
+    var(--magenta-color-logo) 33.33%,
+    var(--magenta-color-logo) 66.66%,
+    var(--yellow-color-logo) 66.66%,
+    var(--yellow-color-logo) 100%
+  );
+  margin: 0px 0px 25 px 0px;
+}
+
+header .title{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 35px;
+}
+
+header .black-blur a {
+  color: var(--primary-color);
+  display: block; /* Rende il bottone un elemento blocco */
+  background-image: url('/public/images/button-background/button-background.png'); /* Percorso immagine */
+  background-size: contain; /* Adatta immagine senza tagliarla */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 200px; /* Adatta alla larghezza del contenitore genitore */
+  text-align: center;
+  margin-top: 60px;
+  padding: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+header .black-blur a:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+  header.hero .header-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    width: 90%;
+    height:fit-content;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  header .img-container img{
+    display: none;
+  }
+}

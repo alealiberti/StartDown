@@ -1,0 +1,260 @@
+/*
+* name: style.css
+* author: Burbulia Alessio
+* 
+* description: Root File contains the base style of the project
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+/* Root variables for base styling */
+:root {
+  /* Color variables logo */
+  --orange-color-logo: #E69731; /* logo color */
+  --magenta-color-logo: #D2277C; /* Secondary color */
+  --yellow-color-logo: #FDE039; /* Tertiary color */
+
+  --color-input: #e0e0e0;
+  --color-input-focus: #d2d2d2;
+  --color-input-text: 868686;
+  
+  /* Color variables */
+  --orange-color: #E07B00; /* logo color */
+  --magenta-color: #DE0A7D; /* Secondary color */
+  --yellow-color: #FFDC00; /* Tertiary color */
+  
+  /* text and background colors */
+  --secondary-color: #0F0F0F;   /* Text color */
+  --primary-color: #f5f5f5; /* Background color */
+  
+  /* Spacing variables */
+  --spacing-xs: 8px; /* Extra small spacing */
+  --spacing-sm: 16px; /* Small spacing */
+  --spacing-md: 24px; /* Medium spacing */
+  --spacing-lg: 32px; /* Large spacing */
+  
+  /* Font variables */
+  --font-family-title: 'Arial', sans-serif; /* Font for titles */
+  --font-family-content: 'Montserrat', sans-serif; /* Font for content */
+  --font-weight-normal: 400; /* Normal font weight */
+  --font-weight-bold: 700; /* Bold font weight */
+}
+
+/* Global styles */
+
+
+*, *::before, *::after {
+  box-sizing: inherit; /* Apply box-sizing to all elements */
+}
+
+* {
+  box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+
+body {
+  font-family: var(--font-family-content); /* Set the font for body text */
+  font-size: 18px; /* Default font size */
+  background-color: var(--primary-color); /* Background color for the page */
+  color: var(--secondary-color); /* Text color for the body */
+  line-height: 1.6; /* Line height for readability */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+html, body {
+  height: 100%; /* Imposta la altezza al 100% per l'intera pagina */
+  margin: 0; /* Rimuove il margine predefinito */
+  overflow-y: scroll; /* Abilita lo scorrimento verticale */
+  overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
+}
+
+/* Stile per il resto della pagina */
+body *:not(.carousel)::-webkit-scrollbar {
+  width: 10px;
+}
+
+body *:not(.carousel)::-webkit-scrollbar-thumb {
+  background-color: #b3b3b3;
+  border-radius: 4px;
+}
+
+body *:not(.carousel)::-webkit-scrollbar-track {
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+}
+
+/* Rimuovi il custom scrollbar dal carosello */
+.carousel::-webkit-scrollbar {
+  width: auto; /* Valore predefinito del browser */
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: initial;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background-color: initial;
+}
+
+/* Text styles for headers and paragraphs */
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title); /* Title font family */
+  font-weight: var(--font-weight-bold); /* Bold font weight for headers */
+}
+
+p {
+  margin-bottom: var(--spacing-sm); /* Small margin at the bottom of paragraphs */
+}
+
+/* Specific style for the first level header */
+h1 {
+  -webkit-user-select: none; /* not allowed to select text */
+  user-select: none; /* not allowed to select text */
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.img-container {
+  display: flex; /* For flexible alignment */
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center; /* Centers the image vertically */
+  overflow: hidden; /* Hides content that exceeds the container's boundaries */
+  border-radius: 8px; /* Rounds the container's corners */
+  width: 90%; /* Container width */
+  height: auto; /* Container height */
+}
+
+.img-container img {  
+  width: 100%; /* The image fills the container width */
+  height: auto; /* Maintains the aspect ratio */  
+}
+
+.black-blur{
+  width: 100%;
+  height: 100%;
+  
+  background-color: rgba(0, 0, 0, 0.61);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+}
+
+.bold{
+  font-weight: var(--font-weight-bold);
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+article .img-container {
+  float: none; /* Su schermi più piccoli, disabilitiamo il float */
+  width: 100%; /* Adatta alla larghezza del contenitore */
+}
+
+@media (min-width: 1400px) {
+  article .img-container {
+    position: relative;
+    top: 40px;
+    float: right; /* L'immagine sarà a sinistra */
+    margin-left: 30px; /* Spazio tra immagine e testo */
+    margin-bottom: 50px;
+    max-width: 65%; /* L'immagine non occupa tutto lo spazio */
+  }
+}
+
+article header div h2{
+  font-size: 2.5rem;
+  padding: 0px 20px;
+  width: fit-content;
+}
+
+article header::before {
+  content: "";
+  display: block;
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--secondary-color);
+  z-index: -1;
+}
+
+article header.single-line::before {
+  top: 65px;
+}
+
+article header.double-line::before {
+  top: 95px;
+}
+
+article header > div {
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+  z-index: 1;
+  padding: 30px 10px;
+  background-color: var(--primary-color);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+@media (max-width: 756px) {
+  article header h2{
+    font-size: 1.5rem;
+  }
+  article hr{
+    display: none;
+  }
+}
+
+article p{
+  font-size: 1.2rem;
+}
+
+strong{
+  font-weight: bold;
+}
+
+article p{
+  padding: 30px 0px;
+}
+
+section.dark-style{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+section.light-style{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}

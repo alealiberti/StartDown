@@ -1,0 +1,258 @@
+
+/** --- HEADING SESSION --- */
+@media (max-width: 992px) {
+    header.hero {
+      /* Impostazioni generali per l'immagine di sfondo */
+      background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
+      background-size: cover; /* Adatta l'immagine senza tagliarla */
+      background-position: center; /* Posiziona la parte superiore dell'immagine */
+      background-attachment: scroll; /* Evita problemi di scorrimento */
+      height: 30vh;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1400px) {
+    header.hero {
+      /* Impostazioni generali per l'immagine di sfondo */
+      background-image: url('/public/images/home-images/header/cascina-caccia-992px.webp');
+      background-size: cover; /* Adatta l'immagine senza tagliarla */
+      background-position: center; /* Posiziona la parte superiore dell'immagine */
+      background-attachment: scroll; /* Evita problemi di scorrimento */
+      height: 30vh;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    header.hero {
+      /* Impostazioni generali per l'immagine di sfondo */
+      background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
+      background-size: cover; /* Adatta l'immagine senza tagliarla */
+      background-position: center; /* Posiziona la parte superiore dell'immagine */
+      background-attachment: scroll; /* Evita problemi di scorrimento */
+      height:30vh;
+    }
+  }
+
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* Animazione del logo */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(2); /* Effetto opzionale di leggero zoom */
+    }
+    to {
+      opacity: 1;
+      transform: scale(1); /* Ritorna alla dimensione normale */
+    }
+  }
+  
+  header.hero {
+    /* header a schermo intero */
+    width: 100%;
+    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
+  }
+  header.hero .img-container img {
+    opacity: 0; /* Stato iniziale */
+    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
+  }
+  
+  header.hero .img-container {
+    width: 80%;
+    max-width: 610px;
+  }
+  
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  article{
+    display: block;
+      margin: 20px;
+      width: 100%;
+      max-width: 900px;
+  }
+  
+  article .img-container{
+    width: 100%;
+    max-width: 900px;
+  
+    figcaption{
+      display: none;
+    }
+  }
+  
+  
+  h2{
+    font-size: 1.5rem;
+    padding: 0px 20px;
+  }
+  
+  strong{
+    font-weight: bold;
+  }
+  
+  main p{
+    padding: 15px;
+  }
+  
+/* General heading styles */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  
+  .answer, .reservation{
+      display: block;
+  }
+}
+
+h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 500;
+  gap: 10px;
+}
+
+p{
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+main{
+  overflow: hidden;
+  width: 100vw;
+  max-width: 800px;
+}
+
+form{
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  
+  .form-group{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+  }
+}
+
+label{
+  font-size: 1rem;
+  
+  .required-icon{
+      font-family: "Arial";
+      color: red;
+      font-weight: bold;
+  }
+}
+
+input, textarea{
+  font-family: 'Montserrat';
+  max-width: 100%;
+  padding: 10px;
+  background-color: var(--color-input);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: none;
+  color: var(--color-input-text);
+}
+
+select{
+  font-family: 'Montserrat';
+  padding: 10px;
+  background-color: var(--color-input);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: none;
+  color: var(--color-input-text);
+}
+
+input:focus, textarea:focus{
+  outline: none;
+  background-color: var(--color-input-focus);
+}
+
+form label.checkbox input[type="checkbox"]{
+  display: none;
+}
+
+form label.checkbox{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox span {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  border: 2px solid #aaa;
+  border-radius: 50%; /* Crea un cerchio */
+  margin-right: 10px;
+  position: relative;
+  background-color: white;
+}
+
+/* Stile quando il checkbox è selezionato */
+.checkbox input[type="checkbox"]:checked ~ span {
+  background-color: var(--input-accent-color);
+  border-color: var(--input-accent-color);
+}
+
+.checkbox input[type="checkbox"]:checked ~ span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form button {
+  color: var(--primary-color);
+  display: block;
+  background-image: url(/public/images/button-background/button-background.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 200px;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  border: none;
+  border-radius: 100%;
+
+}
+
+button:hover{
+  transform: scale(1.05);
+}

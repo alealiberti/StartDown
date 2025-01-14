@@ -1,0 +1,115 @@
+
+/** --- HEADING SESSION --- */
+@media (max-width: 992px) {
+    header.hero {
+      /* Impostazioni generali per l'immagine di sfondo */
+      background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
+      background-size: cover; /* Adatta l'immagine senza tagliarla */
+      background-position: center; /* Posiziona la parte superiore dell'immagine */
+      background-attachment: scroll; /* Evita problemi di scorrimento */
+      height: 30vh;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1400px) {
+    header.hero {
+      /* Impostazioni generali per l'immagine di sfondo */
+      background-image: url('/public/images/home-images/header/cascina-caccia-992px.webp');
+      background-size: cover; /* Adatta l'immagine senza tagliarla */
+      background-position: center; /* Posiziona la parte superiore dell'immagine */
+      background-attachment: scroll; /* Evita problemi di scorrimento */
+      height: 30vh;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    header.hero {
+      /* Impostazioni generali per l'immagine di sfondo */
+      background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
+      background-size: cover; /* Adatta l'immagine senza tagliarla */
+      background-position: center; /* Posiziona la parte superiore dell'immagine */
+      background-attachment: scroll; /* Evita problemi di scorrimento */
+      height:30vh;
+    }
+  }
+
+h1{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* Animazione del logo */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(2); /* Effetto opzionale di leggero zoom */
+    }
+    to {
+      opacity: 1;
+      transform: scale(1); /* Ritorna alla dimensione normale */
+    }
+  }
+  
+  header.hero {
+    /* header a schermo intero */
+    width: 100%;
+    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
+  }
+  header.hero .img-container img {
+    opacity: 0; /* Stato iniziale */
+    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
+  }
+  
+  header.hero .img-container {
+    width: 80%;
+    max-width: 610px;
+  }
+  
+  main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  article{
+    display: block;
+      margin: 20px;
+      width: 100%;
+      max-width: 900px;
+  }
+  
+  article .img-container{
+    width: 100%;
+    max-width: 900px;
+  
+    figcaption{
+      display: none;
+    }
+  }
+  
+  
+  h2{
+    font-size: 1.5rem;
+    padding: 0px 20px;
+  }
+  
+  strong{
+    font-weight: bold;
+  }
+  
+  main p{
+    padding: 15px;
+  }
+  
+  section.dark-style{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  
+  section.light-style{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
