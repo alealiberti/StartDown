@@ -6,6 +6,7 @@
  */
 
 import { type CardQuestion } from "../../../models/card-question.model";
+import { createDate } from "./create-cards-date";
 
 
 
@@ -29,8 +30,8 @@ export function createCardQuestion(data: CardQuestion, template: HTMLTemplateEle
 
     // those elements inside the container card, will recive a value (! sospended)
     cardQuestion.querySelector(".cardHeader h2.cardName")!.textContent = `${data.name} ${data.surname}`;
-    cardQuestion.querySelector(".cardHeader p.cardEmail")!.textContent = data.email
-    cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = data.dateSend;
+    cardQuestion.querySelector(".cardHeader p.cardEmail")!.textContent = data.email;
+    cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = createDate(data);
 
     // take the request and cut it for the card preview
     const textBody: string = data.question.slice(0, 70).concat("...");

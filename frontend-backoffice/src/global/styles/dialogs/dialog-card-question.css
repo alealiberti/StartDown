@@ -1,6 +1,8 @@
 .dialogQuestion {
     display: none;
     position: fixed;
+    flex-direction: column;
+    justify-content: space-around;
     bottom: 0;
     left: 0;
     z-index: 10000;

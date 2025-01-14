@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-height: 400px;
+    min-height: 370px;
     text-align: center;
 }
 
@@ -47,7 +47,7 @@
 }
 
 #sidebar .navList li a ion-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 /* line under the icon of the actual page "ACTIVED" when the sidebar is CLOSED */

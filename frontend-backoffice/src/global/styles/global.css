@@ -15,7 +15,6 @@ html {
 /* main on all the pages of the backoffice */
 main {
     margin-left: 47px;
-    min-height: 100vh;
     background-color: var(--background-secondary);
     padding: 10px;
 }
@@ -31,7 +30,7 @@ main {
 /* ------------------------------------------------------------------------------------- */
 
 
-/* TODO ADD CASCINA CACCIA PRIMARY COLORS FROM FIGMA */
+/* ROOT colors used in the backoffice style */
 :root {
     /* colors backgrounds */
     --background-primary: #ffffff;

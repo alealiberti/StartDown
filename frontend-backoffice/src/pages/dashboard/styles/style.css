@@ -4,7 +4,7 @@ main h1 {
     font-family: var(--font-title);
     font-size: 1.7rem;
     text-align: center;
-    margin: 60px 0 30px;
+    margin: 30px 0 30px;
 }
 
 main>h2 {
@@ -59,7 +59,7 @@ main section#infoToday .iconContainer ion-icon {
 
 /* description of the information container*/
 main section#infoToday .infoCard p.description {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: #6c757d;
     margin: 0;
 }

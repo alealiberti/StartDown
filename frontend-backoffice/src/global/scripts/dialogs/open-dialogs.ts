@@ -13,15 +13,10 @@ import { type CardReservation } from "../../../models/card-reservation.model";
  */
 export function openDialogs(overlay: HTMLElement, card: HTMLElement, modal: HTMLElement, request: CardQuestion | CardReservation): void {
 
-    // add events listener on the overlay when is visibile trough the click on the cards, a click outside it will close it
-    overlay.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
     // add events listener on the cards (question/reservation) when are clicked show the OVERLAY + MODAL
     card.addEventListener("click", () => {
         overlay.style.display = "block";
-        modal.style.display = "block";
+        modal.style.display = "flex";
 
         if ("question" in request) {
             createQuestionDialog(modal, request)
@@ -29,6 +24,14 @@ export function openDialogs(overlay: HTMLElement, card: HTMLElement, modal: HTML
             createReservationDialog(modal, request)
         }
     });
+
+
+    // add events listener on the OVERLAY when is visibile trough the click on the cards, a click outside it will close it
+    overlay.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+
 
 
 
