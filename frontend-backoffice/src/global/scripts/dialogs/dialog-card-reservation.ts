@@ -21,5 +21,8 @@ import { type CardReservation } from "../../../models/card-reservation.model";
 export function createReservationDialog(modalReservation: HTMLElement, reservation: CardReservation): void {
 
     // sets all the datas of the reservation into the TEMPLATE RESERVATION "dialog"
+    // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
+    modalReservation.querySelector("p.status")!.textContent = reservation.status;
+
 
 }
