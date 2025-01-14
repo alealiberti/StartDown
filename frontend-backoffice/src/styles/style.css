@@ -18,7 +18,7 @@ body {
     position: relative;
     width: 85%;
     min-height: 600px;
-    background: linear-gradient(135deg, var(--cascina-primary), var(--cascina-secondary), var(--cascina-tertiary));
+    background: linear-gradient(to bottom, var(--cascina-secondary), var(--background-third));
     box-shadow: 5px 10px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 15px;
@@ -34,15 +34,16 @@ body {
     width: 120px;
     height: 120px;
     background-color: var(--background-primary);
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 100px;
 }
 
 h1 {
+    color: var(--white-text);
     text-align: center;
     font-size: 2rem;
     font-family: var(--font-title);
-    color: var();
+    font-weight: bold;
 }
 
 
@@ -52,6 +53,7 @@ form {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    min-height: 350px;
 }
 
 /* container which contains the label and the input */
@@ -73,13 +75,14 @@ input {
     border: 0px;
     font-size: 0.7rem;
     padding: 12px 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 button {
     background-color: var(--background-primary);
     font-family: var(--font-title);
     font-size: 1.1rem;
-    padding: 5px 120px;
+    padding: 5px 100px;
+    border: 0px;
     border-radius: 5px;
 }

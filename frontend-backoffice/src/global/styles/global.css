@@ -17,7 +17,7 @@ main {
     margin-left: 47px;
     min-height: 100vh;
     background-color: var(--background-secondary);
-    padding: 5px;
+    padding: 10px;
 }
 
 *,
