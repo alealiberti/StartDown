@@ -65,7 +65,8 @@ CREATE TABLE `reservations` (
   `visitors` int(11) NOT NULL,
   `companions` int(11) DEFAULT NULL,
   `additional_info` varchar(1000) DEFAULT NULL,
-  `mobility_problems` boolean NOT NULL
+  `mobility_problems` boolean NOT NULL,
+  `archived` boolean NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
