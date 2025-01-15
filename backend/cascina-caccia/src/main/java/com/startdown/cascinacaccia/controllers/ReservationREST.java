@@ -3,6 +3,7 @@ package com.startdown.cascinacaccia.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import com.startdown.cascinacaccia.entities.ReservationDTO;
 import com.startdown.cascinacaccia.services.ReservationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -41,8 +42,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
-	public ResponseEntity<List<Reservation>> getAllReservations() {
-		List<Reservation> reservations = reservationService.getAllReservations(); // Fetch all reservations using the reservation service
+	public ResponseEntity<List<ReservationDTO>> getAllReservations() {
+		List<ReservationDTO> reservations = reservationService.getAllReservations(); // Fetch all reservations using the reservation service
 		return ResponseEntity.ok(reservations);
 	}
 
@@ -63,8 +64,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/{id}") // Endpoint to get a reservation by ID
-	public ResponseEntity<Reservation> getReservationById(@PathVariable Integer id) {
-		Optional<Reservation> reservationOptional = reservationService.getReservationById(id); // Fetch reservation by ID
+	public ResponseEntity<ReservationDTO> getReservationById(@PathVariable Integer id) {
+		Optional<ReservationDTO> reservationOptional = reservationService.getReservationById(id); // Fetch reservation by ID
 		return reservationOptional.map(ResponseEntity::ok) // Return reservation if found
 				.orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if reservation does not exist
 	}
@@ -112,7 +113,7 @@ public class ReservationREST {
     })
 	@PutMapping("/update-reservation/{id}") // Endpoint to update an existing reservation
 	public ResponseEntity<Reservation> updateReservation(@PathVariable Integer id,
-			@RequestBody Reservation reservationDetails) {
+			@RequestBody ReservationDTO reservationDetails) {
 		Optional<Reservation> updatedReservation = reservationService.updateReservation(id, reservationDetails); // Update reservation details
 		return updatedReservation.map(ResponseEntity::ok) // Return updated reservation if successful
 				.orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if reservation does not exist
@@ -160,8 +161,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/status/{status}")
-	public ResponseEntity<List<Reservation>> getReservationByStatus(@PathVariable String status) {
-		List<Reservation> reservations =reservationService.getReservationsByStatus(status);
+	public ResponseEntity<List<ReservationDTO>> getReservationByStatus(@PathVariable String status) {
+		List<ReservationDTO> reservations =reservationService.getReservationsByStatus(status);
 		if (reservations.isEmpty()) {
 			throw new ReservationNotFoundException("No reservations found with the status: " + status); // Throw exception if no reservations found
 		}
@@ -184,8 +185,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datesend")
-	public ResponseEntity<List<Reservation>> getByOrderByDateSendDesc() {
-		List<Reservation> reservations =reservationService.findByOrderByDateSendDesc();
+	public ResponseEntity<List<ReservationDTO>> getByOrderByDateSendDesc() {
+		List<ReservationDTO> reservations =reservationService.findByOrderByDateSendDesc();
 		return ResponseEntity.ok(reservations);
 	}
 	
@@ -205,8 +206,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datestart")
-	public ResponseEntity<List<Reservation>> getByOrderByDateStartAscDateFinishDesc() {
-		List<Reservation> reservations =reservationService.findByOrderByDateStartAscDateFinishDesc();
+	public ResponseEntity<List<ReservationDTO>> getByOrderByDateStartAscDateFinishDesc() {
+		List<ReservationDTO> reservations =reservationService.findByOrderByDateStartAscDateFinishDesc();
 		return ResponseEntity.ok(reservations);
 	}
 
@@ -226,8 +227,8 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/visitors")
-	public ResponseEntity<List<Reservation>> getByOrderByVisitorsDesc() {
-		List<Reservation> reservations =reservationService.findByOrderByVisitorsDesc();
+	public ResponseEntity<List<ReservationDTO>> getByOrderByVisitorsDesc() {
+		List<ReservationDTO> reservations =reservationService.findByOrderByVisitorsDesc();
 		return ResponseEntity.ok(reservations);
 	}
 }
