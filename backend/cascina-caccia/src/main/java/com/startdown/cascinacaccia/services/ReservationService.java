@@ -24,6 +24,33 @@ public class ReservationService {
     private DateConverterService dateConverterService;
 
     /**
+     * given a Reservaiton creates a ReservationDTO
+     *
+     * @param reservation the reservation to convert
+     * @return the converted reservation
+     */
+    private ReservationDTO convertToDTO(Reservation reservation) {
+        return new ReservationDTO(
+                reservation.getId(),
+                reservation.getName(),
+                reservation.getSurname(),
+                reservation.getPhone(),
+                reservation.getEmail(),
+                dateConverterService.formatDateToFrontend(reservation.getDateSend()),
+                dateConverterService.formatDateToFrontend(reservation.getDateStart()),
+                reservation.getDateFinish() != null ? dateConverterService.formatDateToFrontend(reservation.getDateFinish()) : null,
+                reservation.getHourStart(),
+                reservation.getHourFinish(),
+                reservation.getStatus(),
+                reservation.getTypeGroup(),
+                reservation.getVisitors(),
+                reservation.getCompanions(),
+                reservation.getAdditionalInfo(),
+                reservation.isMobilityProblems()
+        );
+    }
+
+    /**
      * given a List of Reservations creates a List of ReservationDTOs
      *
      * @param reservations the list to convert
@@ -31,24 +58,7 @@ public class ReservationService {
      */
     private List<ReservationDTO> convertToDTOList(List<Reservation> reservations) {
         return reservations.stream()
-                .map(reservation -> new ReservationDTO(
-                        reservation.getId(),
-                        reservation.getName(),
-                        reservation.getSurname(),
-                        reservation.getPhone(),
-                        reservation.getEmail(),
-                        dateConverterService.formatDateToFrontend(reservation.getDateSend()),
-                        dateConverterService.formatDateToFrontend(reservation.getDateStart()),
-                        reservation.getDateFinish() != null ? dateConverterService.formatDateToFrontend(reservation.getDateFinish()) : null,
-                        reservation.getHourStart(),
-                        reservation.getHourFinish(),
-                        reservation.getStatus(),
-                        reservation.getTypeGroup(),
-                        reservation.getVisitors(),
-                        reservation.getCompanions(),
-                        reservation.getAdditionalInfo(),
-                        reservation.isMobilityProblems()
-                ))
+                .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
 
@@ -72,24 +82,7 @@ public class ReservationService {
         Optional<Reservation> res = dao.findById(id);
         if (res.isPresent()) {
             Reservation reservation = res.get();
-            return Optional.of(new ReservationDTO(
-                    reservation.getId(),
-                    reservation.getName(),
-                    reservation.getSurname(),
-                    reservation.getPhone(),
-                    reservation.getEmail(),
-                    dateConverterService.formatDateToFrontend(reservation.getDateSend()),
-                    dateConverterService.formatDateToFrontend(reservation.getDateStart()),
-                    reservation.getDateFinish() != null ? dateConverterService.formatDateToFrontend(reservation.getDateFinish()) : null,
-                    reservation.getHourStart(),
-                    reservation.getHourFinish(),
-                    reservation.getStatus(),
-                    reservation.getTypeGroup(),
-                    reservation.getVisitors(),
-                    reservation.getCompanions(),
-                    reservation.getAdditionalInfo(),
-                    reservation.isMobilityProblems()
-            ));
+            return Optional.of(convertToDTO(reservation));
         } else {
             throw new ReservationNotFoundException("Reservation with ID " + id + " not found.");
         }
