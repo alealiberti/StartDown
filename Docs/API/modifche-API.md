@@ -13,6 +13,7 @@
 
 - aggiungere campo boolean "archived" a reservations e informations
 - rimuovere status da informations
+- modificare anche i DTO
 
 # Repo
 
