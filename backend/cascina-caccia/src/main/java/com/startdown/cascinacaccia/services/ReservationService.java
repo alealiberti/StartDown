@@ -186,6 +186,9 @@ public class ReservationService {
         if (reservationDetails.isMobilityProblems()){
             existingReservation.setMobilityProblems(true);
         }
+        if (reservationDetails.isArchived()) {
+            existingReservation.setArchived(true);
+        }
 
         return Optional.of(dao.save(existingReservation));
     }
@@ -226,7 +229,7 @@ public class ReservationService {
     }
 
     /**
-     * Retrieves a list of all reservations with the specific value of "archived"
+     * Retrieves a list of all reservations not archived
      * sorted in descending order by visitors
      *
      * @return a List containing the ReservationDTO objects if found, or an empty List if not found
@@ -237,7 +240,7 @@ public class ReservationService {
     }
 
     /**
-     * Retrieves a list of all reservations with specific value of "archived"
+     * Retrieves a list of all reservations not archived
      * sorted in ascending order for the start and then descending for the finish
      * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
@@ -247,13 +250,23 @@ public class ReservationService {
     }
 
     /**
-     * Retrieves a list of all reservations with the specific value of "archived"
+     * Retrieves a list of all reservations not archived
      * sorted by dateSend Desc
      *
      * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
     public List<ReservationDTO> findByNotArchivedAndByDateSend(){
         List<Reservation> reservations = dao.findByArchivedOrderByDateSendDesc(false);
+        return convertToDTOList(reservations);
+    }
+
+    /**
+     * Retrieves a list of all reservations archived
+     *
+     * @return a List containing the ReservationDTO objects if found, or an empty List if not found
+     */
+    public List<ReservationDTO> findByArchived(){
+        List<Reservation> reservations = dao.findByArchived(true);
         return convertToDTOList(reservations);
     }
 }

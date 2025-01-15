@@ -27,7 +27,7 @@ public class ReservationREST {
 	private ReservationService reservationService;
 
 	/**
-	 * Retrieves a list of all reservations in the system.
+	 * Retrieves a list of all reservations in the system not archived and sorted by dateSend Desc.
 	 * 
 	 * @return ResponseEntity ok when found all the reservations
 	 */
@@ -43,7 +43,7 @@ public class ReservationREST {
     })
 	@GetMapping
 	public ResponseEntity<List<ReservationDTO>> getAllReservations() {
-		List<ReservationDTO> reservations = reservationService.getAllReservations(); // Fetch all reservations using the reservation service
+		List<ReservationDTO> reservations = reservationService.findByNotArchivedAndByDateSend(); // Fetch all reservations using the reservation service
 		return ResponseEntity.ok(reservations);
 	}
 
@@ -162,36 +162,15 @@ public class ReservationREST {
     })
 	@GetMapping("/status/{status}")
 	public ResponseEntity<List<ReservationDTO>> getReservationByStatus(@PathVariable String status) {
-		List<ReservationDTO> reservations =reservationService.getReservationsByStatus(status);
+		List<ReservationDTO> reservations = reservationService.findReservationsByStatus(status);
 		if (reservations.isEmpty()) {
 			throw new ReservationNotFoundException("No reservations found with the status: " + status); // Throw exception if no reservations found
 		}
 		return ResponseEntity.ok(reservations);
 	}
-
-	/**
-     * Retrieves a list of all reservations sorted in descending order by date send
-     *
-	 * @return ResponseEntity containing the reservations
-     */
-	@Operation(summary = "Reservations sorted by date send", description = "Gets a list of all the reservations in the db sorted in descending order by date send")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
-            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
-    })
-	@GetMapping("/datesend")
-	public ResponseEntity<List<ReservationDTO>> getByOrderByDateSendDesc() {
-		List<ReservationDTO> reservations =reservationService.findByOrderByDateSendDesc();
-		return ResponseEntity.ok(reservations);
-	}
 	
 	/**
-     * Retrieves a list of all reservations sorted in descending order by date start and then by date finish
+     * Retrieves a list of all reservations not archived sorted in descending order by date start and then by date finish
      *
 	 * @return ResponseEntity containing the reservations
      */
@@ -206,13 +185,13 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datestart")
-	public ResponseEntity<List<ReservationDTO>> getByOrderByDateStartAscDateFinishDesc() {
-		List<ReservationDTO> reservations =reservationService.findByOrderByDateStartAscDateFinishDesc();
+	public ResponseEntity<List<ReservationDTO>> getByDateStart() {
+		List<ReservationDTO> reservations = reservationService.findByNotArchivedOrderByDateStartAscDateFinishDesc();
 		return ResponseEntity.ok(reservations);
 	}
 
 	/**
-     * Retrieves a list of all reservations sorted in descending order by visitors
+     * Retrieves a list of all reservations not archived sorted in descending order by visitors
      *
 	 * @return ResponseEntity containing the reservations
      */
@@ -227,8 +206,30 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/visitors")
-	public ResponseEntity<List<ReservationDTO>> getByOrderByVisitorsDesc() {
-		List<ReservationDTO> reservations =reservationService.findByOrderByVisitorsDesc();
+	public ResponseEntity<List<ReservationDTO>> getByVisitors() {
+		List<ReservationDTO> reservations = reservationService.findByNotArchivedOrderByVisitorsDesc();
 		return ResponseEntity.ok(reservations);
 	}
+
+	/**
+	 *  Retrieves a list of all archived reservations
+	 *
+	 * @return ResponseEntity containing the reservations
+	 */
+	@Operation(summary = "Reservations archived", description = "Gets a list of all the reservations in the db flagged as archived")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
+					content = @Content(mediaType = "application/json",
+							schema = @Schema(implementation = Reservation.class))),
+			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+					content = @Content(mediaType = "application/json")),
+			@ApiResponse(responseCode = "500", description = "Internal server error",
+					content = @Content(mediaType = "application/json"))
+	})
+	@GetMapping("/archived")
+	public ResponseEntity<List<ReservationDTO>> getArchived(){
+		List<ReservationDTO> reservations = reservationService.findByArchived();
+		return ResponseEntity.ok(reservations);
+	}
+
 }

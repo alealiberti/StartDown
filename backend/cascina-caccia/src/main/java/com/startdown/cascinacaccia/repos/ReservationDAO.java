@@ -52,4 +52,12 @@ public interface ReservationDAO extends JpaRepository<Reservation, Integer> {
      */
     List<Reservation> findByArchivedOrderByDateSendDesc(boolean isArchived);
 
+    /**
+     * Retrieves a list of reservations with the specific value of "archived"
+     *
+     * @param isArchived if the reservations needed are or not archived
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    List<Reservation> findByArchived(boolean isArchived);
+
 }
