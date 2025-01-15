@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-/* The InformationDTO class represents the entity "Information
+/* The InformationDTO class represents the entity "Information"
     with some adjustments to give to the frontend the correct type of data */
 public class InformationDTO {
     private Integer id;
