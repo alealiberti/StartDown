@@ -67,7 +67,7 @@ public class ReservationService {
             throw new IllegalArgumentException("Visitors cannot be empty.");
         }
 
-        reservation.setStatus("Ricevuta");
+        reservation.setStatus("ricevuta");
         reservation.setDateSend(LocalDate.now());
 
         emailservice.sendEmails(reservation.getEmail(), false);
