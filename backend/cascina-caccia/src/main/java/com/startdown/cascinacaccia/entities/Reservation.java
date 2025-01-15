@@ -73,4 +73,7 @@ public class Reservation {
     @Column(name = "mobility_problems", nullable = false)
     private boolean mobilityProblems;
 
+    @Column(name = "archived", nullable = false)
+    private boolean archived;
+
 }
