@@ -3,8 +3,10 @@ package com.startdown.cascinacaccia.services;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.startdown.cascinacaccia.entities.Reservation;
+import com.startdown.cascinacaccia.entities.ReservationDTO;
 import com.startdown.cascinacaccia.exceptions.ReservationNotFoundException;
 import com.startdown.cascinacaccia.repos.ReservationDAO;
 import jakarta.transaction.Transactional;
@@ -18,24 +20,79 @@ public class ReservationService {
     private ReservationDAO dao;
     @Autowired
     private EmailService emailservice;
+    @Autowired
+    private DateConverterService dateConverterService;
+
+    /**
+     * given a List of Reservations creates a List of ReservationDTOs
+     *
+     * @param reservations the list to convert
+     * @return the converted list
+     */
+    private List<ReservationDTO> convertToDTOList(List<Reservation> reservations) {
+        return reservations.stream()
+                .map(reservation -> new ReservationDTO(
+                        reservation.getId(),
+                        reservation.getName(),
+                        reservation.getSurname(),
+                        reservation.getPhone(),
+                        reservation.getEmail(),
+                        dateConverterService.formatDateToFrontend(reservation.getDateSend()),
+                        dateConverterService.formatDateToFrontend(reservation.getDateStart()),
+                        reservation.getDateFinish() != null ? dateConverterService.formatDateToFrontend(reservation.getDateFinish()) : null,
+                        reservation.getHourStart(),
+                        reservation.getHourFinish(),
+                        reservation.getStatus(),
+                        reservation.getTypeGroup(),
+                        reservation.getVisitors(),
+                        reservation.getCompanions(),
+                        reservation.getAdditionalInfo(),
+                        reservation.isMobilityProblems()
+                ))
+                .collect(Collectors.toList());
+    }
+
     /**
      * Retrieves a list of all reservations in the system.
      *
-     * @return a List of Reservations objects
+     * @return a List of ReservationsDTO objects
      */
-    public List<Reservation> getAllReservations() {
-        return dao.findAll();
+    public List<ReservationDTO> getAllReservations() {
+        List<Reservation> reservations = dao.findAll();
+        return convertToDTOList(reservations);
     }
 
     /**
      * Retrieves a reservation by their unique ID.
      *
      * @param id the ID of the reservation to be retrieved
-     * @return an Optional containing the Reservation object if found, or an empty Optional if not found
+     * @return an Optional containing the ReservationDTO object if found, or an empty Optional if not found
      */
-    public Optional<Reservation> getReservationById(Integer id) {
-        return Optional.ofNullable(dao.findById(id)
-                .orElseThrow(() -> new ReservationNotFoundException("Reservation with ID " + id + " not found.")));
+    public Optional<ReservationDTO> getReservationById(Integer id) {
+        Optional<Reservation> res = dao.findById(id);
+        if (res.isPresent()) {
+            Reservation reservation = res.get();
+            return Optional.of(new ReservationDTO(
+                    reservation.getId(),
+                    reservation.getName(),
+                    reservation.getSurname(),
+                    reservation.getPhone(),
+                    reservation.getEmail(),
+                    dateConverterService.formatDateToFrontend(reservation.getDateSend()),
+                    dateConverterService.formatDateToFrontend(reservation.getDateStart()),
+                    reservation.getDateFinish() != null ? dateConverterService.formatDateToFrontend(reservation.getDateFinish()) : null,
+                    reservation.getHourStart(),
+                    reservation.getHourFinish(),
+                    reservation.getStatus(),
+                    reservation.getTypeGroup(),
+                    reservation.getVisitors(),
+                    reservation.getCompanions(),
+                    reservation.getAdditionalInfo(),
+                    reservation.isMobilityProblems()
+            ));
+        } else {
+            throw new ReservationNotFoundException("Reservation with ID " + id + " not found.");
+        }
     }
 
     /**
@@ -67,7 +124,7 @@ public class ReservationService {
             throw new IllegalArgumentException("Visitors cannot be empty.");
         }
 
-        reservation.setStatus("Ricevuta");
+        reservation.setStatus("ricevuta");
         reservation.setDateSend(LocalDate.now());
 
         emailservice.sendEmails(reservation.getEmail(), false);
@@ -80,11 +137,11 @@ public class ReservationService {
      * Updates the details of an existing reservation.
      *
      * @param id the ID of the reservation to be updated
-     * @param reservationDetails the Reservation object containing the updated details
+     * @param reservationDetails the ReservationDTO object containing the updated details
      * @return an Optional containing the updated Reservation object if successful, or an empty Optional if the reservation was not found
      */
     @Transactional
-    public Optional<Reservation> updateReservation(Integer id, Reservation reservationDetails) {
+    public Optional<Reservation> updateReservation(Integer id, ReservationDTO reservationDetails) {
         Reservation existingReservation = dao.findById(id)
                 .orElseThrow(() -> new ReservationNotFoundException("Reservation with ID " + id + " not found."));
 
@@ -102,16 +159,16 @@ public class ReservationService {
             existingReservation.setEmail(reservationDetails.getEmail());
         }
         if (reservationDetails.getDateSend() != null) {
-            existingReservation.setDateSend(reservationDetails.getDateSend());
+            existingReservation.setDateSend(dateConverterService.parseDate(reservationDetails.getDateSend()));
         }
         if (reservationDetails.getPhone() != null && !reservationDetails.getPhone().trim().isEmpty()) {
             existingReservation.setPhone(reservationDetails.getPhone());
         }
         if (reservationDetails.getDateStart() != null) {
-            existingReservation.setDateStart(reservationDetails.getDateStart());
+            existingReservation.setDateStart(dateConverterService.parseDate(reservationDetails.getDateStart()));
         }
         if (reservationDetails.getDateFinish() != null ) {
-            existingReservation.setDateFinish(reservationDetails.getDateFinish());
+            existingReservation.setDateFinish(dateConverterService.parseDate(reservationDetails.getDateFinish()));
         }
         if (reservationDetails.getHourStart() != null ) {
             existingReservation.setHourStart(reservationDetails.getHourStart());
@@ -156,36 +213,40 @@ public class ReservationService {
      * Retrieves a list of reservations with a specific status
      *
      * @param status the name of the status for which the reservations is to be retrieved
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<Reservation> getReservationsByStatus(String status) {
-        return dao.findByStatus(status);
+    public List<ReservationDTO> getReservationsByStatus(String status) {
+        List<Reservation> reservations = dao.findByStatus(status);
+        return convertToDTOList(reservations);
     }
 
     /**
      * Retrieves a list of all reservations sorted in descending order by date send
      *
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<Reservation> findByOrderByDateSendDesc() {
-        return dao.findByOrderByDateSendDesc();
+    public List<ReservationDTO> findByOrderByDateSendDesc() {
+        List<Reservation> reservations = dao.findByOrderByDateSendDesc();
+        return convertToDTOList(reservations);
     }
 
     /**
      * Retrieves a list of all reservations sorted in descending order by visitors
      *
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<Reservation> findByOrderByVisitorsDesc() {
-        return dao.findByOrderByVisitorsDesc();
+    public List<ReservationDTO> findByOrderByVisitorsDesc() {
+        List<Reservation> reservations = dao.findByOrderByVisitorsDesc();
+        return convertToDTOList(reservations);
     }
 
     /**
      * Retrieves a list of all reservations sorted in ascending order by date start and then by descending date finish
      *
-     * @return a List containing the Reservation objects if found, or an empty List if not found
+     * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<Reservation> findByOrderByDateStartAscDateFinishDesc() {
-        return dao.findByOrderByDateStartAscDateFinishDesc();
+    public List<ReservationDTO> findByOrderByDateStartAscDateFinishDesc() {
+        List<Reservation> reservations = dao.findByOrderByDateStartAscDateFinishDesc();
+        return convertToDTOList(reservations);
     }
 }

@@ -3,6 +3,7 @@ package com.startdown.cascinacaccia.controllers;
 import java.util.List;
 import java.util.Optional;
 
+import com.startdown.cascinacaccia.entities.InformationDTO;
 import com.startdown.cascinacaccia.services.InformationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -40,8 +41,8 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
-	public ResponseEntity<List<Information>> getAllInformations() {
-		List<Information> informations = informationService.getAllInformations();
+	public ResponseEntity<List<InformationDTO>> getAllInformations() {
+		List<InformationDTO> informations = informationService.getAllInformations();
 		return ResponseEntity.ok(informations); // Fetch all informations using the information service
 	}
 
@@ -62,8 +63,8 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/{id}") // Endpoint to get a information by ID
-	public ResponseEntity<Information> getInformationById(@PathVariable Integer id) {
-		Optional<Information> informationOptional = informationService.getInformationById(id); // Fetch information by ID
+	public ResponseEntity<InformationDTO> getInformationById(@PathVariable Integer id) {
+		Optional<InformationDTO> informationOptional = informationService.getInformationById(id); // Fetch information by ID
 		return informationOptional.map(ResponseEntity::ok) // Return information if found
 				.orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if information does not exist
 	}
@@ -110,7 +111,7 @@ public class InformationREST {
     })
 	@PutMapping("/update-information/{id}") // Endpoint to update an existing information
 	public ResponseEntity<Information> updateInformation(@PathVariable Integer id,
-			@RequestBody Information informationDetails) {
+			@RequestBody InformationDTO informationDetails) {
 		Optional<Information> updatedInformation = informationService.updateInformation(id, informationDetails); // Update information details
 		return updatedInformation.map(ResponseEntity::ok) // Return updated information if successful
 				.orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if information does not exist
@@ -158,8 +159,8 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/status/{status}")
-	public ResponseEntity<List<Information>> getInformationByStatus(@PathVariable String status) {
-		List<Information> informations =informationService.getInformationsByStatus(status);
+	public ResponseEntity<List<InformationDTO>> getInformationByStatus(@PathVariable String status) {
+		List<InformationDTO> informations =informationService.getInformationsByStatus(status);
 		return ResponseEntity.ok(informations);
 	}
 
@@ -179,8 +180,8 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datesend")
-	public ResponseEntity<List<Information>> getInformationsByOrderByDateSendDesc() {
-		List<Information> informations =informationService.findByOrderByDateSendDesc();
+	public ResponseEntity<List<InformationDTO>> getInformationsByOrderByDateSendDesc() {
+		List<InformationDTO> informations =informationService.findByOrderByDateSendDesc();
 		return ResponseEntity.ok(informations);
 	}
 }
