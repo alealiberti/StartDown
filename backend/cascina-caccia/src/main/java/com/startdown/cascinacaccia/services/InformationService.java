@@ -30,6 +30,25 @@ public class InformationService {
     private DateConverterService dateConverterService;
 
     /**
+     * given an Information creates an InformationDTO
+     *
+     * @param information the information to convert
+     * @return the converted information
+     */
+    private InformationDTO convertToDTO(Information information) {
+        return new InformationDTO(
+                information.getId(),
+                information.getName(),
+                information.getSurname(),
+                information.getPhone(),
+                information.getEmail(),
+                dateConverterService.formatDateToFrontend(information.getDateSend()),
+                information.getText(),
+                information.getStatus()
+                );
+    }
+
+    /**
      * given a List of Informations creates a List of InformationDTOs
      *
      * @param informations the list to convert
@@ -37,18 +56,9 @@ public class InformationService {
      */
     private List<InformationDTO> convertToDTOList(List<Information> informations) {
         return informations.stream()
-                .map(information -> new InformationDTO(
-                        information.getId(),
-                        information.getName(),
-                        information.getSurname(),
-                        information.getPhone(),
-                        information.getEmail(),
-                        dateConverterService.formatDateToFrontend(information.getDateSend()),
-                        information.getText(),
-                        information.getStatus()
-                ))
+                .map(this::convertToDTO)
                 .collect(Collectors.toList());
-    };
+    }
 
     /**
      * Retrieves a list of all informations in the system.
@@ -70,16 +80,7 @@ public class InformationService {
         Optional<Information> info = dao.findById(id);
         if (info.isPresent()) {
             Information information = info.get();
-            return Optional.of(new InformationDTO(
-                    information.getId(),
-                    information.getName(),
-                    information.getSurname(),
-                    information.getPhone(),
-                    information.getEmail(),
-                    dateConverterService.formatDateToFrontend(information.getDateSend()),
-                    information.getText(),
-                    information.getStatus()
-            ));
+            return Optional.of(convertToDTO(information));
         } else {
             throw new InformationNotFoundException("Information with ID " + id + " not found.");
         }
