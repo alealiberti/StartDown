@@ -26,11 +26,11 @@ public class ReservationDTO {
 
     private String email;
 
-    private LocalDate dateSend;
+    private String dateSend;
 
-    private LocalDate dateStart;
+    private String dateStart;
 
-    private LocalDate dateFinish;
+    private String dateFinish;
 
     private LocalTime hourStart;
 
