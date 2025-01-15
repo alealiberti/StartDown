@@ -46,7 +46,8 @@ public class ReservationService {
                 reservation.getVisitors(),
                 reservation.getCompanions(),
                 reservation.getAdditionalInfo(),
-                reservation.isMobilityProblems()
+                reservation.isMobilityProblems(),
+                reservation.isArchived()
         );
     }
 
@@ -67,7 +68,7 @@ public class ReservationService {
      *
      * @return a List of ReservationsDTO objects
      */
-    public List<ReservationDTO> getAllReservations() {
+    public List<ReservationDTO> findAllReservations() {
         List<Reservation> reservations = dao.findAll();
         return convertToDTOList(reservations);
     }
@@ -119,6 +120,7 @@ public class ReservationService {
 
         reservation.setStatus("ricevuta");
         reservation.setDateSend(LocalDate.now());
+        reservation.setArchived(false);
 
         emailservice.sendEmails(reservation.getEmail(), false);
 
@@ -208,7 +210,7 @@ public class ReservationService {
      * @param status the name of the status for which the reservations is to be retrieved
      * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<ReservationDTO> getReservationsByStatus(String status) {
+    public List<ReservationDTO> findReservationsByStatus(String status) {
         List<Reservation> reservations = dao.findByStatus(status);
         return convertToDTOList(reservations);
     }
@@ -224,22 +226,34 @@ public class ReservationService {
     }
 
     /**
-     * Retrieves a list of all reservations sorted in descending order by visitors
+     * Retrieves a list of all reservations with the specific value of "archived"
+     * sorted in descending order by visitors
      *
      * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<ReservationDTO> findByOrderByVisitorsDesc() {
-        List<Reservation> reservations = dao.findByOrderByVisitorsDesc();
+    public List<ReservationDTO> findByNotArchivedOrderByVisitorsDesc() {
+        List<Reservation> reservations = dao.findByArchivedOrderByVisitorsDesc(false);
         return convertToDTOList(reservations);
     }
 
     /**
-     * Retrieves a list of all reservations sorted in ascending order by date start and then by descending date finish
+     * Retrieves a list of all reservations with specific value of "archived"
+     * sorted in ascending order for the start and then descending for the finish
+     * @return a List containing the ReservationDTO objects if found, or an empty List if not found
+     */
+    public List<ReservationDTO> findByNotArchivedOrderByDateStartAscDateFinishDesc() {
+        List<Reservation> reservations = dao.findByArchivedOrderByDateStartAscDateFinishDesc(false);
+        return convertToDTOList(reservations);
+    }
+
+    /**
+     * Retrieves a list of all reservations with the specific value of "archived"
+     * sorted by dateSend Desc
      *
      * @return a List containing the ReservationDTO objects if found, or an empty List if not found
      */
-    public List<ReservationDTO> findByOrderByDateStartAscDateFinishDesc() {
-        List<Reservation> reservations = dao.findByOrderByDateStartAscDateFinishDesc();
+    public List<ReservationDTO> findByNotArchivedAndByDateSend(){
+        List<Reservation> reservations = dao.findByArchivedOrderByDateSendDesc(false);
         return convertToDTOList(reservations);
     }
 }
