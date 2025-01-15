@@ -5,8 +5,8 @@
  * @description 
  */
 
-import { type CardQuestion } from "../../../models/card-question.model";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
@@ -18,7 +18,7 @@ import { type CardReservation } from "../../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createDate(data: CardQuestion | CardReservation): string {
+export function restructureDate(data: CardQuestion | CardReservation): string {
 
     // .split() the date into an array and apply the destructuring to create istant variables
     const [m, g, y] = data.dateSend.split("/");

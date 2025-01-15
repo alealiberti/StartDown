@@ -16,7 +16,7 @@ html {
 main {
     margin-left: 47px;
     background-color: var(--background-secondary);
-    padding: 10px;
+    padding: 10px 12px;
 }
 
 *,

@@ -6,6 +6,7 @@
  */
 
 import { type CardQuestion } from "../../../models/card-question.model";
+import { restructureDate } from "../restructure-date";
 
 
 
@@ -19,7 +20,15 @@ import { type CardQuestion } from "../../../models/card-question.model";
 export function createQuestionDialog(modalQuestion: HTMLElement, question: CardQuestion): void {
 
     // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
+
+    modalQuestion.querySelector(".dialogHeader h2.dialogName")!.textContent = `${question.name} ${question.surname}`;
+    modalQuestion.querySelector(".dialogHeader p.dialogEmail")!.textContent = question.email;
+    modalQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
+
     modalQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.question;
+    console.log(question.question.length);
+
+
 
 
 

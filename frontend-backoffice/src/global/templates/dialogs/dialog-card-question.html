@@ -2,24 +2,30 @@
  like response to the question through GMAIL -->
 <div class="dialogQuestion">
 
+    <!-- header information of the question -->
     <div class="dialogHeader">
         <h2 class="dialogName"></h2>
         <p class="dialogEmail"></p>
+        <p class="dialogDate"></p>
     </div>
-    <p class="dialogDate"></p>
+
     <!-- body text of the request question, will be scrollable! -->
     <div class="dialogBody">
+        <hr>
         <h2>Corpo della richiesta:</h2>
         <p class="dialogRequest"></p>
+        <hr>
     </div>
-    <hr>
+
+    <!-- footer whit actions on the question -->
     <div class="dialogFooter">
-        <ion-icon name="archive"></ion-icon>
-        <ion-icon name="trash"></ion-icon>
-        <div class="responseSection">
+        <div class="dialogActions">
+            <ion-icon name="archive"></ion-icon>
+            <ion-icon name="trash"></ion-icon>
+        </div>
+        <div class="dialogResponse">
             <a href="mailto:test@gmail.com">Rispondi ↩</a>
         </div>
     </div>
-
 
 </div>

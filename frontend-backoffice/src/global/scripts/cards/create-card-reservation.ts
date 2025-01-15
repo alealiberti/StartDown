@@ -6,7 +6,7 @@
  */
 
 import { type CardReservation } from "../../../models/card-reservation.model";
-import { createDate } from "./create-cards-date";
+import { restructureDate } from "../restructure-date";
 
 
 /**
@@ -29,7 +29,7 @@ export function createCardReservation(data: CardReservation, template: HTMLTempl
     // those elements inside the container card, will recive a value (! sospended)
     CardReservation.querySelector(".cardHeader h2.cardName")!.textContent = `${data.name} ${data.surname}`;
     CardReservation.querySelector(".cardHeader p.cardEmail")!.textContent = data.email
-    CardReservation.querySelector(".cardHeader p.cardDate")!.textContent = createDate(data);
+    CardReservation.querySelector(".cardHeader p.cardDate")!.textContent = restructureDate(data);
 
     // take from the dom the icon which rappresent the state of the reservation
     const stateReservationIcon = CardReservation.querySelector(".cardFooter .cardState ion-icon") as HTMLElement;

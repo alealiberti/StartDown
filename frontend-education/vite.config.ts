@@ -3,7 +3,10 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   base: './', // Usa percorsi relativi per il build
   server: {
-    open: true, // Apre automaticamente il browser
+    port: 5173, // server port
+    fs: {
+      allow: ['src'], // Permetti l'accesso alla directory src
+    },
   },
   build: {
     outDir: "../src/main/resources/static",
@@ -16,5 +19,5 @@ export default defineConfig({
       },
     },
   },
-}); 
+});
 

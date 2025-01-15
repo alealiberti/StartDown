@@ -14,7 +14,7 @@ export const questionsData: CardQuestion[] = [
         phone: "3384465353",
         email: "mario@example.com",
         dateSend: "10/23/2021",
-        question: "Salve, vorrei avere maggiori informazioni riguardo alla possibilità di prenotare un'attrezzatura sportiva per un'intera settimana. Quali sono i costi e le modalità di pagamento disponibili?"
+        question: "Salve, vorrei avere maggiori informazioni riguardo alla possibilità di prenotare un'attrezzatura sportiva per un'intera settimana. Nello specifico, vorrei sapere quali sono le opzioni di noleggio disponibili, se esistono pacchetti che includono servizi aggiuntivi come consulenze o corsi personalizzati, e se i costi variano in base al tipo di attrezzatura richiesta. Inoltre, mi interessa sapere quali sono le modalità di pagamento accettate e se è possibile ottenere una fattura elettronica per l'eventuale noleggio."
     },
     {
         id: 1,
@@ -23,7 +23,7 @@ export const questionsData: CardQuestion[] = [
         phone: null,
         email: "gianluigi@example.com",
         dateSend: "12/05/2023",
-        question: "Buongiorno, mi chiedevo se fosse possibile avere uno sconto per gruppi numerosi. Il nostro gruppo è composto da oltre 10 persone, e siamo interessati a un noleggio giornaliero."
+        question: "Buongiorno, sto organizzando un evento sportivo per un gruppo numeroso composto da oltre 10 persone e mi chiedevo se fosse possibile ottenere uno sconto per il noleggio di attrezzature. Inoltre, vorrei sapere se offrite pacchetti specifici per gruppi o aziende, che includano l'accesso a determinate aree della palestra, il supporto di istruttori qualificati, o la possibilità di prenotare attività di team building. Infine, potrei sapere con quanto anticipo è necessario effettuare la prenotazione per garantirci la disponibilità?"
     },
     {
         id: 2,
@@ -32,7 +32,7 @@ export const questionsData: CardQuestion[] = [
         phone: "3384465353",
         email: "giorgio@example.com",
         dateSend: "03/22/2023",
-        question: "Ciao, potreste fornirmi una lista dettagliata delle attrezzature sportive disponibili e delle relative condizioni d'uso? Vorrei organizzare un evento aziendale e ho bisogno di informazioni precise."
+        question: "Ciao, sto cercando informazioni dettagliate riguardo alle attrezzature sportive disponibili nel vostro centro. In particolare, mi interesserebbe sapere se avete attrezzature specifiche per attività particolari come il pilates, lo spinning, o il crossfit. Inoltre, vorrei capire se ci sono delle condizioni particolari di utilizzo da rispettare, come orari specifici, regole per la manutenzione durante il noleggio, e politiche relative alla sostituzione di eventuali attrezzature danneggiate. Questi dettagli mi serviranno per organizzare al meglio un evento aziendale."
     },
     {
         id: 3,
@@ -41,7 +41,7 @@ export const questionsData: CardQuestion[] = [
         phone: null,
         email: "francesca@example.com",
         dateSend: "04/13/2023",
-        question: "Vorrei sapere se offrite pacchetti speciali per famiglie. Ho due bambini piccoli e vorremmo trascorrere una giornata in palestra utilizzando le vostre attrezzature e partecipando a qualche attività organizzata."
+        question: "Vorrei sapere se offrite pacchetti speciali per famiglie che includano l'accesso a più servizi contemporaneamente. Ad esempio, stiamo cercando un'opzione che consenta ai bambini di partecipare a attività organizzate come lezioni di gruppo o giochi sportivi, mentre noi adulti utilizziamo le attrezzature della palestra. Inoltre, sarebbe utile sapere se offrite spazi dedicati per i più piccoli e se ci sono sconti per famiglie che prenotano con frequenza regolare o per più giorni consecutivi. Potreste fornirmi qualche esempio di pacchetto famiglia, comprensivo di costi e dettagli?"
     },
     {
         id: 4,
@@ -50,7 +50,7 @@ export const questionsData: CardQuestion[] = [
         phone: null,
         email: "alessandro@example.com",
         dateSend: "12/10/2022",
-        question: "Salve, ho visto che avete opzioni di prenotazione online. Mi piacerebbe sapere se c'è una possibilità di modifica delle date una volta effettuata la prenotazione, nel caso in cui ci fossero imprevisti."
+        question: "Salve, ho visto che offrite la possibilità di prenotare online le attrezzature sportive. Mi chiedevo quali siano le vostre politiche riguardo la modifica o la cancellazione delle date di prenotazione una volta che questa è stata confermata. Ad esempio, se dovessi cambiare i miei piani all'ultimo momento, è previsto un rimborso completo o parziale? Inoltre, esistono limiti di tempo per apportare modifiche, come un preavviso minimo, e quali sono i passaggi per richiedere una modifica? Vorrei essere sicuro di conoscere tutte le opzioni prima di procedere."
     },
     {
         id: 5,
@@ -59,9 +59,10 @@ export const questionsData: CardQuestion[] = [
         phone: "3384465353",
         email: "lucia@example.com",
         dateSend: "11/30/2022",
-        question: "Buongiorno, vorrei chiedere informazioni sulla durata massima del noleggio. C'è un limite di tempo giornaliero o settimanale, e quali sono le penali in caso di ritardo nella restituzione?"
+        question: "Buongiorno, vorrei chiedere informazioni sulla durata massima consentita per il noleggio delle attrezzature. Ad esempio, ci sono limiti specifici per il noleggio giornaliero, settimanale o mensile? Inoltre, vorrei sapere quali sono le penali previste nel caso in cui si restituisca l'attrezzatura in ritardo o si riscontrino danni. È possibile stipulare una copertura assicurativa per evitare costi aggiuntivi? Infine, sarei interessata a sapere se offrite servizi di consegna e ritiro delle attrezzature, e quali sono le relative tariffe."
     }
 ];
+
 
 
 // Dati di esempio temporanei da utilizzare per le reservations

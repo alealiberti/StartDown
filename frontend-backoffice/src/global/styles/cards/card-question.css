@@ -35,7 +35,7 @@
 /**02. card body preview message text (text of the question) */
 .cardQuestion p.cardBody {
     width: 65%;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-decoration: underline;
 }
 
@@ -44,6 +44,6 @@
 .cardQuestion .cardActions {
     display: flex;
     justify-content: flex-end;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     gap: 15px;
 }
