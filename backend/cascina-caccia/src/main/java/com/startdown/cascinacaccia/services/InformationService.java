@@ -24,20 +24,18 @@ public class InformationService {
 
     @Autowired
     private InformationDAO dao;
-
     @Autowired
     private EmailService emailservice;
-
     @Autowired
     private DateConverterService dateConverterService;
 
     /**
-     * Retrieves a list of all informations in the system.
+     * given a List of Informations creates a List of InformationDTOs
      *
-     * @return a List of InformationsDTO objects
+     * @param informations the list to convert
+     * @return the converted list
      */
-    public List<InformationDTO> getAllInformations() {
-        List<Information> informations = dao.findAll();
+    private List<InformationDTO> convertToDTOList(List<Information> informations) {
         return informations.stream()
                 .map(information -> new InformationDTO(
                         information.getId(),
@@ -48,15 +46,25 @@ public class InformationService {
                         dateConverterService.formatDateToFrontend(information.getDateSend()),
                         information.getText(),
                         information.getStatus()
-                        ))
+                ))
                 .collect(Collectors.toList());
+    };
+
+    /**
+     * Retrieves a list of all informations in the system.
+     *
+     * @return a List of InformationsDTO objects
+     */
+    public List<InformationDTO> getAllInformations() {
+        List<Information> informations = dao.findAll();
+        return convertToDTOList(informations);
     }
 
     /**
      * Retrieves a information by their unique ID.
      *
      * @param id the ID of the information to be retrieved
-     * @return an Optional containing the Information object if found, or an empty Optional if not found
+     * @return an Optional containing the InformationDTO object if found, or an empty Optional if not found
      */
     public Optional<InformationDTO> getInformationById(Integer id) {
         Optional<Information> info = dao.findById(id);
@@ -168,18 +176,7 @@ public class InformationService {
      */
     public List<InformationDTO> getInformationsByStatus(String status) {
         List<Information> informations = dao.findByStatus(status);
-        return informations.stream()
-                .map(information -> new InformationDTO(
-                        information.getId(),
-                        information.getName(),
-                        information.getSurname(),
-                        information.getPhone(),
-                        information.getEmail(),
-                        dateConverterService.formatDateToFrontend(information.getDateSend()),
-                        information.getText(),
-                        information.getStatus()
-                ))
-                .collect(Collectors.toList());
+        return convertToDTOList(informations);
     }
 
     /**
@@ -189,18 +186,7 @@ public class InformationService {
      */
     public List<InformationDTO> findByOrderByDateSendDesc() {
         List<Information> informations = dao.findByOrderByDateSendDesc();
-        return informations.stream()
-                .map(information -> new InformationDTO(
-                        information.getId(),
-                        information.getName(),
-                        information.getSurname(),
-                        information.getPhone(),
-                        information.getEmail(),
-                        dateConverterService.formatDateToFrontend(information.getDateSend()),
-                        information.getText(),
-                        information.getStatus()
-                ))
-                .collect(Collectors.toList());
+        return convertToDTOList(informations);
     }
 
 }
