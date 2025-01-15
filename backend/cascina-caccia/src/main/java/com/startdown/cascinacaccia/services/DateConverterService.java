@@ -10,7 +10,7 @@ import java.time.format.DateTimeParseException;
     from the frontend formatted ones to the backend and vice versa */
 @Service
 public class DateConverterService {
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     /**
      * Parses the date from the one received from the frontend to the DB format
