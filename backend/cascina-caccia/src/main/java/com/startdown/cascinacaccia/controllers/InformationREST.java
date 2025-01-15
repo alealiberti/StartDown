@@ -11,17 +11,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.startdown.cascinacaccia.entities.Information;
 
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/cascina-caccia/informations")
 // The InformationREST Controller handles the endpoints and the logic for the Information-related API requests
@@ -90,6 +84,7 @@ public class InformationREST {
             @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = @Content(mediaType = "application/json"))
     })
+	@CrossOrigin(origins = "http://localhost:5173/")
 	@PostMapping("/create-information") // Endpoint to create a new information
 	public ResponseEntity<Information> createInformation(@RequestBody Information information) {
 		Information newInformation = informationService.createInformation(information); // Create the new information
