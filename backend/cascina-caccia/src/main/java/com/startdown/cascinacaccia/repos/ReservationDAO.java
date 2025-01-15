@@ -28,18 +28,28 @@ public interface ReservationDAO extends JpaRepository<Reservation, Integer> {
     List<Reservation> findByOrderByDateSendDesc();
     
     /**
-     * Retrieves a list of all reservations sorted in ascending order for the start and then descending for the finish
+     * Retrieves a list of all reservations with specific value of "archived"
+     * sorted in ascending order for the start and then descending for the finish
      * 
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
-    List<Reservation> findByOrderByDateStartAscDateFinishDesc();
+    List<Reservation> findByArchivedOrderByDateStartAscDateFinishDesc(boolean isArchived);
     
     /**
-     * Retrieves a list of all reservations sorted in descending order by visitors
+     * Retrieves a list of all reservations with the specific value of "archived"
+     * sorted in descending order by visitors
      * 
      * @return a List containing the Reservation objects if found, or an empty List if not found
      */
-    List<Reservation> findByOrderByVisitorsDesc();
-    
-    
+    List<Reservation> findByArchivedOrderByVisitorsDesc(boolean isArchived);
+
+    /**
+     * Retrieves a list of reservations with the specific value of "archived"
+     * sorted by dateSend Desc
+     *
+     * @param isArchived boolean to get archived or non archived reservations
+     * @return a List containing the Reservation objects if found, or an empty List if not found
+     */
+    List<Reservation> findByArchivedOrderByDateSendDesc(boolean isArchived);
+
 }
