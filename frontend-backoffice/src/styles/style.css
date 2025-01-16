@@ -39,22 +39,65 @@ body {
 }
 
 h1 {
-    color: var(--white-text-color);
-    text-align: center;
-    font-size: 2rem;
-    font-family: var(--font-title);
-    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
     margin-bottom: 4px;
 }
 
 h2 {
-    color: var(--white-text-color);
-    text-align: center;
-    font-size: 0.75rem;
-    font-family: cursive;
-    opacity: 0.6;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
 }
 
+header{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+figure{
+    width: 50%;
+}
+
+img{
+    width: 100%;
+}
+
+header hr {
+    border: none; /* Rimuove il bordo predefinito */
+    height: 7px; /* Altezza della linea */
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--orange-color-logo) 0%,
+      var(--orange-color-logo) 33.33%,
+      var(--magenta-color-logo) 33.33%,
+      var(--magenta-color-logo) 66.66%,
+      var(--yellow-color-logo) 66.66%,
+      var(--yellow-color-logo) 100%
+    );
+    margin: 0px 0px 25 px 0px;
+  }
+
+/* container which contain the title and the form fields */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    width: 85%;
+    min-height: 600px;
+    background-color: var(--background-color-nav);
+    box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 5px;
+}
 
 /* form flex which contain the fields label + input && the submit button */
 form {
@@ -63,6 +106,21 @@ form {
     justify-content: space-around;
     align-items: center;
     min-height: 350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-container{
+    width: 90%;
+    max-width: 900px;
+}
+
+.inputForms {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
 /* container which contains the label and the input */
@@ -70,19 +128,19 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 230px;
+    width: 100%;
     min-height: 130px;
 }
 
 .field label {
-    color: var(--white-text-color);
+    background-color: var(--primary-color);
     font-size: 0.7rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: lighter;
 }
 
 input {
-    background-color: var(--background-primary);
+    background-color: var(--color-input);
     border: 0px;
     font-size: 0.7rem;
     padding: 12px 10px;
@@ -90,22 +148,20 @@ input {
 }
 
 /* button submit styling whit */
-button {
-    background-color: var(--background-primary);
-    font-family: var(--font-title);
-    font-size: 1rem;
-    padding: 5px 100px;
-    border: 0px;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+form button {
+    color: var(--primary-color);
+    display: block;
+    background-image: url(/images/button-background/button-background.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    padding: 15px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 100%;
 }
-
-button:hover {
-    background-color: var(--background-secondary);
-    transform: scale(1.02);
-    animation: borderLight 4s linear infinite;
-}
-
 /* animation applied principaly to the borders of the elements */
 @keyframes borderLight {
     0% {

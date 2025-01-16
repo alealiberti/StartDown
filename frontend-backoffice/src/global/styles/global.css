@@ -1,9 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
 /*! GLOBAL SETTINGS FOR ALL THE PAGES (font-size adjusted whit REM) and responsive root font-size */
+
+/* ROOT colors used in the backoffice style */
+:root {
+    /* Color variables logo */
+    --orange-color-logo: #E69731; /* logo color */
+    --magenta-color-logo: #D2277C; /* Secondary color */
+    --yellow-color-logo: #FDE039; /* Tertiary color */
+  
+    --color-input: #e0e0e0;
+    --color-input-focus: #d2d2d2;
+    --color-input-text: #868686;
+    
+    /* Color variables */
+    --orange-color: #E07B00; /* logo color */
+    --magenta-color: #DE0A7D; /* Secondary color */
+    --yellow-color: #FFDC00; /* Tertiary color */
+    
+    /* text and background colors */
+    --secondary-color: #0F0F0F;   /* Text color */
+    --primary-color: #f5f5f5; /* Background color */
+    
+    /* Font variables */
+    --font-family-title: 'Arial', sans-serif; /* Font for titles */
+    --font-family-content: 'Montserrat', sans-serif; /* Font for content */
+    --font-weight-normal: 400; /* Normal font weight */
+    --font-weight-bold: 700; /* Bold font weight */
+}
 
 html {
     box-sizing: border-box;
@@ -25,35 +50,34 @@ main {
     box-sizing: inherit;
 }
 
+body {
+    font-family: var(--font-family-content); /* Set the font for body text */
+    font-size: 18px; /* Default font size */
+    background-color: var(--primary-color); /* Background color for the page */
+    color: var(--secondary-color); /* Text color for the body */
+    line-height: 1.6; /* Line height for readability */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
 
-/* ------------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------------- */
+body::-webkit-scrollbar {
+    width: 10px;
+}
 
+body::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3;
+    border-radius: 4px;
+}
 
-/* ROOT colors used in the backoffice style */
-:root {
-    /* colors backgrounds */
-    --background-primary: #ffffff;
-    --background-secondary: #EBEBEB;
-    --background-third: #bcbcbc;
-    --background-fourth: #454545;
-    --background-color-nav: #2A2A2A;
+/* Text styles for headers and paragraphs */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-title); /* Title font family */
+    font-weight: 400;
+}
 
-    /* colors texts */
-    --dark-text-color: #242424;
-    --white-text-color: #FFFFFF;
-
-    /* colors MAIN of cascina caccia */
-    --cascina-primary: #FFDC00;
-    --cascina-secondary: #D2277C;
-    --cascina-tertiary: #E69731;
-
-    /* colors LIGTH cascina caccia */
-    --cascina-primary-ligth: #fff29b;
-    --cascina-secondary-ligth: #ff9fcf;
-    --cascina-tertiary-ligth: #ffcc8a;
-
-    /* fonts (titles && texts) */
-    --font-title: 'Montserrat', serif;
-    --font-text: 'Roboto', sans-serif;
+  /* Specific style for the first level header */
+h1 {
+    -webkit-user-select: none; /* not allowed to select text */
+    user-select: none; /* not allowed to select text */
 }
