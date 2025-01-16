@@ -40,7 +40,6 @@ export function createCardReservation(data: CardReservation, template: HTMLTempl
         case data.status === "nuova":
             stateReservationIcon.style.color = "#FF0004";
             CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "Nuova richiesta di prenotazione";
-
             break;
 
         case data.status === "accordare":

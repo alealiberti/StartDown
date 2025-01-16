@@ -80,10 +80,10 @@ export const reservationsData: CardReservation[] = [
         hourFinish: "14:00",
         status: "conclusa",
         typeGroup: "family",
-        NCompanions: 4,
-        NVisitors: 0,
-        mobilityProblems: false,
-        additionalInfo: "Nessuna richiesta speciale"
+        visitors: 1,
+        companions: 3,
+        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini",
+        mobilityProblems: true
     },
     {
         id: 1,
@@ -98,10 +98,10 @@ export const reservationsData: CardReservation[] = [
         hourFinish: "11:00",
         status: "nuova",
         typeGroup: "friends",
-        NCompanions: 3,
-        NVisitors: 1,
-        mobilityProblems: true,
-        additionalInfo: "Richiesta accesso facilitato"
+        visitors: 1,
+        companions: 3,
+        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini",
+        mobilityProblems: true
     },
     {
         id: 2,
@@ -116,10 +116,10 @@ export const reservationsData: CardReservation[] = [
         hourFinish: "17:00",
         status: "accordare",
         typeGroup: "business",
-        NCompanions: 2,
-        NVisitors: 0,
-        mobilityProblems: false,
-        additionalInfo: "Nessuna richiesta speciale"
+        visitors: 1,
+        companions: 3,
+        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini",
+        mobilityProblems: true
     },
     {
         id: 3,
@@ -134,10 +134,10 @@ export const reservationsData: CardReservation[] = [
         hourFinish: "12:30",
         status: "nuova",
         typeGroup: "individual",
-        NCompanions: 0,
-        NVisitors: 0,
-        mobilityProblems: false,
-        additionalInfo: "Richiesto il noleggio di attrezzature da yoga"
+        visitors: 1,
+        companions: 3,
+        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini",
+        mobilityProblems: true
     },
     {
         id: 4,
@@ -152,10 +152,10 @@ export const reservationsData: CardReservation[] = [
         hourFinish: "18:00",
         status: "conclusa",
         typeGroup: "sports",
-        NCompanions: 6,
-        NVisitors: 2,
-        mobilityProblems: false,
-        additionalInfo: "Richiesta disponibilità di un campo da calcetto"
+        visitors: 1,
+        companions: 3,
+        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini",
+        mobilityProblems: true
     },
     {
         id: 5,
@@ -170,10 +170,10 @@ export const reservationsData: CardReservation[] = [
         hourFinish: "13:00",
         status: "accordare",
         typeGroup: "family",
-        NCompanions: 3,
-        NVisitors: 1,
-        mobilityProblems: true,
-        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini"
+        visitors: 1,
+        companions: 3,
+        additionalInfo: "Richiesto accesso per carrozzina e spazio per i bambini",
+        mobilityProblems: true
     }
 ];
 

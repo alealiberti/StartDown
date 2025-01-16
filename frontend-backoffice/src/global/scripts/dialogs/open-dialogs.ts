@@ -1,3 +1,13 @@
+/**
+ * @file        main.ts
+ * @author      Gabriele Speciale
+ * @date        2025-01-16
+ * @description 
+ */
+
+
+
+
 import { createQuestionDialog } from "./dialog-card-question";
 import { createReservationDialog } from "./dialog-card-reservation";
 

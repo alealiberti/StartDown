@@ -11,8 +11,8 @@ export interface CardReservation {
     hourFinish: string | null,
     status: string,
     typeGroup: string | null,
-    NCompanions: number,
-    NVisitors: number,
-    mobilityProblems: boolean,
+    visitors: number,
+    companions: number,
     additionalInfo: string | null
+    mobilityProblems: boolean,
 }
