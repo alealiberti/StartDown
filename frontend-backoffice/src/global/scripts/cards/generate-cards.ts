@@ -12,37 +12,7 @@ import { openDialogs } from "../dialogs/open-dialogs";
 
 import { type CardQuestion } from "../../../models/card-question.model";
 import { type CardReservation } from "../../../models/card-reservation.model";
-
-
-
-
-/**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
- */
-export function generateCardsQuestions(
-    listRequests: HTMLElement,
-    overlay: HTMLElement,
-    questionTemplate: HTMLTemplateElement,
-    questionsData: CardQuestion[],
-): void {
-
-    const modalQuestion = document.querySelector(".dialogQuestion") as HTMLElement;
-
-    questionsData.forEach((question) => {
-        // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
-        const cardQuestion = createCardQuestion(question, questionTemplate);
-
-        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests and added the events "click"
-        if (cardQuestion) {
-            openDialogs(overlay, cardQuestion, modalQuestion, question);
-            listRequests.appendChild(cardQuestion);
-        }
-    });
-}
+import { deleteCard } from "../dialogs/dialog-delete";
 
 
 
@@ -53,65 +23,38 @@ export function generateCardsQuestions(
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function generateCardsReservations(
-    listRequests: HTMLElement,
-    overlay: HTMLElement,
-    reservationTemplate: HTMLTemplateElement,
-    reservationsData: CardReservation[],
+export function generateCards(
+    data: (CardQuestion | CardReservation)[],
+    questionTemplate?: HTMLTemplateElement,
+    reservationTemplate?: HTMLTemplateElement,
+    dialogQuestion?: HTMLElement,
+    dialogReservation?: HTMLElement,
 ): void {
 
-    const modalReservation = document.querySelector(".dialogReservation") as HTMLElement;
+    // list which will be filled whit the cards
+    const listRequests = document.querySelector("section#requests") as HTMLElement;
 
-    reservationsData.forEach((reservation) => {
-        // invocated the function which create cards, pass as argument: 1.data of question, 2.the cardQuestion template
-        const cardReservation = createCardReservation(reservation, reservationTemplate);
-
-        // if the card is actualy an HTML element and not "null", will be appended to the list of the requests and added the events "click"
-        if (cardReservation) {
-            openDialogs(overlay, cardReservation, modalReservation, reservation);
-            listRequests.appendChild(cardReservation);
-        }
-    });
-}
+    // take from the DOM the overlay which cover all the page whit a black nurse when cards are clicked
+    const overlay = document.querySelector(".overlay") as HTMLElement;
 
 
+    data.forEach((request) => {
 
-/**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
- */
-export function generateCardsLatestRequests(
-    listRequests: HTMLElement,
-    overlay: HTMLElement,
-    questionTemplate: HTMLTemplateElement,
-    reservationTemplate: HTMLTemplateElement,
-    latestRequests: (CardQuestion | CardReservation)[],
-): void {
-
-    // take from the DOM the modal of cards when clicked
-    const modalQuestion = document.querySelector(".dialogQuestion") as HTMLElement;
-    const modalReservation = document.querySelector(".dialogReservation") as HTMLElement;
-
-    latestRequests.forEach((request) => {
-
-        // check of the request if it is question || reservation from the properities! using:  "in"
-        // also say to typescript the type of the request using:  "as"
-        if ("question" in request) {
+        // check of the request if it is question || reservation from the properities! using: "in"
+        // also say to typescript the type of the request using: "as"
+        if ("question" in request && questionTemplate && dialogQuestion) {
             const cardQuestion = createCardQuestion(request as CardQuestion, questionTemplate);
-            if (cardQuestion) {
-                listRequests.appendChild(cardQuestion);
-                openDialogs(overlay, cardQuestion, modalQuestion, request);
-            }
+            // add events on card question
+            openDialogs(overlay, cardQuestion, dialogQuestion, request);
+            deleteCard(cardQuestion, request);
+            listRequests.appendChild(cardQuestion);
 
-        } else if ("status" in request) {
+        } else if ("status" in request && reservationTemplate && dialogReservation) {
             const cardReservation = createCardReservation(request as CardReservation, reservationTemplate);
-            if (cardReservation) {
-                listRequests.appendChild(cardReservation);
-                openDialogs(overlay, cardReservation, modalReservation, request);
-            }
+            // add events on card reservations
+            openDialogs(overlay, cardReservation, dialogReservation, request);
+            deleteCard(cardReservation, request);
+            listRequests.appendChild(cardReservation);
         }
 
     });

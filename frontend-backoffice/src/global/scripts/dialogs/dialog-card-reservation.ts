@@ -24,4 +24,10 @@ export function createReservationDialog(modalReservation: HTMLElement, reservati
     // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
     modalReservation.querySelector("p.status")!.textContent = reservation.status;
 
+    // //** if it is a reservation, we also change the status if it is the first click to view the reservation! whit backend!
+    // if (reservation?.status === "nuova") {
+    //     reservation.status = "accordare";
+    //     console.log(reservation);
+    // }
+
 }

@@ -7,6 +7,7 @@
 
 import { restructureDate } from "../restructure-date";
 import { type CardQuestion } from "../../../models/card-question.model";
+import { deleteCard } from "./dialog-delete";
 
 
 
@@ -26,10 +27,7 @@ export function createQuestionDialog(modalQuestion: HTMLElement, question: CardQ
     modalQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
 
     modalQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.question;
-    console.log(question.question.length);
 
 
-
-
-
+    deleteCard(modalQuestion, question);
 }
