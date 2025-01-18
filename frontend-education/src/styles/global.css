@@ -146,3 +146,12 @@ main {
 * {
   scroll-behavior: smooth;
 }
+
+.current-page{
+  font-size: 18px; 
+  font-family: var(--font-family-content); 
+  text-decoration: underline; 
+  font-weight: bold; 
+  color: var(--magenta-color-logo);
+  margin-bottom: 0;
+}

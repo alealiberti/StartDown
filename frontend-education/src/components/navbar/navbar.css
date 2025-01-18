@@ -15,6 +15,7 @@
 nav {
   position: fixed; /* Keeps the navbar fixed at the top */
   width: 100%; /* Full width */
+  height: 60px;
   top: 0; /* Aligns it to the top of the page */
   left: 0; /* Aligns it to the left of the page */
   z-index: 110; /* Aumenta il valore di z-index per garantire che la navbar sia sopra gli altri elementi */
