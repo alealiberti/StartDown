@@ -92,6 +92,7 @@ section.img-carousel .img-container .overlay h3{
 
 
 section.img-carousel .img-container .overlay p{
+    font-size: 1.6rem;
     position: relative;
     top: 50px;
 }
@@ -183,6 +184,7 @@ button.disabled {
 
 .grey-section section.img-carousel button{
     background-color: var(--magenta-color-logo);
+    color: var(--primary-color);
 }
 
 .grey-section section.img-carousel .img-section{
@@ -190,10 +192,19 @@ button.disabled {
 }
 
 .grey-section section.img-carousel .img-container .overlay h3{
+    top: 0;
     color: var(--primary-color);
+    font-size: 2.0rem;
+}
+
+.grey-section section.img-carousel .img-container .overlay p{
+    top: 0;
+    color: var(--primary-color);
+    font-size: 1.3rem;
 }
 
 .grey-section section.img-carousel .img-container .overlay {
     background: rgba(0, 0, 0, 0);
     background-color: var(--magenta-color-logo);
+    height: 120px;
 }
