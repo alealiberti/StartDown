@@ -367,9 +367,9 @@ section.colors-section .colors-container .magenta{
   gap: 10px;
 }
 
-/* .img-section::-webkit-scrollbar {
+.img-section::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .img-section figure.img-container  {
   flex: 0 0 auto;
