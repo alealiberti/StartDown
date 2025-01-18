@@ -14,4 +14,5 @@ import "../src/components/carousel/carousel.ts";
 import "../src/components/footer/footer.css";
 
 //** HOME PAGE **/
+import "./key-frame.css"
 import "./style.css"
