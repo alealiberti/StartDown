@@ -28,6 +28,7 @@ footer{
     flex-direction: column;
     padding: 50px 20px;
     width: fit-content;
+    align-items: flex-start
   }
   
   footer .social-container p{
