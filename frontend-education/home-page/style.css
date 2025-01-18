@@ -50,7 +50,6 @@ header.hero .img-container img {
   height: auto;
 }
 
-
 header.hero .header-container {
   display: flex;
   justify-content: center;
@@ -360,132 +359,6 @@ section.colors-section .colors-container .magenta{
   }
 }
 
-section.img-carousel{
-  width: 100%;
-}
-
-section.img-carousel h2{
-  font-size: 2.5rem;
-  width: 70%;
-  margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-section.img-carousel .carousel {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
-
-section.img-carousel .carousel .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: var(--yellow-color-logo);
-  margin: 10px;
-  border-radius: 3px;
-}
-
-section.img-carousel .button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-section.img-carousel button {
-  font-family: "Montserrat", sans-serif;
-  border: none;
-  background-color: var(--yellow-color-logo);
-  color: var(--secondary-color);
-  padding: 10px 20px;
-  margin-top: 40px;
-  font-size: 1.1rem;
-  border-radius: 10px;
-}
-
-button.disabled {
-  opacity: 0.5;
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
-section.img-carousel .img-section {
-  position: relative;
-  aspect-ratio: 3/4;
-  width: 80%;
-  margin: 0 auto;
-  border: var(--yellow-color-logo) solid 1px;
-  border-radius: 10px;
-  display: flex;
-  overflow-x: scroll;
-  gap: 10px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: auto; /* Disabilita lo scrolling fluido su mobile */
-}
-
-.img-section::-webkit-scrollbar {
-  display: none;
-}
-
-.img-container {
-  position: relative;
-  flex: 0 0 auto;
-  width: 100%;
-  scroll-snap-align: start;
-}
-
-.img-container img {
-  height: 100%;
-  width: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-.img-container .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  padding: 10px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-sizing: border-box;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-.img-container .overlay h3{
-  font-size: 1.3rem;
-  position: relative;
-  top: 50px;
-  color: var(--yellow-color-logo);
-}
-
-.img-container .overlay p{
-  position: relative;
-  top: 50px;
-}
-
-section.img-carousel .button {
-  cursor: pointer;
-}
-
-section.img-carousel .img-section {
-  scroll-behavior: smooth;
-}
-
-section.img-carousel .img-container {
-  transition: transform 0.3s ease-in-out;
-}
-
 article p{
   font-size: 1.2rem;
 }
@@ -498,12 +371,6 @@ article p{
   padding: 20px 0px;
 }
 
-section.dark-style{
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-}
-
-section.light-style{
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+section.grey-section{
+  background-color: #4D4D4D;
 }

@@ -1,0 +1,199 @@
+section.img-carousel{
+    width: 100%;
+    height: fit-content;
+}
+
+section.img-carousel h2{
+    font-size: 2.5rem;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+section.img-carousel {
+    width: 100%;
+    height: fit-content;
+    max-width: 800px; /* Imposta la larghezza massima */
+    margin: 0 auto; /* Centra la sezione */
+}
+
+section.img-carousel .img-container {
+    transition: transform 0.3s ease-in-out;
+}
+
+section.img-carousel .img-section {
+    position: relative;
+    aspect-ratio: 3/4;
+    height: fit-content;
+    margin: 0 auto;
+    border: var(--yellow-color-logo) solid 1px;
+    border-radius: 10px;
+    display: flex;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: auto; /* Disabilita lo scrolling fluido su mobile */
+}
+
+section.img-carousel .carousel{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+section.img-carousel .img-section figure{
+    height: 100%;
+}
+
+section.img-carousel .img-section::-webkit-scrollbar {
+    display: none;
+}
+
+section.img-carousel .img-container {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    scroll-snap-align: start;
+}
+
+section.img-carousel .img-container img {
+    height: 100%;
+    width: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+section.img-carousel .img-container .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+section.img-carousel .img-container .overlay h3{
+    font-size: 1.3rem;
+    position: relative;
+    top: 50px;
+    color: var(--yellow-color-logo);
+}
+
+
+
+section.img-carousel .img-container .overlay p{
+    position: relative;
+    top: 50px;
+}
+
+section.img-carousel .button {
+    cursor: pointer;
+}
+
+section.img-carousel .carousel .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--yellow-color-logo);
+    margin: 10px;
+    border-radius: 3px;
+}
+
+section.img-carousel .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+section.img-carousel button {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    background-color: var(--yellow-color-logo);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    margin-top: 40px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+
+button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+@media (min-width: 756px) {
+    section.img-carousel .img-section {
+        position: relative;
+        aspect-ratio: 16/9;
+        height: fit-content;
+        margin: 0 auto;
+        border: var(--yellow-color-logo) solid 1px;
+        border-radius: 10px;
+        display: flex;
+        scroll-behavior: smooth;
+        overflow-x: scroll;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: auto; /* Disabilita lo scrolling fluido su mobile */
+    }
+
+    section.img-carousel .img-container {
+        position: relative;
+        flex: 0 0 auto;
+        width: 100%;
+        scroll-snap-align: start;
+    }
+    
+    section.img-carousel .img-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+}
+
+.grey-section{
+    background-color: var(--secondary-color);
+    width: 100%;
+    padding: 50px 0px;
+    height: fit-content;
+}
+
+.grey-section h2{
+    color: var(--primary-color);
+}
+
+.grey-section section.img-carousel .carousel .button{
+    background-color: var(--magenta-color-logo);
+}
+
+.grey-section section.img-carousel button{
+    background-color: var(--magenta-color-logo);
+}
+
+.grey-section section.img-carousel .img-section{
+    border: none;
+}
+
+.grey-section section.img-carousel .img-container .overlay h3{
+    color: var(--primary-color);
+}
+
+.grey-section section.img-carousel .img-container .overlay {
+    background: rgba(0, 0, 0, 0);
+    background-color: var(--magenta-color-logo);
+}
