@@ -208,3 +208,19 @@ button.disabled {
     background-color: var(--magenta-color-logo);
     height: 120px;
 }
+
+@media (max-width: 756px) {
+    .grey-section section.img-carousel .img-container .overlay {
+        background: rgba(0, 0, 0, 0);
+        background-color: var(--magenta-color-logo);
+        height: 135px;
+    }
+
+    .grey-section section.img-carousel .img-container .overlay h3{
+        font-size: 1.7rem;
+    }
+    
+    .grey-section section.img-carousel .img-container .overlay p{
+        font-size: 1rem;
+    }
+}
