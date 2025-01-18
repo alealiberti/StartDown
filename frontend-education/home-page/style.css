@@ -141,7 +141,7 @@ header .black-blur a:hover {
   z-index: 2;
   background-color: var(--primary-color);
   margin-top: calc(90vh + 100px);
-} 
+}
 
 main{
   display: flex;
@@ -150,71 +150,124 @@ main{
   width: 100%;
 }
 
-.appear{
-  animation: appear linear;
-  animation-range: entry 0;
-  animation-timeline: view();
+section{
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-article .img-container {
-  float: none; /* Su schermi più piccoli, disabilitiamo il float */
-  width: 100%; /* Adatta alla larghezza del contenitore */
+section.introduction-to-cascina-caccia{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
 }
 
-@media (min-width: 1400px) {
-  article .img-container {
-    position: relative;
-    top: 40px;
-    float: right; /* L'immagine sarà a sinistra */
-    margin-left: 30px; /* Spazio tra immagine e testo */
-    margin-bottom: 50px;
-    max-width: 65%; /* L'immagine non occupa tutto lo spazio */
-  }
+section.introduction-to-cascina-caccia h2{
+  font-size: 2.5rem;
 }
 
-article header div h2{
+div.back-ground-list-pillars{
+  background-color: var(--secondary-color);
+  width: 100%;
+  max-width: 199%;
+  height: fit-content;
+}
+
+section.list-pillars{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  height: fit-content;
+  color: var(--primary-color);
+}
+
+section.list-pillars h2{
   font-size: 2.5rem;
   padding: 0px 20px;
   width: fit-content;
 }
 
-article header::before {
-  content: "";
-  display: block;
-  position: relative;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: var(--secondary-color);
-  z-index: -1;
-}
-
-article header.single-line::before {
-  top: 65px;
-}
-
-article header.double-line::before {
-  top: 95px;
-}
-
-article header > div {
+section.list-pillars div.pillars-container{
   display: flex;
-  align-items: center;
-  margin-top: 60px;
-  z-index: 1;
-  padding: 30px 10px;
-  background-color: var(--primary-color);
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 100px;
+  max-width: 100%;
+  height: fit-content;
+}
+
+section.list-pillars div.pillars-container article{
+  padding: 30px 40px;
+  width: 90%;
+  max-width: 400px;
+  height: fit-content;
+  transition: scale 0.3s ease;
+}
+
+section.list-pillars div.pillars-container article:hover{
+  scale: 1.3;
+}
+
+section.list-pillars div.pillars-container article h3{
+  text-wrap: nowrap;
+  font-size: 2rem;
   width: fit-content;
+}
+
+section.list-pillars div.pillars-container article p{
+  font-size: 1.2rem;
+}
+
+
+@media (max-width: 992px) {
+  section.list-pillars div.pillars-container{
+    flex-direction: column;
+  }
+}
+
+section.place-for-everyone{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+section.place-for-everyone p,section.place-for-everyone header{
+  width: 90%;
   margin: 0 auto;
 }
 
-@media (max-width: 756px) {
-  article header h2{
-    font-size: 1.5rem;
+section.place-for-everyone article .img-container {
+  float: none;
+  width: 100%;
+  border-radius: 0;
+  margin: 40px 0px;
+}
+
+section.place-for-everyone article .img-container img{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 1400px) {
+  section.place-for-everyone  article .img-container {
+    position: relative;
+    top: 40px;
+    float: right;
+    margin-left: 30px;
+    margin-top: 0px;
+    max-width: 65%;
   }
-  article hr{
-    display: none;
-  }
+}
+
+section.place-for-everyone article header div h2{
+  font-size: 2.5rem;
+  width: fit-content;
 }
 
 article p{
