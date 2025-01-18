@@ -37,12 +37,12 @@ b {
 
 /* Hover effect for desktop */
 .menuToggle a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline effect when hovering over the link */
 }
 
 /* For Smartphone: Mobile View */
 @media (max-width: 992px) {
-  
+
   /* Menu styles for mobile view */
   .menu {
     position: fixed; /* Fixed positioning to stick to the top */

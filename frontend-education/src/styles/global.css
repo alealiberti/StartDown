@@ -17,16 +17,10 @@
   --color-input: #e0e0e0;
   --color-input-focus: #d2d2d2;
   --color-input-text: #868686;
-  
-  /* Color variables */
-  --orange-color-logo-dark: #9C5C1E; /* Darkened orange for contrast */
-  --magenta-color-logo-dark: #981C5C; /* Darkened magenta for contrast */
-  --yellow-color-logo-dark: #B3921D; /* Darkened yellow for contrast */
 
   --orange-color-logo-light: #F3B161; /* Lightened orange for vibrant accents */
   --magenta-color-logo-light: #E54C96; /* Lightened magenta for bright highlights */
   --yellow-color-logo-light: #FFE763; /* Lightened yellow for luminous highlights */
-
   
   /* text and background colors */
   --secondary-color: #0F0F0F;   /* Text color */
@@ -40,8 +34,6 @@
 }
 
 /* Global styles */
-
-
 *, *::before, *::after {
   box-sizing: inherit; /* Apply box-sizing to all elements */
 }
@@ -102,10 +94,6 @@ h1 {
   display: none;
 }
 
-.display-block {
-  display: block;
-}
-
 .img-container {
   display: flex; /* For flexible alignment */
   justify-content: center; /* Centers the image horizontally */
@@ -132,10 +120,6 @@ h1 {
   align-items: center;
   justify-content: center;
   color: var(--color-secondary);
-}
-
-.bold{
-  font-weight: var(--font-weight-bold);
 }
 
 main {
