@@ -7,7 +7,7 @@
 
 
 import { restructureDate } from "../restructure-date";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
@@ -18,7 +18,7 @@ import { type CardReservation } from "../../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createReservationDialog(modalReservation: HTMLElement, reservation: CardReservation): void {
+export function createReservationDialog(overlay: HTMLElement, modalReservation: HTMLElement, reservation: CardReservation): void {
 
     // sets all the datas of the reservation into the TEMPLATE RESERVATION "dialog"
     // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"

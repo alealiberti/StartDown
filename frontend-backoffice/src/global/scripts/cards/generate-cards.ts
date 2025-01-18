@@ -10,8 +10,8 @@ import { createCardReservation } from "./create-card-reservation";
 
 import { openDialogs } from "../dialogs/open-dialogs";
 
-import { type CardQuestion } from "../../../models/card-question.model";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 import { deleteCard } from "../dialogs/dialog-delete";
 
 
@@ -46,14 +46,14 @@ export function generateCards(
             const cardQuestion = createCardQuestion(request as CardQuestion, questionTemplate);
             // add events on card question
             openDialogs(overlay, cardQuestion, dialogQuestion, request);
-            deleteCard(cardQuestion, request);
+            deleteCard(overlay, cardQuestion, request);
             listRequests.appendChild(cardQuestion);
 
         } else if ("status" in request && reservationTemplate && dialogReservation) {
             const cardReservation = createCardReservation(request as CardReservation, reservationTemplate);
             // add events on card reservations
             openDialogs(overlay, cardReservation, dialogReservation, request);
-            deleteCard(cardReservation, request);
+            deleteCard(overlay, cardReservation, request);
             listRequests.appendChild(cardReservation);
         }
 

@@ -6,8 +6,8 @@
  */
 
 
-import { type CardQuestion } from "../../models/card-question.model";
-import { type CardReservation } from "../../models/card-reservation.model";
+import { type CardQuestion } from "../models/card-question.model";
+import { type CardReservation } from "../models/card-reservation.model";
 
 
 

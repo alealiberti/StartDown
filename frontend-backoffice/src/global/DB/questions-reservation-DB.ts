@@ -1,5 +1,5 @@
-import { type CardQuestion } from "../../models/card-question.model";
-import { type CardReservation } from "../../models/card-reservation.model";
+import { type CardQuestion } from "../models/card-question.model";
+import { type CardReservation } from "../models/card-reservation.model";
 
 //! IMPORTANTE FORMATO DATE IN JS con new Date():  MESE/GIORNO/ANNO 
 

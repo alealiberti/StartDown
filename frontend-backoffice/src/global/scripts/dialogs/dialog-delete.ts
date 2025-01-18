@@ -6,8 +6,8 @@
  */
 
 
-import { type CardQuestion } from "../../../models/card-question.model";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
@@ -18,12 +18,21 @@ import { type CardReservation } from "../../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function deleteCard(cardORmodal: HTMLElement, request: CardQuestion | CardReservation) {
+export function deleteCard(overlay: HTMLElement, cardORmodal: HTMLElement, request: CardQuestion | CardReservation) {
 
     cardORmodal.querySelector(".actions .trash")?.addEventListener("click", (event) => {
 
+        // show the overlay behind the dialog
+        overlay.style.display = "block";
+
+        // if the element which on click trash button is modal of question/reservation will close it and show only the dialog of delete
+        if (cardORmodal.classList.contains("dialogQuestion") || cardORmodal.classList.contains("dialogReservation")) {
+            cardORmodal.style.display = "none";
+        }
+
         // avoid the propagation of the event to the card container event listener openModal
         event.stopPropagation();
+
 
         // TODO implement DELETE API
         console.log("cancellato!");

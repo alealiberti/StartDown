@@ -9,8 +9,8 @@
 import { createQuestionDialog } from "./dialog-card-question";
 import { createReservationDialog } from "./dialog-card-reservation";
 
-import { type CardQuestion } from "../../../models/card-question.model";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
@@ -30,9 +30,9 @@ export function openDialogs(overlay: HTMLElement, card: HTMLElement, modal: HTML
         modal.style.display = "flex";
 
         if ("question" in request) {
-            createQuestionDialog(modal, request)
+            createQuestionDialog(overlay, modal, request)
         } else if ("status" in request) {
-            createReservationDialog(modal, request)
+            createReservationDialog(overlay, modal, request)
         }
     });
 

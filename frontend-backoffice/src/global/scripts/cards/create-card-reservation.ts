@@ -5,7 +5,7 @@
  * @description 
  */
 
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 import { restructureDate } from "../restructure-date";
 
 
