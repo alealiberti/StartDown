@@ -16,7 +16,7 @@
   content="cascina educazione, cascina caccia, carla e bruno, cascina caccia laboratori, cascina caccia eventi">
   
   <!-- Meta tag for author (optional, useful for branding or location) -->
-  <meta name="author" content="Carla e Bruno">
+  <meta name="author" content="Alessio">
   
   <!-- Link to the favicon icon (optional, improves user experience) -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -50,38 +50,38 @@
     
   </div>
   
+  <div id="sub-background">
+    <!-- Background element for visual styling -->
+  </div>
+  
   <nav aria-label="Navigazione principale" role="navigation">
     <div class="menuToggle">
-      
-      <!--
-      A fake / hidden checkbox is used as click reciever,
-      so you can use the :checked selector on it.
-      -->
+      <!-- Fake checkbox for menu toggle (hamburger effect) -->
       <input type="checkbox" id="menuCheckbox" />
-      
-      <!--
-      Some spans to act as a hamburger.
-      -->
-      
+  
+      <!-- Hamburger icon (three bars) -->
       <span></span>
       <span></span>
       <span></span>
-      
+  
       <div class="hamburger-background">
-        
+        <!-- Background for the hamburger menu -->
       </div>
-      
+  
       <div class="menu">
         <a href="/index.html">
           <figure class="logo img-container">
+            <!-- Cascina Caccia logo image -->
             <img src="./public/images/logo/horizontal-version-black.webp"
-            alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" loading="lazy" width="300" height="150" />
+              alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" loading="lazy" width="300" height="150" />
           </figure>
         </a>
-        
+  
         <ul class="nav-list">
+          <!-- Navigation list items -->
           <li>
             <a href="#" title="Torna alla pagina iniziale">
+              <!-- Home link with custom SVG icon -->
               <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z"
@@ -96,8 +96,9 @@
               HOME
             </a>
           </li>
-
+  
           <li><a href="#" title="Torna alla home page">
+            <!-- Current page (Home) with icon -->
             <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M28.138 14.4827C28.138 18.6841 25.8358 19.658 21.8847 21.158C17.4848 22.8284 12.6376 24.5479 8.31272 22.6919C4.80282 21.1857 2.48279 18.4045 2.48279 14.4827C2.48279 8.31236 8.22589 3.3103 15.3104 3.3103C22.3949 3.3103 28.138 8.31236 28.138 14.4827Z" fill="#FFDC00"/>
               <path d="M-2.18749e-05 11.1724C-2.18749e-05 15.3738 2.3021 16.3477 6.25321 17.8477C10.6531 19.5181 15.5003 21.2376 19.8252 19.3816C23.3351 17.8754 25.6552 15.0942 25.6552 11.1724C25.6552 5.00206 19.912 0 12.8276 0C5.74308 0 -2.18749e-05 5.00206 -2.18749e-05 11.1724Z" fill="#D2277C"/>
@@ -105,32 +106,72 @@
             </svg>
             <p class="current-page">HOME</p>
           </a></li>
+  
           <li><a href="/laboratories-page/index.html" title="Scopri i nostri laboratori e attività">
+              <!-- Link to laboratories and activities page -->
               LABORATORI E ATTIVITA
             </a></li>
-
+  
           <li><a href="/events-page/index.html" title="Visualizza gli eventi in programma">
+              <!-- Link to events page -->
               EVENTI
             </a></li>
-
+  
           <li><a href="/contacts-page/index.html" title="Vai alla sezione contattaci">
+              <!-- Link to contact page -->
               CONTATTACI
             </a>
           </li>
-
+  
           <li><a href="./reservation-page/index.html" title="Prenota una visita">
+            <!-- Link to reservation page -->
             PRENOTA
           </a></li>
-
+  
           <li><a target="_blank" href="https://cascinacaccia.net/" title="Vai alla sezione contattaci">
+              <!-- Link to external website -->
               TORNA SU CascinaCaccia.net
             </a>
           </li>
-
+  
         </ul>
-  </div>
-</div>
-</nav>
+      </div>
+    </div>
+  </nav>
+  
+  <header title="Introduzione della pagina" role="banner" class="hero">
+    <div class="black-blur">
+      <div class="header-container">
+        <!-- Main header container -->
+  
+        <!-- Accessible and SEO-friendly landmark for the logo -->
+        <figure class="img-container">
+          <img src="./public/images/logo/logo-bruno-e-carla-white.webp"
+          alt="Logo di Cascina Caccia - Educazione, Laboratori ed Eventi" loading="lazy" width="300" height="150" />
+          <figcaption class="display-none">Logo ufficiale di Cascina Caccia</figcaption>
+        </figure>
+  
+        <div class="title">
+          <div>
+            <h1>
+              Benvenuti a <strong>Cascina Caccia Mentis</strong><span class="display-none">: <strong>memoria</strong>,
+                <strong>legalità</strong> e <strong>comunità attiva</strong></span>
+              </h1>
+              <hr>
+            </div>
+            <p>
+              Dove la memoria diventa azione
+            </p>
+          </div>
+        </div>
+  
+        <!-- Call-to-action button to book a visit -->
+        <a href="/reservation-page/index.html" title="Vai alla sezione contattaci" class="button">
+          Prenota una visita!
+        </a>
+      </div>
+    </div>
+  </header>
 
 <header title="itroduzione della pagina" role="banner" class="hero">
   <div class="black-blur">
