@@ -20,10 +20,15 @@ let body = document.body;
 /**
  * Toggles the scroll functionality and visibility of the background overlay.
  * 
- * When the checkbox is checked, scrolling is disabled and the background overlay is shown.
- * When the checkbox is unchecked, scrolling is enabled and the background overlay is hidden.
+ * This function updates the scroll behavior and the visibility of the background overlay
+ * based on the checkbox state. When the checkbox is checked, scrolling is disabled,
+ * and the background overlay is displayed. When unchecked, scrolling is enabled,
+ * and the overlay is hidden.
+ * 
+ * @function toggleScroll
+ * @returns {void}
  */
-function toggleScroll() {
+function toggleScroll(): void {
   if (checkbox.checked) {
     // Disable scrolling by adding the "no-scroll" class
     body.classList.add("no-scroll");
@@ -40,9 +45,14 @@ function toggleScroll() {
 /**
  * Handles the tap (click or touch) event on the background element.
  * 
- * This function toggles the checkbox state and updates the scroll behavior.
+ * This function toggles the checkbox state (checked/unchecked) and updates
+ * the scroll behavior accordingly by calling the `toggleScroll` function.
+ * It is used to handle both touch and click events on the background overlay.
+ * 
+ * @function handleTap
+ * @returns {void}
  */
-const handleTap = () => {
+const handleTap = (): void => {
   // Toggle the checkbox state (checked/unchecked)
   checkbox.checked = !checkbox.checked;
   
@@ -54,9 +64,13 @@ const handleTap = () => {
  * Adds event listeners for touch events to toggle the checkbox state.
  * 
  * This function adds the "touchstart" event listener to the background element
- * to handle touch interactions on mobile devices.
+ * to handle touch interactions on mobile devices, allowing for a smoother
+ * user experience on touch-enabled devices.
+ * 
+ * @function changeToggleOnTap
+ * @returns {void}
  */
-function changeToggleOnTap() {
+function changeToggleOnTap(): void {
   // Add touchstart event listener to toggle the checkbox when the background is tapped
   subBackground.addEventListener("touchstart", handleTap);
 }

@@ -1,117 +1,145 @@
-section.img-carousel{
-    width: 100%;
-    height: fit-content;
+/* 
+ * Image Carousel Styles
+ * 
+ * This file contains styles for the image carousel section, including layout, animations, and responsiveness for mobile, tablet, and desktop views.
+ * The carousel allows users to scroll horizontally through images with smooth transitions.
+ * It also includes styling for overlay text, buttons, and container layouts for a clean and responsive design.
+ * 
+ * The section adapts to different screen sizes, with adjustments for mobile and desktop views, ensuring proper image display and interaction functionality.
+ * 
+ * @author: Alessio Burbulia
+*/
+
+/** USED ONLY ON HOME PAGE */
+
+/* Section for the image carousel */
+section.img-carousel {
+    width: 100%; /* Full width */
+    height: fit-content; /* Adjusts height to content size */
 }
 
-section.img-carousel h2{
-    font-size: 2.5rem;
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 10px;
+/* Title of the carousel */
+section.img-carousel h2 {
+    font-size: 2.5rem; /* Font size for the title */
+    width: 70%; /* Set width to 70% */
+    margin: 0 auto; /* Center the title */
+    margin-bottom: 10px; /* Space below the title */
 }
 
+/* Container for the image carousel */
 section.img-carousel {
     width: 100%;
     height: fit-content;
-    max-width: 800px; /* Imposta la larghezza massima */
-    margin: 0 auto; /* Centra la sezione */
+    max-width: 800px; /* Set maximum width */
+    margin: 0 auto; /* Center the section */
 }
 
+/* Image container with transition effect */
 section.img-carousel .img-container {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for transformation */
 }
 
+/* Image section with flex layout and scroll */
 section.img-carousel .img-section {
     position: relative;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3/4; /* Aspect ratio of 3:4 */
     height: fit-content;
     margin: 0 auto;
-    border: var(--yellow-color-logo) solid 1px;
-    border-radius: 10px;
+    border: var(--yellow-color-logo) solid 1px; /* Border with yellow color */
+    border-radius: 10px; /* Rounded corners */
     display: flex;
     scroll-behavior: smooth;
-    overflow-x: scroll;
-    gap: 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: auto; /* Disabilita lo scrolling fluido su mobile */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    gap: 10px; /* Gap between images */
+    scroll-snap-type: x mandatory; /* Snap images to position */
+    -webkit-overflow-scrolling: auto; /* Disable smooth scrolling on mobile */
 }
 
-section.img-carousel .carousel{
+/* Flex container for carousel items */
+section.img-carousel .carousel {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+    gap: 10px; /* Gap between carousel items */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
 }
 
-section.img-carousel .img-section figure{
-    height: 100%;
+/* Figure tag within the image section */
+section.img-carousel .img-section figure {
+    height: 100%; /* Set height to 100% */
 }
 
+/* Hide scrollbar in the image section */
 section.img-carousel .img-section::-webkit-scrollbar {
-    display: none;
+    display: none; /* Hide the scrollbar */
 }
 
+/* Image container with snapping */
 section.img-carousel .img-container {
     position: relative;
     flex: 0 0 auto;
-    width: 100%;
-    scroll-snap-align: start;
+    width: 100%; /* Full width */
+    scroll-snap-align: start; /* Align the item to the start */
 }
 
+/* Image styling within the container */
 section.img-carousel .img-container img {
-    height: 100%;
-    width: auto;
-    display: block;
-    border-radius: 10px;
+    height: 100%; /* Set image height to 100% */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Make image a block element */
+    border-radius: 10px; /* Rounded corners */
 }
 
+/* Overlay for each image with gradient background */
 section.img-carousel .img-container .overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 200px;
+    height: 200px; /* Height of the overlay */
     padding: 10px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient background */
     color: white;
     font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    font-size: 1rem; /* Font size */
+    border-bottom-left-radius: 10px; /* Rounded corners */
+    border-bottom-right-radius: 10px; /* Rounded corners */
     box-sizing: border-box;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
 }
 
-section.img-carousel .img-container .overlay h3{
-    font-size: 1.3rem;
+/* Heading within the overlay */
+section.img-carousel .img-container .overlay h3 {
+    font-size: 1.3rem; /* Font size for heading */
     position: relative;
-    top: 50px;
-    color: var(--yellow-color-logo);
+    top: 50px; /* Positioning the heading */
+    color: var(--yellow-color-logo); /* Yellow color for the heading */
 }
 
-
-
-section.img-carousel .img-container .overlay p{
-    font-size: 1.6rem;
+/* Paragraph within the overlay */
+section.img-carousel .img-container .overlay p {
+    font-size: 1.6rem; /* Font size for the paragraph */
     position: relative;
-    top: 50px;
+    top: 50px; /* Positioning the paragraph */
 }
 
+/* Button styling for interaction */
 section.img-carousel .button {
-    cursor: pointer;
+    cursor: pointer; /* Pointer cursor on hover */
 }
 
+/* Button in the carousel */
 section.img-carousel .carousel .button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: var(--yellow-color-logo);
-    margin: 10px;
-    border-radius: 3px;
+    background-color: var(--yellow-color-logo); /* Button background color */
+    margin: 10px; /* Space around the button */
+    border-radius: 3px; /* Rounded corners */
 }
 
+/* Button container styling */
 section.img-carousel .button-container {
     display: flex;
     justify-content: center;
@@ -119,27 +147,31 @@ section.img-carousel .button-container {
     width: 100%;
 }
 
+/* Button styling within the carousel section */
 section.img-carousel button {
     font-family: "Montserrat", sans-serif;
     border: none;
-    background-color: var(--yellow-color-logo);
-    color: var(--secondary-color);
+    background-color: var(--yellow-color-logo); /* Button background */
+    color: var(--secondary-color); /* Button text color */
     padding: 10px 20px;
-    margin-top: 40px;
+    margin-top: 40px; /* Space above the button */
     font-size: 1.1rem;
-    border-radius: 10px;
+    border-radius: 10px; /* Rounded corners */
 }
 
+/* Disabled button styling */
 button.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-    cursor: not-allowed;
+    opacity: 0.5; /* Reduced opacity */
+    pointer-events: none; /* Disable interaction */
+    cursor: not-allowed; /* Not allowed cursor */
 }
 
+/* Media query for larger screens */
 @media (min-width: 756px) {
+    /* Adjust image section layout for larger screens */
     section.img-carousel .img-section {
         position: relative;
-        aspect-ratio: 16/9;
+        aspect-ratio: 16/9; /* Aspect ratio of 16:9 for larger screens */
         height: fit-content;
         margin: 0 auto;
         border: var(--yellow-color-logo) solid 1px;
@@ -149,16 +181,18 @@ button.disabled {
         overflow-x: scroll;
         gap: 10px;
         scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: auto; /* Disabilita lo scrolling fluido su mobile */
+        -webkit-overflow-scrolling: auto;
     }
 
+    /* Adjust image container layout */
     section.img-carousel .img-container {
         position: relative;
         flex: 0 0 auto;
         width: 100%;
         scroll-snap-align: start;
     }
-    
+
+    /* Adjust image size */
     section.img-carousel .img-container img {
         width: 100%;
         height: auto;
@@ -167,60 +201,71 @@ button.disabled {
     }
 }
 
-.grey-section{
+/* Section with grey background */
+.grey-section {
     background-color: var(--secondary-color);
     width: 100%;
-    padding: 50px 0px;
+    padding: 50px 0px; /* Padding around the section */
     height: fit-content;
 }
 
-.grey-section h2{
-    color: var(--primary-color);
+/* Heading in grey section */
+.grey-section h2 {
+    color: var(--primary-color); /* Primary color for heading */
 }
 
-.grey-section section.img-carousel .carousel .button{
-    background-color: var(--magenta-color-logo);
+/* Button styling in grey section */
+.grey-section section.img-carousel .carousel .button {
+    background-color: var(--magenta-color-logo); /* Magenta color for button */
 }
 
-.grey-section section.img-carousel button{
-    background-color: var(--magenta-color-logo);
-    color: var(--primary-color);
+.grey-section section.img-carousel button {
+    background-color: var(--magenta-color-logo); /* Magenta color for button */
+    color: var(--primary-color); /* Primary color for button text */
 }
 
-.grey-section section.img-carousel .img-section{
+/* Remove border from image section in grey section */
+.grey-section section.img-carousel .img-section {
     border: none;
 }
 
-.grey-section section.img-carousel .img-container .overlay h3{
+/* Overlay heading styling in grey section */
+.grey-section section.img-carousel .img-container .overlay h3 {
     top: 0;
-    color: var(--primary-color);
-    font-size: 2.0rem;
+    color: var(--primary-color); /* Primary color for heading */
+    font-size: 2.0rem; /* Font size */
 }
 
-.grey-section section.img-carousel .img-container .overlay p{
+/* Overlay paragraph styling in grey section */
+.grey-section section.img-carousel .img-container .overlay p {
     top: 0;
-    color: var(--primary-color);
-    font-size: 1.3rem;
+    color: var(--primary-color); /* Primary color for paragraph text */
+    font-size: 1.3rem; /* Font size */
 }
 
+/* Overlay styling with magenta background */
 .grey-section section.img-carousel .img-container .overlay {
-    background: rgba(0, 0, 0, 0);
-    background-color: var(--magenta-color-logo);
-    height: 120px;
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+    background-color: var(--magenta-color-logo); /* Magenta background */
+    height: 120px; /* Height of the overlay */
 }
 
+/* Media query for smaller screens */
 @media (max-width: 756px) {
+    /* Adjust overlay styling on smaller screens */
     .grey-section section.img-carousel .img-container .overlay {
         background: rgba(0, 0, 0, 0);
         background-color: var(--magenta-color-logo);
         height: 135px;
     }
 
-    .grey-section section.img-carousel .img-container .overlay h3{
+    /* Adjust font size of overlay heading on smaller screens */
+    .grey-section section.img-carousel .img-container .overlay h3 {
         font-size: 1.7rem;
     }
-    
-    .grey-section section.img-carousel .img-container .overlay p{
+
+    /* Adjust font size of overlay paragraph on smaller screens */
+    .grey-section section.img-carousel .img-container .overlay p {
         font-size: 1rem;
     }
 }

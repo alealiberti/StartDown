@@ -5,95 +5,102 @@
 * description: Root File contains the base style of the project
 */
 
+/* Importing external fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 /* Root variables for base styling */
 :root {
-  /* Color variables logo */
-  --orange-color-logo: #E69731; /* logo color */
-  --magenta-color-logo: #D2277C; /* Secondary color */
-  --yellow-color-logo: #FDE039; /* Tertiary color */
+  /* Color variables for the logo */
+  --orange-color-logo: #E69731; /* Primary orange color for the logo */
+  --magenta-color-logo: #D2277C; /* Secondary magenta color */
+  --yellow-color-logo: #FDE039; /* Tertiary yellow color */
 
-  --color-input: #e0e0e0;
-  --color-input-focus: #d2d2d2;
-  --color-input-text: #868686;
+  --color-input: #e0e0e0; /* Color for input fields */
+  --color-input-focus: #d2d2d2; /* Color for input fields when focused */
+  --color-input-text: #868686; /* Text color for inputs */
 
   --orange-color-logo-light: #F3B161; /* Lightened orange for vibrant accents */
   --magenta-color-logo-light: #E54C96; /* Lightened magenta for bright highlights */
   --yellow-color-logo-light: #FFE763; /* Lightened yellow for luminous highlights */
   
-  /* text and background colors */
-  --secondary-color: #0F0F0F;   /* Text color */
-  --primary-color: #f5f5f5; /* Background color */
+  /* Text and background colors */
+  --secondary-color: #0F0F0F;   /* Default text color */
+  --primary-color: #f5f5f5; /* Default background color */
   
   /* Font variables */
-  --font-family-title: 'Arial', sans-serif; /* Font for titles */
-  --font-family-content: 'Montserrat', sans-serif; /* Font for content */
+  --font-family-title: 'Arial', sans-serif; /* Font family for titles */
+  --font-family-content: 'Montserrat', sans-serif; /* Font family for content */
   --font-weight-normal: 400; /* Normal font weight */
   --font-weight-bold: 700; /* Bold font weight */
 }
 
-/* Global styles */
+/* Global styles for all elements */
 *, *::before, *::after {
-  box-sizing: inherit; /* Apply box-sizing to all elements */
+  box-sizing: inherit; /* Ensures box-sizing is applied to all elements */
 }
 
 * {
   box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
 }
 
+/* Body styles */
 body {
-  font-family: var(--font-family-content); /* Set the font for body text */
+  font-family: var(--font-family-content); /* Setting the font family for the body */
   font-size: 18px; /* Default font size */
   background-color: var(--primary-color); /* Background color for the page */
   color: var(--secondary-color); /* Text color for the body */
-  line-height: 1.6; /* Line height for readability */
+  line-height: 1.6; /* Line height for better readability */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
+/* Ensure smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
+/* Make the page take up the full height */
 html, body {
-  height: 100%; /* Imposta la altezza al 100% per l'intera pagina */
-  margin: 0; /* Rimuove il margine predefinito */
-  overflow-x: hidden; /* Disabilita lo scorrimento orizzontale */
+  height: 100%; /* Full height for the page */
+  margin: 0; /* Remove default margin */
+  overflow-x: hidden; /* Disable horizontal scrolling */
 }
 
-/* Stile per il resto della pagina */
+/* Custom scrollbar styles */
 body::-webkit-scrollbar {
-  width: 15px;
+  width: 15px; /* Width of the scrollbar */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--color-input-text);
-  border-radius: 10px;
+  background-color: var(--color-input-text); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Round corners for the scrollbar thumb */
 }
 
 body::-webkit-scrollbar-track {
-  background-color: var(--color-input);
-  border-radius: 10px;
+  background-color: var(--color-input); /* Background color of the scrollbar track */
+  border-radius: 10px; /* Round corners for the scrollbar track */
 }
 
-/* Text styles for headers and paragraphs */
+/* Text styles for headers */
 h2, h3, h4, h5, h6 {
   font-family: var(--font-family-title); /* Title font family */
   font-weight: var(--font-weight-bold); /* Bold font weight for headers */
 }
 
-/* Specific style for the first level header */
+/* Style for the first level header */
 h1 {
-  -webkit-user-select: none; /* not allowed to select text */
-  user-select: none; /* not allowed to select text */
+  -webkit-user-select: none; /* Disable text selection */
+  user-select: none; /* Disable text selection */
 }
 
+/* Class to hide elements */
 .display-none {
   display: none;
 }
 
+/* Image container for flexible image alignment */
 .img-container {
   display: flex; /* For flexible alignment */
   justify-content: center; /* Centers the image horizontally */
@@ -102,40 +109,45 @@ h1 {
   height: auto; /* Container height */
 }
 
+/* Style for images inside the container */
 .img-container img {  
   width: 100%; /* The image fills the container width */
   height: auto; /* Maintains the aspect ratio */  
 }
 
+/* Black overlay with blur effect */
 .black-blur{
   width: 100%;
   height: 100%;
   
-  background-color: rgba(0, 0, 0, 0.61);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.61); /* Semi-transparent black background */
+  backdrop-filter: blur(2px); /* Blur effect for the background */
+  -webkit-backdrop-filter: blur(2px); /* For Safari support */
   
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-secondary);
+  display: flex; /* Flexbox for centering content */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Centers the content horizontally */
+  justify-content: center; /* Centers the content vertically */
+  color: var(--color-secondary); /* Text color */
 }
 
+/* Main container style */
 main {
-  width: 100%;
-  margin: 0 auto;
+  width: 100%; /* Full width for the main content */
+  margin: 0 auto; /* Centers the main content */
 }
 
+/* Smooth scrolling behavior */
 * {
   scroll-behavior: smooth;
 }
 
+/* Style for the current page link */
 .current-page{
   font-size: 18px; 
   font-family: var(--font-family-content); 
-  text-decoration: underline; 
-  font-weight: bold; 
-  color: var(--magenta-color-logo);
-  margin-bottom: 0;
+  text-decoration: underline; /* Underline the text */
+  font-weight: bold; /* Make the text bold */
+  color: var(--magenta-color-logo); /* Magenta color for the current page link */
+  margin-bottom: 0; /* Remove margin at the bottom */
 }
