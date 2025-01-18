@@ -6,13 +6,14 @@
  */
 
 
-
-
 import { createQuestionDialog } from "./dialog-card-question";
 import { createReservationDialog } from "./dialog-card-reservation";
 
-import { type CardQuestion } from "../../../models/card-question.model";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
+
+
+
 
 /**
  * Nome della funzione
@@ -29,25 +30,16 @@ export function openDialogs(overlay: HTMLElement, card: HTMLElement, modal: HTML
         modal.style.display = "flex";
 
         if ("question" in request) {
-            createQuestionDialog(modal, request)
+            createQuestionDialog(overlay, modal, request)
         } else if ("status" in request) {
-            createReservationDialog(modal, request)
+            createReservationDialog(overlay, modal, request)
         }
     });
 
 
-    // add events listener on the OVERLAY when is visibile trough the click on the cards, a click outside it will close it
+    // add events listener on the OVERLAY when is visibile trough the click on the cards, a click outside it will close it an the modal
     overlay.addEventListener("click", () => {
+        overlay.style.display = "none";
         modal.style.display = "none";
     });
-
-
-
-
-
-    // //** if it is a reservation, we also change the status if it is the first click to view the reservation! whit backend!
-    // if (reservation?.status === "nuova") {
-    //     reservation.status = "accordare";
-    //     console.log(reservation);
-    // }
 }

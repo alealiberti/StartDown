@@ -6,7 +6,8 @@
  */
 
 import { restructureDate } from "../restructure-date";
-import { type CardQuestion } from "../../../models/card-question.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { deleteCard } from "./dialog-delete";
 
 
 
@@ -17,19 +18,14 @@ import { type CardQuestion } from "../../../models/card-question.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createQuestionDialog(modalQuestion: HTMLElement, question: CardQuestion): void {
+export function createQuestionDialog(overlay: HTMLElement, modalQuestion: HTMLElement, question: CardQuestion): void {
 
     // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
-
     modalQuestion.querySelector(".dialogHeader h2.dialogName")!.textContent = `${question.name} ${question.surname}`;
     modalQuestion.querySelector(".dialogHeader p.dialogEmail")!.textContent = question.email;
     modalQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
-
     modalQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.question;
-    console.log(question.question.length);
 
 
-
-
-
+    deleteCard(overlay, modalQuestion, question);
 }

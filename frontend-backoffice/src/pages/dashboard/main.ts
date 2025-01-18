@@ -21,5 +21,6 @@ import "./styles/style.css";
 // global scripts imports
 import "../../global/scripts/navbar/expand-navbar-phone.ts";
 
-// local scripts of the dashboard for generate cards elements
+
+// local scripts of the login 
 import "./scripts/scriptTry.ts";
