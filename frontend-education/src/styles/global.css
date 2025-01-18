@@ -19,9 +19,14 @@
   --color-input-text: #868686;
   
   /* Color variables */
-  --orange-color: #d59240; /* logo color */
-  --magenta-color: #d085ae; /* Secondary color */
-  --yellow-color: #ffec72; /* Tertiary color */
+  --orange-color-logo-dark: #9C5C1E; /* Darkened orange for contrast */
+  --magenta-color-logo-dark: #981C5C; /* Darkened magenta for contrast */
+  --yellow-color-logo-dark: #B3921D; /* Darkened yellow for contrast */
+
+  --orange-color-logo-light: #F3B161; /* Lightened orange for vibrant accents */
+  --magenta-color-logo-light: #E54C96; /* Lightened magenta for bright highlights */
+  --yellow-color-logo-light: #FFE763; /* Lightened yellow for luminous highlights */
+
   
   /* text and background colors */
   --secondary-color: #0F0F0F;   /* Text color */
@@ -106,8 +111,6 @@ h1 {
   justify-content: center; /* Centers the image horizontally */
   align-items: center; /* Centers the image vertically */
   overflow: hidden; /* Hides content that exceeds the container's boundaries */
-  border-radius: 8px; /* Rounds the container's corners */
-  width: 90%; /* Container width */
   height: auto; /* Container height */
 }
 
