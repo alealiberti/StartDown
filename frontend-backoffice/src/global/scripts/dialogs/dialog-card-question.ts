@@ -6,7 +6,6 @@
  */
 
 import { restructureDate } from "../restructure-date";
-import { deleteCard } from "./dialog-delete";
 
 import { type CardQuestion } from "../../models/card-question.model";
 

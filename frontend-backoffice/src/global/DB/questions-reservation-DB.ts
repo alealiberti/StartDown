@@ -204,4 +204,4 @@ const latestQuestionsReservations = (questionsData: CardQuestion[], reservations
 
 
 export const latestRequests = latestQuestionsReservations(questionsData, reservationsData);
-console.log(latestQuestionsReservations(questionsData, reservationsData));
+

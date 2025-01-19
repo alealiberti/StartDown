@@ -55,7 +55,7 @@
 
 .dialogQuestion .dialogBody p.dialogRequest {
     font-size: 0.8rem;
-    height: 220px;
+    height: 160px;
     overflow-y: scroll;
     line-height: 1.2;
 }

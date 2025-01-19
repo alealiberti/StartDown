@@ -17,7 +17,7 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
-
+// TODO FIXARE LA LOGICA PER APRIRE LA MODALE DI CANCELLAZIONE DALLA CARD DIRETTAMENTE O DALLA MODALE
 /**
  * Nome della funzione
  * Descrizione della funzione
@@ -37,15 +37,22 @@ export function openDialogs(card: HTMLElement, dialog: HTMLElement, request: Car
     // const dialogArchivie =
 
 
-    // ---------------------------------------
+    // --------------------------------------------------
 
 
-    // add events listener on the cards (question/reservation) when are clicked show the OVERLAY + DIALOG OF REQUEST
+    //* 01. add events listener to the card directly form the cards previews 
+    // add the module function for the click on trash button on the cards preview which show the modal for the cancellation
+    deleteCard(overlay, card, dialogDelete, request);
+
+    // add the module function for the click on archivie button on the cards preview which show the modal for the archivation
+
+
+    //* 02. add events listener on the cards (question/reservation) when are clicked show the OVERLAY + DIALOG OF REQUEST 
     card.addEventListener("click", () => {
 
         // on click on the cards questions/reservations will show an overlay and stop the scroll functionality
         overlay.style.display = "block";
-        document.body.classList.add("hidden");
+        document.body.classList.add("hidden"); // will disable the scroll on the document!
 
         // show an dialog which contains the information of the question/reservation
         dialog.style.display = "flex";
@@ -62,13 +69,7 @@ export function openDialogs(card: HTMLElement, dialog: HTMLElement, request: Car
     });
 
 
-    // add the module function for the click on trash button on the cards preview which show the modal for the cancellation
-    deleteCard(overlay, card, dialogDelete, request);
-
-    // add the module function for the click on archivie button on the cards preview which show the modal for the archivation
-
-
-    // ---------------------------------------
+    // --------------------------------------------------
 
 
     /* add events listener on the OVERLAY when is visibile trough the click on the cards, a click outside it will close:
