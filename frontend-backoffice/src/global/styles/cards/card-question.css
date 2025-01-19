@@ -24,18 +24,18 @@
 }
 
 .cardQuestion .cardHeader p.cardEmail {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .cardQuestion .cardHeader p.cardDate {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 
 /**02. card body preview message text (text of the question) */
 .cardQuestion p.cardBody {
     width: 65%;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-decoration: underline;
 }
 
@@ -46,4 +46,5 @@
     justify-content: flex-end;
     font-size: 1.1rem;
     gap: 15px;
+    cursor: pointer;
 }

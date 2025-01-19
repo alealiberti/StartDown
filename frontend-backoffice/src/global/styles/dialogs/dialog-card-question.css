@@ -2,12 +2,12 @@
     display: none;
     position: fixed;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     bottom: 0;
     left: 0;
     z-index: 10000;
     width: 100vw;
-    height: 85vh;
+    height: 75vh;
     background-color: whitesmoke;
     padding: 0 15px;
     border-top-left-radius: 20px;
@@ -55,7 +55,7 @@
 
 .dialogQuestion .dialogBody p.dialogRequest {
     font-size: 0.8rem;
-    height: 170px;
+    height: 220px;
     overflow-y: scroll;
     line-height: 1.2;
 }
@@ -72,13 +72,14 @@
     display: flex;
     font-size: 1.7rem;
     gap: 25px;
+    cursor: pointer;
 }
 
 .dialogQuestion .dialogFooter .dialogResponse {
     display: flex;
     align-items: center;
-    background-color: var(--background-fourth);
-    border: 2px solid var(--background-fourth);
+    background-color: var(--cascina-secondary);
+    border: 1px solid var(--background-fourth);
     border-radius: 10px;
 }
 

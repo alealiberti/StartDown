@@ -1,3 +1,63 @@
 .dialogDeleteCard {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 25vh;
+    background-color: var(--background-primary);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 8px rgba(255, 255, 255, 0.3);
     z-index: 20000;
+}
+
+/* *01. body of the cancellation of the request */
+.dialogDeleteCard h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 0.85rem;
+}
+
+.dialogDeleteCard h3 span {
+    font-weight: bold;
+}
+
+/* *02. actions buttons for confirm the cancellation or not */
+.dialogDeleteCard .dialogActions {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.dialogDeleteCard .dialogActions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* button CONFIRM DELETE */
+.dialogDeleteCard .dialogActions .confirmDelete {
+    background-color: #ff4d4d;
+    color: var(--white-text-color);
+}
+
+.dialogDeleteCard .dialogActions .confirmDelete:hover {
+    background-color: #e60000;
+}
+
+/* button REJECT DELETE */
+.dialogDeleteCard .dialogActions .cancelDelete {
+    background-color: #f0f0f0;
+}
+
+.dialogDeleteCard .dialogActions .cancelDelete:hover {
+    background-color: #d6d6d6;
 }

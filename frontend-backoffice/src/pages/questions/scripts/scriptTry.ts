@@ -1,6 +1,6 @@
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
 import { loadTemplate } from "../../../global/services/load-templates";
-import { generateCards } from "../../../global/scripts/cards/generate-cards";
+import { generateCards } from "../../../global/scripts/generate-cards";
 
 import { questionsData } from "../../../global/DB/questions-reservation-DB";
 
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadTemplate("/src/global/templates/cards/card-question.html");
     await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
     await loadTemplate("/src/global/templates/dialogs/dialog-delete.html");
+    await loadTemplate("/src/global/templates/dialogs/dialog-archivie.html");
 
 
     // ---------------------------------------------

@@ -24,11 +24,11 @@
 }
 
 .cardReservation .cardHeader p.cardEmail {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 .cardReservation .cardHeader p.cardDate {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 
@@ -52,7 +52,7 @@
 }
 
 .cardReservation .cardFooter .cardState p.stateDescription {
-    font-size: 0.69rem;
+    font-size: 0.65rem;
     font-weight: 600;
     text-decoration: underline;
 }
@@ -62,4 +62,5 @@
     justify-content: flex-end;
     font-size: 1.1rem;
     gap: 15px;
+    cursor: pointer;
 }
