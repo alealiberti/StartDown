@@ -21,7 +21,7 @@ section.img-carousel {
 /* Title of the carousel */
 section.img-carousel h2 {
     font-size: 2.5rem; /* Font size for the title */
-    width: 70%; /* Set width to 70% */
+    width: fit-content; /* Set width to 70% */
     margin: 0 auto; /* Center the title */
     margin-bottom: 10px; /* Space below the title */
 }
@@ -95,7 +95,7 @@ section.img-carousel .img-container .overlay {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 200px; /* Height of the overlay */
+    height: fit-content; /* Height of the overlay */
     padding: 10px;
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* Gradient background */
     color: white;
@@ -111,7 +111,7 @@ section.img-carousel .img-container .overlay {
 section.img-carousel .img-container .overlay h3 {
     font-size: 1.3rem; /* Font size for heading */
     position: relative;
-    top: 50px; /* Positioning the heading */
+    top: 0px; /* Positioning the heading */
     color: var(--yellow-color-logo); /* Yellow color for the heading */
 }
 
@@ -119,7 +119,7 @@ section.img-carousel .img-container .overlay h3 {
 section.img-carousel .img-container .overlay p {
     font-size: 1.6rem; /* Font size for the paragraph */
     position: relative;
-    top: 50px; /* Positioning the paragraph */
+    top: 0px; /* Positioning the paragraph */
 }
 
 /* Button styling for interaction */
