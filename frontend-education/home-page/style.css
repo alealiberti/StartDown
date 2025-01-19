@@ -259,28 +259,6 @@ section.list-pillars div.pillars-container article p {
   }
 }
 
-/* Text-only article section styling */
-section.text-only-article-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 900px;
-}
-
-/* Paragraph and header styling within the text-only article section */
-section.text-only-article-section p,
-section.text-only-article-section header {
-  width: 90%;
-  margin: 0 auto;
-}
-
-/* Header styling for text-only article section */
-section.text-only-article-section article header h2 {
-  font-size: 2.5rem;
-  width: fit-content;
-}
-
 /* Scrollable image container styling */
 div.scroll-img {
   width: 100%;

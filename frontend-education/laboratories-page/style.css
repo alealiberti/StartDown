@@ -7,7 +7,7 @@
       background-size: cover; /* Adatta l'immagine senza tagliarla */
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
-      height: 30vh;
+      height: 40vh;
       margin-top: 0px;
     }
   }
@@ -32,7 +32,7 @@
       background-position: center; /* Posiziona la parte superiore dell'immagine */
       background-attachment: scroll; /* Evita problemi di scorrimento */
       height:30vh;
-      margin-top: 0px;
+      margin-top: 120px;
     }
   }
 
@@ -76,49 +76,195 @@ h1{
     align-items: center;
     width: 100%;
   }
-  
-  
-  
-  article{
-    display: block;
-      margin: 20px;
-      width: 100%;
-      max-width: 900px;
+
+  .introduction-section{
+    width: 80%;
+    margin: 30px auto;
+    max-width: 800px;
+  }
+
+  .introduction-section h2{
+    padding-bottom: 20px;
+  }
+
+  .introduction-section .button-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 40px;
+  }
+
+  .introduction-section article p{
+    margin-bottom: 50px;
+  }
+
+  .introduction-section .button-container a{
+    font-family: "Montserrat";
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--yellow-color-logo);
+    border-radius: 13px;
+  }
+
+  .objectives, .method{
+    margin: 30px auto;
+  }
+
+  .objectives h2{
+    color: var(--orange-color-logo);
+  }
+
+  .method h2{
+    color: var(--magenta-color-logo);
+  }
+
+  .method article p{
+    margin-bottom: 30px;
+  }
+
+  .days-structure{
+    width: 80%;
+    margin: 30px auto;
+    max-width: 800px;
+  }
+
+  .days-structure .button-container{
+    margin-bottom: 40px;
+    padding: 30px 0px;
+  }
+
+  .days-structure a{
+    padding: 20px 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--color-input-text);
+    border-radius: 14px;
+  }
+
+  .days-structure .introduction{
+    margin-bottom: 30px;
+  }
+
+  .days-structure .introduction h2{
+    font-size: 2.5rem;
+  }
+
+  .days-structure .introduction p{
+    margin-bottom: 20px;
+  }
+
+  .opening-yellow-card{
+    background-color: var(--yellow-color-logo);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: fit-content;
+  }
+
+  .opening-yellow-card .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .opening-yellow-card .header div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .opening-yellow-card .content{
+    padding: 20px;
+  }
+
+  .opening-yellow-card .content p{
+    margin-bottom: 20px;
+  }
+
+  .opening-yellow-card .content ul{
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .opening-yellow-card .content li{
+    margin-bottom: 10px;
+    list-style:disc;
+  }
+
+  .opening-yellow-card .content span{
+    font-weight: 600;
+  }
+
+  .opening-yellow-card .content {
+    max-height: 0px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease; 
   }
   
-  article .img-container{
+  .opening-yellow-card .content.expanded {
+    max-height: 500px;
+  }
+
+  .opening-yellow-card .content.expanded{
+    padding: 20px;
+  }
+
+  .opening-yellow-card .content.expanded p{
+    margin-bottom: 20px;
+  }
+
+  .opening-yellow-card .content.expanded ul{
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .grey-section{
+    background-color: #414141;
+    color: var(--primary-color);
     width: 100%;
+  }
+
+  .grey-section article{
+    width: 80%;
     max-width: 900px;
-  
-    figcaption{
-      display: none;
-    }
+    margin: 0 auto;
+    padding: 50px;
   }
-  
-  
-  h2{
-    font-size: 1.5rem;
-    padding: 0px 20px;
+
+  .grey-section article h2{
+    font-size: 2.5rem;
+    color: var(--yellow-color-logo);
   }
+
+  .grey-section article h3{
+    font-family: "Montserrat";
+    font-size: 1.3rem;  
+    font-weight: normal;
+  }
+
+  .grey-section article p{
+    margin-bottom: 20px;
+  }
+
+  .grey-section article ul{
+    list-style: disc;
+    padding: 20px;
+  }
+
+
   
   strong{
     font-weight: bold;
   }
-  
-  main p{
-    padding: 15px;
-  }
-  
-  section.dark-style{
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-  }
-  
-  section.light-style{
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-.black-blur{
-  margin-top: 100px;
-}

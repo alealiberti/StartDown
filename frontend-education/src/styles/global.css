@@ -142,12 +142,24 @@ main {
   scroll-behavior: smooth;
 }
 
-/* Style for the current page link */
-.current-page{
-  font-size: 18px; 
-  font-family: var(--font-family-content); 
-  text-decoration: underline; /* Underline the text */
-  font-weight: bold; /* Make the text bold */
-  color: var(--magenta-color-logo); /* Magenta color for the current page link */
-  margin-bottom: 0; /* Remove margin at the bottom */
+/* Text-only article section styling */
+section.text-only-article-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Paragraph and header styling within the text-only article section */
+section.text-only-article-section p,
+section.text-only-article-section header {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* Header styling for text-only article section */
+section.text-only-article-section article header h2 {
+  font-size: 2.5rem;
+  width: fit-content;
 }
