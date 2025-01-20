@@ -1,10 +1,13 @@
 package com.startdown.cascinacaccia.configuration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.startdown.cascinacaccia.services.CustomUserDetailsService;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
@@ -19,6 +23,9 @@ import java.util.Arrays;
 
 @Configuration
 public class SecurityConfig {
+
+    @Autowired
+    private JWTFilter jwtFilter;
 
     private final CustomUserDetailsService userDetailsService;
 
@@ -32,14 +39,15 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless services
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html" ,"/api/v1/users").hasAnyRole("OWNER", "ADMIN") // Allow access to API Docs to Owner and Admins
-                        .requestMatchers("/login", "/resources/**").permitAll() // Allow public access to login and resources
+                        .requestMatchers("/auth/login", "/resources/**").permitAll() // Allow public access to login and resources
                         .requestMatchers("/cascina-caccia/users/change-password", "/cascina-caccia/users/update-user").hasAnyRole("OWNER", "ADMIN")
                         .requestMatchers("cascina-caccia/informations/create-information", "/cascina-caccia/reservations/create-reservation").permitAll() // Allow public access to the creation of information or reservation requests
                         .requestMatchers("cascina-caccia/users/change-user-password/**", "cascina-caccia/users/create-user", "cascina-caccia/users/delete-user/**", "cascina-caccia/users/**", "cascina-caccia/users", "cascina-caccia/users/email/**", "/cascina-caccia/users/update-user-role").hasRole("OWNER") // Allow the owner to access some requests
                         .anyRequest().authenticated() // All other requests require authentication
                 )
                 .httpBasic(Customizer.withDefaults()) // Enable Basic Authentication
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // Stateless session management
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))   // Stateless session management
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build(); // Build and return the security filter chain
     }
@@ -69,4 +77,8 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder(); // Uses BCrypt to crypt passwords
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager(); // Return the authentication manager from the config
+    }
 }
