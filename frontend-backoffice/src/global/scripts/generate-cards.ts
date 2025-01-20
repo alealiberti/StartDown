@@ -36,8 +36,8 @@ export function generateCards(
 
     datas.forEach((request) => {
 
-        // check of the request if it is question || reservation from the properities! using: "in"
-        // also say to typescript the type of the request using: "as"
+        /* check of the request if it is question || reservation from the properities! using: "in"
+        also say to typescript the type of the request using: "as" */
         if ("question" in request && questionTemplate && dialogQuestion) {
             const cardQuestion = createCardQuestion(request, questionTemplate);
             listRequests.appendChild(cardQuestion);

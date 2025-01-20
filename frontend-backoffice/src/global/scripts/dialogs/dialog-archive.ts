@@ -17,10 +17,10 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function archivieCard(
+export function archiveCardDialog(
     overlay: HTMLElement,
-    cardORmodal: HTMLElement,
-    dialogDelete: HTMLElement,
+    cardORdialog: HTMLElement,
+    dialogArchive: HTMLElement,
     request: CardQuestion | CardReservation
 ): void {
 
@@ -33,13 +33,13 @@ export function archivieCard(
      * @returns {TipoOutput} - DescrizioneOutput
      */
     function removeEventListeners(): void {
-        dialogDelete.querySelector(".dialogActions .confirmDelete")?.removeEventListener("click", handleDelete);
-        dialogDelete.querySelector(".dialogActions .cancelDelete")?.removeEventListener("click", handleCancel);
+        cardORdialog.querySelector(".dialogActions .confirm")?.removeEventListener("click", handleArchive);
+        cardORdialog.querySelector(".dialogActions .cancel")?.removeEventListener("click", handleCancel);
         overlay.removeEventListener("click", handleCancel);
     }
 
 
-    // ----------------------------------------------------------------
+    // ------------------------------------------------
 
 
     /**
@@ -49,10 +49,10 @@ export function archivieCard(
     * @param {TipoInput2} NomeInput2 - DescrizioneInput2
     * @returns {TipoOutput} - DescrizioneOutput
     */
-    function handleDelete(): void {
-        console.log(`Hai cancellato la richiesta di: ${request.name}`);
+    function handleArchive(): void {
+        console.log(`Hai archiviato la richiesta di: ${request.name}`);
         overlay.style.display = "none";
-        dialogDelete.style.display = "none";
+        dialogArchive.style.display = "none";
         document.body.classList.remove("hidden");
 
         // remove all associated events listener to prevent event listener reset
@@ -68,9 +68,9 @@ export function archivieCard(
      * @returns {TipoOutput} - DescrizioneOutput
      */
     function handleCancel(): void {
-        console.log(`Rifiutata dati di: ${request.name}`);
+        console.log(`Rifiutato archivio dati di: ${request.name}`);
         overlay.style.display = "none";
-        dialogDelete.style.display = "none";
+        dialogArchive.style.display = "none";
         document.body.classList.remove("hidden");
 
         // remove all associated events listener to prevent event listener reset
@@ -92,30 +92,27 @@ export function archivieCard(
 
         // show the overlay behind the dialog and stop the scroll on page, show the dialog for confirm or reject the delete of the card
         overlay.style.display = "block";
-        dialogDelete.style.display = "flex";
+        dialogArchive.style.display = "flex";
         document.body.classList.add("hidden");
 
         // if the button comes from a modal, close the modal
-        if (cardORmodal.classList.contains("dialogQuestion") || cardORmodal.classList.contains("dialogReservation")) {
-            cardORmodal.style.display = "none";
-            cardORmodal.querySelector(".actions .trash")?.removeEventListener("click", handleClick); // remove also the event listener on the opened dialog
+        if (cardORdialog.classList.contains("dialogQuestion") || cardORdialog.classList.contains("dialogReservation")) {
+            cardORdialog.style.display = "none";
+            cardORdialog.querySelector(".actions .archive")?.removeEventListener("click", handleClick); // remove also the event listener on the opened dialog
         }
 
         // added event listeners for confirmation and cancellation of the request, a FETCH API DELETE of the request
-        dialogDelete.querySelector(".dialogActions .confirmDelete")?.addEventListener("click", handleDelete);
-        dialogDelete.querySelector(".dialogActions .cancelDelete")?.addEventListener("click", handleCancel);
+        dialogArchive.querySelector(".dialogActions .confirm")?.addEventListener("click", handleArchive);
+        dialogArchive.querySelector(".dialogActions .cancel")?.addEventListener("click", handleCancel);
 
         // added event listener on the overlay for close all like the cancel button
         overlay.addEventListener("click", handleCancel);
     }
 
 
-
     // ---------------------------------------------------------
 
 
-
-    // event on the card preview || dialog of request, when is clicked the trash button will show the dialog of delete of the request selected
-    cardORmodal.querySelector(".actions .trash")?.addEventListener("click", handleClick);
-
+    // ***event on the card preview || dialog of request, when is clicked the trash button will show the dialog of delete of the request selected***
+    cardORdialog.querySelector(".actions .archive")?.addEventListener("click", handleClick);
 }

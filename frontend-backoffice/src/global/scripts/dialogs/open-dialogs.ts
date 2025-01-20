@@ -5,11 +5,12 @@
  * @description 
  */
 
+import { loadTemplate } from "../../services/";
 
 import { createQuestionDialog } from "./dialog-card-question";
 import { createReservationDialog } from "./dialog-card-reservation";
 
-import { deleteCard } from "./dialog-delete";
+import { deleteCardDialog } from "./dialog-delete.ts";
 
 import { type CardQuestion } from "../../models/card-question.model";
 import { type CardReservation } from "../../models/card-reservation.model";
@@ -42,7 +43,7 @@ export function openDialogs(card: HTMLElement, dialog: HTMLElement, request: Car
 
     //* 01. add events listener to the card directly form the cards previews 
     // add the module function for the click on trash button on the cards preview which show the modal for the cancellation
-    deleteCard(overlay, card, dialogDelete, request);
+    deleteCardDialog(overlay, card, dialogDelete, request);
 
     // add the module function for the click on archivie button on the cards preview which show the modal for the archivation
 
@@ -61,11 +62,12 @@ export function openDialogs(card: HTMLElement, dialog: HTMLElement, request: Car
         // IMPORTANT. can be also deleted the question/reservation card TROUGH DIALOGS WHERE ARE OPENED
         if ("question" in request) {
             createQuestionDialog(dialog, request);
-            deleteCard(overlay, dialog, dialogDelete, request);
+            deleteCardDialog(overlay, dialog, dialogDelete, request);
         } else if ("status" in request) {
             createReservationDialog(dialog, request);
-            deleteCard(overlay, dialog, dialogDelete, request);
+            deleteCardDialog(overlay, dialog, dialogDelete, request);
         }
+
     });
 
 

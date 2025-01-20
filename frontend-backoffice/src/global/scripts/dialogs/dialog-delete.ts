@@ -17,9 +17,9 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function deleteCard(
+export function deleteCardDialog(
     overlay: HTMLElement,
-    cardORmodal: HTMLElement,
+    cardORdialog: HTMLElement,
     dialogDelete: HTMLElement,
     request: CardQuestion | CardReservation
 ): void {
@@ -33,8 +33,8 @@ export function deleteCard(
      * @returns {TipoOutput} - DescrizioneOutput
      */
     function removeEventListeners(): void {
-        dialogDelete.querySelector(".dialogActions .confirmDelete")?.removeEventListener("click", handleDelete);
-        dialogDelete.querySelector(".dialogActions .cancelDelete")?.removeEventListener("click", handleCancel);
+        dialogDelete.querySelector(".dialogActions .confirm")?.removeEventListener("click", handleDelete);
+        dialogDelete.querySelector(".dialogActions .cancel")?.removeEventListener("click", handleCancel);
         overlay.removeEventListener("click", handleCancel);
     }
 
@@ -96,14 +96,14 @@ export function deleteCard(
         document.body.classList.add("hidden");
 
         // if the button comes from a modal, close the modal
-        if (cardORmodal.classList.contains("dialogQuestion") || cardORmodal.classList.contains("dialogReservation")) {
-            cardORmodal.style.display = "none";
-            cardORmodal.querySelector(".actions .trash")?.removeEventListener("click", handleClick); // remove also the event listener on the opened dialog
+        if (cardORdialog.classList.contains("dialogQuestion") || cardORdialog.classList.contains("dialogReservation")) {
+            cardORdialog.style.display = "none";
+            cardORdialog.querySelector(".actions .trash")?.removeEventListener("click", handleClick); // remove also the event listener on the opened dialog
         }
 
         // added event listeners for confirmation and cancellation of the request, a FETCH API DELETE of the request
-        dialogDelete.querySelector(".dialogActions .confirmDelete")?.addEventListener("click", handleDelete);
-        dialogDelete.querySelector(".dialogActions .cancelDelete")?.addEventListener("click", handleCancel);
+        dialogDelete.querySelector(".dialogActions .confirm")?.addEventListener("click", handleDelete);
+        dialogDelete.querySelector(".dialogActions .cancel")?.addEventListener("click", handleCancel);
 
         // added event listener on the overlay for close all like the cancel button
         overlay.addEventListener("click", handleCancel);
@@ -115,7 +115,7 @@ export function deleteCard(
 
 
 
-    // event on the card preview || dialog of request, when is clicked the trash button will show the dialog of delete of the request selected
-    cardORmodal.querySelector(".actions .trash")?.addEventListener("click", handleClick);
+    // ***event on the card preview || dialog of request, when is clicked the trash button will show the dialog of delete of the request selected***
+    cardORdialog.querySelector(".actions .trash")?.addEventListener("click", handleClick);
 
 }

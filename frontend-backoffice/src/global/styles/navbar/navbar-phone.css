@@ -116,7 +116,7 @@
 }
 
 #sidebar.expanded .navList li a ion-icon {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-right: 15px;
 }
 
@@ -126,13 +126,13 @@
     display: flex;
     align-items: center;
     background-color: var(--fourth-color);
-    padding: 5px 30px;
+    padding: 5px 20px;
     border: 2px solid #9C9898;
     border-radius: 5px;
 }
 
 #sidebar.expanded .logoutSection .navLabel {
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-left: 20px;
 }
 

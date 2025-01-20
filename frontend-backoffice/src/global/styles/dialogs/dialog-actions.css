@@ -1,4 +1,14 @@
-.dialogDeleteCard {
+/**
+ * style.css
+ *
+ *
+ * let's sets also the box-sizing property to border-box for all elements.
+ *
+ */
+
+
+.dialogDeleteCard,
+.dialogArchiveCard {
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -16,25 +26,31 @@
     z-index: 20000;
 }
 
+
 /* *01. body of the cancellation of the request */
-.dialogDeleteCard h3 {
+.dialogDeleteCard h3,
+.dialogArchiveCard h3 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 0.85rem;
 }
 
-.dialogDeleteCard h3 span {
+.dialogDeleteCard h3 span,
+.dialogArchiveCard h3 span {
     font-weight: bold;
 }
 
+
 /* *02. actions buttons for confirm the cancellation or not */
-.dialogDeleteCard .dialogActions {
+.dialogDeleteCard .dialogActions,
+.dialogArchiveCard .dialogActions {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-.dialogDeleteCard .dialogActions button {
+.dialogDeleteCard .dialogActions button,
+.dialogArchiveCard .dialogActions button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -44,20 +60,24 @@
 }
 
 /* button CONFIRM DELETE */
-.dialogDeleteCard .dialogActions .confirmDelete {
+.dialogDeleteCard .dialogActions .confirm,
+.dialogArchiveCard .dialogActions .confirm {
     background-color: #ff4d4d;
     color: var(--white-text-color);
 }
 
-.dialogDeleteCard .dialogActions .confirmDelete:hover {
+.dialogDeleteCard .dialogActions .confirm:hover,
+.dialogArchiveCard .dialogActions .confirm:hover {
     background-color: #e60000;
 }
 
 /* button REJECT DELETE */
-.dialogDeleteCard .dialogActions .cancelDelete {
+.dialogDeleteCard .dialogActions .cancel,
+.dialogArchiveCard .dialogActions .cancel {
     background-color: #f0f0f0;
 }
 
-.dialogDeleteCard .dialogActions .cancelDelete:hover {
+.dialogDeleteCard .dialogActions .cancel:hover,
+.dialogArchiveCard .dialogActions .cancel:hover {
     background-color: #d6d6d6;
 }

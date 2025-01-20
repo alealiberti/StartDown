@@ -10,7 +10,7 @@ import "../../global/styles/cards/card-reservation.css";
 import "../../global/styles/dialogs/overlay-dialog.css";
 import "../../global/styles/dialogs/dialog-card-question.css";
 import "../../global/styles/dialogs/dialog-card-reservation.css";
-import "../../global/styles/dialogs/dialog-delete.css";
+import "../../global/styles/dialogs/dialog-actions.css";
 
 // local styles of the dashboard
 import "./styles/style.css";
