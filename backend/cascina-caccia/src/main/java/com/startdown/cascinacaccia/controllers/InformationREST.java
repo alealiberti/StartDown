@@ -1,5 +1,4 @@
 package com.startdown.cascinacaccia.controllers;
-import java.time.LocalDate;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.startdown.cascinacaccia.entities.Information;
-import com.startdown.cascinacaccia.exceptions.InformationNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import com.startdown.cascinacaccia.entities.Information;
@@ -36,7 +34,6 @@ public class InformationREST {
 
 	@Autowired
 	private InformationService informationService;
-
 
 	/**
 	 * Retrieves a list of all informations in the system sorted by date send and not archived.
@@ -55,8 +52,30 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
-	public ResponseEntity<List<InformationDTO>> getAllInformations() {
+	public ResponseEntity<List<InformationDTO>> getAllInformationsNotArchived() {
 		List<InformationDTO> informations = informationService.getByNotArchivedAndByDateSend();
+		return ResponseEntity.ok(informations); // Fetch all informations using the information service
+	}
+
+	/**
+	 * Retrieves a list of all informations in the system
+	 *
+	 * @return ResponseEntity containing the informations
+	 */
+	@Operation(summary = "Informations list", description = "Gets the list of all the informations in the db")
+
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
+					content = @Content(mediaType = "application/json",
+							schema = @Schema(implementation = Information.class))),
+			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+					content = @Content(mediaType = "application/json")),
+			@ApiResponse(responseCode = "500", description = "Internal server error",
+					content = @Content(mediaType = "application/json"))
+	})
+	@GetMapping("/get-all")
+	public ResponseEntity<List<InformationDTO>> getAllInformations() {
+		List<InformationDTO> informations = informationService.getAllInformations();
 		return ResponseEntity.ok(informations); // Fetch all informations using the information service
 	}
 
@@ -173,7 +192,7 @@ public class InformationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/archived")
-	public ResponseEntity<List<InformationDTO>> getByArchived() {
+	public ResponseEntity<List<InformationDTO>> getArchived() {
 		List<InformationDTO> informations =informationService.getByArchived();
 		return ResponseEntity.ok(informations);
 	}
