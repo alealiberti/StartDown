@@ -1,6 +1,7 @@
 package com.startdown.cascinacaccia.services;
 
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -45,6 +46,7 @@ public class InformationService {
                 dateConverterService.formatDateToFrontend(information.getDateSend()),
                 information.getText(),
                 information.getArchived()
+
                 );
     }
 
@@ -169,7 +171,7 @@ public class InformationService {
         }
         throw new InformationNotFoundException("Information with ID " + id + " not found.");
     }
-
+    
     /**
      * Retrieves a list of all informations sorted in descending order by date send and not archived
      *
@@ -189,6 +191,4 @@ public class InformationService {
         List<Information> informations = dao.findByArchived(true);
         return convertToDTOList(informations);
     }
-    
-
-}
+   }

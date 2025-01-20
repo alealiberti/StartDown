@@ -1,4 +1,5 @@
 package com.startdown.cascinacaccia.controllers;
+import java.time.LocalDate;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,17 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.startdown.cascinacaccia.entities.Information;
+import com.startdown.cascinacaccia.exceptions.InformationNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import com.startdown.cascinacaccia.entities.Information;
@@ -25,12 +37,14 @@ public class InformationREST {
 	@Autowired
 	private InformationService informationService;
 
+
 	/**
 	 * Retrieves a list of all informations in the system sorted by date send and not archived.
 	 *
 	 * @return ResponseEntity containing the informations
 	 */
 	@Operation(summary = "Informations list", description = "Gets the list of all the informations in the db sorted by date send and not archived")
+
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
                     content = @Content(mediaType = "application/json",
@@ -51,6 +65,7 @@ public class InformationREST {
 	 * 
 	 * @param id the ID of the information to be retrieved
 	 * @return ResponseEntity containing the informations or not found response
+
 	 */
 	@Operation(summary = "Information by ID", description = "Gets the information corresponding to the provided id")
     @ApiResponses(value = {
