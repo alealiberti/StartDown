@@ -26,11 +26,11 @@ public class InformationREST {
 	private InformationService informationService;
 
 	/**
-	 * Retrieves a list of all informations in the system.
+	 * Retrieves a list of all informations in the system sorted by date send and not archived.
 	 *
 	 * @return ResponseEntity containing the informations
 	 */
-	@Operation(summary = "Informations list", description = "Gets the list of all the informations in the db")
+	@Operation(summary = "Informations list", description = "Gets the list of all the informations in the db sorted by date send and not archived")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
                     content = @Content(mediaType = "application/json",
@@ -42,7 +42,7 @@ public class InformationREST {
     })
 	@GetMapping
 	public ResponseEntity<List<InformationDTO>> getAllInformations() {
-		List<InformationDTO> informations = informationService.getAllInformations();
+		List<InformationDTO> informations = informationService.getByNotArchivedAndByDateSend();
 		return ResponseEntity.ok(informations); // Fetch all informations using the information service
 	}
 
@@ -143,33 +143,11 @@ public class InformationREST {
 	}
 
 	/**
-	 * Retrieves a list of informations with a specific status
-	 * 
-	 * @param status the name of the status for which the informations is to be retrieved
-	 * @return ResponseEntity containing the informations
-	 */
-	@Operation(summary = "Informations by status", description = "Gets a list of all the informations with a specific status in the db")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
-            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
-    })
-	@GetMapping("/status/{status}")
-	public ResponseEntity<List<InformationDTO>> getInformationByStatus(@PathVariable String status) {
-		List<InformationDTO> informations =informationService.getInformationsByStatus(status);
-		return ResponseEntity.ok(informations);
-	}
-
-	/**
-     * Retrieves a list of all informations sorted in descending order by date send
+     * Retrieves a list of all informations archived
      *
 	 * @return ResponseEntity containing the informations
      */
-	@Operation(summary = "Informations sorted by date send", description = "Gets a list of all the informations in the db sorted in descending order by date send")
+	@Operation(summary = "Informations archived", description = "Gets a list of all the informations in the db that are archived")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
                     content = @Content(mediaType = "application/json",
@@ -179,9 +157,9 @@ public class InformationREST {
             @ApiResponse(responseCode = "500", description = "Internal server error",
             content = @Content(mediaType = "application/json"))
     })
-	@GetMapping("/datesend")
-	public ResponseEntity<List<InformationDTO>> getInformationsByOrderByDateSendDesc() {
-		List<InformationDTO> informations =informationService.findByOrderByDateSendDesc();
+	@GetMapping("/archived")
+	public ResponseEntity<List<InformationDTO>> getByArchived() {
+		List<InformationDTO> informations =informationService.getByArchived();
 		return ResponseEntity.ok(informations);
 	}
 }
