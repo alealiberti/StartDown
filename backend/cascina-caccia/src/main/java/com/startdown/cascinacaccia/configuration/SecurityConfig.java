@@ -45,7 +45,6 @@ public class SecurityConfig {
                         .requestMatchers("cascina-caccia/users/change-user-password/**", "cascina-caccia/users/create-user", "cascina-caccia/users/delete-user/**", "cascina-caccia/users/**", "cascina-caccia/users", "cascina-caccia/users/email/**", "/cascina-caccia/users/update-user-role").hasRole("OWNER") // Allow the owner to access some requests
                         .anyRequest().authenticated() // All other requests require authentication
                 )
-                .httpBasic(Customizer.withDefaults()) // Enable Basic Authentication
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))   // Stateless session management
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
