@@ -48,4 +48,6 @@ public class ReservationDTO {
 
     private boolean mobilityProblems;
 
+    private boolean archived;
+
 }
