@@ -1,15 +1,77 @@
-.step.future{
-    background-color: var(--color-input); /* Futuro */
+/* Stile per i passaggi futuri */
+.step.future {
+    background-color: var(--color-input); /* Colore per indicare uno stato futuro */
+    transition: background-color 0.3s ease;
 }
 
+/* Campi non validi */
 input.invalid, select.invalid, textarea.invalid {
-    background-color: #ff9393;
-    color: #ffd2d2;
-    -webkit-text-fill-color: #ffc7c7;
+    background-color: #ffe5e5; /* Colore di sfondo più tenue per non essere troppo aggressivo */
+    border: 1px solid #ff6b6b;
+    color: #ff6b6b;
+    -webkit-text-fill-color: #ff6b6b; /* Per i browser WebKit */
+    transition: all 0.3s ease;
 }
 
+/* Campi non validi in focus */
 input.invalid:focus, select.invalid:focus, textarea.invalid:focus {
     outline: none;
-    border-color: #5d0000;
-    background-color: #ff7171;
+    border: 1px solid red;
+    background-color: #fff; /* Ripristina il bianco per migliorare la leggibilità */
+    color: #ff0000;
+    -webkit-text-fill-color: #ff0000;
+}
+
+/* Campi validi */
+input.valid, select.valid, textarea.valid {
+    background-color: #eaffea; /* Colore verde tenue per campi validi */
+    border: 1px solid #4caf50;
+    color: #2e7d32;
+    -webkit-text-fill-color: #2e7d32; /* Colore del testo coerente */
+    transition: all 0.3s ease;
+}
+
+/* Campi validi in focus */
+input.valid:focus, select.valid:focus, textarea.valid:focus {
+    outline: none;
+    border: 1px solid #2e7d32;
+    background-color: #ffffff; /* Bianco per leggibilità */
+    color: #2e7d32;
+    -webkit-text-fill-color: #2e7d32;
+}
+
+/* Messaggi di errore */
+.error-message {
+    font-size: 0.9em;
+    color: #ff0000;
+    margin-top: 5px;
+    display: none; /* Nascosto di default */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mostra i messaggi di errore */
+input.invalid ~ .error-message,
+select.invalid ~ .error-message,
+textarea.invalid ~ .error-message {
+    display: block;
+    opacity: 1;
+}
+
+/* Messaggi di successo (opzionali) */
+.success-message {
+    font-size: 0.9em;
+    color: #4caf50;
+    margin-top: 5px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Mostra i messaggi di successo */
+input.valid ~ .success-message,
+select.valid ~ .success-message,
+textarea.valid ~ .success-message {
+    display: block;
+    opacity: 1;
 }
