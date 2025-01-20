@@ -50,18 +50,9 @@
     font-size: 1.37rem;
 }
 
-/* line under the icon of the actual page "ACTIVED" when the sidebar is CLOSED */
-#sidebar ul li.active a ion-icon,
-#sidebar.expanded ul li.active a .navLabel {
-    padding-bottom: 2px;
-    border-bottom: 2px solid white;
-    border-radius: 3px;
-}
-
-/* line under the label of the icon of the actual page "ACTIVED" when the sidebar is OPEN will be showed +
-HIDE the line border under the icon when the sidebar is open! */
-#sidebar.expanded ul li.active a ion-icon {
-    border-bottom: 0px;
+/* color on the icon of the actual page "ACTIVED" */
+#sidebar .navList li.active a {
+    color: var(--cascina-secondary);
 }
 
 
@@ -114,7 +105,6 @@ HIDE the line border under the icon when the sidebar is open! */
 }
 
 
-
 /* management of the lists links navigation combination label+icons of the sidebar when will be expanded */
 #sidebar.expanded .navList li {
     margin-left: 25px;
@@ -126,7 +116,7 @@ HIDE the line border under the icon when the sidebar is open! */
 }
 
 #sidebar.expanded .navList li a ion-icon {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-right: 15px;
 }
 
@@ -136,13 +126,13 @@ HIDE the line border under the icon when the sidebar is open! */
     display: flex;
     align-items: center;
     background-color: var(--fourth-color);
-    padding: 5px 30px;
+    padding: 5px 20px;
     border: 2px solid #9C9898;
     border-radius: 5px;
 }
 
 #sidebar.expanded .logoutSection .navLabel {
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-left: 20px;
 }
 

@@ -5,8 +5,14 @@
  * @description 
  */
 
-import { type CardQuestion } from "../../../models/card-question.model";
 import { restructureDate } from "../restructure-date";
+
+import { deleteCardDialog } from "./dialog-delete";
+import { archiveCardDialog } from "./dialog-archive";
+
+import { type CardQuestion } from "../../models/card-question.model";
+import { closeDialogs } from "./close-dialogs";
+
 
 
 
@@ -17,19 +23,22 @@ import { restructureDate } from "../restructure-date";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createQuestionDialog(modalQuestion: HTMLElement, question: CardQuestion): void {
+export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLElement, question: CardQuestion): void {
 
     // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
-
-    modalQuestion.querySelector(".dialogHeader h2.dialogName")!.textContent = `${question.name} ${question.surname}`;
-    modalQuestion.querySelector(".dialogHeader p.dialogEmail")!.textContent = question.email;
-    modalQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
-
-    modalQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.question;
-    console.log(question.question.length);
+    dialogQuestion.querySelector(".dialogHeader h2.dialogName")!.textContent = `${question.name} ${question.surname}`;
+    dialogQuestion.querySelector(".dialogHeader p.dialogEmail")!.textContent = question.email;
+    dialogQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
+    dialogQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.question;
 
 
+    dialogQuestion.querySelector(".actions .trash")?.addEventListener("click", (event) => {
+        closeDialogs(overlay);
+        deleteCardDialog(overlay, question, event);
+    });
 
-
-
-}
+    dialogQuestion.querySelector(".actions .archive")?.addEventListener("click", (event) => {
+        closeDialogs(overlay);
+        archiveCardDialog(overlay, question, event)
+    });
+}   

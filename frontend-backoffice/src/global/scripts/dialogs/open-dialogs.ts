@@ -1,8 +1,23 @@
-import { createQuestionDialog } from "./dialog-card-question";
-import { createReservationDialog } from "./dialog-card-reservation";
+/**
+ * @file        main.ts
+ * @author      Gabriele Speciale
+ * @date        2025-01-16
+ * @description 
+ */
 
-import { type CardQuestion } from "../../../models/card-question.model";
-import { type CardReservation } from "../../../models/card-reservation.model";
+import { loadTemplate } from "../../services/load-templates.ts"; // will be used again for load the templates of dialogs on pages interactions
+
+import { createDialogQuestion } from "./dialog-card-question.ts";
+import { createDialogReservation } from "./dialog-card-reservation.ts";
+
+import { closeDialogs } from "./close-dialogs.ts";
+import { deleteCardDialog } from "./dialog-delete.ts";
+import { archiveCardDialog } from "./dialog-archive.ts";
+
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
+
+
 
 /**
  * Nome della funzione
@@ -11,33 +26,48 @@ import { type CardReservation } from "../../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function openDialogs(overlay: HTMLElement, card: HTMLElement, modal: HTMLElement, request: CardQuestion | CardReservation): void {
+export function openDialogs(card: HTMLElement, request: CardQuestion | CardReservation): void {
 
-    // add events listener on the cards (question/reservation) when are clicked show the OVERLAY + MODAL
-    card.addEventListener("click", () => {
-        overlay.style.display = "block";
-        modal.style.display = "flex";
+    // take from the DOM the overlay which will cover all the pages and block interaction whit all elements
+    const overlay = document.querySelector(".overlay") as HTMLElement;
+
+    // ---------------------------------------------------------------------
+
+    // events which on click will be showed a dialog of question/reservation based on the request parameter
+    card.addEventListener("click", async () => {
+
+        // initially null, will be replace by the dialog element created/loaded on the DOM after click
+        let dialog: HTMLElement | null = null;
 
         if ("question" in request) {
-            createQuestionDialog(modal, request)
+            await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
+            dialog = document.querySelector(".dialogQuestion") as HTMLElement;
+            createDialogQuestion(overlay, dialog, request);
+
         } else if ("status" in request) {
-            createReservationDialog(modal, request)
+            await loadTemplate("/src/global/templates/dialogs/dialog-card-reservation.html");
+            dialog = document.querySelector(".dialogReservation") as HTMLElement;
+            createDialogReservation(overlay, dialog, request);
+        }
+
+        // if dialog is correctly created, will be showed the overlay and stop the scroll on the page while it is opened
+        if (dialog) {
+            overlay.style.display = "block";
+            document.body.classList.add("hidden"); // will disable the scroll through style 
         }
     });
 
+    // -----------------------------------------------------------
 
-    // add events listener on the OVERLAY when is visibile trough the click on the cards, a click outside it will close it
-    overlay.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
+    // Evento per aprire il dialog di eliminazione diretto dalla preview della card
+    card.querySelector(".actions .trash")?.addEventListener("click", (event) => deleteCardDialog(overlay, request, event));
 
+    // Evento per aprire il dialog di archivio diretto dalla preview della card
+    card.querySelector(".actions .archive")?.addEventListener("click", (event) => archiveCardDialog(overlay, request, event));
 
+    // -----------------------------------------------------------
 
+    // if click on the overlay will close all the dialogs opened
+    overlay.addEventListener("click", () => closeDialogs(overlay));
 
-
-    // //** if it is a reservation, we also change the status if it is the first click to view the reservation! whit backend!
-    // if (reservation?.status === "nuova") {
-    //     reservation.status = "accordare";
-    //     console.log(reservation);
-    // }
 }

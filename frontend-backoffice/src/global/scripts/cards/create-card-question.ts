@@ -5,8 +5,8 @@
  * @description 
  */
 
-import { type CardQuestion } from "../../../models/card-question.model";
 import { restructureDate } from "../restructure-date";
+import { type CardQuestion } from "../../models/card-question.model";
 
 
 

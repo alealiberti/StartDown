@@ -27,10 +27,10 @@ export async function loadTemplate(path: string): Promise<void> {
         document.body.appendChild(templateContainer);
 
         // DEBUGGING logs
-        console.log(response);
-        console.log(`HTML template response: ${templateHTML}`);
-        console.log(templateContainer);
-        console.log("\n\n\n\n-----------------------------------------------------------------------------\n\n\n\n");
+        // console.log(response);
+        // console.log(`HTML template response: ${templateHTML}`);
+        // console.log(templateContainer);
+        // console.log("\n\n\n\n-----------------------------------------------------------------------------\n\n\n\n");
 
         // error handling of the fetch loading templates
     } catch (error) {

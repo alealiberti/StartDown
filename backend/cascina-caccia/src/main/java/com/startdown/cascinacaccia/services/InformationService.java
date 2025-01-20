@@ -1,6 +1,7 @@
 package com.startdown.cascinacaccia.services;
 
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +45,7 @@ public class InformationService {
                 information.getEmail(),
                 dateConverterService.formatDateToFrontend(information.getDateSend()),
                 information.getText(),
-                information.getStatus()
+                information.isArchived()
                 );
     }
 
@@ -108,8 +109,9 @@ public class InformationService {
             throw new IllegalArgumentException("Text cannot be empty.");
         }
 
-        information.setStatus("Ricevuta");
         information.setDateSend(LocalDate.now());
+        
+        information.setArchived(false);
 
         emailservice.sendEmails(information.getEmail(), true);
 
@@ -136,9 +138,6 @@ public class InformationService {
         if (informationDetails.getSurname() != null && !informationDetails.getSurname().trim().isEmpty()) {
             existingInformation.setSurname(informationDetails.getSurname());
         }
-        if (informationDetails.getStatus() != null && !informationDetails.getStatus().trim().isEmpty()) {
-            existingInformation.setStatus(informationDetails.getStatus());
-        }
         if (informationDetails.getEmail() != null && !informationDetails.getEmail().trim().isEmpty()) {
             existingInformation.setEmail(informationDetails.getEmail());
         }
@@ -150,6 +149,9 @@ public class InformationService {
         }
         if (informationDetails.getPhone() != null && !informationDetails.getPhone().trim().isEmpty()) {
             existingInformation.setPhone(informationDetails.getPhone());
+        }
+        if (informationDetails.isArchived()) {
+            existingInformation.setArchived(true);
         }
 
         return Optional.of(dao.save(existingInformation));
@@ -168,26 +170,24 @@ public class InformationService {
         }
         throw new InformationNotFoundException("Information with ID " + id + " not found.");
     }
-
+    
     /**
-     * Retrieves a list of informations with a specific status
-     *
-     * @param status the name of the status for which the informations is to be retrieved
-     * @return a List containing the InformationDTO objects if found, or an empty List if not found
-     */
-    public List<InformationDTO> getInformationsByStatus(String status) {
-        List<Information> informations = dao.findByStatus(status);
-        return convertToDTOList(informations);
-    }
-
-    /**
-     * Retrieves a list of all informations sorted in descending order by date send
+     * Retrieves a list of all informations sorted in descending order by date send and not archived
      *
      * @return a List containing the InformationDTO objects if found, or an empty List if not found
      */
-    public List<InformationDTO> findByOrderByDateSendDesc() {
-        List<Information> informations = dao.findByOrderByDateSendDesc();
+    public List<InformationDTO> getByNotArchivedAndByDateSend() {
+        List<Information> informations = dao.findByArchivedOrderByDateSendDesc(false);
         return convertToDTOList(informations);
     }
-
-}
+    
+    /**
+     * Retrieves a list of all informations that are archived
+     *
+     * @return a List containing the InformationDTO objects if found, or an empty List if not found
+     */
+    public List<InformationDTO> getByArchived () {
+        List<Information> informations = dao.findByArchived(true);
+        return convertToDTOList(informations);
+    }
+   }

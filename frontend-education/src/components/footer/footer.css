@@ -1,67 +1,91 @@
-footer{
-    background-color: var(--secondary-color);
-    width: 100%;
-    height: fit-content;
-  }
-  
-  footer div{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 30px;
-  }
-  
-  footer .img-container{
-    max-width: 500px;
-    margin: 0px;
-    padding: 0px;
-  }
-  footer .img-container img{
-    max-width: 500px;
-    margin: 0px;
-    padding: 0px;
-  }
-  
-  footer .contacts{
-    flex-direction: column;
-    padding: 50px 20px;
-    width: fit-content;
-  }
-  
-  footer .social-container p{
-    margin: 0px 30px 0px 0px;
-  }
-  
-  footer .contacts p, footer .contacts a{
-    color: var(--primary-color);
-  }
-  
-  footer .social-container{
-    color: var(--primary-color);
-    padding: 10px 20px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  footer .social-container ul{
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
-  }
-  
-  footer .social-container ul li{
-    width: 35px;
-  }
-  
-  footer .footer-info{
-    color: var(--primary-color);
-    padding: 25px  20px;
-    text-align: center;
-    margin: 0px;
-    flex-direction: column;
-  }
+/* 
+ * Footer Styles
+ * 
+ * This file contains styles for the footer section, ensuring responsiveness across mobile, tablet, and desktop views.
+ * It includes layout adjustments for contact information, social media links, and company details.
+ * 
+ * The footer is designed to adapt to various screen sizes, providing a clean, structured appearance with appropriate spacing and color contrast.
+ * 
+ * @author: Alessio Burbulia
+ */
+
+/* Footer Styles */
+footer {
+  background-color: var(--secondary-color); /* Set background color */
+  width: 100%; /* Full width */
+  height: fit-content; /* Adjust height based on content */
+}
+
+/* Footer container */
+footer div {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Maximum width */
+  margin: 0 auto; /* Center horizontally */
+  display: flex; /* Flexbox layout */
+  flex-wrap: wrap; /* Allow wrapping */
+  padding-top: 30px; /* Add top padding */
+}
+
+/* Image container inside footer */
+footer .img-container {
+  max-width: 500px; /* Limit width */
+  margin: 0px; /* No margin */
+  padding: 0px; /* No padding */
+}
+
+/* Image inside the image container */
+footer .img-container img {
+  max-width: 500px; /* Limit width */
+  margin: 0px; /* No margin */
+  padding: 0px; /* No padding */
+}
+
+/* Contacts section styling */
+footer .contacts {
+  flex-direction: column; /* Stack items vertically */
+  padding: 50px 20px; /* Add padding */
+  width: fit-content; /* Adjust width based on content */
+  align-items: flex-start; /* Align to the left */
+}
+
+/* Social container styling */
+footer .social-container p {
+  margin: 0px 30px 0px 0px; /* Margin around paragraph */
+}
+
+/* Links and text in the contacts section */
+footer .contacts p, footer .contacts a {
+  color: var(--primary-color); /* Set text color */
+}
+
+/* Social container for icons and text */
+footer .social-container {
+  color: var(--primary-color); /* Set text color */
+  padding: 10px 20px; /* Add padding */
+  flex-direction: row; /* Align items horizontally */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+/* Social list styling */
+footer .social-container ul {
+  display: flex; /* Flexbox layout */
+  gap: 20px; /* Space between items */
+  list-style: none; /* Remove default list styling */
+  padding: 0px; /* No padding */
+  margin: 0px; /* No margin */
+}
+
+/* Social list items styling */
+footer .social-container ul li {
+  width: 35px; /* Set width of icons */
+}
+
+/* Footer information styling */
+footer .footer-info {
+  color: var(--primary-color); /* Set text color */
+  padding: 25px 20px; /* Add padding */
+  text-align: center; /* Center text */
+  margin: 0px; /* No margin */
+  flex-direction: column; /* Stack items vertically */
+}

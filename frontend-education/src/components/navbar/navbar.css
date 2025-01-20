@@ -1,20 +1,25 @@
 /* 
- * Navbar Styles
- * This file contains styles for the navigation menu, including layout and animations for mobile, tablet, and desktop views.
- * The styles also include a hamburger menu for mobile devices and various hover effects for the links.
- * @author: Alessio Burbulia
- */
+* Footer Styles
+* 
+* This file contains styles for the footer section, ensuring responsiveness across mobile, tablet, and desktop views.
+* It includes layout adjustments for contact information, social media links, and company details.
+* 
+* The footer is designed to adapt to various screen sizes, providing a clean, structured appearance with appropriate spacing and color contrast.
+* 
+* @author: Alessio Burbulia
+*/
 
 /** Z-INDEX 100
- ** 110: Menu
- ** 105: Background overlay
- ** 100: Hamburger icon
+** 110: Menu
+** 105: Background overlay
+** 100: Hamburger icon
 */
 
 /* General Styles for Menu */
 nav {
-  position: sticky; /* Keeps the navbar fixed at the top */
+  position: fixed; /* Keeps the navbar fixed at the top */
   width: 100%; /* Full width */
+  height: 60px;
   top: 0; /* Aligns it to the top of the page */
   left: 0; /* Aligns it to the left of the page */
   z-index: 110; /* Aumenta il valore di z-index per garantire che la navbar sia sopra gli altri elementi */
@@ -30,13 +35,12 @@ b {
 
 .menuToggle a {
   transition: 0.3s text-decoration ease-in; /* Smooth transition */
-
   font-size: 1rem;
 }
 
 /* Hover effect for desktop */
 .menuToggle a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline effect when hovering over the link */
 }
 
 /* For Smartphone: Mobile View */
@@ -93,12 +97,12 @@ b {
   .menuToggle ul.nav-list a {
     font-size: 1.5rem;
   }
-
+  
   .menuToggle ul.nav-list li:last-child {
     position: relative;
-    top: 160px;
+    top: 30%;
   }
-
+  
   .menuToggle ul.nav-list li:last-child a{
     font-size: 1rem;
   }
@@ -115,11 +119,11 @@ b {
     opacity: 0; /* Hide the input */
     z-index: 115; 
   }
-
+  
   .menuToggle .hamburger-background {
     display: block;
   }
-
+  
   .menuToggle .hamburger-background {
     position: fixed;
     top: 12px;
@@ -130,7 +134,7 @@ b {
     background-color: #f5f5f54b;
     z-index: 105; 
   }
-
+  
   /* Hamburger icon styling */
   .menuToggle span {
     display: block;
@@ -182,12 +186,12 @@ b {
   .menuToggle input:checked ~ div.menu {
     transform: none;
   }
-
+  
   /* Class to disable scrolling when menu is active */
   .no-scroll {
     overflow: hidden;
   }
-
+  
   /* Background overlay styling when menu is active */
   #sub-background {
     opacity: 0;
@@ -202,14 +206,14 @@ b {
     transition: opacity 0.5s ease-in-out;
     z-index: 105; 
   }
-
+  
   /* Show background when menu is active */
   #sub-background.show {
     width: 100%;
     height: 100%;
     opacity: 1;
   }
-
+  
   .menuToggle figure{
     display: none;
   }
@@ -220,7 +224,7 @@ b {
   .menuToggle input, .menuToggle span {
     display: none; /* Hide the input and hamburger icon */
   }
-
+  
   .menu figure{
     display: block;
     position: relative;
@@ -231,7 +235,7 @@ b {
     padding: 5px;
     margin-left: 30px
   }
-
+  
   .menu figure img{
     height: 100%;
     width:auto;
@@ -256,11 +260,7 @@ b {
     width: 50%;
     height: 100%;
   }
-
-  ul.nav-list li:first-child{
-    display: none;
-  }
-
+  
   ul.nav-list li:last-child{
     position: absolute;
     top: 70px;
@@ -270,14 +270,14 @@ b {
     height: 40px;
     font-size: 1rem;
   }
-
+  
   ul.nav-list li:last-child a{
     position: relative;
     left: 30px;
     bottom: 2px;
     width: fit-content;
   }
-
+  
   ul.nav-list li{
     width: 100%;
     height: 100%;
@@ -311,7 +311,7 @@ b {
   .menuToggle input, .menuToggle span {
     display: none; /* Hide the input and hamburger icon */
   }
-
+  
   .menu figure{
     display: block;
     margin: 0px;
@@ -320,7 +320,7 @@ b {
     padding: 5px;
     margin-left: 30px;
   }
-
+  
   .menu figure img{
     height: 100%;
     width:auto;
@@ -345,11 +345,7 @@ b {
     height: 100%;
     gap: 60px;
   }
-
-  ul.nav-list li:first-child{
-    display: none;
-  }
-
+  
   ul.nav-list li{
     height: 100%;
   }

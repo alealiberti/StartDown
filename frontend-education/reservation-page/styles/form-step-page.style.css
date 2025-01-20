@@ -10,6 +10,8 @@ main {
   flex-grow: 1;
   display: block;
   flex-direction: column;
+  margin-top: 60px;
+  padding: 20px;
 }
 
 footer {
@@ -367,3 +369,12 @@ input[type="date"]:focus {
   outline: none;
   background-color: var(--color-input-focus);
 }
+
+
+.campi-obbligatori{
+  color: rgb(247, 0, 0);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+

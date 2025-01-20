@@ -6,13 +6,17 @@
 - Pulsante cambio data e ora per le prenotazioni
 - Contatto via mail per accordarsi
 - Pulsante per prenotazioni cambio stato accordare -> chiusa
-- Numero nuove prenotazioni:
+- Numero nuove prenotazioni nella card in dashboard:
   - chiamata per stato "ricevuta"
-  - lunghezza dell'array
-- Numero nuove informazioni:
+  - incremento di n+1 ogni stato ricevuto
+- Numero nuove informazioni nella card in dashboard:
   - chiamata per isArchivata == false
-  - lunghezza dell'array
+  - incremento di n+1 ogni domanda che non è archiviata
 - Visite giornaliere chiedere a Shadi
+
+
+--- 
+
 
 # BackEnd
 

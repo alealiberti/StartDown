@@ -1,3 +1,13 @@
+/**
+ * style.css
+ *
+ *
+ * let's sets also the box-sizing property to border-box for all elements.
+ *
+ */
+
+
+
 /* center the container which contains the form for the LOGIN of admin */
 body {
     display: flex;
@@ -20,7 +30,7 @@ body {
     min-height: 600px;
     background-color: var(--background-color-nav);
     box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
 }
 
@@ -28,11 +38,11 @@ body {
 /* logo admin placeholder || photo of the admin, positioned on the top of the container whit position: absolute */
 .adminLogo {
     position: absolute;
-    top: -80px;
+    top: -90px;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     background-color: var(--background-primary);
     border: 1px solid black;
     border-radius: 100px;
@@ -51,7 +61,6 @@ h2 {
     color: var(--white-text-color);
     text-align: center;
     font-size: 0.75rem;
-    font-family: cursive;
     opacity: 0.6;
 }
 

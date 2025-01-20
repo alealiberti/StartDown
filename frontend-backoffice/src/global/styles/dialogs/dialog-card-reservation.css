@@ -1,10 +1,10 @@
 .dialogReservation {
-    display: none;
+    display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     z-index: 10000;
     width: 100vw;
-    height: 80vh;
+    height: 75vh;
     background-color: whitesmoke;
 }

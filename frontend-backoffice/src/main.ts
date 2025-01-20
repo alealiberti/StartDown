@@ -5,8 +5,11 @@ import "./global/styles/reset.css";
 import "./global/styles/global.css";
 
 // local styles of the first page login admin
-import "./styles/style.css";
+import "./styles/form.css";
 
 
 
 //* -----------------------SCRIPTS IMPORTS-------------------------------------
+
+// local scripts of the dashboard for generate cards elements
+import "./scripts/form-script.ts";

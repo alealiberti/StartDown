@@ -5,8 +5,8 @@
  * @description 
  */
 
-import { type CardReservation } from "../../../models/card-reservation.model";
 import { restructureDate } from "../restructure-date";
+import { type CardReservation } from "../../models/card-reservation.model";
 
 
 /**
@@ -35,12 +35,11 @@ export function createCardReservation(data: CardReservation, template: HTMLTempl
     const stateReservationIcon = CardReservation.querySelector(".cardFooter .cardState ion-icon") as HTMLElement;
 
 
-    // based on the status of the reservation request taken from the "date", we will set the special text and the color of the ball
+    // based on the status of the reservation request taken from the "data", we will set the special text and the color of the ball
     switch (true) {
         case data.status === "nuova":
             stateReservationIcon.style.color = "#FF0004";
             CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "Nuova richiesta di prenotazione";
-
             break;
 
         case data.status === "accordare":

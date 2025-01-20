@@ -10,6 +10,7 @@ import "../../global/styles/cards/card-reservation.css";
 import "../../global/styles/dialogs/overlay-dialog.css";
 import "../../global/styles/dialogs/dialog-card-question.css";
 import "../../global/styles/dialogs/dialog-card-reservation.css";
+import "../../global/styles/dialogs/dialog-actions.css";
 
 // local styles of the dashboard
 import "./styles/style.css";
@@ -21,5 +22,6 @@ import "./styles/style.css";
 // global scripts imports
 import "../../global/scripts/navbar/expand-navbar-phone.ts";
 
-// local scripts of the dashboard for generate cards elements
+
+// local scripts of the login 
 import "./scripts/scriptTry.ts";
