@@ -56,7 +56,7 @@ public class Information {
 	private String text;
 	
 	@NotEmpty
-	@Column(name = "status", nullable = false)
-	private String status;
+	@Column(name = "archived", nullable = false)
+	private boolean archived;
 	
 }

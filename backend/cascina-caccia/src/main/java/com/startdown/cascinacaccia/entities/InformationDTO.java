@@ -25,6 +25,7 @@ public class InformationDTO {
     private String dateSend;
 
     private String text;
+    
+    private boolean archived;
 
-    private String status;
 }
