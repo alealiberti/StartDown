@@ -26,6 +26,6 @@ public class InformationDTO {
 
     private String text;
     
-    private Boolean archived;
+    private boolean archived;
 
 }

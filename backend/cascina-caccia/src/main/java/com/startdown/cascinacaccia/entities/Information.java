@@ -57,6 +57,6 @@ public class Information {
 	
 	@NotEmpty
 	@Column(name = "archived", nullable = false)
-	private Boolean archived;
+	private boolean archived;
 	
 }

@@ -45,8 +45,7 @@ public class InformationService {
                 information.getEmail(),
                 dateConverterService.formatDateToFrontend(information.getDateSend()),
                 information.getText(),
-                information.getArchived()
-
+                information.isArchived()
                 );
     }
 
@@ -151,8 +150,8 @@ public class InformationService {
         if (informationDetails.getPhone() != null && !informationDetails.getPhone().trim().isEmpty()) {
             existingInformation.setPhone(informationDetails.getPhone());
         }
-        if (informationDetails.getArchived() != null) {
-            existingInformation.setArchived(informationDetails.getArchived());
+        if (informationDetails.isArchived()) {
+            existingInformation.setArchived(true);
         }
 
         return Optional.of(dao.save(existingInformation));

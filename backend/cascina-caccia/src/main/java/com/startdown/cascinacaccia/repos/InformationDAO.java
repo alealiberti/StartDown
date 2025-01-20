@@ -2,10 +2,8 @@ package com.startdown.cascinacaccia.repos;
 
 import com.startdown.cascinacaccia.entities.Information;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.springdoc.core.converters.models.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /*
@@ -20,7 +18,7 @@ public interface InformationDAO extends JpaRepository<Information, Integer> {
      * @param archived the archived state for which the informations is to be retrieved
      * @return a List containing the Information objects if found, or an empty List if not found
      */
-    List<Information> findByArchivedOrderByDateSendDesc(Boolean archived);
+    List<Information> findByArchivedOrderByDateSendDesc(boolean isArchived);
 
     /**
      * Retrieves a list of informations with a specific archived state
@@ -28,5 +26,5 @@ public interface InformationDAO extends JpaRepository<Information, Integer> {
      * @param archived the archived state for which the informations is to be retrieved
      * @return a List containing the Informations objects if found, or an empty List if not found
      */
-    List<Information> findByArchived(Boolean archived);
+    List<Information> findByArchived(boolean isArchived);
 }
