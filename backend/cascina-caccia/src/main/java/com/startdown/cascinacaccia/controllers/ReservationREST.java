@@ -42,8 +42,29 @@ public class ReservationREST {
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
-	public ResponseEntity<List<ReservationDTO>> getAllReservations() {
+	public ResponseEntity<List<ReservationDTO>> getAllReservationsNotArchived() {
 		List<ReservationDTO> reservations = reservationService.findByNotArchivedAndByDateSend(); // Fetch all reservations using the reservation service
+		return ResponseEntity.ok(reservations);
+	}
+
+	/**
+	 * Retrieves a list of all reservations in the system.
+	 *
+	 * @return ResponseEntity ok when found all the reservations
+	 */
+	@Operation(summary = "Reservations list", description = "Gets the list of all the reservations in the db")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
+					content = @Content(mediaType = "application/json",
+							schema = @Schema(implementation = Reservation.class))),
+			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+					content = @Content(mediaType = "application/json")),
+			@ApiResponse(responseCode = "500", description = "Internal server error",
+					content = @Content(mediaType = "application/json"))
+	})
+	@GetMapping("/get-all")
+	public ResponseEntity<List<ReservationDTO>> getAllReservations() {
+		List<ReservationDTO> reservations = reservationService.findAllReservations(); // Fetch all reservations using the reservation service
 		return ResponseEntity.ok(reservations);
 	}
 
