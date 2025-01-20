@@ -5,20 +5,20 @@
  * @description 
  */
 
-import { loadTemplate } from "../../services/";
+import { loadTemplate } from "../../services/load-templates.ts"; // will be used again for load the templates of dialogs on pages interactions
 
-import { createQuestionDialog } from "./dialog-card-question";
-import { createReservationDialog } from "./dialog-card-reservation";
+import { createDialogQuestion } from "./dialog-card-question.ts";
+import { createDialogReservation } from "./dialog-card-reservation.ts";
 
+import { closeDialogs } from "./close-dialogs.ts";
 import { deleteCardDialog } from "./dialog-delete.ts";
+import { archiveCardDialog } from "./dialog-archive.ts";
 
 import { type CardQuestion } from "../../models/card-question.model";
 import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
-
-// TODO FIXARE LA LOGICA PER APRIRE LA MODALE DI CANCELLAZIONE DALLA CARD DIRETTAMENTE O DALLA MODALE
 /**
  * Nome della funzione
  * Descrizione della funzione
@@ -26,65 +26,48 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function openDialogs(card: HTMLElement, dialog: HTMLElement, request: CardQuestion | CardReservation): void {
+export function openDialogs(card: HTMLElement, request: CardQuestion | CardReservation): void {
 
-    // take from the DOM the overlay which cover all the page whit a black nurse when DIALOGS ARE OPENED
+    // take from the DOM the overlay which will cover all the pages and block interaction whit all elements
     const overlay = document.querySelector(".overlay") as HTMLElement;
 
-    // take from the DOM the element dialog delete sand show it when click on trash button (card preview && modals)
-    const dialogDelete = document.querySelector(".dialogDeleteCard") as HTMLElement;
+    // ---------------------------------------------------------------------
 
-    // take from the DOM the element dialog archivie and show it when click on archivie button (card preview && modals)
-    // const dialogArchivie =
+    // events which on click will be showed a dialog of question/reservation based on the request parameter
+    card.addEventListener("click", async () => {
 
+        // initially null, will be replace by the dialog element created/loaded on the DOM after click
+        let dialog: HTMLElement | null = null;
 
-    // --------------------------------------------------
-
-
-    //* 01. add events listener to the card directly form the cards previews 
-    // add the module function for the click on trash button on the cards preview which show the modal for the cancellation
-    deleteCardDialog(overlay, card, dialogDelete, request);
-
-    // add the module function for the click on archivie button on the cards preview which show the modal for the archivation
-
-
-    //* 02. add events listener on the cards (question/reservation) when are clicked show the OVERLAY + DIALOG OF REQUEST 
-    card.addEventListener("click", () => {
-
-        // on click on the cards questions/reservations will show an overlay and stop the scroll functionality
-        overlay.style.display = "block";
-        document.body.classList.add("hidden"); // will disable the scroll on the document!
-
-        // show an dialog which contains the information of the question/reservation
-        dialog.style.display = "flex";
-
-        // check if the request is an question or an reservation, and show the respective dialog
-        // IMPORTANT. can be also deleted the question/reservation card TROUGH DIALOGS WHERE ARE OPENED
         if ("question" in request) {
-            createQuestionDialog(dialog, request);
-            deleteCardDialog(overlay, dialog, dialogDelete, request);
+            await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
+            dialog = document.querySelector(".dialogQuestion") as HTMLElement;
+            createDialogQuestion(overlay, dialog, request);
+
         } else if ("status" in request) {
-            createReservationDialog(dialog, request);
-            deleteCardDialog(overlay, dialog, dialogDelete, request);
+            await loadTemplate("/src/global/templates/dialogs/dialog-card-reservation.html");
+            dialog = document.querySelector(".dialogReservation") as HTMLElement;
+            createDialogReservation(overlay, dialog, request);
         }
 
+        // if dialog is correctly created, will be showed the overlay and stop the scroll on the page while it is opened
+        if (dialog) {
+            overlay.style.display = "block";
+            document.body.classList.add("hidden"); // will disable the scroll through style 
+        }
     });
 
+    // -----------------------------------------------------------
 
-    // --------------------------------------------------
+    // Evento per aprire il dialog di eliminazione diretto dalla preview della card
+    card.querySelector(".actions .trash")?.addEventListener("click", (event) => deleteCardDialog(overlay, request, event));
 
+    // Evento per aprire il dialog di archivio diretto dalla preview della card
+    card.querySelector(".actions .archive")?.addEventListener("click", (event) => archiveCardDialog(overlay, request, event));
 
-    /* add events listener on the OVERLAY when is visibile trough the click on the cards, a click outside it will close:
-    01. the overlay itself
-    02. the dialog of the question/reservation of the cards
-    03. the dialog for the cancellation of an question/reservation 
-    04. the dialog for the storage of an question/reservation 
-    */
-    overlay.addEventListener("click", () => {
-        overlay.style.display = "none";
-        dialog.style.display = "none";
-        dialogDelete.style.display = "none";
-        document.body.classList.remove("hidden");
-    });
+    // -----------------------------------------------------------
+
+    // if click on the overlay will close all the dialogs opened
+    overlay.addEventListener("click", () => closeDialogs(overlay));
 
 }

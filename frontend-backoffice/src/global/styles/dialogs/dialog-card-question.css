@@ -1,5 +1,5 @@
 .dialogQuestion {
-    display: none;
+    display: flex;
     position: fixed;
     flex-direction: column;
     justify-content: space-evenly;
@@ -57,7 +57,7 @@
     font-size: 0.8rem;
     height: 200px;
     overflow-y: scroll;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 
 

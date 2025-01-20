@@ -11,24 +11,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // await the response and recive from the fetch into the async function, the templates of question on the DOM
     await loadTemplate("/src/global/templates/cards/card-reservation.html");
-    await loadTemplate("/src/global/templates/dialogs/dialog-card-reservation.html");
-    await loadTemplate("/src/global/templates/dialogs/dialog-delete.html");
-    await loadTemplate("/src/global/templates/dialogs/dialog-archivie.html");
-
-
-    // ---------------------------------------------
 
 
     // take form the DOM the template reservation loaded from the fetch() in `loadTemplates.ts`
     const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
-    // take from the DOM the modal of reservations cards when are clicked
-    const dialogReservation = document.querySelector(".dialogReservation") as HTMLElement;
-
-
-    // ---------------------------------------------
-
-
-    generateCards(reservationsData, undefined, reservationTemplate, undefined, dialogReservation);
+    generateCards(reservationsData, undefined, reservationTemplate);
 
 });

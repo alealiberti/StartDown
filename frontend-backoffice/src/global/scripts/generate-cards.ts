@@ -27,8 +27,6 @@ export function generateCards(
     datas: (CardQuestion | CardReservation)[],
     questionTemplate?: HTMLTemplateElement,
     reservationTemplate?: HTMLTemplateElement,
-    dialogQuestion?: HTMLElement,
-    dialogReservation?: HTMLElement,
 ): void {
 
     // list which will be filled whit the cards whit questions/reservations
@@ -36,19 +34,21 @@ export function generateCards(
 
     datas.forEach((request) => {
 
-        /* check of the request if it is question || reservation from the properities! using: "in"
-        also say to typescript the type of the request using: "as" */
-        if ("question" in request && questionTemplate && dialogQuestion) {
-            const cardQuestion = createCardQuestion(request, questionTemplate);
-            listRequests.appendChild(cardQuestion);
-            // add events on card question
-            openDialogs(cardQuestion, dialogQuestion, request);
+        // inital value of the card
+        let card: HTMLElement | null = null;
 
-        } else if ("status" in request && reservationTemplate && dialogReservation) {
-            const cardReservation = createCardReservation(request, reservationTemplate);
-            listRequests.appendChild(cardReservation);
-            // add events on card reservations
-            openDialogs(cardReservation, dialogReservation, request);
+        /* check of the request if it is a question || reservation from the properties using: "in"
+        also say to typescript the type of the request using: "as" */
+        if ("question" in request && questionTemplate) {
+            card = createCardQuestion(request, questionTemplate);
+        } else if ("status" in request && reservationTemplate) {
+            card = createCardReservation(request, reservationTemplate);
+        }
+
+        // if card is created correctly, will be appended on the list of main page and add the events on it
+        if (card) {
+            listRequests.appendChild(card);
+            openDialogs(card, request);
         }
 
     });

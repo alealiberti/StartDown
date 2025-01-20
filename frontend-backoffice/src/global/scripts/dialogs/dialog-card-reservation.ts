@@ -19,11 +19,11 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createReservationDialog(modalReservation: HTMLElement, reservation: CardReservation): void {
+export function createDialogReservation(overlay: HTMLElement, dialogReservation: HTMLElement, reservation: CardReservation): void {
 
     // sets all the datas of the reservation into the TEMPLATE RESERVATION "dialog"
     // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
-    modalReservation.querySelector("p.status")!.textContent = reservation.status;
+    dialogReservation.querySelector("p.status")!.textContent = reservation.status;
 
     // TODO CONTINUE IMPLEMENT THE DIALOG RESERVATIONS WHEN OPENED
 

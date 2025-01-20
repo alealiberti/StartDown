@@ -11,23 +11,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // await the response and recive from the fetch into the async function, the templates of question on the DOM
     await loadTemplate("/src/global/templates/cards/card-question.html");
-    await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
-    await loadTemplate("/src/global/templates/dialogs/dialog-delete.html");
-    await loadTemplate("/src/global/templates/dialogs/dialog-archivie.html");
 
-
-    // ---------------------------------------------
-
-
-    // take form the DOM the template question and reservation loaded from the fetch() in `loadTemplates.ts`
+    // take form the DOM the template question loaded from the fetch() in `loadTemplates.ts`
     const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
-
-    // take from the DOM the modal of cards when are clicked
-    const dialogQuestion = document.querySelector(".dialogQuestion") as HTMLElement;
-
-
-    // ---------------------------------------------
-
-
-    generateCards(questionsData, questionTemplate, undefined, dialogQuestion, undefined);
+    generateCards(questionsData, questionTemplate); // generate cards questions whit the questions datas
 });
