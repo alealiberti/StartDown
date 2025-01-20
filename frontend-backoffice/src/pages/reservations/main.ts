@@ -9,6 +9,7 @@ import "../../global/styles/cards/card-reservation.css";
 import "../../global/styles/dialogs/overlay-dialog.css";
 import "../../global/styles/dialogs/dialog-card-reservation.css";
 import "../../global/styles/dialogs/dialog-actions.css";
+import "../../global/styles/toasts/toast-notification.css";
 
 // local styles of the reservation page
 import "./styles/style.css";

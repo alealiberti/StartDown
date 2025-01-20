@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // await the response and recive from the fetch into the async function, the templates of question on the DOM
     await loadTemplate("/src/global/templates/cards/card-reservation.html");
+    await loadTemplate("/src/global/templates/toasts/toast-notification.html");
 
 
     // take form the DOM the template reservation loaded from the fetch() in `loadTemplates.ts`

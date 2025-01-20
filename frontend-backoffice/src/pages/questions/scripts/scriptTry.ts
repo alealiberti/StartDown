@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // await the response and recive from the fetch into the async function, the templates of question on the DOM
     await loadTemplate("/src/global/templates/cards/card-question.html");
+    await loadTemplate("/src/global/templates/toasts/toast-notification.html");
+
 
     // take form the DOM the template question loaded from the fetch() in `loadTemplates.ts`
     const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
+
     generateCards(questionsData, questionTemplate); // generate cards questions whit the questions datas
 });

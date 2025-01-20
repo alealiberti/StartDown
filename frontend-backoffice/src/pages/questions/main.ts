@@ -9,6 +9,7 @@ import "../../global/styles/cards/card-question.css";
 import "../../global/styles/dialogs/overlay-dialog.css";
 import "../../global/styles/dialogs/dialog-card-question.css";
 import "../../global/styles/dialogs/dialog-actions.css";
+import "../../global/styles/toasts/toast-notification.css";
 
 // local styles of the question page
 import "./styles/style.css";

@@ -10,8 +10,9 @@ import { restructureDate } from "../restructure-date";
 import { deleteCardDialog } from "./dialog-delete";
 import { archiveCardDialog } from "./dialog-archive";
 
-import { type CardQuestion } from "../../models/card-question.model";
 import { closeDialogs } from "./close-dialogs";
+
+import { type CardQuestion } from "../../models/card-question.model";
 
 
 

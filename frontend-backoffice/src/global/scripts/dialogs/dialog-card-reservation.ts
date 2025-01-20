@@ -5,8 +5,12 @@
  * @description 
  */
 
-
 import { restructureDate } from "../restructure-date";
+
+import { deleteCardDialog } from "./dialog-delete";
+import { archiveCardDialog } from "./dialog-archive";
+
+import { closeDialogs } from "./close-dialogs";
 
 import { type CardReservation } from "../../models/card-reservation.model";
 
@@ -27,15 +31,20 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
 
     // TODO CONTINUE IMPLEMENT THE DIALOG RESERVATIONS WHEN OPENED
 
-
-
-
-
-
     // //** if it is a reservation, we also change the status if it is the first click to view the reservation! whit backend!
     // if (reservation?.status === "nuova") {
     //     reservation.status = "accordare";
     //     console.log(reservation);
     // }
 
+
+    dialogReservation.querySelector(".actions .trash")?.addEventListener("click", (event) => {
+        closeDialogs(overlay);
+        deleteCardDialog(overlay, reservation, event);
+    });
+
+    dialogReservation.querySelector(".actions .archive")?.addEventListener("click", (event) => {
+        closeDialogs(overlay);
+        archiveCardDialog(overlay, reservation, event)
+    });
 }
