@@ -15,19 +15,18 @@ It extends JpaRepository, allowing for CRUD operations and more.
 public interface InformationDAO extends JpaRepository<Information, Integer> {
 	
     /**
-     * Retrieves a list of informations with a specific status
-     * 
-     * @param status the name of the status for which the informations is to be retrieved
-     * @return a List containing the Information objects if found, or an empty List if not found
-     */
-    List<Information> findByStatus(String status);
-
-    /**
      * Retrieves a list of all informations sorted in descending order by date send
      * 
+     * @param archived the archived state for which the informations is to be retrieved
      * @return a List containing the Information objects if found, or an empty List if not found
      */
-    List<Information> findByOrderByDateSendDesc();
-    
-    
+    List<Information> findByArchivedOrderByDateSendDesc(Boolean archived);
+
+    /**
+     * Retrieves a list of informations with a specific archived state
+     * 
+     * @param archived the archived state for which the informations is to be retrieved
+     * @return a List containing the Informations objects if found, or an empty List if not found
+     */
+    List<Information> findByArchived(Boolean archived);
 }
