@@ -35,7 +35,7 @@ CREATE TABLE `informations` (
   `email` varchar(50) NOT NULL,
   `date_send` date NOT NULL,
   `text` varchar(1000) NOT NULL,
-  `archived` tinyint(4) NOT NULL
+  `archived` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `reservations` (
   `hour_start` time DEFAULT NULL,
   `hour_finish` time DEFAULT NULL,
   `status` varchar(25) NOT NULL,
-  `archived` tinyint(4) NOT NULL,
+  `archived` tinyint(1) NOT NULL,
   `type_group` varchar(25) NOT NULL,
   `visitors` int(11) NOT NULL,
   `companions` int(11) DEFAULT NULL,
