@@ -371,17 +371,10 @@ input[type="date"]:focus {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+.campi-obbligatori{
+  color: rgb(247, 0, 0);
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
 
 
