@@ -6,6 +6,9 @@ document.getElementById('submitButton').addEventListener('click', async () => {
     const telefono = document.getElementById('phone').value;
     const messaggio = document.getElementById('text').value;
 
+
+    console.log(name, surname, email, phone, text);
+
     const payload = {
         name: nome,
         surname: cognome,
@@ -13,6 +16,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
         email: email,
         text: messaggio,
     };
+
 
     try {
         const response = await fetch('http://localhost:8080/cascina-caccia/informations/create-information', {
@@ -30,7 +34,7 @@ document.getElementById('submitButton').addEventListener('click', async () => {
             alert(`Errore: ${error.message}`);
         }
     } catch (error) {
-        console.error('Errore durante l\'invio:', error);
+        console.error('Errore durante l\'invio', error);
         alert('Si è verificato un errore durante l\'invio dei dati.');
     }
 });
