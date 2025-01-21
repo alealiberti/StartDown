@@ -13,7 +13,7 @@
 @media (max-width: 992px) {
   header.hero {
     /* Set the background image for smaller screens */
-    background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
+    background-image: url('/public/images/pages-images/home-images/header-images/immagine-di-cascina-756p.webp');
   }
 }
 
@@ -21,16 +21,18 @@
 @media (min-width: 992px) and (max-width: 1400px) {
   header.hero {
     margin-top: 110px; /* Add margin at the top for medium-sized screens */
+
     /* Set the background image for medium screens */
-    background-image: url('/public/images/home-images/header/cascina-caccia-992px.webp');
+    background-image: url('/public/images/pages-images/home-images/header-images/immagine-di-cascina-992p.webp');
   }
 }
 
 /* For screens with a minimum width of 1400px (large desktops) */
 @media  (min-width: 1400px) {
   header.hero {
+    
     /* Set the background image for larger screens */
-    background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
+    background-image: url('/public/images/pages-images/home-images/header-images/immagine-di-cascina-1400p.webp');
     margin-top: 90px; /* Add margin at the top for large screens */
   }
 }
@@ -259,20 +261,13 @@ section.list-pillars div.pillars-container article p {
   }
 }
 
-/* Scrollable image container styling */
-div.scroll-img {
-  width: 100%;
-  height: 20vh;
-  opacity: 0; /* Hide image initially */
-}
-
 /* Scrollable background image styling */
 .scroll-img {
   width: 100%;
   height: 300px;
-  background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
+  background-image: url('/images/pages-images/home-images/1-section-bruno-e-carla-images/immagine-carla-e-bruno-L.webp');
   background-size: cover; /* Ensure the image covers the container */
-  background-position: center; /* Center the background image */
+  background-position: top; /* Center the background image */
   border-radius: 0;
 }
 

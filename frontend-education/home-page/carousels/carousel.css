@@ -148,7 +148,8 @@ section.img-carousel .button-container {
 }
 
 /* Button styling within the carousel section */
-section.img-carousel button {
+section.img-carousel a {
+    text-decoration: none;
     font-family: "Montserrat", sans-serif;
     border: none;
     background-color: var(--yellow-color-logo); /* Button background */
@@ -195,9 +196,10 @@ button.disabled {
     /* Adjust image size */
     section.img-carousel .img-container img {
         width: 100%;
-        height: auto;
+        height: auto; /* Mantieni le proporzioni */
         display: block;
-        border-radius: 10px;
+        border-radius: 10px; /* Stessa estetica */
+        object-fit: cover; /* Adatta l'immagine al contenitore */
     }
 }
 
@@ -219,7 +221,7 @@ button.disabled {
     background-color: var(--magenta-color-logo); /* Magenta color for button */
 }
 
-.grey-section section.img-carousel button {
+.grey-section section.img-carousel a {
     background-color: var(--magenta-color-logo); /* Magenta color for button */
     color: var(--primary-color); /* Primary color for button text */
 }
