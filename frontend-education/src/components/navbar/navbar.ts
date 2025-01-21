@@ -9,7 +9,6 @@
  * @file navbar.ts
  * @version 1.0
  * @author Alessio Burbulia
- * @license MIT
  */
 
 // Get elements from the DOM
