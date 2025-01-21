@@ -38,7 +38,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for stateless services
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html" ,"/api/v1/users").hasAnyRole("OWNER", "ADMIN") // Allow access to API Docs to Owner and Admins
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html" ,"/api/v1/users").permitAll() // Allow public access to API Docs
                         .requestMatchers("/auth/login", "/resources/**").permitAll() // Allow public access to login and resources
                         .requestMatchers("/cascina-caccia/users/change-password", "/cascina-caccia/users/update-user").hasAnyRole("OWNER", "ADMIN")
                         .requestMatchers("cascina-caccia/informations/create-information", "/cascina-caccia/reservations/create-reservation").permitAll() // Allow public access to the creation of information or reservation requests
