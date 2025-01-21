@@ -57,6 +57,5 @@ export function createCardReservation(data: CardReservation, template: HTMLTempl
             break;
     }
 
-
     return CardReservation;
 }

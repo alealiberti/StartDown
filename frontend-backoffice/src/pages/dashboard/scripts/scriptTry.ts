@@ -9,8 +9,12 @@ import { loadTemplate } from "../../../global/services/load-templates";
 import { generateCards } from "../../../global/scripts/generate-cards";
 
 import { latestRequests } from "../../../global/DB/questions-reservation-DB";
+import { authGuard } from "../../../global/services/auth-guard";
 
 
+
+// check if the user is autorizhed so done login, or bypass the login page and render him again there
+authGuard();
 
 //*** WAIT the loading of the DOM before imports the templates and create the cards question/reservation ***
 document.addEventListener("DOMContentLoaded", async () => {

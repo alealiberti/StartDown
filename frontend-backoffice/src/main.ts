@@ -12,4 +12,4 @@ import "./styles/form.css";
 //* -----------------------SCRIPTS IMPORTS-------------------------------------
 
 // local scripts of the dashboard for generate cards elements
-import "./scripts/form-script.ts";
+import "./scripts/form.ts";

@@ -7,9 +7,10 @@ export interface CardReservation {
     dateSend: string,
     dateStart: string | null,
     dateFinish: string | null,
-    hourStart: string | null,
+    hourStart: string | null, // {"hourStart": "09:45"}
     hourFinish: string | null,
     status: string,
+    archived: boolean,
     typeGroup: string | null,
     visitors: number,
     companions: number,

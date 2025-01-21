@@ -34,18 +34,6 @@ async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardRe
 }
 
 
-/**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
- */
-async function handleCancel(overlay: HTMLElement) {
-    closeDialogs(overlay);
-}
-
-
 // ***-------------------------------------------------------------------------
 
 
@@ -73,6 +61,6 @@ export async function deleteCardDialog(overlay: HTMLElement, request: CardQuesti
     dialogDelete.querySelector(".confirm")?.addEventListener("click", () => { handleDelete(overlay, request); });
 
     // Gestisci il pulsante "Annulla"
-    dialogDelete.querySelector(".cancel")?.addEventListener("click", () => { handleCancel(overlay); });
+    dialogDelete.querySelector(".cancel")?.addEventListener("click", () => { closeDialogs(overlay); });
 
 }

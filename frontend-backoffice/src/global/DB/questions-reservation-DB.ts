@@ -14,7 +14,8 @@ export const questionsData: CardQuestion[] = [
         phone: "3384465353",
         email: "mario@example.com",
         dateSend: "10/23/2021",
-        question: "Salve, vorrei avere maggiori informazioni riguardo alla possibilità di prenotare un'attrezzatura sportiva per un'intera settimana. Nello specifico, vorrei sapere quali sono le opzioni di noleggio disponibili, se esistono pacchetti che includono servizi aggiuntivi come consulenze o corsi personalizzati, e se i costi variano in base al tipo di attrezzatura richiesta. Inoltre, mi interessa sapere quali sono le modalità di pagamento accettate e se è possibile ottenere una fattura elettronica per l'eventuale noleggio."
+        text: "Salve, vorrei avere maggiori informazioni riguardo alla possibilità di prenotare un'attrezzatura sportiva per un'intera settimana. Nello specifico, vorrei sapere quali sono le opzioni di noleggio disponibili, se esistono pacchetti che includono servizi aggiuntivi come consulenze o corsi personalizzati, e se i costi variano in base al tipo di attrezzatura richiesta. Inoltre, mi interessa sapere quali sono le modalità di pagamento accettate e se è possibile ottenere una fattura elettronica per l'eventuale noleggio.",
+        archived: true
     },
     {
         id: 1,

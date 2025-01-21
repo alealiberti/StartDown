@@ -21,7 +21,7 @@ import "./styles/style.css";
 //* -----------------------SCRIPTS IMPORTS-------------------------------------
 
 // global scripts imports
-import "../../global/scripts/navbar/expand-navbar-phone.ts";
+import "../../global/scripts/navbar/navbar.ts";
 
 
 // local scripts of the login 

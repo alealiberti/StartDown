@@ -5,5 +5,6 @@ export interface CardQuestion {
     phone: string | null,
     email: string,
     dateSend: string,
-    question: string
+    text: string,
+    archived: boolean
 }

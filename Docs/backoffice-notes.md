@@ -12,7 +12,9 @@
 - Numero nuove informazioni nella card in dashboard:
   - chiamata per isArchivata == false
   - incremento di n+1 ogni domanda che non è archiviata
-- Visite giornaliere chiedere a Shadi
+- Visite giornaliere chiedere a Shadi:
+  - local storage / cookie
+  - google analytics 
 
 
 --- 

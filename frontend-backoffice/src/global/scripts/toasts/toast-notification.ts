@@ -34,7 +34,7 @@ export function createToastNotification(message: string, type: "success" | "erro
         toast.remove();
     });
 
-    // remove the clone toast from the DOM 
+    // remove the clone toast from the DOM after 5s
     setTimeout(() => {
         toast.remove();
     }, 5000);

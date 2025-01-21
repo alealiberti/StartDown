@@ -1,3 +1,11 @@
+/**
+ * style.css
+ *
+ *
+ * let's sets also the box-sizing property to border-box for all elements.
+ *
+ */
+
 .cardQuestion {
     display: flex;
     flex-direction: column;

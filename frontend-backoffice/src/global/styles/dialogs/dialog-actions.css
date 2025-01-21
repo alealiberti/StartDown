@@ -27,7 +27,7 @@
 }
 
 
-/* *01. body of the cancellation of the request */
+/* 01. body of the cancellation of the request */
 .dialogDeleteCard h3,
 .dialogArchiveCard h3 {
     text-align: center;
@@ -35,13 +35,8 @@
     font-size: 0.85rem;
 }
 
-.dialogDeleteCard h3 span,
-.dialogArchiveCard h3 span {
-    font-weight: bold;
-}
 
-
-/* *02. actions buttons for confirm the cancellation or not */
+/* 02. actions buttons for confirm the cancellation or not */
 .dialogDeleteCard .dialogActions,
 .dialogArchiveCard .dialogActions {
     display: flex;

@@ -5,7 +5,6 @@
  * @description 
  */
 
-
 import { loadTemplate } from "../../services/load-templates";
 import { closeDialogs } from "./close-dialogs";
 
@@ -13,6 +12,7 @@ import { createToastNotification } from "../toasts/toast-notification";
 
 import { type CardQuestion } from "../../models/card-question.model";
 import { type CardReservation } from "../../models/card-reservation.model";
+
 
 
 /**
@@ -25,24 +25,12 @@ import { type CardReservation } from "../../models/card-reservation.model";
 async function handleArchive(overlay: HTMLElement, request: CardQuestion | CardReservation) {
     closeDialogs(overlay);
 
-    //todo FETCH API DELETE, if success or error will be passed a parameter which show the corrispettive toast
+    //todo FETCH API PATCH, if success or error will be passed a parameter which show the corrispettive toast
     if (Math.random() < 0.5) {
         createToastNotification("Richiesta archiviata con successo!", "success");
     } else {
         createToastNotification("Errore archiviazione richiesta!", "error");
     }
-}
-
-
-/**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
- */
-async function handleCancel(overlay: HTMLElement) {
-    closeDialogs(overlay);
 }
 
 
@@ -72,8 +60,6 @@ export async function archiveCardDialog(overlay: HTMLElement, request: CardQuest
     // Gestisci il pulsante "Conferma"
     dialogArchive.querySelector(".confirm")?.addEventListener("click", () => { handleArchive(overlay, request); })
 
-
-
     // Gestisci il pulsante "Annulla"
-    dialogArchive.querySelector(".cancel")?.addEventListener("click", () => { handleCancel(overlay) })
+    dialogArchive.querySelector(".cancel")?.addEventListener("click", () => { closeDialogs(overlay); })
 }
