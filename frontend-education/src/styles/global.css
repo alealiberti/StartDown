@@ -163,3 +163,17 @@ section.text-only-article-section article header h2 {
   font-size: 2.5rem;
   width: fit-content;
 }
+
+/* Button contattaci yellow
+.contattaci{
+  background-color: var(--yellow-color-logo);
+  font-family: var(--font-family-content);
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
+  padding:10px 20px;
+  margin: 20px;
+  margin-bottom: 100px;
+  border: none;
+  cursor: pointer;
+} */

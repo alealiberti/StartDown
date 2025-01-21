@@ -2,7 +2,6 @@ const faqItems = document.querySelectorAll('.faq-item') as NodeListOf<HTMLElemen
 
 faqItems.forEach(item => {
   const question = item.querySelector('.faq-question') as HTMLElement;
-  const icon = item.querySelector('.faq-icon') as HTMLElement;
 
   question.addEventListener('click', () => {
     // Chiude tutte le FAQ aperte

@@ -391,16 +391,5 @@ h1, h2, h3, p, span, div, a {
   text-align: center;
 }
 
-.contattaci{
-    background-color: var(--yellow-color-logo);
-    font-family: var(--font-family-content);
-    font-weight: bold;
-    color: black;
-    border-radius: 8px;
-    padding:10px 20px;
-    margin: 20px;
-    margin-bottom: 100px;
-    border: none;
-    cursor: pointer;
-}
+
 

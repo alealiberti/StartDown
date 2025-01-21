@@ -33,13 +33,6 @@
     }
   }
 
-h1{
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    color: var(--primary-color);
-}
-
 /* Animazione del logo */
 @keyframes fadeIn {
     from {
@@ -71,14 +64,16 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
+
   }
   
   article{
     display: block;
-      margin: 20px;
-      width: 100%;
-      max-width: 900px;
+    margin: 40px 0px;
+    width: 100%;
+    max-width: 900px;
   }
   
   article .img-container{
@@ -89,11 +84,18 @@ h1{
       display: none;
     }
   }
+
+  h1{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--primary-color);
+}
   
   
   h2{
     font-size: 1.5rem;
-    padding: 0px 20px;
+    
   }
   
   strong{
@@ -102,6 +104,7 @@ h1{
   
   main p{
     padding: 15px;
+    margin: 0;
   }
   
   section.dark-style{
@@ -117,3 +120,163 @@ h1{
 .black-blur{
   margin-top: 100px;
 }
+
+hr{
+  width: 100%;
+  margin: 20px auto;
+  border: 1px solid var(--magenta-color-logo);
+}
+
+h3{
+  color: var(--orange-color-logo);
+}
+
+/* Button contattaci yellow*/
+.contattaci{
+  background-color: var(--yellow-color-logo);
+  font-family: var(--font-family-content);
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
+  padding:10px 20px;
+  margin-left: 60px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* Stile per la sezione */
+.text-only-article-section {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+}
+
+.text-only-article-section article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Stile per l'immagine */
+.text-only-article-section img {
+  flex: 1 1 300px; 
+  max-width: 100%;
+  margin-left: 0px;
+  height: auto;
+  border-radius: 10px; 
+  object-fit: contain;
+}
+
+/* Stile per il contenuto di testo */
+.text-only-article-section .text-content {
+  flex: 2 1 600px; /* Il testo occupa più spazio rispetto all'immagine */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.text-only-article-section h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.text-only-article-section p {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .text-only-article-section article {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text-only-article-section img {
+    width: 100%;
+  }
+
+  .text-only-article-section .text-content {
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stile per la sezione del titolo */
+.title-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title-section h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--orange-color-logo);
+  text-align: left;
+}
+
+/* Stile per la sezione dei contenuti */
+.content-section {
+  display: flex;
+  align-items: flex-start;  /* Allineamento in alto per una disposizione più uniforme */
+  justify-content: space-between; /* Spazio tra le colonne */
+}
+
+/* Sezione immagine */
+.img-section {
+  flex: 2;  /* Aumentato per fare in modo che l'immagine prenda più spazio */
+  height: 100%;  /* Imposta un'altezza di 100% per riempire tutta la colonna */
+}
+
+.img-section img {
+  width: 100%;  /* L'immagine si adatta alla larghezza del contenitore */
+  height: 100%;  /* L'immagine occupa tutta l'altezza del contenitore */
+  object-fit: cover;  
+}
+
+/* Sezione testo */
+.text-section {
+  flex: 3;  /* Più spazio per il testo */
+}
+
+/* Stile per l'elenco puntato */
+ul.text {
+  list-style-type: disc;  
+  padding-left: 50px;  
+}
+
+li {
+  font-family: var(--font-family-content);
+  font-size: 15px;
+  margin-bottom: 10px;  
+  color:#555;
+}
+
+.introduzione{
+  font-family: var(--font-family-content);
+  font-size: 15px;
+  color:#555;
+  margin-left: 0px
+}
+
