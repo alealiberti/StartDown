@@ -30,10 +30,7 @@
 <ul class="request-details">
   <li>Nome: [Nome]</li>
   <li>Cognome: [Cognome]</li>
-  <li>Data richiesta: [Data richiesta]</li>
   <li>Tipo di visita: [Tipo di visita]</li>
-  <li>Numero di partecipanti: [Numero partecipanti]</li>
-  <li>Note aggiuntive: [Note opzionali fornite dall'utente]</li>
 </ul>
 ```
 
@@ -52,9 +49,6 @@
 <ul class="booking-details">
   <li>Nome: [Nome]</li>
   <li>Cognome [Cognome]</li>
-  <li>Data richiesta: [Data richiesta]</li>
   <li>Tipo di visita: [Tipo di visita]</li>
-  <li>Numero di partecipanti: [Numero partecipanti]</li>
-  <li>Note aggiuntive: [Note opzionali fornite dall'utente]</li>
 </ul>
 ```
