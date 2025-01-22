@@ -5,7 +5,7 @@
  * @description 
  */
 
-import { loadTemplate } from "../../services/load-templates.ts"; // will be used again for load the templates of dialogs on pages interactions
+import { loadTemplate } from "../../../utils/load-templates.ts"; // will be used again for load the templates of dialogs on pages interactions
 
 import { createDialogQuestion } from "./dialog-card-question.ts";
 import { createDialogReservation } from "./dialog-card-reservation.ts";

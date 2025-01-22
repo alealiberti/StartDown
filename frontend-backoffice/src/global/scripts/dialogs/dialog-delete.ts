@@ -5,7 +5,7 @@
  * @description 
  */
 
-import { loadTemplate } from "../../services/load-templates";
+import { loadTemplate } from "../../../utils/load-templates";
 import { closeDialogs } from "./close-dialogs";
 
 import { createToastNotification } from "../toasts/toast-notification";

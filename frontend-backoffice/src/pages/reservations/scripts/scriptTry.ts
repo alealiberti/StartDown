@@ -6,11 +6,11 @@
  */
 
 // import the async function whit the promise which will response whit the template container element and the function which create dinamics cards whit objects
-import { loadTemplate } from "../../../global/services/load-templates";
+import { loadTemplate } from "../../../utils/load-templates";
 import { generateCards } from "../../../global/scripts/generate-cards";
 
 import { reservationsData } from "../../../global/DB/questions-reservation-DB";
-import { authGuard } from "../../../global/services/auth-guard";
+import { authGuard } from "../../../utils/auth-guard";
 
 
 

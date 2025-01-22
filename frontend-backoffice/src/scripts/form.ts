@@ -5,6 +5,10 @@
  * @description 
  */
 
+import { createToastNotification } from "../global/scripts/toasts/toast-notification";
+import { loginAuth } from "../services/login-auth.api";
+
+
 
 
 document.querySelector("form")?.addEventListener("submit", async (event) => {
@@ -16,44 +20,32 @@ document.querySelector("form")?.addEventListener("submit", async (event) => {
     const usernameInput = (document.querySelector("input.username") as HTMLInputElement).value.trim();
     const passwordInput = (document.querySelector("input.password") as HTMLInputElement).value.trim();
 
-    // block the submit of login fetch POST
+    // block the submit of login if the inputs form fields are empty and show an alert of recall
     if (!usernameInput || !passwordInput) {
         alert("compila i campi di input!");
         return;
     }
 
+    // change the text inside the button whit "attendi..."
     const submitButton = document.querySelector("button[type='submit']") as HTMLElement;
     submitButton.textContent = "Attendere...";
 
 
     try {
-        // let's take the inputs of the username and password, and send them into an autoziation
-        const credentials = btoa(`${usernameInput}:${passwordInput}`);
+        // call the "loginAuth" function to authenticate the user trough POST FETCH and get the token of admin
+        const response = await loginAuth(usernameInput, passwordInput, "http://localhost:8080/auth/login");
+        console.log(`credenziali giuste ecco il tuo token:${response.token}`);
 
-        const response = await fetch("http://localhost:8080/auth/login", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Basic ${credentials}`,
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error("Credenziali inserite errate! riprova!");
-        }
-
-        // parse the response data if the fetch it successfully gone
-        const responseData = await response.json();
-        console.log("Login effettuato con successo:", responseData);
-
-        // save the token into the localStorage of the admin and drop him into the dashboard
-        if (responseData.token) {
-            localStorage.setItem("authToken", responseData.token);
-            window.location.href = "/src/pages/dashboard/index.html";
-        }
+        // save the token of the admin into the localStorage and redner him into the dashboard
+        localStorage.setItem("authToken", response.token);
+        window.location.href = "/src/pages/dashboard/index.html";
 
     } catch (err) {
+        // in case is throwed an error, will appear a toast which show the error on the try of log in into backoffice
         console.log(err);
-        submitButton.textContent = "Errore!";
+        createToastNotification("Errore tentativo log in! riprova!", "error");
+
+    } finally {
+        submitButton.textContent = "Log in"
     }
 });

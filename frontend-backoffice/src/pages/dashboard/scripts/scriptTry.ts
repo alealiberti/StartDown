@@ -5,11 +5,11 @@
  * @description 
  */
 
-import { loadTemplate } from "../../../global/services/load-templates";
+import { loadTemplate } from "../../../utils/load-templates";
 import { generateCards } from "../../../global/scripts/generate-cards";
 
 import { latestRequests } from "../../../global/DB/questions-reservation-DB";
-import { authGuard } from "../../../global/services/auth-guard";
+import { authGuard } from "../../../utils/auth-guard";
 
 
 
