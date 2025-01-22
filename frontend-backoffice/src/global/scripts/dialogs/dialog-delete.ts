@@ -8,10 +8,12 @@
 import { loadTemplate } from "../../../utils/load-templates";
 import { closeDialogs } from "./close-dialogs";
 
+import { deleteRequest } from "../../../services/delete-request.api";
 import { createToastNotification } from "../toasts/toast-notification";
 
 import { type CardQuestion } from "../../models/card-question.model";
 import { type CardReservation } from "../../models/card-reservation.model";
+
 
 
 
@@ -23,13 +25,28 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @returns {TipoOutput} - DescrizioneOutput
  */
 async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardReservation) {
+
+    // close all the dialogs when trash button and confirm on delete 
     closeDialogs(overlay);
 
-    //todo FETCH API DELETE, if success or error will be passed a parameter which show the corrispettive toast
-    if (Math.random() < 0.5) {
+    // this endpoint will contain the path of question/reservation, based on the type of the request
+    const endpoint =
+        "text" in request
+            ? "http://localhost:8080/cascina-caccia/informations/delete-information"
+            : "http://localhost:8080/cascina-caccia/reservations/delete-reservation"
+
+    // call the "deleteRequest" function to authenticate the user trough DELETE FETCH, pass the path and the id of the request
+    try {
+        await deleteRequest(endpoint, request.id);
+        console.log(`richiesta di ${request.name} eliminata con successo!`);
+        // when fetch DELETE is completed, will appear a toast of message whit positive success
         createToastNotification("Richiesta cancellata con successo!", "success");
-    } else {
-        createToastNotification("Errore cancellazione richiesta!", "error");
+        setTimeout(() => {
+            location.reload();
+        }, 2000)
+
+    } catch (err) {
+        createToastNotification(err as string, "error");
     }
 }
 

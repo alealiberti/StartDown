@@ -19,9 +19,10 @@ body.hidden {
 
 /* main on all the pages of the backoffice */
 main {
-    margin-left: 47px;
+    height: 100vh;
     background-color: var(--background-secondary);
     padding: 10px 12px;
+    margin-left: 47px;
 }
 
 *,

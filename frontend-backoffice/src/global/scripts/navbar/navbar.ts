@@ -5,6 +5,7 @@
  * @description 
  */
 
+
 // get form the DOM the sidebar element and the expand navbarphone for the mobile devices
 const sideBar = document.querySelector("nav#sidebar");
 const toggleBtn = document.querySelector(".toggleBtn");
@@ -21,9 +22,11 @@ toggleBtn?.addEventListener("click", () => {
     }
 });
 
+
 // -------------------------------------------
 
-// get from the DOM the logout button which will kill the token* and will be render in the login page
+
+// get from the DOM the logout button which will destroy the auth token and will be render in the login page
 const logoutBtn = document.querySelector(".logoutSection");
 
 logoutBtn?.addEventListener("click", () => {

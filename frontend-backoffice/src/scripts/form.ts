@@ -46,6 +46,6 @@ document.querySelector("form")?.addEventListener("submit", async (event) => {
         createToastNotification(err as string, "error");
 
     } finally {
-        submitButton.textContent = "Log in"
+        submitButton.textContent = "Log in"; // will turn back to the default text
     }
 });
