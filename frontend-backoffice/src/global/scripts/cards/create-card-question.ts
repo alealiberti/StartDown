@@ -34,7 +34,7 @@ export function createCardQuestion(data: CardQuestion, template: HTMLTemplateEle
     cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = restructureDate(data);
 
     // take the request and cut it for the card preview
-    const textBody: string = data.question.slice(0, 60).concat("...");
+    const textBody: string = data.text.slice(0, 60).concat("...");
     cardQuestion.querySelector("p.cardBody")!.textContent = textBody;
 
 

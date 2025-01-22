@@ -39,7 +39,7 @@ export function generateCards(
 
         /* check of the request if it is a question || reservation from the properties using: "in"
         also say to typescript the type of the request using: "as" */
-        if ("question" in request && questionTemplate) {
+        if ("text" in request && questionTemplate) {
             card = createCardQuestion(request, questionTemplate);
         } else if ("status" in request && reservationTemplate) {
             card = createCardReservation(request, reservationTemplate);

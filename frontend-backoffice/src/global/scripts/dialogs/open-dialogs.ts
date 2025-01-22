@@ -39,7 +39,7 @@ export function openDialogs(card: HTMLElement, request: CardQuestion | CardReser
         // initially null, will be replace by the dialog element created/loaded on the DOM after click
         let dialog: HTMLElement | null = null;
 
-        if ("question" in request) {
+        if ("text" in request) {
             await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
             dialog = document.querySelector(".dialogQuestion") as HTMLElement;
             createDialogQuestion(overlay, dialog, request);

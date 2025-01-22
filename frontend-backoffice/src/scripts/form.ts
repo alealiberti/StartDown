@@ -43,7 +43,7 @@ document.querySelector("form")?.addEventListener("submit", async (event) => {
     } catch (err) {
         // in case is throwed an error, will appear a toast which show the error on the try of log in into backoffice
         console.log(err);
-        createToastNotification("Errore tentativo log in! riprova!", "error");
+        createToastNotification(err as string, "error");
 
     } finally {
         submitButton.textContent = "Log in"

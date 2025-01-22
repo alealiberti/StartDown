@@ -30,7 +30,7 @@ export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLE
     dialogQuestion.querySelector(".dialogHeader h2.dialogName")!.textContent = `${question.name} ${question.surname}`;
     dialogQuestion.querySelector(".dialogHeader p.dialogEmail")!.textContent = question.email;
     dialogQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
-    dialogQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.question;
+    dialogQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.text;
 
 
     dialogQuestion.querySelector(".actions .trash")?.addEventListener("click", (event) => {
