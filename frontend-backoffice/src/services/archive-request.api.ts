@@ -1,0 +1,43 @@
+/**
+ * @file        main.ts
+ * @author      Gabriele Speciale
+ * @date        2025-01-21
+ * @description 
+ */
+
+import { type CardQuestion } from "../global/models/card-question.model";
+import { type CardReservation } from "../global/models/card-reservation.model";
+
+
+
+
+/**
+ * Nome della funzione
+ * Descrizione della funzione
+ * @param {TipoInput1} NomeInput1 - DescrizioneInput1
+ * @param {TipoInput2} NomeInput2 - DescrizioneInput2
+ * @returns {TipoOutput} - DescrizioneOutput
+ */
+export async function archiveRequest(path: string, request: CardQuestion | CardReservation): Promise<any> {
+
+    // get the token of auth, and pass it to the Authorization
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+        console.log("Token di autenticazione non trovato nel localStorage");
+    }
+
+    // try to fetch PUT, for update the status of request selected, is archived to true
+    const response = await fetch(`${path}/${request.id}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ ...request, archived: true }) // let's pass the parameter which will be modified
+    });
+
+    if (!response.ok) {
+        throw new Error("Errore archiviazione della richiesta!");
+    }
+}

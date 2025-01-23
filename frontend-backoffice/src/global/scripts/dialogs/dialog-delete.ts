@@ -29,7 +29,7 @@ async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardRe
     // close all the dialogs when trash button and confirm on delete 
     closeDialogs(overlay);
 
-    // this endpoint will contain the path of question/reservation, based on the type of the request
+    // this endpoint will contain the path of question/reservation delete, based on the type of the request
     const endpoint =
         "text" in request
             ? "http://localhost:8080/cascina-caccia/informations/delete-information"
@@ -46,7 +46,7 @@ async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardRe
         }, 2000)
 
     } catch (err) {
-        createToastNotification(err as string, "error");
+        createToastNotification(err.message, "error");
     }
 }
 

@@ -34,5 +34,4 @@ export async function loginAuth(username: string, password: string, path: string
     }
 
     return response.json(); // return the token response into JSON
-
 }

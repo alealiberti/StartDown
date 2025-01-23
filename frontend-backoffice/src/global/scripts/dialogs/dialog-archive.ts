@@ -8,10 +8,12 @@
 import { loadTemplate } from "../../../utils/load-templates";
 import { closeDialogs } from "./close-dialogs";
 
+import { archiveRequest } from "../../../services/archive-request.api";
 import { createToastNotification } from "../toasts/toast-notification";
 
 import { type CardQuestion } from "../../models/card-question.model";
 import { type CardReservation } from "../../models/card-reservation.model";
+
 
 
 
@@ -23,14 +25,29 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @returns {TipoOutput} - DescrizioneOutput
  */
 async function handleArchive(overlay: HTMLElement, request: CardQuestion | CardReservation) {
+
     closeDialogs(overlay);
 
-    //todo FETCH API PATCH, if success or error will be passed a parameter which show the corrispettive toast
-    if (Math.random() < 0.5) {
+    // this endpoint will contain the path of question/reservation archive, based on the type of the request
+    const endpoint =
+        "text" in request
+            ? "http://localhost:8080/cascina-caccia/informations/update-information"
+            : "http://localhost:8080/cascina-caccia/reservations/update-reservation"
+
+    // call the "archiveRequest" function to authenticate the user trough PUT FETCH, pass the path and the request
+    try {
+        await archiveRequest(endpoint, request);
+        console.log(`richiesta di ${request.name} archiviata con successo!`);
+        // when fetch PUT is completed, will appear a toast of message whit positive success
         createToastNotification("Richiesta archiviata con successo!", "success");
-    } else {
-        createToastNotification("Errore archiviazione richiesta!", "error");
+        setTimeout(() => {
+            location.reload();
+        }, 2000)
+
+    } catch (err) {
+        createToastNotification(err.message, "error");
     }
+
 }
 
 

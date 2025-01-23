@@ -36,6 +36,4 @@ export async function deleteRequest(path: string, idRequest: number): Promise<an
     if (!response.ok) {
         throw new Error("Errore cancellazione richiesta!");
     }
-
-    console.log("Elemento eliminato con successo!");
 }

@@ -38,5 +38,4 @@ export async function getRequests(path: string): Promise<any> {
     }
 
     return response.json(); // return the requests into JSON
-
 }
