@@ -280,3 +280,30 @@ li {
   margin-left: 0px
 }
 
+
+
+
+/* DA RIVEDERE */
+
+@media (max-width: 900px) {
+  article {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  article .img-container {
+    margin-top: 20px; 
+    width: 100%;
+  }
+
+  img.article {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+  }
+
+  article .text-content {
+    text-align: center; 
+  }
+}

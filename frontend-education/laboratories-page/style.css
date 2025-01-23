@@ -357,6 +357,10 @@ h1, h2, h3, p, span, div, a {
     margin: 20px;
 }
 
+a{
+  text-decoration: none;
+}
+
 .button-visita{
     display: block;
     justify-content: center;
@@ -391,5 +395,18 @@ h1, h2, h3, p, span, div, a {
   text-align: center;
 }
 
+/* Button contattaci yellow*/
+.contattaci{
+  background-color: var(--yellow-color-logo);
+  font-family: var(--font-family-content);
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
+  padding:10px 20px;
+  margin-left: 60px;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+}
 
 
