@@ -80,10 +80,4 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
 
-    // Signature
-    @ExceptionHandler(SignatureException.class)
-    public ResponseEntity<String> handleSignatureException(SignatureException ex) {
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ex.getMessage());
-    }
-
 }
