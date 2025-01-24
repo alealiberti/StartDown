@@ -267,7 +267,7 @@ public class UserREST {
                     description = "New password",
                     content = @Content(
                             mediaType = "application/json",
-                            schema = @Schema(example = "\"example\"")
+                            schema = @Schema(example = "\"NewPassword\"")
                     )))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Password changed successfully",
