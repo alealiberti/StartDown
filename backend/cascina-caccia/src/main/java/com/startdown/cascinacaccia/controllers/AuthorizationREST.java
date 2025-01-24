@@ -36,7 +36,9 @@ public class AuthorizationREST {
      * @param authHeader the header containing the Basic auth
      * @return ResponseEntity containing the auth token or throws an exception if something went wrong
      */
-    @Operation(summary = "Login for the user", description = "Permits the login for the user and returns the authorization token")
+    @Operation(summary = "Login for the user", description = "Permits the login for the user and returns the authorization token, " +
+                                                        "given a Header Authorization formatted like this: 'Basic base64(username:password)'." +
+                                                        " Example: Basic dXNlcm5hbWU6cGFzc3dvcmQ=")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Login done succesfully",
                     content = @Content(mediaType = "application/json",
