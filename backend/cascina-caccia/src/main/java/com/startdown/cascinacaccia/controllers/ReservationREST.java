@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.startdown.cascinacaccia.entities.Reservation;
-import com.startdown.cascinacaccia.exceptions.ReservationNotFoundException;
 
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
@@ -37,9 +36,7 @@ public class ReservationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
 	public ResponseEntity<List<ReservationDTO>> getAllReservationsNotArchived() {
@@ -58,8 +55,6 @@ public class ReservationREST {
 					content = @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Reservation.class))),
 			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-					content = @Content(mediaType = "application/json")),
-			@ApiResponse(responseCode = "500", description = "Internal server error",
 					content = @Content(mediaType = "application/json"))
 	})
 	@GetMapping("/get-all")
@@ -81,7 +76,7 @@ public class ReservationREST {
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "Reservation not found",
             content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/{id}") // Endpoint to get a reservation by ID
@@ -103,10 +98,10 @@ public class ReservationREST {
             @ApiResponse(responseCode = "200", description = "Reservation created successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Reservation.class))),
-            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-                    content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "400", description = "Bad request",
+					content = @Content(mediaType = "application/json")),
+			@ApiResponse(responseCode = "500", description = "Internal server error",
+					content = @Content(mediaType = "application/json"))
     })
 	@CrossOrigin(origins = "http://localhost:5173")
 	@PostMapping("/create-reservation") // Endpoint to create a new reservation
@@ -129,7 +124,7 @@ public class ReservationREST {
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "Reservation not found",
             content = @Content(mediaType = "application/json"))
     })
 	@PutMapping("/update-reservation/{id}") // Endpoint to update an existing reservation
@@ -153,7 +148,7 @@ public class ReservationREST {
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "Reservation not found",
             content = @Content(mediaType = "application/json"))
     })
 	@DeleteMapping("/delete-reservation/{id}") // Endpoint to delete a reservation by ID
@@ -177,16 +172,11 @@ public class ReservationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/status/{status}")
 	public ResponseEntity<List<ReservationDTO>> getReservationByStatus(@PathVariable String status) {
 		List<ReservationDTO> reservations = reservationService.findReservationsByStatus(status);
-		if (reservations.isEmpty()) {
-			throw new ReservationNotFoundException("No reservations found with the status: " + status); // Throw exception if no reservations found
-		}
 		return ResponseEntity.ok(reservations);
 	}
 	
@@ -201,9 +191,7 @@ public class ReservationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/datestart")
 	public ResponseEntity<List<ReservationDTO>> getByDateStart() {
@@ -222,9 +210,7 @@ public class ReservationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Reservation.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/visitors")
 	public ResponseEntity<List<ReservationDTO>> getByVisitors() {
@@ -243,8 +229,6 @@ public class ReservationREST {
 					content = @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Reservation.class))),
 			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-					content = @Content(mediaType = "application/json")),
-			@ApiResponse(responseCode = "500", description = "Internal server error",
 					content = @Content(mediaType = "application/json"))
 	})
 	@GetMapping("/archived")

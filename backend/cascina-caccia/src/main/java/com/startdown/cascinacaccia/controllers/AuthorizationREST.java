@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RestController;
-import org.thymeleaf.extras.springsecurity6.auth.Authorization;
 
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
@@ -45,6 +44,8 @@ public class AuthorizationREST {
                             "    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdGFydGRvd25vd25lckBnbWFpbC5jb20iLCJpYXQiOjE3Mzc3NTM4ODYsImV4cCI6MTczNzc3MTg4Nn0.zvLqg1WOiqz9Z21T09jRzAOI_t4AGxo3hOWYPX87uLg\"\n" +
                             "}"))),
             @ApiResponse(responseCode = "403", description = "Wrong credentials",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "400", description = "Bad request",
                     content = @Content(mediaType = "application/json"))
     })
     @PostMapping("/login")

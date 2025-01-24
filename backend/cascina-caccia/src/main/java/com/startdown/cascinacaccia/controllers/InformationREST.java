@@ -24,8 +24,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.startdown.cascinacaccia.entities.Information;
 import org.springframework.web.bind.annotation.*;
 
-import com.startdown.cascinacaccia.entities.Information;
-
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/cascina-caccia/informations")
@@ -47,9 +45,7 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
 	public ResponseEntity<List<InformationDTO>> getAllInformationsNotArchived() {
@@ -69,8 +65,6 @@ public class InformationREST {
 					content = @Content(mediaType = "application/json",
 							schema = @Schema(implementation = Information.class))),
 			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-					content = @Content(mediaType = "application/json")),
-			@ApiResponse(responseCode = "500", description = "Internal server error",
 					content = @Content(mediaType = "application/json"))
 	})
 	@GetMapping("/get-all")
@@ -93,8 +87,8 @@ public class InformationREST {
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "404", description = "Information not found",
+					content = @Content(mediaType = "application/json")),
     })
 	@GetMapping("/{id}") // Endpoint to get a information by ID
 	public ResponseEntity<InformationDTO> getInformationById(@PathVariable Integer id) {
@@ -114,10 +108,10 @@ public class InformationREST {
             @ApiResponse(responseCode = "200", description = "Information created successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
-            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+            @ApiResponse(responseCode = "400", description = "Bad request",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-                    content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "500", description = "Internal server error",
+					content = @Content(mediaType = "application/json"))
     })
 	@CrossOrigin(origins = "http://localhost:5173/")
 	@PostMapping("/create-information") // Endpoint to create a new information
@@ -138,10 +132,12 @@ public class InformationREST {
             @ApiResponse(responseCode = "200", description = "Information updated successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
+			@ApiResponse(responseCode = "400", description = "Bad request",
+					content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "404", description = "Information not found",
+					content = @Content(mediaType = "application/json"))
     })
 	@PutMapping("/update-information/{id}") // Endpoint to update an existing information
 	public ResponseEntity<Information> updateInformation(@PathVariable Integer id,
@@ -164,7 +160,7 @@ public class InformationREST {
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "Information not found",
             content = @Content(mediaType = "application/json"))
     })
 	@DeleteMapping("/delete-information/{id}") // Endpoint to delete a information by ID
@@ -187,9 +183,7 @@ public class InformationREST {
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Information.class))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/archived")
 	public ResponseEntity<List<InformationDTO>> getArchived() {

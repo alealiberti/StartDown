@@ -38,11 +38,7 @@ public class UserREST {
             @ApiResponse(responseCode = "200", description = "Users retrieved successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = User.class))),
-            @ApiResponse(responseCode = "400", description = "Bad request",
-                    content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = @Content(mediaType = "application/json"))
     })
     @GetMapping
@@ -66,7 +62,7 @@ public class UserREST {
                     content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "User not found",
                     content = @Content(mediaType = "application/json"))
     })
     @GetMapping("/{id}") // Endpoint to get a user by ID
@@ -92,7 +88,7 @@ public class UserREST {
                     content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "User not found",
                     content = @Content(mediaType = "application/json"))
     })
     @GetMapping("email/{email}") // Endpoint to get a user by ID
@@ -120,9 +116,9 @@ public class UserREST {
             @ApiResponse(responseCode = "200", description = "User added successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = User.class))),
-            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
+            @ApiResponse(responseCode = "400", description = "Bad Request",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
     @PostMapping("/create-user") // Endpoint to create a new user
@@ -156,15 +152,16 @@ public class UserREST {
             @ApiResponse(responseCode = "200", description = "User updated successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = User.class))),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "400", description = "Bad Request",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
     @PutMapping("/update-user") // Endpoint to update an existing user
-    public ResponseEntity<User> updateUser(@RequestBody User userDetails) {
+    public Optional<ResponseEntity<User>> updateUser(@RequestBody User userDetails) {
         String userEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         Optional<User> updatedUser = userService.updateUser(userEmail, userDetails); // Update user details
-        return updatedUser.map(ResponseEntity::ok) // Return updated user if successful
-                .orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if user does not exist
+        return updatedUser.map(ResponseEntity::ok); // Return updated user if successful
     }
 
     /**
@@ -188,8 +185,12 @@ public class UserREST {
             @ApiResponse(responseCode = "200", description = "User updated successfully",
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = User.class))),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-                    content = @Content(mediaType = "application/json"))
+            @ApiResponse(responseCode = "400", description = "Bad Request",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "User not found",
+                    content = @Content(mediaType = "application/json")),
     })
     @PutMapping("/update-user-role")
     public ResponseEntity<User> updateUserRole(@RequestBody User userDetails) {
@@ -208,7 +209,9 @@ public class UserREST {
     @Operation(summary = "Deletes a User (OWNER only)", description = "Deletes an existing user, given the ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "User deleted successfully"),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "User not found",
                     content = @Content(mediaType = "application/json"))
     })
     @DeleteMapping("/delete-user/{id}") // Endpoint to delete a user by ID
@@ -236,7 +239,9 @@ public class UserREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Password changed successfully",
                     content = @Content(mediaType = "text/plain")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "400", description = "Bad Request",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
     @PutMapping("/change-password") // Endpoint to change the password of the authenticated user
@@ -267,7 +272,9 @@ public class UserREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Password changed successfully",
                     content = @Content(mediaType = "text/plain")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "403", description = "The user doesn't have the right permission",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "404", description = "User not found",
                     content = @Content(mediaType = "application/json"))
     })
     @PutMapping("/change-user-password/{id}") // Endpoint to change a user's password by ID
