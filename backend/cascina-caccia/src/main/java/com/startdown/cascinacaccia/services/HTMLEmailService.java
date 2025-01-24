@@ -1,21 +1,18 @@
 package com.startdown.cascinacaccia.services;
 
-
 import com.startdown.cascinacaccia.entities.Information;
 import com.startdown.cascinacaccia.entities.Reservation;
 import com.startdown.cascinacaccia.exceptions.EmailSendException;
-import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 
+// The EmailService class provides the methods to send emails to someone or to the admins
 @Service
 public class HTMLEmailService {
 
@@ -25,9 +22,16 @@ public class HTMLEmailService {
     @Autowired
     private UserService userService;
 
-    private File header = new File("src/main/resources/email-templates/header.html");
-    private File footer = new File("src/main/resources/email-templates/footer.html");
+    private final File header = new File("src/main/resources/email-templates/header.html");
+    private final File footer = new File("src/main/resources/email-templates/footer.html");
 
+    /**
+     * Sends an email to the person given to confirm their request (information or reservation) or has gone alright,
+     * throws an exception if something went wrong
+     *
+     * @param to the email of the person to send the email to
+     * @param request request the object containing the Information or Reservation request
+     */
     public void sendEmailConfirm(String to, Object request){
         try{
             MimeMessage message = mailSender.createMimeMessage();
@@ -50,7 +54,7 @@ public class HTMLEmailService {
                         "Ecco un breve riepilogo delle informazioni che ci hai fornito:</p>" +
                         "<ul class=\"booking-details\">" +
                         "<li>Nome: " + reservation.getName() + "</li>" +
-                        "<li>Cognome " + reservation.getSurname() + "</li>" +
+                        "<li>Cognome: " + reservation.getSurname() + "</li>" +
                         "<li>Tipo di visita: " + reservation.getTypeGroup() + "</li>" +
                         "</ul>";
             }
@@ -69,10 +73,12 @@ public class HTMLEmailService {
         }
     }
 
-
-
-
-
+    /**
+     * Sends confirmation email to the user and the notification emails to the admins
+     *
+     * @param to the email of the person to send the email to
+     * @param request the object containing the Information or Reservation request
+     */
     public void sendEmails(String to, Object request) {
         sendEmailConfirm(to, request);
 //        sendEmailToAdmins();
