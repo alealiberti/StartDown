@@ -7,6 +7,7 @@ import com.startdown.cascinacaccia.entities.InformationDTO;
 import com.startdown.cascinacaccia.services.InformationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -24,8 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.startdown.cascinacaccia.entities.Information;
 import org.springframework.web.bind.annotation.*;
 
-import com.startdown.cascinacaccia.entities.Information;
-
 @CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 @RequestMapping("/cascina-caccia/informations")
@@ -34,6 +33,25 @@ public class InformationREST {
 
 	@Autowired
 	private InformationService informationService;
+
+	private static final String schemaString = "{" +
+			"  \"id\": 1073741824," +
+			"  \"name\": \"Name\"," +
+			"  \"surname\": \"Surname\"," +
+			"  \"phone\": \"0112223334\"," +
+			"  \"email\": \"email@sample.it\"," +
+			"  \"dateSend\": \"MM/DD/YYYY\"," +
+			"  \"text\": \"Lorem Ipsum\"," +
+			"  \"archived\": false" +
+			"}";
+
+	private static final String schemaCreateString = "{"
+			+ "\"name\": \"Name\","
+			+ "\"surname\": \"Surname\","
+			+ "\"phone\": \"0112223334\","
+			+ "\"email\": \"email@sample.it\","
+			+ "\"text\": \"Lorem Ipsum\""
+			+ "}";
 
 	/**
 	 * Retrieves a list of all informations in the system sorted by date send and not archived.
@@ -45,11 +63,9 @@ public class InformationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping
 	public ResponseEntity<List<InformationDTO>> getAllInformationsNotArchived() {
@@ -67,10 +83,8 @@ public class InformationREST {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
 					content = @Content(mediaType = "application/json",
-							schema = @Schema(implementation = Information.class))),
+							schema = @Schema(example = schemaString))),
 			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-					content = @Content(mediaType = "application/json")),
-			@ApiResponse(responseCode = "500", description = "Internal server error",
 					content = @Content(mediaType = "application/json"))
 	})
 	@GetMapping("/get-all")
@@ -90,11 +104,11 @@ public class InformationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Information retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
+							schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "404", description = "Information not found",
+					content = @Content(mediaType = "application/json")),
     })
 	@GetMapping("/{id}") // Endpoint to get a information by ID
 	public ResponseEntity<InformationDTO> getInformationById(@PathVariable Integer id) {
@@ -113,39 +127,59 @@ public class InformationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Information created successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
-            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+							schema = @Schema(example = schemaString))),
+            @ApiResponse(responseCode = "400", description = "Bad request",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-                    content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "500", description = "Internal server error",
+					content = @Content(mediaType = "application/json"))
     })
 	@CrossOrigin(origins = "http://localhost:5173/")
 	@PostMapping("/create-information") // Endpoint to create a new information
-	public ResponseEntity<Information> createInformation(@RequestBody Information information) {
+	public ResponseEntity<Information> createInformation(@io.swagger.v3.oas.annotations.parameters.RequestBody(
+			description = "The information to update",
+			required = true,
+			content = @Content(
+					mediaType = "application/json",
+					examples = @ExampleObject(
+							name = "Example of the request body",
+							value = schemaCreateString)))
+			@RequestBody Information information) {
 		Information newInformation = informationService.createInformation(information); // Create the new information
 		return ResponseEntity.ok(newInformation); // Return the created information
 	}
 
 	/**
-	 * Updates the details of an existing information.
+	 * Updates the details of an existing information. It changes only the given parameters
 	 *
 	 * @param id                 the ID of the information to be updated
 	 * @param informationDetails the Information object containing the updated details
 	 * @return an Optional containing the updated Information object if successful, or an empty Optional if the information was not found
 	 */
-	@Operation(summary = "Update information", description = "Updates an information and saves it in the db")
+	@Operation(summary = "Update information", description = "Updates an information and saves it in the db. " +
+															"It changes only the given parameters")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Information updated successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
+							schema = @Schema(example = schemaString))),
+			@ApiResponse(responseCode = "400", description = "Bad request",
+					content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+			@ApiResponse(responseCode = "404", description = "Information not found",
+					content = @Content(mediaType = "application/json"))
     })
 	@PutMapping("/update-information/{id}") // Endpoint to update an existing information
-	public ResponseEntity<Information> updateInformation(@PathVariable Integer id,
-			@RequestBody InformationDTO informationDetails) {
+	public ResponseEntity<Information> updateInformation(@PathVariable Integer id, @io.swagger.v3.oas.annotations.parameters.RequestBody(
+			description = "The information to update",
+			required = true,
+			content = @Content(
+					mediaType = "application/json",
+					examples = @ExampleObject(
+							name = "Example of the request body",
+							value = schemaString
+					)
+			)
+	) @RequestBody InformationDTO informationDetails) {
 		Optional<Information> updatedInformation = informationService.updateInformation(id, informationDetails); // Update information details
 		return updatedInformation.map(ResponseEntity::ok) // Return updated information if successful
 				.orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if information does not exist
@@ -159,12 +193,10 @@ public class InformationREST {
 	 */
 	@Operation(summary = "Delete information", description = "Deletes an information and removes it from the db")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Information deleted successfully",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
-            @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
+            @ApiResponse(responseCode = "204", description = "Information deleted successfully"),
+			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
+            @ApiResponse(responseCode = "404", description = "Information not found",
             content = @Content(mediaType = "application/json"))
     })
 	@DeleteMapping("/delete-information/{id}") // Endpoint to delete a information by ID
@@ -185,11 +217,9 @@ public class InformationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Informations retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Information.class))),
+							schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
-                    content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-            content = @Content(mediaType = "application/json"))
+                    content = @Content(mediaType = "application/json"))
     })
 	@GetMapping("/archived")
 	public ResponseEntity<List<InformationDTO>> getArchived() {

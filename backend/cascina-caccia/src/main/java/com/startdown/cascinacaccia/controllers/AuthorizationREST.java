@@ -1,6 +1,11 @@
 package com.startdown.cascinacaccia.controllers;
 
 import com.startdown.cascinacaccia.services.JWTService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +36,20 @@ public class AuthorizationREST {
      * @param authHeader the header containing the Basic auth
      * @return ResponseEntity containing the auth token or throws an exception if something went wrong
      */
+    @Operation(summary = "Login for the user", description = "Permits the login for the user and returns the authorization token, " +
+                                                        "given a Header Authorization formatted like this: 'Basic base64(username:password)'." +
+                                                        " Example: Basic dXNlcm5hbWU6cGFzc3dvcmQ=")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Login done succesfully",
+                    content = @Content(mediaType = "application/json",
+                    schema = @Schema(example = "{\n" +
+                            "    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdGFydGRvd25vd25lckBnbWFpbC5jb20iLCJpYXQiOjE3Mzc3NTM4ODYsImV4cCI6MTczNzc3MTg4Nn0.zvLqg1WOiqz9Z21T09jRzAOI_t4AGxo3hOWYPX87uLg\"\n" +
+                            "}"))),
+            @ApiResponse(responseCode = "403", description = "Wrong credentials",
+                    content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "400", description = "Bad request",
+                    content = @Content(mediaType = "application/json"))
+    })
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestHeader("Authorization") String authHeader) {
         if (authHeader == null || !authHeader.startsWith("Basic ")) {

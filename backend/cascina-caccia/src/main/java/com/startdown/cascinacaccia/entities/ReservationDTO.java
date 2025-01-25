@@ -1,12 +1,10 @@
 package com.startdown.cascinacaccia.entities;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
