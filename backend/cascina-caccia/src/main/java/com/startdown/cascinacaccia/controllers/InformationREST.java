@@ -119,11 +119,13 @@ public class InformationREST {
 
 	/**
 	 * Creates a new information in the system.
+	 * Sends confirmation emails to the person making the request and to the admins
 	 *
 	 * @param information the Information object containing the details of the new information
 	 * @return ResponseEntity containing the informations
 	 */
-	@Operation(summary = "Create information (public access)", description = "Creates a new information and inserts it into the db")
+	@Operation(summary = "Create information (public access)", description = "Creates a new information and inserts it into the db. " +
+																			"Sends a confirmation email to the user and a notification one to the admins")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Information created successfully",
                     content = @Content(mediaType = "application/json",

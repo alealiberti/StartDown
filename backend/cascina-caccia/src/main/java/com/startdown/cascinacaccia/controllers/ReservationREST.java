@@ -131,7 +131,8 @@ public class ReservationREST {
 	 * @param reservation the Reservation object containing the details of the new reservation
 	 * @return ResponseEntity containing the created reservation
 	 */
-	@Operation(summary = "Create reservation (public access)", description = "Creates a new reservation and inserts it into the db")
+	@Operation(summary = "Create reservation (public access)", description = "Creates a new reservation and inserts it into the db. " +
+																			"Sends a confirmation email to the user and a notification one to the admins")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservation created successfully",
                     content = @Content(mediaType = "application/json",
