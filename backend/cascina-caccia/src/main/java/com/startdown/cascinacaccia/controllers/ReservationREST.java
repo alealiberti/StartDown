@@ -32,9 +32,9 @@ public class ReservationREST {
 			"\"surname\": \"Surname\"," +
 			"\"phone\": \"0112223334\"," +
 			"\"email\": \"email@sample.it\"," +
-			"\"dateSend\": \"MM-DD-YYYY\"," +
-			"\"dateStart\": \"MM-DD-YYYY\"," +
-			"\"dateFinish\": \"MM-DD-YYYY\"," +
+			"\"dateSend\": \"MM/DD/YYYY\"," +
+			"\"dateStart\": \"MM/DD/YYYY\"," +
+			"\"dateFinish\": \"MM/DD/YYYY\"," +
 			"\"hourStart\": \"hh:mm\"," +
 			"\"hourFinish\": \"hh:mm\"," +
 			"\"status\": \"sampleStatus\"," +
@@ -51,10 +51,10 @@ public class ReservationREST {
 			"\"surname\": \"Surname\"," +
 			"\"phone\": \"0112223334\"," +
 			"\"email\": \"email@sample.it\"," +
-			"\"dateStart\": \"MM-DD-YYYY\"," +
-			"\"dateFinish\": \"MM-DD-YYYY\"," +
-			"\"hourStart\": \"HH:MM\"," +
-			"\"hourFinish\": \"HH:MM\"," +
+			"\"dateStart\": \"YYYY-MM-DD\"," +
+			"\"dateFinish\": \"YYYY-MM-DD\"," +
+			"\"hourStart\": \"hh:mm\"," +
+			"\"hourFinish\": \"hh:mm\"," +
 			"\"typeGroup\": \"sampleGroup\"," +
 			"\"visitors\": 1073741824," +
 			"\"companions\": 1073741824," +
@@ -67,7 +67,8 @@ public class ReservationREST {
 	 * 
 	 * @return ResponseEntity ok when found all the reservations
 	 */
-	@Operation(summary = "Reservations list", description = "Gets the list of all the reservations in the db")
+	@Operation(summary = "Reservations list", description = "Gets the list of all the reservations not archived in the db" +
+															", ordered by date send")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
                     content = @Content(mediaType = "application/json",
