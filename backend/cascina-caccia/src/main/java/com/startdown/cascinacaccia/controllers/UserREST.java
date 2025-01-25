@@ -100,12 +100,12 @@ public class UserREST {
 
     /**
      * OWNER only
-     * Creates a new user.
+     * Creates a new user with the ADMIN role.
      *
      * @param user the user details for the new user
      * @return ResponseEntity containing the newly created user
      */
-    @Operation(summary = "Creates a new user (OWNER only)", description = "Creates a new user, with the JSON given",
+    @Operation(summary = "Creates a new user (OWNER only)", description = "Creates a new user (with the ADMIN role), with the JSON given",
     requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
             description = "Details of the User to add",
             content = @Content(
