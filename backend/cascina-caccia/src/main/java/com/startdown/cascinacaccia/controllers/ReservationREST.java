@@ -7,6 +7,7 @@ import com.startdown.cascinacaccia.entities.ReservationDTO;
 import com.startdown.cascinacaccia.services.ReservationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -25,6 +26,42 @@ public class ReservationREST {
 	@Autowired
 	private ReservationService reservationService;
 
+	private static final String schemaString = "{" +
+			"\"id\": 1073741824," +
+			"\"name\": \"Name\"," +
+			"\"surname\": \"Surname\"," +
+			"\"phone\": \"0112223334\"," +
+			"\"email\": \"email@sample.it\"," +
+			"\"dateSend\": \"MM-DD-YYYY\"," +
+			"\"dateStart\": \"MM-DD-YYYY\"," +
+			"\"dateFinish\": \"MM-DD-YYYY\"," +
+			"\"hourStart\": \"hh:mm\"," +
+			"\"hourFinish\": \"hh:mm\"," +
+			"\"status\": \"sampleStatus\"," +
+			"\"typeGroup\": \"sampleGroup\"," +
+			"\"visitors\": 1073741824," +
+			"\"companions\": 1073741824," +
+			"\"additionalInfo\": \"Lorem Ipsum\"," +
+			"\"mobilityProblems\": false," +
+			"\"archived\": false" +
+			"}";
+
+	private static final String schemaCreateString = "{" +
+			"\"name\": \"Name\"," +
+			"\"surname\": \"Surname\"," +
+			"\"phone\": \"0112223334\"," +
+			"\"email\": \"email@sample.it\"," +
+			"\"dateStart\": \"MM-DD-YYYY\"," +
+			"\"dateFinish\": \"MM-DD-YYYY\"," +
+			"\"hourStart\": \"HH:MM\"," +
+			"\"hourFinish\": \"HH:MM\"," +
+			"\"typeGroup\": \"sampleGroup\"," +
+			"\"visitors\": 1073741824," +
+			"\"companions\": 1073741824," +
+			"\"additionalInfo\": \"Lorem Ipsum\"," +
+			"\"mobilityProblems\": false" +
+			"}";
+
 	/**
 	 * Retrieves a list of all reservations in the system not archived and sorted by dateSend Desc.
 	 * 
@@ -34,7 +71,7 @@ public class ReservationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
@@ -53,7 +90,7 @@ public class ReservationREST {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
 					content = @Content(mediaType = "application/json",
-							schema = @Schema(implementation = Reservation.class))),
+							schema = @Schema(example = schemaString))),
 			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
 					content = @Content(mediaType = "application/json"))
 	})
@@ -73,7 +110,7 @@ public class ReservationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservation retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description = "Reservation not found",
@@ -97,7 +134,7 @@ public class ReservationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservation created successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
 			@ApiResponse(responseCode = "400", description = "Bad request",
 					content = @Content(mediaType = "application/json")),
 			@ApiResponse(responseCode = "500", description = "Internal server error",
@@ -105,23 +142,31 @@ public class ReservationREST {
     })
 	@CrossOrigin(origins = "http://localhost:5173")
 	@PostMapping("/create-reservation") // Endpoint to create a new reservation
-	public ResponseEntity<Reservation> createReservation(@RequestBody Reservation reservation) {
+	public ResponseEntity<Reservation> createReservation(@io.swagger.v3.oas.annotations.parameters.RequestBody(
+			description = "The information to update",
+			required = true,
+			content = @Content(
+					mediaType = "application/json",
+					examples = @ExampleObject(
+							name = "Example of the request body",
+							value = schemaCreateString))) @RequestBody Reservation reservation) {
 		Reservation newReservation = reservationService.createReservation(reservation); // Create the new reservation
 		return ResponseEntity.ok(newReservation); // Return the created reservation
 	}
 
 	/**
-	 * Updates the details of an existing reservation.
+	 * Updates the details of an existing reservation. It changes only the values given
 	 *
 	 * @param id                 the ID of the reservation to be updated
 	 * @param reservationDetails the Reservation object containing the updated details
 	 * @return an Optional containing the updated Reservation object if successful, or an empty Optional if the reservation was not found
 	 */
-	@Operation(summary = "Update reservation", description = "Updates an reservation and saves it in the db")
+	@Operation(summary = "Update reservation", description = "Updates an reservation and saves it in the db. " +
+															"It changes only the values given")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservation updated successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description = "Reservation not found",
@@ -129,7 +174,16 @@ public class ReservationREST {
     })
 	@PutMapping("/update-reservation/{id}") // Endpoint to update an existing reservation
 	public ResponseEntity<Reservation> updateReservation(@PathVariable Integer id,
-			@RequestBody ReservationDTO reservationDetails) {
+			@io.swagger.v3.oas.annotations.parameters.RequestBody(
+			description = "The information to update",
+			required = true,
+			content = @Content(
+					 mediaType = "application/json",
+					 examples = @ExampleObject(
+							 name = "Example of the request body",
+							 value = schemaString
+			))
+	) @RequestBody ReservationDTO reservationDetails) {
 		Optional<Reservation> updatedReservation = reservationService.updateReservation(id, reservationDetails); // Update reservation details
 		return updatedReservation.map(ResponseEntity::ok) // Return updated reservation if successful
 				.orElseGet(() -> ResponseEntity.notFound().build()); // Return not found if reservation does not exist
@@ -143,9 +197,7 @@ public class ReservationREST {
 	 */
 	@Operation(summary = "Delete reservation", description = "Deletes an reservation and removes it from the db")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Reservation deleted successfully",
-                    content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+            @ApiResponse(responseCode = "204", description = "Reservation deleted successfully"),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json")),
             @ApiResponse(responseCode = "404", description = "Reservation not found",
@@ -170,7 +222,7 @@ public class ReservationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
@@ -189,7 +241,7 @@ public class ReservationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
@@ -208,7 +260,7 @@ public class ReservationREST {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
                     content = @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = Reservation.class))),
+                            schema = @Schema(example = schemaString))),
             @ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
                     content = @Content(mediaType = "application/json"))
     })
@@ -227,7 +279,7 @@ public class ReservationREST {
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Reservations retrieved successfully",
 					content = @Content(mediaType = "application/json",
-							schema = @Schema(implementation = Reservation.class))),
+							schema = @Schema(example = schemaString))),
 			@ApiResponse(responseCode = "403", description = "The users doesn't have the right permission",
 					content = @Content(mediaType = "application/json"))
 	})
