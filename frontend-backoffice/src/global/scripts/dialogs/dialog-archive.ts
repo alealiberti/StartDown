@@ -26,6 +26,7 @@ import { type CardReservation } from "../../models/card-reservation.model";
  */
 async function handleArchive(overlay: HTMLElement, request: CardQuestion | CardReservation) {
 
+    // close all the dialog of archivation when confirm button is clicked
     closeDialogs(overlay);
 
     // this endpoint will contain the path of question/reservation archive, based on the type of the request

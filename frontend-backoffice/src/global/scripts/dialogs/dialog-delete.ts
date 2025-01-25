@@ -26,7 +26,7 @@ import { type CardReservation } from "../../models/card-reservation.model";
  */
 async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardReservation) {
 
-    // close all the dialogs when trash button and confirm on delete 
+    // close all the dialog of elimination when confirm button is clicked
     closeDialogs(overlay);
 
     // this endpoint will contain the path of question/reservation delete, based on the type of the request

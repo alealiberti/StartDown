@@ -8,6 +8,7 @@
 import { authGuard } from "../../../utils/auth-guard";
 import { loadTemplate } from "../../../utils/load-templates";
 import { getRequests } from "../../../services/get-requests.api";
+import { newRequest } from "./new-requests";
 import { latestQuestionsReservations } from "./get-latest-request";
 import { generateCards } from "../../../global/scripts/generate-cards";
 
@@ -34,8 +35,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         // await the response and recive from the GET fetch into "getRequests.api.ts" the reservations
         let reservationsData: CardReservation[] = await getRequests("http://localhost:8080/cascina-caccia/reservations");
 
+        // let's define the new question (based on archived true || false) and new reservation (based on status === "nuova")
+        newRequest(questionsData, reservationsData);
+
+        // -----------------------------------
+
+        // let's take the last 5 request using sort and destructuring of the array's of question/reservation
         const latestRequests = latestQuestionsReservations(questionsData, reservationsData);
-        console.log(latestRequests)
 
         // take form the DOM the template question and reservation loaded from the fetch() in `loadTemplates.ts`
         const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;

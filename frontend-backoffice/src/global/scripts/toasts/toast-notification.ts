@@ -27,7 +27,7 @@ export function createToastNotification(message: string, type: "success" | "erro
     // add the cloned toast into the container which is positioned on top right of page
     document.querySelector(".toastContainer")?.appendChild(toast);
 
-    // ----------------------------------------
+    // ------------------------------------------------------
 
     // add an event listener if the toast is clicked will be removed immediatly from the DOM container
     toast.addEventListener("click", () => {

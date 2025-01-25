@@ -11,18 +11,18 @@
 .dialogArchiveCard {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 25vh;
+    width: 70vw;
+    height: 20vh;
     background-color: var(--background-primary);
-    padding: 30px 20px;
-    border-radius: 10px;
     box-shadow: 0 5px 8px rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 10px;
     z-index: 20000;
 }
 
@@ -31,10 +31,13 @@
 .dialogDeleteCard h3,
 .dialogArchiveCard h3 {
     text-align: center;
-    margin-bottom: 30px;
     font-size: 0.85rem;
 }
 
+.dialogDeleteCard h3 strong,
+.dialogArchiveCard h3 strong {
+    font-weight: bold;
+}
 
 /* 02. actions buttons for confirm the cancellation or not */
 .dialogDeleteCard .dialogActions,

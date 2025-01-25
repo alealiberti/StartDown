@@ -31,6 +31,9 @@ export function openDialogs(card: HTMLElement, request: CardQuestion | CardReser
     // take from the DOM the overlay which will cover all the pages and block interaction whit all elements
     const overlay = document.querySelector(".overlay") as HTMLElement;
 
+    // if click on the overlay will close all the dialogs opened
+    overlay.addEventListener("click", () => closeDialogs(overlay));
+
     // ---------------------------------------------------------------------
 
     // events which on click will be showed a dialog of question/reservation based on the request parameter
@@ -59,15 +62,11 @@ export function openDialogs(card: HTMLElement, request: CardQuestion | CardReser
 
     // -----------------------------------------------------------
 
-    // Evento per aprire il dialog di eliminazione diretto dalla preview della card
+    // event to open the elimination dialog directly by the card preview
     card.querySelector(".actions .trash")?.addEventListener("click", (event) => deleteCardDialog(overlay, request, event));
 
-    // Evento per aprire il dialog di archivio diretto dalla preview della card
+    // event to open the archivation dialog directly by the card preview
     card.querySelector(".actions .archive")?.addEventListener("click", (event) => archiveCardDialog(overlay, request, event));
 
     // -----------------------------------------------------------
-
-    // if click on the overlay will close all the dialogs opened
-    overlay.addEventListener("click", () => closeDialogs(overlay));
-
 }

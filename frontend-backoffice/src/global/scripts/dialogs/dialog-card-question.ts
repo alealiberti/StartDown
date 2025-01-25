@@ -26,20 +26,24 @@ import { type CardQuestion } from "../../models/card-question.model";
  */
 export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLElement, question: CardQuestion): void {
 
-    // sets all the datas of the questions into the TEMPLATE QUESTIONS "dialog"
+    // sets all the datas of the question into the ELEMENT dialogQuestion
     dialogQuestion.querySelector(".dialogHeader h2.dialogName")!.textContent = `${question.name} ${question.surname}`;
     dialogQuestion.querySelector(".dialogHeader p.dialogEmail")!.textContent = question.email;
     dialogQuestion.querySelector("p.dialogDate")!.textContent = restructureDate(question);
     dialogQuestion.querySelector(".dialogBody .dialogRequest")!.textContent = question.text;
 
+    // -----------------------------------------
 
+    // sets also inside the dialog the event listener for the delete of the question opened
     dialogQuestion.querySelector(".actions .trash")?.addEventListener("click", (event) => {
-        closeDialogs(overlay);
+        closeDialogs(overlay); // close the actual dialog
         deleteCardDialog(overlay, question, event);
     });
 
+    // sets also inside the dialog the event listener for the archive of the question opened
     dialogQuestion.querySelector(".actions .archive")?.addEventListener("click", (event) => {
-        closeDialogs(overlay);
+        closeDialogs(overlay); // close the actual dialog
         archiveCardDialog(overlay, question, event)
     });
+
 }   

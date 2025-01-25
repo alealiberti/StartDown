@@ -4,9 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Settings</h1>
+    <!-- side navbar for all the devices, phone navabar is expandable whit a button and the navLabel will be hidden -->
+    <nav id="sidebar">
+        <!-- button showed for the device phone, will allowed to exapande the navabar full screen -->
+        <div class="toggleBtn">
+            <ion-icon name="chevron-forward"></ion-icon>
+        </div>
+        <!-- list of the backoffice sections/pages -->
+        <ul class="navList">
+            <li>
+                <a href="../dashboard/index.html">
+                    <ion-icon name="home"></ion-icon>
+                    <span class="navLabel">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="../questions/index.html">
+                    <ion-icon name="help-outline"></ion-icon>
+                    <span class="navLabel">Richieste Informazioni</span>
+                </a>
+            </li>
+            <li>
+                <a href="../reservations/index.html">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <span class="navLabel">Richieste Prenotazioni</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="../settings/index.html">
+                    <ion-icon name="settings"></ion-icon>
+                    <span class="navLabel">Impostazioni</span>
+                </a>
+            </li>
+        </ul>
+        <!-- button logout will return to the login page  -->
+        <div class="logoutSection">
+            <a href="../../../index.html" class="logoutBtn">
+                <ion-icon name="log-out-outline"></ion-icon>
+                <span class="navLabel">Log Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- main sections which contains the ... -->
+    <main>
+        <h1>Impostazioni</h1>
+    </main>
+
+    <!--creato al di fuori del dialogo "overlay" che copre tutto lo schermo che porta ad alcuni funzionamenti vantaggiosi:
+    01. aggiunto un interazione che al click di ques'ultima (esclusa modale dato che avrà un z-index >) chiuderà il dialogo aperto
+    02. non permette l'interazione con tutto quanto al di fuori di quest'ultima se non viene chiusa! -->
+    <div class="overlay"></div>
+
     <script type="module" src="./main.ts"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>

@@ -7,4 +7,35 @@
     width: 100vw;
     height: 75vh;
     background-color: whitesmoke;
+    padding: 0 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+/**01. dialog reservation section header (name and surname + email + date) */
+.dialogHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+}
+
+.dialogHeader h2.dialogName {
+    font-size: 1.6rem;
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+.dialogHeader p.dialogEmail {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.dialogHeader p.dialogDate {
+    font-size: 0.8rem;
+}
+
+.dialogQuestion .dialogBody hr {
+    color: var(--background-fourth);
 }

@@ -9,6 +9,11 @@ html {
     color: var(--black-text-color);
 }
 
+
+body {
+    background-color: var(--background-secondary);
+}
+
 /* class added when the OVERLAY IS OPEN, "disable" the scroll when a dialog/modal is opened */
 body.hidden {
     height: 100vh;
@@ -19,8 +24,6 @@ body.hidden {
 
 /* main on all the pages of the backoffice */
 main {
-    height: 100vh;
-    background-color: var(--background-secondary);
     padding: 10px 12px;
     margin-left: 47px;
 }

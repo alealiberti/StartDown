@@ -5,17 +5,12 @@
  * @description 
  */
 
-import { CardQuestion } from "../../../global/models/card-question.model";
-import { CardReservation } from "../../../global/models/card-reservation.model";
-
-
-
-
+import { type CardQuestion } from "../../../global/models/card-question.model";
+import { type CardReservation } from "../../../global/models/card-reservation.model";
 
 
 
 // Dati di esempi temporanei da utilizzzare per le ultime 5 questions/reservations mixate nella dashboard!
-
 // accetta come parametri i questionsData e reservationsData, verrà ritornato come valore nella funzione un array mixato tramite il destructuring e riordinato per data
 
 /**

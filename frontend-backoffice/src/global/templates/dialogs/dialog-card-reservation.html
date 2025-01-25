@@ -1,6 +1,26 @@
 <!-- template of the dialog containing all the information of the card reservation, and the possibility of do some actions
  like response to the question through GMAIL, change the state of it... -->
 <div id="dialog" class="dialogReservation">
-    <h1>PRENOTAZIONE</h1>
+
+    <!-- header information of the question -->
+    <div class="dialogHeader">
+        <h2 class="dialogName"></h2>
+        <p class="dialogEmail"></p>
+        <p class="dialogDate"></p>
+    </div>
+
+
     <p class="status"></p>
+
+    <!-- footer whit actions on the question and the fast response through mail -->
+    <div class="dialogFooter">
+        <div class="dialogActions actions">
+            <ion-icon name="archive" class="archive"></ion-icon>
+            <ion-icon name="trash" class="trash"></ion-icon>
+        </div>
+        <div class="dialogResponse">
+            <a href="mailto:test@gmail.com">Rispondi ↩</a>
+        </div>
+    </div>
+
 </div>
