@@ -2,7 +2,7 @@
 
 ## API Requests List
 
-The list of the API requests with their descriptions can be fully seen by starting the server
+The detailed list of the API requests with their descriptions can be fully seen by starting the server
 and going to the [swagger documentation page](http://localhost:8080/swagger-ui/index.html#/l).  
 It is possible to see all the requests and how they works, by importing the [collection](./cascina-caccia.postman_collection.json) to Postman.
 All the requests will already have all the requirements to properly work, e.g. the bodies of the requests.
