@@ -45,10 +45,9 @@ public class HTMLEmailService {
                 subject += "informazioni ricevuta";
                 path += "information-user.html";
                 body += "<p>Ciao " + information.getName() + ",</p>";
-            } else {
+            } else if (request instanceof Reservation reservation) {
                 subject += "prenotazione ricevuta";
                 path += "reservation-user.html";
-                Reservation reservation = (Reservation) request;
                 body += "<p>Ciao " + reservation.getName() + ",</p>" +
                         "<p>Grazie per aver effettuato una prenotazione presso Cascina Caccia! " +
                         "Ecco un breve riepilogo delle informazioni che ci hai fornito:</p>" +
@@ -57,6 +56,8 @@ public class HTMLEmailService {
                         "<li>Cognome: " + reservation.getSurname() + "</li>" +
                         "<li>Tipo di visita: " + reservation.getTypeGroup() + "</li>" +
                         "</ul>";
+            } else {
+                throw new IllegalArgumentException("Invalid request");
             }
 
             File bodyFile = new File(path);
