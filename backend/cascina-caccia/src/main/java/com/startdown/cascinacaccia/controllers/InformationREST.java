@@ -34,22 +34,22 @@ public class InformationREST {
 	@Autowired
 	private InformationService informationService;
 
-	private final String schemaString = "{" +
+	private static final String schemaString = "{" +
 			"  \"id\": 1073741824," +
 			"  \"name\": \"Name\"," +
 			"  \"surname\": \"Surname\"," +
 			"  \"phone\": \"0112223334\"," +
-			"  \"email\": \"em@a.il\"," +
+			"  \"email\": \"email@sample.it\"," +
 			"  \"dateSend\": \"MM/DD/YYYY\"," +
 			"  \"text\": \"Lorem Ipsum\"," +
 			"  \"archived\": false" +
 			"}";
 
-	private final String schemaCreateString = "{"
+	private static final String schemaCreateString = "{"
 			+ "\"name\": \"Name\","
 			+ "\"surname\": \"Surname\","
 			+ "\"phone\": \"0112223334\","
-			+ "\"email\": \"em@a.il\","
+			+ "\"email\": \"email@sample.it\","
 			+ "\"text\": \"Lorem Ipsum\""
 			+ "}";
 
@@ -149,13 +149,14 @@ public class InformationREST {
 	}
 
 	/**
-	 * Updates the details of an existing information.
+	 * Updates the details of an existing information. It changes only the given parameters
 	 *
 	 * @param id                 the ID of the information to be updated
 	 * @param informationDetails the Information object containing the updated details
 	 * @return an Optional containing the updated Information object if successful, or an empty Optional if the information was not found
 	 */
-	@Operation(summary = "Update information", description = "Updates an information and saves it in the db")
+	@Operation(summary = "Update information", description = "Updates an information and saves it in the db. " +
+															"It changes only the given parameters")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Information updated successfully",
                     content = @Content(mediaType = "application/json",
