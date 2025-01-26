@@ -20,7 +20,11 @@ In both the `Swagger documentation page` and the `Postman collection` there will
 ## Accessibility of the Requests
 
 The requests are not all accessible for everyone.
-There are some requests that can be accessed by everyone and others that are avaiable only after the login.
+There are some requests that can be accessed by everyone and others that are avaiable only after the login into the backoffice.  
+Only two external origins can access the requests and are:
+
+- `http://localhost:5173` (_the port of the main webpage_)
+- `http://localhost:3000` (_the port of the backoffice webpage_)
 
 ### Public Access Requests
 
@@ -40,6 +44,13 @@ These requests are:
 The authentication is mandatory to use all the other requests. These requests are the ones that are accessed from the backoffice web pages,
 to handle the different requests of information and reservation created by the people using the previously mentioned requests.  
 However, not every request is accessible by everyone who logs in.
+
+#### Authentication with default users
+
+| Username/Email           | Password      | Role  | Avaiability                        |
+| ------------------------ | ------------- | ----- | ---------------------------------- |
+| startdownowner@gmail.com | Password123\* | OWNER | Present by creating the DB         |
+| startdownadm@gmail.com   | Password123\* | ADMIN | Present by importing the data dump |
 
 #### OWNER Accessible Requests
 
