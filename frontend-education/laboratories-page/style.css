@@ -1,24 +1,10 @@
 
-/** --- HEADING SESSION --- */
-@media (max-width: 992px) {
+  @media (min-width: 992px) {
     header.hero {
-      /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
-      background-size: cover; /* Adatta l'immagine senza tagliarla */
-      background-position: center; /* Posiziona la parte superiore dell'immagine */
-      background-attachment: scroll; /* Evita problemi di scorrimento */
-      height: 40vh;
-      margin-top: 0px;
-    }
-  }
-  
-  @media (min-width: 992px) and (max-width: 1400px) {
-    header.hero {
-      /* Impostazioni generali per l'immagine di sfondo */
-      background-image: urlurl('/public/images/home-images/header/cascina-caccia-922px.webp');
-      background-size: cover; /* Adatta l'immagine senza tagliarla */
-      background-position: center; /* Posiziona la parte superiore dell'immagine */
-      background-attachment: scroll; /* Evita problemi di scorrimento */
+      background-image: url('/images/pages-images/laboratories-images/header-images/immagine-di-ragazza-992p.webp');
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: scroll; 
       height: 30vh;
       margin-top: 70px;
     }
@@ -26,11 +12,11 @@
   
   @media (min-width: 1400px) {
     header.hero {
-      /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
-      background-size: cover; /* Adatta l'immagine senza tagliarla */
-      background-position: center; /* Posiziona la parte superiore dell'immagine */
-      background-attachment: scroll; /* Evita problemi di scorrimento */
+      
+      background-image: url('/images/pages-images/laboratories-images/header-images/immagine-di-ragazza-1400p.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
       height:30vh;
       margin-top: 120px;
     }
@@ -42,33 +28,16 @@ h1{
     text-align: center;
     color: var(--primary-color);
 }
-
-/* Animazione del logo */
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(2); /* Effetto opzionale di leggero zoom */
-    }
-    to {
-      opacity: 1;
-      transform: scale(1); /* Ritorna alla dimensione normale */
-    }
-  }
   
   header.hero {
     /* header a schermo intero */
     width: 100%;
-    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
-  }
-  header.hero .img-container img {
-    opacity: 0; /* Stato iniziale */
-    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
-  }
+}
   
   header.hero .img-container {
     width: 80%;
     max-width: 610px;
-  }
+}
   
   main{
     display: flex;
@@ -81,7 +50,7 @@ h1{
     width: 80%;
     margin: 30px auto;
     max-width: 800px;
-  }
+}
 
   .introduction-section h2{
     padding-bottom: 20px;
@@ -97,7 +66,7 @@ h1{
     margin: 0 auto;
     width: fit-content;
     margin-bottom: 40px;
-  }
+}
 
   .introduction-section article p{
     margin-bottom: 50px;
@@ -109,6 +78,7 @@ h1{
     padding: 10px 20px;
     border: none;
     background-color: var(--yellow-color-logo);
+    color: var(--secondary-color);
     border-radius: 13px;
   }
 
@@ -238,7 +208,7 @@ h1{
   }
 
   .grey-section article{
-    width: 80%;
+    width: 100%;
     max-width: 900px;
     margin: 0 auto;
     padding: 50px;
@@ -274,6 +244,104 @@ h1{
 
 h1, h2, h3, p, span, div, a {
     font-family: var(--font-family-content); 
+}
+
+.additional-info-section {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.additional-info-section article {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.additional-info-section p {
+  margin-bottom: 20px;
+}
+
+.additional-info-section h2 {
+  font-size: 2.5rem;
+}
+
+.additional-info-section .card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  margin: 30px 0;
+  padding: 20px;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory; 
+  width: 100%;
+  height: fit-content;
+}
+
+.additional-info-section .card-container::-webkit-scrollbar {
+  height: 8px; 
+}
+
+.additional-info-section .card-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.additional-info-section .card {
+  flex: 0 0 290px;
+  width: 90%;
+  max-width: 400px;
+  height: 360px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.additional-info-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.additional-info-section .card h3 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  padding: 10px;
+}
+
+.additional-info-section .card h3::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--secondary-color);
+  margin-top: 5px;
+}
+
+.additional-info-section .card p {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.additional-info-section .card figure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.additional-info-section .card figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* FAQ styling */
