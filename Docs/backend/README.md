@@ -122,6 +122,8 @@ The structure is the following:
 
 ## Technology Stack
 
+These are the main technologies used for this project. For all the Spring Boot dependencies used, check the [Technology file](../technologies/software-developer/README.md).
+
 - `Java 17`: The core programming language for backend logic.
 - `Spring Boot 3.4.1`: Provides a simplified, powerful framework for building the backend REST API.
 - `MariaDB 10.4.28`: Chosen for its compatibility with MySQL, it stores user data, card details, and deck configurations.
