@@ -45,6 +45,13 @@ The authentication is mandatory to use all the other requests. These requests ar
 to handle the different requests of information and reservation created by the people using the previously mentioned requests.  
 However, not every request is accessible by everyone who logs in.
 
+#### Authentication with default users
+
+| Username/Email           | Password      | Role  | Avaiability                        |
+| ------------------------ | ------------- | ----- | ---------------------------------- |
+| startdownowner@gmail.com | Password123\* | OWNER | Present by creating the DB         |
+| startdownadm@gmail.com   | Password123\* | ADMIN | Present by importing the data dump |
+
 #### OWNER Accessible Requests
 
 There are some requests that can be accessed only by the user with the role `OWNER`.  
