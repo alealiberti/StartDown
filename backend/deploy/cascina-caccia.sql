@@ -84,7 +84,7 @@ CREATE TABLE `reservations` (
 INSERT INTO `reservations` (`id`, `name`, `surname`, `phone`, `email`, `date_send`, `date_start`, `date_finish`, `hour_start`, `hour_finish`, `status`, `archived`, `type_group`, `visitors`, `companions`, `additional_info`, `mobility_problems`) VALUES
 (1, 'Franco', 'Gialli', '3311243123', 'franco.gialli@sample.std', '2025-01-03', '2025-03-18', NULL, '14:30:00', '15:30:00', 'nuova', 0, 'Famiglia', 4, NULL, NULL, 0),
 (2, 'Michele', 'Fucsia', '3331112222', 'michele.fucsia@sample.std', '2025-01-04', '2025-02-11', '2025-02-13', NULL, NULL, 'accordare', 0, 'Scout', 15, 4, 'Informazioni aggiuntive', 0),
-(3, 'Fabio', 'Azzurri', '3339990000', 'fabio.azzurri@sample.std', '2025-01-09', '2025-03-01', NULL, '10:00:00', '12:30:00', 'chiusa', 1, 'Famiglia', 3, NULL, NULL, 1),
+(3, 'Fabio', 'Azzurri', '3339990000', 'fabio.azzurri@sample.std', '2025-01-09', '2025-03-01', NULL, '10:00:00', '12:30:00', 'confermata', 1, 'Famiglia', 3, NULL, NULL, 1),
 (4, 'Giorgio', 'Neri', '3339990880', 'giorgio.neri@sample.std', '2025-01-08', '2025-01-24', '2025-01-25', '09:00:00', '18:30:00', 'nuova', 0, 'Famiglia', 5, NULL, NULL, 0),
 (5, 'Sara', 'Rossi', '3313334444', 'sara.rossi@sample.std', '2025-01-13', '2025-03-01', NULL, '11:00:00', '12:30:00', 'accordare', 0, 'Gruppo amici', 6, NULL, 'Evento speciale', 0),
 (6, 'Luca', 'Verdi', '3395556666', 'luca.verdi@sample.std', '2025-01-14', '2025-02-11', '2025-02-14', NULL, NULL, 'nuova', 1, 'Scuola', 20, 3, 'Gita scolastica', 0),
