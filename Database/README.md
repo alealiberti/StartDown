@@ -45,5 +45,9 @@ The database has 3 tables and their structure is the following:
 ## Data dump
 
 The [data dump](./data-dump.sql) file contains some examples to test the CRUD for the application.  
-In the `users` table there are two users (the `OWNER` created by default and an `ADMIN`).
-Their hashed passwords are both the same: `Password123*`. They can be used to test all the API requests that requires authentication.
+In the `users` table there are two users (the `OWNER` created by default and an `ADMIN` imported with the dump).
+
+| Username/Email           | Password      | Role  |
+| ------------------------ | ------------- | ----- |
+| startdownowner@gmail.com | Password123\* | OWNER |
+| startdownadm@gmail.com   | Password123\* | ADMIN |
