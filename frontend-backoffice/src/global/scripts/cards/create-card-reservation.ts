@@ -16,7 +16,7 @@ import { type CardReservation } from "../../models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createCardReservation(data: CardReservation, template: HTMLTemplateElement): HTMLElement {
+export function createCardReservation(reservation: CardReservation, template: HTMLTemplateElement): HTMLElement {
 
     // Clona il contenuto del template preso come argomento dal DOM (per distinguere le card e non sovrascriverle)
     const templateContent = template?.content.cloneNode(true) as DocumentFragment;
@@ -27,33 +27,33 @@ export function createCardReservation(data: CardReservation, template: HTMLTempl
     //*** -------------------------------------------------------
 
     // those elements inside the container card, will recive a value (! sospended)
-    CardReservation.querySelector(".cardHeader h2.cardName")!.textContent = `${data.name} ${data.surname}`;
-    CardReservation.querySelector(".cardHeader p.cardEmail")!.textContent = data.email
-    CardReservation.querySelector(".cardHeader p.cardDate")!.textContent = restructureDate(data);
+    CardReservation.querySelector(".cardHeader h2.name")!.textContent = `${reservation.name} ${reservation.surname}`;
+    CardReservation.querySelector(".cardHeader p.email")!.textContent = reservation.email
+    CardReservation.querySelector(".cardHeader p.dateSend")!.textContent = restructureDate(reservation.dateSend);
 
     // take from the dom the icon which rappresent the state of the reservation
-    const stateReservationIcon = CardReservation.querySelector(".cardFooter .cardState ion-icon") as HTMLElement;
+    const stateReservationIcon = CardReservation.querySelector(".cardFooter .state ion-icon") as HTMLElement;
 
 
     // based on the status of the reservation request taken from the "data", we will set the special text and the color of the ball
     switch (true) {
-        case data.status === "nuova":
+        case reservation.status === "nuova":
             stateReservationIcon.style.color = "#FF0004";
-            CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "Nuova richiesta di prenotazione";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Nuova richiesta di prenotazione";
             break;
 
-        case data.status === "accordare":
+        case reservation.status === "accordare":
             stateReservationIcon.style.color = "#F49E00";
-            CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "Visualizzata (da accordare)";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Visualizzata (da accordare)";
             break;
 
-        case data.status === "conclusa":
+        case reservation.status === "conclusa":
             stateReservationIcon.style.color = "#18DB42";
-            CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "Prenotazione concordata";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Prenotazione concordata";
             break;
 
         default:
-            CardReservation.querySelector(".cardState p.stateDescription")!.textContent = "???";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "???";
             break;
     }
 

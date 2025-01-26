@@ -1,8 +1,17 @@
+/**
+ * style.css
+ *
+ *
+ * let's sets also the box-sizing property to border-box for all elements.
+ *
+ */
+
+
 .dialogQuestion {
     display: flex;
     position: fixed;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     bottom: 0;
     left: 0;
     z-index: 10000;
@@ -15,54 +24,61 @@
 }
 
 
-/**01. dialog question section header (name and surname + email + date) */
-.dialogHeader {
+/*01. dialog question section header (name and surname + email + date) */
+.dialogQuestion .dialogHeader {
     display: flex;
     flex-direction: column;
     gap: 5px;
     text-align: center;
 }
 
-.dialogHeader h2.dialogName {
+.dialogQuestion .dialogHeader h2.name {
     font-size: 1.6rem;
     font-family: var(--font-title);
     font-weight: 700;
 }
 
-.dialogHeader p.dialogEmail {
-    font-size: 0.85rem;
+.dialogQuestion .dialogHeader .info {
     margin-bottom: 20px;
 }
 
-.dialogHeader p.dialogDate {
+.dialogQuestion .dialogHeader p.email,
+.dialogQuestion .dialogHeader p.phone {
+    font-size: 0.85rem;
+    padding-top: 5px;
+}
+
+.dialogQuestion .dialogHeader p.dateSend {
     font-size: 0.8rem;
 }
 
-.dialogQuestion .dialogBody hr {
-    color: var(--background-fourth);
+
+/*02. dialog question section body, will contain the content of the question request */
+.dialogQuestion .dialogBody {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-
-/**02. dialog question section body, will contain the content of the question request */
-/* .dialogQuestion .dialogBody {} */
-
 .dialogQuestion .dialogBody h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: var(--font-title);
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.dialogQuestion .dialogBody p.dialogRequest {
-    font-size: 0.8rem;
-    height: 200px;
+.dialogQuestion .dialogBody p.request {
+    font-size: 0.75rem;
+    height: 230px;
     overflow-y: scroll;
     line-height: 1.5;
 }
 
 
-/**03. dialog footer whit the icons for the fast action on the quesion (delete + archite) and 
-** the response trough email to the customers */
+/*03. dialog footer whit the icons for the fast action on the quesion (delete + archite) and 
+the response trough email to the customers */
+
 .dialogQuestion .dialogFooter {
     display: flex;
     justify-content: space-between;
@@ -70,7 +86,8 @@
 
 .dialogQuestion .dialogFooter .dialogActions {
     display: flex;
-    font-size: 1.7rem;
+    align-items: center;
+    font-size: 1.5rem;
     gap: 25px;
     cursor: pointer;
 }
@@ -78,13 +95,13 @@
 .dialogQuestion .dialogFooter .dialogResponse {
     display: flex;
     align-items: center;
-    background-color: var(--cascina-secondary);
-    border: 1px solid var(--background-fourth);
-    border-radius: 10px;
+    background-color: var(--background-fourth);
+    border-radius: 5px;
 }
 
 .dialogQuestion .dialogFooter .dialogResponse a {
-    text-decoration: none;
     color: var(--white-text-color);
-    padding: 10px 30px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 10px 20px;
 }

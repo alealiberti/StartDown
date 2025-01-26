@@ -43,7 +43,7 @@ async function handleArchive(overlay: HTMLElement, request: CardQuestion | CardR
         createToastNotification("Richiesta archiviata con successo!", "success");
         setTimeout(() => {
             location.reload();
-        }, 2000)
+        }, 2000);
 
     } catch (err) {
         createToastNotification(err.message, "error");
@@ -76,8 +76,12 @@ export async function archiveCardDialog(overlay: HTMLElement, request: CardQuest
 
 
     // Gestisci il pulsante "Conferma"
-    dialogArchive.querySelector(".confirm")?.addEventListener("click", () => { handleArchive(overlay, request); })
+    dialogArchive.querySelector(".confirm")?.addEventListener("click", () => {
+        handleArchive(overlay, request);
+    });
 
     // Gestisci il pulsante "Annulla"
-    dialogArchive.querySelector(".cancel")?.addEventListener("click", () => { closeDialogs(overlay); })
+    dialogArchive.querySelector(".cancel")?.addEventListener("click", () => {
+        closeDialogs(overlay);
+    });
 }

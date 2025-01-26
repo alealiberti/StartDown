@@ -16,7 +16,7 @@ import { type CardReservation } from "../global/models/card-reservation.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export async function updateStatusReservation(path: string, reservation: CardReservation): Promise<any> {
+export async function updateStatusReservation(path: string, reservation: CardReservation, status: string): Promise<any> {
 
     // get the token of auth, and pass it to the Authorization
     const token = localStorage.getItem("authToken");
@@ -32,7 +32,7 @@ export async function updateStatusReservation(path: string, reservation: CardRes
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ ...reservation, status: "accordare" }) // let's pass the status which will updated
+        body: JSON.stringify({ ...reservation, status: `${status}` }) // let's pass the status which will updated
     });
 
     if (!response.ok) {

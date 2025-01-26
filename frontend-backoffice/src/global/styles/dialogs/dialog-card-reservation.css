@@ -1,11 +1,13 @@
 .dialogReservation {
     display: flex;
     position: fixed;
+    flex-direction: column;
+    justify-content: space-around;
     bottom: 0;
     left: 0;
     z-index: 10000;
     width: 100vw;
-    height: 75vh;
+    height: 85vh;
     background-color: whitesmoke;
     padding: 0 15px;
     border-top-left-radius: 20px;
@@ -13,29 +15,135 @@
 }
 
 
-/**01. dialog reservation section header (name and surname + email + date) */
-.dialogHeader {
+/* aggiunta della classe .hidden per gestire i campi nascosti */
+/* .hidden {
+    display: none !important;
+} */
+
+
+/*01. dialog reservation section header (name and surname + email + date) */
+
+.dialogReservation .dialogHeader {
     display: flex;
     flex-direction: column;
     gap: 5px;
     text-align: center;
 }
 
-.dialogHeader h2.dialogName {
+.dialogReservation .dialogHeader h2.name {
     font-size: 1.6rem;
     font-family: var(--font-title);
     font-weight: 700;
 }
 
-.dialogHeader p.dialogEmail {
-    font-size: 0.85rem;
+.dialogReservation .dialogHeader .info {
     margin-bottom: 20px;
 }
 
-.dialogHeader p.dialogDate {
+.dialogReservation .dialogHeader p.email,
+.dialogReservation .dialogHeader p.phone {
+    font-size: 0.85rem;
+    padding-top: 5px;
+}
+
+.dialogReservation .dialogHeader p.dateSend {
     font-size: 0.8rem;
 }
 
-.dialogQuestion .dialogBody hr {
-    color: var(--background-fourth);
+
+/*02. dialog reservation section body, will contain the content datas of the reservation */
+
+.dialogReservation .dialogBody {
+    height: 55%;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.dialogReservation .dialogBody p {
+    font-size: 0.85rem;
+    padding: 8px 0;
+}
+
+.dialogReservation .dialogBody p strong {
+    font-weight: 600;
+}
+
+/* status data which contain the text of status reservation + icon ellipse */
+.dialogReservation .dialogBody p.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-family: var(--font-title);
+    margin-bottom: 20px;
+}
+
+.dialogReservation .dialogBody p.status ion-icon {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.dialogReservation .dialogBody .addiontalInfo {
+    margin-top: 30px;
+}
+
+.dialogReservation .dialogBody .addiontalInfo p.request {
+    font-size: 0.75rem;
+    height: 100px;
+    overflow-y: scroll;
+    line-height: 1.5;
+}
+
+
+/*03. dialog footer whit the icons for the fast action on the quesion (delete + archite) and 
+the response trough email to the customers */
+
+.dialogReservation .dialogFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dialogReservation .dialogFooter .dialogActions {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.5rem;
+    gap: 25px;
+    cursor: pointer;
+}
+
+/* BUTTONS ACTIONS FOR RESERVATION */
+.dialogReservation .dialogFooter .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 80px;
+}
+
+/* button for replay whit email */
+.dialogReservation .dialogFooter .buttons .dialogResponse {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-fourth);
+    border-radius: 5px;
+}
+
+.dialogReservation .dialogFooter .buttons .dialogResponse a {
+    color: var(--white-text-color);
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+/* button for confirm and accordate the reservation */
+.dialogReservation .dialogFooter .buttons .dialogAccept {
+    background-color: var(--cascina-secondary);
+    color: var(--white-text-color);
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
 }

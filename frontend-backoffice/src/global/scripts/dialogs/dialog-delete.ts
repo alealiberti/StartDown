@@ -43,7 +43,7 @@ async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardRe
         createToastNotification("Richiesta cancellata con successo!", "success");
         setTimeout(() => {
             location.reload();
-        }, 2000)
+        }, 2000);
 
     } catch (err) {
         createToastNotification(err.message, "error");
@@ -75,9 +75,13 @@ export async function deleteCardDialog(overlay: HTMLElement, request: CardQuesti
 
 
     // Gestisci il pulsante "Conferma"
-    dialogDelete.querySelector(".confirm")?.addEventListener("click", () => { handleDelete(overlay, request); });
+    dialogDelete.querySelector(".confirm")?.addEventListener("click", () => {
+        handleDelete(overlay, request);
+    });
 
     // Gestisci il pulsante "Annulla"
-    dialogDelete.querySelector(".cancel")?.addEventListener("click", () => { closeDialogs(overlay); });
+    dialogDelete.querySelector(".cancel")?.addEventListener("click", () => {
+        closeDialogs(overlay);
+    });
 
 }

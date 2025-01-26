@@ -2,15 +2,35 @@
  like response to the question through GMAIL, change the state of it... -->
 <div id="dialog" class="dialogReservation">
 
-    <!-- header information of the question -->
+    <!-- header information of the applicant of the reservation -->
     <div class="dialogHeader">
-        <h2 class="dialogName"></h2>
-        <p class="dialogEmail"></p>
-        <p class="dialogDate"></p>
+        <h2 class="name"></h2>
+        <div class="info">
+            <p class="email"></p>
+            <p class="phone"></p>
+        </div>
+        <p class="dateSend"></p>
     </div>
 
-
-    <p class="status"></p>
+    <!-- body of the reservation details, filled trough DOM checks if the datas exist or are null (N/A) -->
+    <div class="dialogBody">
+        <p class="status"><strong></strong><ion-icon name="ellipse"></ion-icon></p>
+        <p class="dateStart"><strong>Data inizio: </strong><span></span></p>
+        <p class="dateFinish"><strong>Data fine: </strong><span></span></p>
+        <p class="hourStart"><strong>Ora inizio: </strong><span></span></p>
+        <p class="hoursFinish"><strong>Ora fine: </strong><span></span></p>
+        <p class="type"><strong>Tipo di gruppo: </strong><span></span></p>
+        <p class="visitors"><strong>N visitatori: </strong><span></span></p>
+        <p class="companions"><strong>N accompagnatori: </strong><span></span></p>
+        <p class="mobilityProblems"><strong>Problemi mobilità?: </strong><span></span></p>
+        <!-- body text of the additional info on resercation, will be scrollable! -->
+        <div class="addiontalInfo hidden">
+            <p><strong>Richieste aggiuntive:</strong></p>
+            <p class="request">kfsadoksjdfdsfjdkfjfldkskfjlkdsajfjdslfjsdklfl dfjklsdjflk f dsjflksdfjsdfklds
+                fjdslfkjsdlkf ljflksdfjlks jflfjlsdkfjsfj fsdfuslkd fdsfjsd fjfl sdjfsdfjdslkfsfksdjsdkfjdsfksjfsfsdkfj
+                j kfsdfhkjlsg flkdsfjsd j</p>
+        </div>
+    </div>
 
     <!-- footer whit actions on the question and the fast response through mail -->
     <div class="dialogFooter">
@@ -18,8 +38,13 @@
             <ion-icon name="archive" class="archive"></ion-icon>
             <ion-icon name="trash" class="trash"></ion-icon>
         </div>
-        <div class="dialogResponse">
-            <a href="mailto:test@gmail.com">Rispondi ↩</a>
+        <div class="buttons">
+            <div class="dialogResponse">
+                <a href="mailto:test@gmail.com">Rispondi ↩</a>
+            </div>
+            <div class="dialogAccept">
+                Accetta prenotazione ✓
+            </div>
         </div>
     </div>
 

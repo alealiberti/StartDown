@@ -29,7 +29,7 @@ export function newRequest(questionsData: CardQuestion[], reservationsData: Card
         sectionInfoToday.querySelector("p.total.questions")!.textContent = totalNewQuestions.toString();
 
         // 
-        const totalNewReservations = reservationsData.filter((reservation) => reservation.status === "nuova").length;
+        const totalNewReservations = reservationsData.filter((reservation) => reservation.status === "nuova" || reservation.status === "accordare").length;
         sectionInfoToday.querySelector("p.total.reservations")!.textContent = totalNewReservations.toString();
     }
 }

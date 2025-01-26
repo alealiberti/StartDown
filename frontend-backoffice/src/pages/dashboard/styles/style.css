@@ -4,7 +4,7 @@ main h1 {
     font-family: var(--font-title);
     font-size: 1.7rem;
     text-align: center;
-    margin: 30px 0 0;
+    margin: 30px 0 30px;
 }
 
 main>h2 {
@@ -26,22 +26,24 @@ main section#infoToday {
     justify-content: space-evenly;
     align-items: center;
     row-gap: 10px;
-    margin-bottom: 30px;
 }
+
 
 /*  styling the cards of each information (questions, reservations, views) */
 main section#infoToday .infoCard {
     width: 40%;
     background-color: var(--background-primary);
-    border-radius: 12px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
     padding: 5px;
+    border-radius: 6px;
     transition: transform 0.3s ease-in-out;
 }
 
 main section#infoToday .infoCard:hover {
     transform: translateY(-5px);
 }
+
 
 /* container which contains the icon and the number of the total new requests */
 main section#infoToday .iconContainer {
@@ -68,11 +70,3 @@ main section#infoToday .infoCard p.description {
     color: #6c757d;
     margin: 0;
 }
-
-/* section containing the latest requests of questions / reservations */
-main section#requests {
-    min-height: 500px;
-}
-
-
-/* -------------------------------------------------------------- */

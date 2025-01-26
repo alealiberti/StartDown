@@ -17,7 +17,7 @@ import { type CardQuestion } from "../../models/card-question.model";
  * @param {TipoInput2} NomeInput2 - DescrizioneInput2
  * @returns {TipoOutput} - DescrizioneOutput
  */
-export function createCardQuestion(data: CardQuestion, template: HTMLTemplateElement): HTMLElement {
+export function createCardQuestion(question: CardQuestion, template: HTMLTemplateElement): HTMLElement {
 
 
     // Clona il contenuto del template preso come argomento dal DOM (per distinguere le card e non sovrascriverle)
@@ -29,14 +29,13 @@ export function createCardQuestion(data: CardQuestion, template: HTMLTemplateEle
     //*** -------------------------------------------------------
 
     // those elements inside the container card, will recive a value (! sospended)
-    cardQuestion.querySelector(".cardHeader h2.cardName")!.textContent = `${data.name} ${data.surname}`;
-    cardQuestion.querySelector(".cardHeader p.cardEmail")!.textContent = data.email;
-    cardQuestion.querySelector(".cardHeader p.cardDate")!.textContent = restructureDate(data);
+    cardQuestion.querySelector(".cardHeader h2.name")!.textContent = `${question.name} ${question.surname}`;
+    cardQuestion.querySelector(".cardHeader p.email")!.textContent = question.email;
+    cardQuestion.querySelector(".cardHeader p.dateSend")!.textContent = restructureDate(question.dateSend);
 
-    // take the request and cut it for the card preview
-    const textBody: string = data.text.slice(0, 60).concat("...");
+    // take the question content message, and cut it for the card preview
+    const textBody: string = question.text.slice(0, 60).concat("...");
     cardQuestion.querySelector("p.cardBody")!.textContent = textBody;
-
 
     return cardQuestion;
 }
