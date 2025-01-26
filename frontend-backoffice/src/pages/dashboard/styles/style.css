@@ -1,17 +1,13 @@
 /** main {} section of the dashboard has an style dedicated for it */
 
 main h1 {
-    font-family: var(--font-title);
     font-size: 1.7rem;
-    text-align: center;
+    font-weight: bold;
     margin: 30px 0 30px;
 }
 
 main>h2 {
-    font-family: var(--font-title);
-    font-size: 1.1rem;
-    text-align: center;
-    text-decoration: underline;
+    font-size: 1.4rem;
     margin: 40px 0;
 }
 

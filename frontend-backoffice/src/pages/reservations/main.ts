@@ -22,4 +22,4 @@ import "./styles/style.css";
 import "../../global/scripts/navbar/navbar.ts";
 
 // local scripts of the reservation page
-import "./scripts/scriptTry.ts"
+import "./scripts/script.ts"

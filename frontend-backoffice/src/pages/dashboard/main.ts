@@ -25,4 +25,4 @@ import "../../global/scripts/navbar/navbar.ts";
 
 
 // local scripts of the login 
-import "./scripts/scriptTry.ts";
+import "./scripts/script.ts";

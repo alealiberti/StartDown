@@ -1,9 +1,67 @@
 /** main {} section of the settings has an style dedicated for it */
 
 main h1 {
+    color: var(--dark-text-color);
     font-family: var(--font-title);
-    font-size: 1.7rem;
+    font-size: 1.6rem;
+    font-weight: bold;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 50px;
+}
+
+
+/* -------------------------------------------------------------- */
+
+
+/* container which contains the buttons for open lists and dialog for the modification of the password */
+
+main #buttonsActions {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+main #buttonsActions button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-fourth);
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+    color: var(--white-text-color);
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+main #buttonsActions button ion-icon {
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+/* image of bruno and caccia and a short description which offer the settings page */
+main #buttonsActions div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+main #buttonsActions img {
+    width: 220px;
+    height: 220px;
+    background-color: var(--background-primary);
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+main #buttonsActions p {
+    width: 90%;
+    color: #555;
+    font-size: 0.65rem;
+    text-align: center;
+    line-height: 1.2;
 }

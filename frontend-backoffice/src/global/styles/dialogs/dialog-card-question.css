@@ -92,16 +92,12 @@ the response trough email to the customers */
     cursor: pointer;
 }
 
-.dialogQuestion .dialogFooter .dialogResponse {
-    display: flex;
-    align-items: center;
-    background-color: var(--background-fourth);
-    border-radius: 5px;
-}
-
+/* button for replay whit email */
 .dialogQuestion .dialogFooter .dialogResponse a {
+    background-color: var(--background-fourth);
     color: var(--white-text-color);
     font-size: 0.9rem;
     text-decoration: none;
     padding: 10px 20px;
+    border-radius: 5px;
 }

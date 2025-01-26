@@ -5,8 +5,10 @@ import "../../global/styles/reset.css";
 import "../../global/styles/global.css";
 import "../../global/styles/navbar/navbar-phone.css";
 import "../../global/styles/navbar/navbar-tablet-desktop.css";
+import "../../global/styles/cards/card-question.css";
 import "../../global/styles/cards/card-reservation.css";
 import "../../global/styles/dialogs/overlay-dialog.css";
+import "../../global/styles/dialogs/dialog-card-question.css";
 import "../../global/styles/dialogs/dialog-card-reservation.css";
 import "../../global/styles/dialogs/dialog-actions.css";
 import "../../global/styles/toasts/toast-notification.css";
@@ -22,4 +24,4 @@ import "./styles/style.css";
 import "../../global/scripts/navbar/navbar.ts";
 
 // local scripts of the settings page
-import "./scripts/scriptTry.ts"
+import "./scripts/script.ts"

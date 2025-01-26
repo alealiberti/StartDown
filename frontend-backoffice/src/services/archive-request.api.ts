@@ -10,7 +10,6 @@ import { type CardReservation } from "../global/models/card-reservation.model";
 
 
 
-
 /**
  * Nome della funzione
  * Descrizione della funzione

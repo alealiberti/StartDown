@@ -124,18 +124,13 @@ the response trough email to the customers */
 }
 
 /* button for replay whit email */
-.dialogReservation .dialogFooter .buttons .dialogResponse {
-    display: flex;
-    align-items: center;
-    background-color: var(--background-fourth);
-    border-radius: 5px;
-}
-
 .dialogReservation .dialogFooter .buttons .dialogResponse a {
+    background-color: var(--background-fourth);
     color: var(--white-text-color);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-decoration: none;
     padding: 10px 20px;
+    border-radius: 5px;
 }
 
 /* button for confirm and accordate the reservation */

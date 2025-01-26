@@ -53,9 +53,38 @@
     <!-- main sections which contains the ... -->
     <main>
         <h1>Impostazioni</h1>
+
+        <!-- 
+        initially on the settings page will be display 2 buttons for:
+        - open and see the list whit the archived requests list 
+        - change the password
+        -->
+        <div id="buttonsActions">
+            <!-- button which on click will display the list of the archived questions -->
+            <button class="showArchivedQuestions">Archivio domande<ion-icon name="help-outline"></ion-icon></button>
+            <!-- button which on click will display the list of the archived reservations -->
+            <button class="showArchivedReservations">Archivio prenotazioni<ion-icon
+                    name="calendar-outline"></ion-icon></button>
+            <!-- button which on click will open a dialog for change the password of the user -->
+            <button class="changePassword">Cambia password<ion-icon name="key-outline"></ion-icon></button>
+
+            <!-- logo user admin on the bottom of the buttons -->
+            <div>
+                <img src="https://cascinacaccia.net/wp-content/uploads/2018/05/cropped-favicon-1-270x270.jpg"
+                    class="adminLogo" alt="user logo">
+                <p class="descriptionSettings">Gestisci i tuoi dati e accedi agli archivi.
+                    Da questa sezione puoi consultare le domande archiviate, le prenotazioni e modificare la tua
+                    password in modo rapido sicuro e organizzato.</p>
+            </div>
+        </div>
+
+        <!-- section which will be filled trough TS templates whit the ARCHIVED questions -->
+        <!-- section which will be filled trough TS templates whit the ARCHIVED reservations -->
+        <section id="requests"></section>
+
     </main>
 
-    <!--creato al di fuori del dialogo "overlay" che copre tutto lo schermo che porta ad alcuni funzionamenti vantaggiosi:
+    <!-- creato al di fuori del dialogo "overlay" che copre tutto lo schermo che porta ad alcuni funzionamenti vantaggiosi:
     01. aggiunto un interazione che al click di ques'ultima (esclusa modale dato che avrà un z-index >) chiuderà il dialogo aperto
     02. non permette l'interazione con tutto quanto al di fuori di quest'ultima se non viene chiusa! -->
     <div class="overlay"></div>

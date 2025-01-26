@@ -39,17 +39,17 @@ export function createCardReservation(reservation: CardReservation, template: HT
     switch (true) {
         case reservation.status === "nuova":
             stateReservationIcon.style.color = "#FF0004";
-            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Nuova richiesta di prenotazione";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Nuova prenotazione!!";
             break;
 
         case reservation.status === "accordare":
             stateReservationIcon.style.color = "#F49E00";
-            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Visualizzata (da accordare)";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Prenotazione da concordare";
             break;
 
-        case reservation.status === "conclusa":
+        case reservation.status === "confermata":
             stateReservationIcon.style.color = "#18DB42";
-            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Prenotazione concordata";
+            CardReservation.querySelector(".state p.stateDescription")!.textContent = "Prenotazione confermata!";
             break;
 
         default:

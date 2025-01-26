@@ -24,11 +24,11 @@ export function newRequest(questionsData: CardQuestion[], reservationsData: Card
 
     if (sectionInfoToday) {
 
-        // 
+        // filter the questions and return the length of an new array whit the questions archived === false
         const totalNewQuestions = questionsData.filter((question) => !question.archived).length;
         sectionInfoToday.querySelector("p.total.questions")!.textContent = totalNewQuestions.toString();
 
-        // 
+        // filter the reservations and return the length of an new array whit the reservations status === "nuova" || status === "accordare"
         const totalNewReservations = reservationsData.filter((reservation) => reservation.status === "nuova" || reservation.status === "accordare").length;
         sectionInfoToday.querySelector("p.total.reservations")!.textContent = totalNewReservations.toString();
     }

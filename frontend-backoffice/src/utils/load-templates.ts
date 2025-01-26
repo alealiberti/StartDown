@@ -26,12 +26,6 @@ export async function loadTemplate(path: string): Promise<void> {
         //03. add the template card to the DOM of the pages of the backoffice (dashboard, questions, reservations) WILL BE HIDDEN! 
         document.body.appendChild(templateContainer);
 
-        // DEBUGGING logs
-        // console.log(response);
-        // console.log(`HTML template response: ${templateHTML}`);
-        // console.log(templateContainer);
-        // console.log("\n\n\n\n-----------------------------------------------------------------------------\n\n\n\n");
-
         // error handling of the fetch loading templates
     } catch (error) {
         console.error(`error while trying to loading the templates: ${error}`);

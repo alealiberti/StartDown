@@ -1,9 +1,0 @@
-/** main {} section of the reservations has an style dedicated for it */
-
-main h1 {
-    font-family: var(--font-title);
-    font-size: 1.7rem;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 50px;
-}

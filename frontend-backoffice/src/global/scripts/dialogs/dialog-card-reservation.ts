@@ -46,10 +46,10 @@ async function updateStatus(reservation: CardReservation) {
  */
 async function handleConfirm(overlay: HTMLElement, reservation: CardReservation) {
 
-    // call the "updateStatusReservation" function for update the status on "conclusa" when the button "Accetta prenotazione" is clicked
+    // call the "updateStatusReservation" function for update the status on "confermata" when the button "Accetta prenotazione" is clicked
     try {
         await updateStatusReservation("http://localhost:8080/cascina-caccia/reservations/update-reservation",
-            reservation, "conclusa"
+            reservation, "confermata"
         );
         closeDialogs(overlay);
         createToastNotification("Prenotazione confermata!", "success");
@@ -95,7 +95,7 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
         case reservation.status === "accordare":
             stateReservationIcon.style.color = "#F49E00";
             break;
-        case reservation.status === "conclusa":
+        case reservation.status === "confermata":
             stateReservationIcon.style.color = "#18DB42";
             break;
         default:
@@ -121,10 +121,10 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
 
     /*
     *sets an event listener on the button "Accetta prenotazione", will change the status through FETCH PUT
-    *if the status of the reservation is "conclusa", the button will be disable
+    *if the status of the reservation is "confermata", the button will be disable
     */
     const acceptButton = dialogReservation.querySelector(".dialogFooter .buttons .dialogAccept") as HTMLButtonElement;
-    if (reservation.status === "conclusa") {
+    if (reservation.status === "confermata") {
         // disable the button and add an style for the admin to understand that reservation is already accepted
         acceptButton.disabled = true;
         acceptButton.style.cursor = "not-allowed";
