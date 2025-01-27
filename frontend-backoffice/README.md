@@ -104,10 +104,10 @@ Questa applicazione rappresenta un sistema di backoffice progettato per gestire 
 
 ### **Services**
 
-API per gestire funzionalità principali legate allo [SWAGGER](http://localhost:8080/swagger-ui/index.html#/reservation-rest/updateReservation) 
+API per gestire funzionalità principali legate allo [SWAGGER](http://localhost:8080/swagger-ui/index.html) 
 - `login-auth.api.ts`: API per validare le credenziali admin, viene restiuto il TOKEN JWT per effettuare le altre operazioni API da inserire nell'autorizathion.  
-- `archive-request.api.ts`: API per cambiare lo stato delle richieste in "archiviate".  
-- `delete-request.api.ts`: API per eleminare le richieste.  
+- `archive-request.api.ts`: API per cambiare lo stato delle richieste in "archiviate" quando selezionata icona dell'archivio.  
+- `delete-request.api.ts`: API per eleminare le richieste quando selezionata icona del cestino.  
 - `get-requests.api.ts`: API per ottenere qualsiasi tipo di richieste (archiviate, tutte, non archiviate).  
 - `update-password.api.ts`: API per aggiornare la password dell'utente.  
 - `update-status-reservation.api.ts`: API per aggiornare lo stato delle prenotazioni che possiedono 3 fasi:
