@@ -2,27 +2,24 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-20
- * @description 
+ * @description script to close dialogs and remove them from the dom
  */
 
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * closes all dialogs and removes them from the dom
+ * @param {HTMLElement} overlay - element that covers the page and blocks interaction with other elements
+ * @returns {void}
  */
 export function closeDialogs(overlay: HTMLElement): void {
 
     // hide the overlay
     overlay.style.display = "none";
-    document.body.classList.remove("hidden"); // re-able the scroll removing style
+    document.body.classList.remove("hidden"); // re-enable the scroll by removing the style
 
-    //get all dialogs by #id, and REMOVE FROM THE DOM ALL THE DIALOGS OPENED (resolve problems of events listener accumulated!)
+    // get all dialogs by #id and remove them from the dom to resolve event listener accumulation issues
     document.querySelectorAll("#dialog").forEach((dialog) => {
-        dialog.remove(); // remove the dialog from the DOM
+        dialog.remove(); // remove the dialog from the dom
     });
-
 }

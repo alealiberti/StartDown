@@ -1,8 +1,8 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-21
- * @description 
+ * @date        2025-01-20
+ * @description handles archiving requests (questions or reservations) by updating their status to 'archived'
  */
 
 import { type CardQuestion } from "../global/models/card-question.model";
@@ -11,32 +11,31 @@ import { type CardReservation } from "../global/models/card-reservation.model";
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * function to archive a request by updating its status to archived
+ * @param {string} path - the API path to send the request
+ * @param {CardQuestion | CardReservation} request - the request (question or reservation) to be archived
+ * @returns {Promise<any>} - resolves when the request has been archived
  */
 export async function archiveRequest(path: string, request: CardQuestion | CardReservation): Promise<any> {
 
-    // get the token of auth, and pass it to the Authorization
+    // get the token from localStorage for authorization
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-        console.log("Token di autenticazione non trovato nel localStorage");
+        console.log("authentication token not found in localStorage");
     }
 
-    // try to fetch PUT, for update the status of request selected, is archived to true
+    // attempt to send a PUT request to update the request's archived status to true
     const response = await fetch(`${path}/${request.id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ ...request, archived: true }) // let's pass the parameter which will be modified
+        body: JSON.stringify({ ...request, archived: true }) // pass the modified parameter
     });
 
     if (!response.ok) {
-        throw new Error("Errore archiviazione della richiesta!");
+        throw new Error("error archiving the request");
     }
 }

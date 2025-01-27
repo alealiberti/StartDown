@@ -1,29 +1,28 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-22
- * @description 
+ * @date        2025-01-20
+ * @description handles the deletion of a request by sending a DELETE request to the API
  */
 
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * function to delete a request by its ID
+ * @param {string} path - the API path to send the request
+ * @param {number} idRequest - the ID of the request to be deleted
+ * @returns {Promise<any>} - resolves when the request has been successfully deleted
  */
 export async function deleteRequest(path: string, idRequest: number): Promise<any> {
 
-    // get the token of auth, and pass it to the Authorization
+    // get the token from localStorage for authorization
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-        console.log("Token di autenticazione non trovato nel localStorage");
+        console.log("authentication token not found in localStorage");
     }
 
-    // try to fetch DELETE, for delete the request selected
+    // attempt to send a DELETE request to remove the specified request
     const response = await fetch(`${path}/${idRequest}`, {
         method: "DELETE",
         headers: {
@@ -33,6 +32,6 @@ export async function deleteRequest(path: string, idRequest: number): Promise<an
     });
 
     if (!response.ok) {
-        throw new Error("Errore cancellazione richiesta!");
+        throw new Error("error deleting the request");
     }
 }

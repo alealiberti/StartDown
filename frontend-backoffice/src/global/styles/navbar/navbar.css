@@ -1,5 +1,3 @@
-/* START FROM THE MINIMUM NAVBAR WHIT ONLY ICONS ON THE LEFT OF THE PAGES */
-
 /* is positioned on the left corner of the page fixed while scrolling, will be showed there only the icons of the pages */
 #sidebar {
     display: flex;

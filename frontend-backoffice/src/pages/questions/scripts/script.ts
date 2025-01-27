@@ -1,8 +1,7 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-21
- * @description 
+ * @date        2025-01-05
  */
 
 import { authGuard } from "../../../utils/auth-guard";
@@ -31,7 +30,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         // take form the DOM the template question loaded from the fetch() in `loadTemplates.ts`
         const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
 
-        generateCards(questionsData, questionTemplate, undefined); // generate cards questions whit the questions datas
+        // generate the cards of questions whit the datas of the questions
+        generateCards(questionsData, questionTemplate, undefined);
 
     } catch (err) {
         console.log(err)

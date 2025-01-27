@@ -2,7 +2,7 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-27
- * @description 
+ * @description function to handle password change process
  */
 
 import { closeDialogs } from "../../../global/scripts/dialogs/close-dialogs";
@@ -11,14 +11,11 @@ import { updatePassword } from "../../../services/update-password.api";
 
 
 
-
-
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * function to handle the password change process
+ * @param {HTMLElement} overlay - the overlay element to show when changing password
+ * @param {HTMLElement} dialogChangePassword - the dialog element for changing password
+ * @returns {void}
  */
 export function changePassword(overlay: HTMLElement, dialogChangePassword: HTMLElement) {
 
@@ -27,8 +24,8 @@ export function changePassword(overlay: HTMLElement, dialogChangePassword: HTMLE
     document.body.classList.add("hidden");
 
     /* 
-    *on submit of the dialog form change password, will be checked the inputs and if there are correct,
-    *will be sent an API PUT for modified the actual password whit a newest
+    * on submit of the dialog form change password, will be checked the inputs and if they are correct,
+    * will be sent an API PUT to modify the actual password with a new one
     */
     dialogChangePassword.querySelector("form")?.addEventListener("submit", async (event) => {
 
@@ -42,43 +39,41 @@ export function changePassword(overlay: HTMLElement, dialogChangePassword: HTMLE
 
         // --------------------------------------------
 
-        // block the submit of login if the inputs form fields are empty and show an alert of recall
+        // block the submit if the inputs are empty and show an alert
         if (!oldPassword || !newPassword || !repeatNewPassword) {
-            alert("compila i campi di input!");
+            alert("compila i campi di input");
             return;
         }
-        // block the submit of change password if "newPassword" and "repeatNewPassword" are different
+        // block the submit if "newPassword" and "repeatNewPassword" are different
         if (newPassword !== repeatNewPassword) {
-            alert("le password devono combacire!");
+            alert("le password devono combacire");
             return;
         }
 
         // --------------------------------------------
 
-        // change the text inside the button whit "attendi..."
+        // change the text inside the button to "attendi..."
         const submitButton = dialogChangePassword.querySelector("button[type='submit']") as HTMLElement;
         submitButton.textContent = "Attendere...";
 
         try {
-            // call the "updatePassword" function for change the user password trough PUT FETCH and replace it whit the newest
-            await updatePassword("http://localhost:8080/cascina-caccia/users/change-password",
-                oldPassword, newPassword
-            );
+            // call the "updatePassword" function to change the password through PUT request
+            await updatePassword("http://localhost:8080/cascina-caccia/users/change-password", oldPassword, newPassword);
 
-            // on success, show a toast of positive result whit the change API of password
+            // on success, show a toast of success
             closeDialogs(overlay);
-            createToastNotification("Password cambiara con successo", "success");
-            // after a minimum delay, render the user into the login page whit the new password changed!
+            createToastNotification("Password cambiata con successo", "success");
+            // after a delay, redirect to login page
             setTimeout(() => {
                 window.location.href = "/index.html";
             }, 2000);
 
         } catch (err) {
-            // in case is throwed an error, will appear a toast which show the error on try to change password
+            // in case of error, show a toast with the error message
             createToastNotification(err as string, "error");
 
         } finally {
-            submitButton.textContent = "Conferma password"; // will turn back to the default text
+            submitButton.textContent = "Conferma password"; // reset button text to default
         }
     });
 }

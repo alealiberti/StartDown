@@ -1,29 +1,27 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-22
- * @description 
+ * @date        2025-01-20
+ * @description handles fetching the requests from the API (questions or reservations)
  */
 
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * function to get the requests (questions or reservations)
+ * @param {string} path - the API path to fetch the requests from
+ * @returns {Promise<any>} - returns the requests in JSON format
  */
 export async function getRequests(path: string): Promise<any> {
 
-    // get the token of auth, and pass it to the Authorization
+    // get the token from localStorage for authorization
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-        console.log("Token di autenticazione non trovato nel localStorage");
+        console.log("authentication token not found in localStorage");
     }
 
-    // try to fetch GET, for store into backoffice the questions || reservations
+    // attempt to send a GET request to retrieve the questions or reservations
     const response = await fetch(path, {
         method: "GET",
         headers: {
@@ -33,8 +31,8 @@ export async function getRequests(path: string): Promise<any> {
     });
 
     if (!response.ok) {
-        throw new Error("errore nel tentativo di prendere le richieste!");
+        throw new Error("error trying to fetch the requests");
     }
 
-    return response.json(); // return the requests into JSON
+    return response.json(); // return the requests in JSON format
 }
