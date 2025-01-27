@@ -10,9 +10,11 @@ import "../src/components/navbar/navbar.ts";
 import "./carousels/carousel.ts";
 import "./carousels/carousel.css";
 
+//** FAQ    ** */
+import "./faq-element/opening-faq.ts";
+
 //** FOOTER **/
 import "../src/components/footer/footer.css";
 
 //** HOME PAGE **/
-import "./../src/styles/key-frame.css"
 import "./style.css"

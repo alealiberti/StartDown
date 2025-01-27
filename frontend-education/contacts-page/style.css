@@ -3,7 +3,7 @@
 @media (max-width: 992px) {
   header.hero {
     /* Impostazioni generali per l'immagine di sfondo */
-    background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
+    background-image: url('/images/home-images/header/cascina-caccia-756px.webp');
     background-size: cover; /* Adatta l'immagine senza tagliarla */
     background-position: center; /* Posiziona la parte superiore dell'immagine */
     background-attachment: scroll; /* Evita problemi di scorrimento */
@@ -14,7 +14,7 @@
 @media (min-width: 992px) and (max-width: 1400px) {
   header.hero {
     /* Impostazioni generali per l'immagine di sfondo */
-    background-image: url('/public/images/home-images/header/cascina-caccia-992px.webp');
+    background-image: url('/images/home-images/header/cascina-caccia-992px.webp');
     background-size: cover; /* Adatta l'immagine senza tagliarla */
     background-position: center; /* Posiziona la parte superiore dell'immagine */
     background-attachment: scroll; /* Evita problemi di scorrimento */
@@ -25,7 +25,7 @@
 @media (min-width: 1400px) {
   header.hero {
     /* Impostazioni generali per l'immagine di sfondo */
-    background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
+    background-image: url('/images/home-images/header/cascina-caccia-1400px.webp');
     background-size: cover; /* Adatta l'immagine senza tagliarla */
     background-position: center; /* Posiziona la parte superiore dell'immagine */
     background-attachment: scroll; /* Evita problemi di scorrimento */
@@ -239,7 +239,7 @@ form button {
 color: var(--primary-color);
 display: block;
 margin: auto;
-background-image: url(/public/images/button-background/button-background.png);
+background-image: url(/images/button-background/button-background.png);
 background-size: contain;
 background-repeat: no-repeat;
 background-position: center;

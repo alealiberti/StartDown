@@ -17,14 +17,6 @@ footer {
   padding-top: 10px;
 }
 
-#map {
-  width: 90%;
-  height: 500px;
-  display: block;
-  margin: 30px auto;
-  border-radius: 30px;
-}
-
 /* Footer container */
 footer div {
   width: 100%; /* Full width */

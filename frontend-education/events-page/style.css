@@ -2,57 +2,32 @@
 /** --- HEADING SESSION --- */
 @media (max-width: 992px) {
     header.hero {
-      /* Impostazioni generali per l'immagine di sfondo */
       background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
-      background-size: cover; /* Adatta l'immagine senza tagliarla */
-      background-position: center; /* Posiziona la parte superiore dell'immagine */
-      background-attachment: scroll; /* Evita problemi di scorrimento */
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
       height: 30vh;
     }
   }
   
   @media (min-width: 992px) and (max-width: 1400px) {
     header.hero {
-      /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('/public/images/home-images/header/cascina-caccia-992px.webp');
-      background-size: cover; /* Adatta l'immagine senza tagliarla */
-      background-position: center; /* Posiziona la parte superiore dell'immagine */
-      background-attachment: scroll; /* Evita problemi di scorrimento */
+      background-image: url('/images/home-images/header/cascina-caccia-992px.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
       height: 30vh;
     }
   }
   
   @media (min-width: 1400px) {
     header.hero {
-      /* Impostazioni generali per l'immagine di sfondo */
-      background-image: url('/public/images/home-images/header/cascina-caccia-1400px.webp');
-      background-size: cover; /* Adatta l'immagine senza tagliarla */
-      background-position: center; /* Posiziona la parte superiore dell'immagine */
-      background-attachment: scroll; /* Evita problemi di scorrimento */
+      background-image: url('/images/home-images/header/cascina-caccia-1400px.webp');
+      background-size: cover; 
+      background-position: center; 
+      background-attachment: scroll;
       height:30vh;
     }
-  }
-
-/* Animazione del logo */
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(2); /* Effetto opzionale di leggero zoom */
-    }
-    to {
-      opacity: 1;
-      transform: scale(1); /* Ritorna alla dimensione normale */
-    }
-  }
-  
-  header.hero {
-    /* header a schermo intero */
-    width: 100%;
-    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
-  }
-  header.hero .img-container img {
-    opacity: 0; /* Stato iniziale */
-    animation: fadeIn 1.5s ease-in-out forwards; /* Durata e tipo di animazione */
   }
   
   header.hero .img-container {
