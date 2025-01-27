@@ -19,7 +19,7 @@ public class ReservationService {
     @Autowired
     private ReservationDAO dao;
     @Autowired
-    private EmailService emailservice;
+    private HTMLEmailService emailservice;
     @Autowired
     private DateConverterService dateConverterService;
 
@@ -122,7 +122,7 @@ public class ReservationService {
         reservation.setDateSend(LocalDate.now());
         reservation.setArchived(false);
 
-        emailservice.sendEmails(reservation.getEmail(), false);
+        emailservice.sendEmails(reservation.getEmail(), reservation);
 
         // Saves the reservation
         return dao.save(reservation);
