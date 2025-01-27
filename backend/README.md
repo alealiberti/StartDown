@@ -65,5 +65,3 @@ The structure is the following:
 
 The API requests provide everything needed to handle and manage the requests from the users. `e.g.`: CRUD operations for the information or reservation requests.  
 More information on the [API Readme](../Docs/backend/API/README.md).
-
-For more info
