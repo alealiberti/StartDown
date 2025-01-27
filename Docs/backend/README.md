@@ -144,7 +144,7 @@ These three programs are mandatory to run the API server:
 
 1. **Set Up the Database**  
    Start the MariaDB server.
-   Import the [`cascina-caccia.sql`](../../Database/cascina_caccia.sql) file provided in the [Database](../../Database/) directory to the database server.
+   Import the [`cascina-caccia.sql`](../../Database/cascina-caccia.sql) file provided in the [Database](../../Database/) directory to the database server.
    It is possible to import the [`data-dump.sql`](../../Database/data-dump.sql) file to have some test data.  
    The DB should now be created, with a default `OWNER` user in the table `users`.  
    The hashed password is `Password123*`, but it is reccomanded to change it when the server is fully started.
