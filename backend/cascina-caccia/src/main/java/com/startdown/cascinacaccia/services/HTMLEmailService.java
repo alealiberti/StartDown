@@ -44,7 +44,14 @@ public class HTMLEmailService {
             if (request instanceof Information information) {
                 subject += "informazioni ricevuta";
                 path += "information-user.html";
-                body += "<p>Ciao " + information.getName() + ",</p>";
+                body += "<p>Ciao " + information.getName() + ",</p>" +
+		                "<p>Abbiamo ricevuto la tua richiesta di informazioni presso Cascina Caccia! " +
+		                "Ecco un breve riepilogo delle informazioni che ci hai fornito:</p>" +
+		                "<ul class=\"booking-details\">" +
+		                "<li>Nome: " + information.getName() + "</li>" +
+		                "<li>Cognome: " + information.getSurname() + "</li>" +
+		                "<li>Messaggio: " + information.getText() + "</li>" +
+		                "</ul>";
             } else if (request instanceof Reservation reservation) {
                 subject += "prenotazione ricevuta";
                 path += "reservation-user.html";
