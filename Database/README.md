@@ -1,6 +1,6 @@
 # Cascina Caccia Database
 
-This is a brief description of the Database. More information on the overall backend project in the [Backend Docs file](../Docs/backend/README.md).
+This is a brief description of the database. More information about the overall backend project can be found in the [Backend Docs file](../Docs/backend/README.md).
 
 ## Developers
 
@@ -8,7 +8,7 @@ This is a brief description of the Database. More information on the overall bac
 
 ## DB Structure
 
-The database has 3 tables and their structure is the following:
+The database has 3 tables and their structure is as follows:
 
 - users
   - `id` (_Primary Key, int_)
@@ -43,13 +43,13 @@ The database has 3 tables and their structure is the following:
   - `type_group` (_MAX 25 chars_)
   - `visitors` (_int_)
   - `companions` (_Nullable, int_)
-  - `additional_info` (_Nullable,, MAX 1000 chars_)
+  - `additional_info` (_Nullable, MAX 1000 chars_)
   - `mobility_problems` (_tinyint_)
 
 ## Data dump
 
-The [data dump](./data-dump.sql) file contains some examples to test the CRUD for the application.  
-In the `users` table there are two users (the `OWNER` created by default and an `ADMIN` imported with the dump).
+The [data dump](./data-dump.sql) file contains sample data to test the application's CRUD operations.  
+The `users` table contains two users: an `OWNER` created by default and an `ADMIN` imported with the dump.
 
 | Username/Email           | Password      | Role  |
 | ------------------------ | ------------- | ----- |

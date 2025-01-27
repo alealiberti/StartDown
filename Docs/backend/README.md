@@ -22,7 +22,7 @@
 This project is an API Server connected to the main page and the backoffice page of the Cascina Caccia educational website.  
 It features a backend built with Spring Boot and a MySQL database for data persistence.
 The application allows users to create information or reservation requests, but also allows admins to manage them.
-It provieds authentication and session management.
+It provides authentication and session management.
 
 ## Project Structure
 
@@ -62,12 +62,12 @@ The database has 3 tables and their structure is the following:
   - `type_group` (_MAX 25 chars_)
   - `visitors` (_int_)
   - `companions` (_Nullable, int_)
-  - `additional_info` (_Nullable,, MAX 1000 chars_)
+  - `additional_info` (_Nullable, MAX 1000 chars_)
   - `mobility_problems` (_tinyint_)
 
 ### API Server
 
-The Spring Boot application contains some static resources to easily handle the bodies of the emails that are send automatically.
+The Spring Boot application contains some static resources to easily handle the bodies of the emails that are sent automatically.
 They can be found in the resources folder, and are structured as follows:
 
 - **email-templates**:
@@ -79,8 +79,8 @@ They can be found in the resources folder, and are structured as follows:
     - `reservation-admin.html`
     - `reservation-user.html`
 
-The core application provides everything needed to manage all the requests form the users.
-Such as the CRUD operation for the requests and also for the users.
+The core application provides all the necessary features to manage all the requests from the users.
+Such as the CRUD operations for the requests and also for the users.
 It also handles the authentication of the users for the backoffice page.  
 The structure is the following:
 
@@ -102,11 +102,11 @@ The structure is the following:
   - `Reservation`
   - `InformationDTO` (_represents the entity information, with a different layout for passing and receiving data to and from the frontend_)
   - `ReservationDTO` (_represents the entity reservation, with a different layout for passing and receiving data to and from the frontend_)
-- **repos** (_contains the intrefaces that provides access and manipulation of the entities in the DB_):
+- **repos** (_contains the interfaces that provides access and manipulation of the entities in the DB_):
   - `UserDAO`
   - `InformationDAO`
   - `ReservationDAO`
-- **services** (_contains the classes that provides the methods with logic of the application_):
+- **services** (_contains the classes that provide the methods with logic of the application_):
   - `UserService`
   - `InformationService`
   - `ReservationService`
@@ -142,12 +142,12 @@ These three programs are mandatory to run the API server:
 
 ### Setup Instructions
 
-1. **Set Up the Database**  
+1. **Set up the Database**  
    Start the MariaDB server.
    Import the [`cascina-caccia.sql`](../../Database/cascina-caccia.sql) file provided in the [Database](../../Database/) directory to the database server.
-   It is possible to import the [`data-dump.sql`](../../Database/data-dump.sql) file to have some test data.  
+   It is possible to import the [`data-dump.sql`](../../Database/data-dump.sql) file to populate the DB with test data..  
    The DB should now be created, with a default `OWNER` user in the table `users`.  
-   The hashed password is `Password123*`, but it is reccomanded to change it when the server is fully started.
+   The hashed password is `Password123*`, but it is recommended to change it when the server is fully started.
 
 2. **Configure the Application**  
    Open the [application.properties](../../backend/cascina-caccia/src/main/resources/application.properties) file
