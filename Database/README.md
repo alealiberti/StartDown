@@ -2,6 +2,10 @@
 
 This is a brief description of the Spring Boot Application. For more information on the overall backend project in the [Backend Docs file](../Docs/backend/README.md).
 
+## Developers
+
+[Aliberti Alessandro](https://github.com/alealiberti) | [Marcolongo Ettore](https://github.com/MrLetss)
+
 ## DB Structure
 
 The database has 3 tables and their structure is the following:

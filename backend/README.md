@@ -2,6 +2,10 @@
 
 This is a brief description of the Spring Boot Application. For more information on the overall backend project in the [Backend Docs file](../Docs/backend/README.md).
 
+## Developers
+
+[Aliberti Alessandro](https://github.com/alealiberti) | [Marcolongo Ettore](https://github.com/MrLetss)
+
 ## Project Structure
 
 The Spring Boot application contains some static resources to easily handle the bodies of the emails that are send automatically.

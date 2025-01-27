@@ -6,14 +6,14 @@
 
 ## Table of Contents
 
-- [Team](#team)
+- [Developers](#developers)
 - [Overview](#overview)
 - [Project Structure](#project-structure)
 - [Technology Stack](#technology-stack)
 - [Installation Guide](#installation-guide)
 - [API Requests](#API-Requests)
 
-## Team
+## Developers
 
 [Aliberti Alessandro](https://github.com/alealiberti) | [Marcolongo Ettore](https://github.com/MrLetss)
 
