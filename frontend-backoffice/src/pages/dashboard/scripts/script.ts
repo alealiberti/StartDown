@@ -9,7 +9,7 @@ import { loadTemplate } from "../../../utils/load-templates";
 import { getRequests } from "../../../services/get-requests.api";
 import { newRequest } from "./new-requests";
 import { latestQuestionsReservations } from "./get-latest-request";
-import { generateCards } from "../../../global/scripts/generate-cards";
+import { generateCards } from "../../../global/scripts/cards/generate-cards";
 
 import { type CardQuestion } from "../../../global/models/card-question.model";
 import { type CardReservation } from "../../../global/models/card-reservation.model";

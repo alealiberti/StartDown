@@ -5,12 +5,12 @@
  * @description script to generate question and reservation cards and append them to the main list
  */
 
-import { createCardQuestion } from "./cards/create-card-question";
-import { createCardReservation } from "./cards/create-card-reservation";
-import { openDialogs } from "./dialogs/open-dialogs";
+import { createCardQuestion } from "./create-card-question";
+import { createCardReservation } from "./create-card-reservation";
+import { openDialogs } from "../dialogs/open-dialogs";
 
-import { type CardQuestion } from "../models/card-question.model";
-import { type CardReservation } from "../models/card-reservation.model";
+import { type CardQuestion } from "../../models/card-question.model";
+import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
