@@ -289,7 +289,7 @@ form .form-group-button {
 form button {
   color: var(--primary-color);
   display: block;
-  background-image: url(/public/images/button-background/button-background.png);
+  background-image: url(/images/button-background/button-background.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

@@ -9,6 +9,17 @@
  * @author: Alessio Burbulia
  */
 
+ body {
+  font-family: var(--font-family-content); /* Setting the font family for the body */
+  font-size: 18px; /* Default font size */
+  background-color: var(--primary-color); /* Background color for the page */
+  color: var(--secondary-color); /* Text color for the body */
+  line-height: 1.6; /* Line height for better readability */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
 /* For screens with a max-width of 992px (mobile and small tablets) */
 @media (max-width: 992px) {
   header.hero {

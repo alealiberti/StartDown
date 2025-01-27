@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: './', // Usa percorsi relativi per il build
+  base: '/', // Usa percorsi relativi per il build
   server: {
     open: true, // Apre automaticamente il browser
     port: 5173, // server port
