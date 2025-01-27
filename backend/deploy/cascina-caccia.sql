@@ -43,9 +43,9 @@ CREATE TABLE `informations` (
 --
 
 INSERT INTO `informations` (`id`, `name`, `surname`, `phone`, `email`, `date_send`, `text`, `archived`) VALUES
-(1, 'Mario', 'Rossi', NULL, 'mario.rossi@sample.std', '2025-01-05', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat', 0),
-(2, 'Luigi', 'Bianchi', '3331231234', 'luigi.bianchi@sample.std', '2025-01-03', 'Vivamus elementum semper nisi. Curabitur ullamcorper ultricies nisi. Aenean vulputate eleifend tellus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh.', 0),
-(3, 'Andrea', 'Verdi', NULL, 'andrea.verdi@sample.std', '2025-01-04', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 0),
+(1, 'Mario', 'Rossi', NULL, 'mario.rossi@sample.std', '2025-01-05', 'Buongiorno, vorrei sapere quali sono le date disponibili per visitare Cascina Caccia e se è necessaria la prenotazione anticipata. Potete fornirmi dettagli sulle modalità di prenotazione?', 0),
+(2, 'Luigi', 'Bianchi', '3331231234', 'luigi.bianchi@sample.std', '2025-01-03', 'Salve, mi piacerebbe conoscere le attività proposte durante la visita a Cascina Caccia. Sono previste visite guidate? Se sì, quali sono i costi e la durata del tour?', 0),
+(3, 'Andrea', 'Verdi', NULL, 'andrea.verdi@sample.std', '2025-01-04', 'Buongiorno, potete darmi informazioni su come raggiungere Cascina Caccia con i mezzi pubblici o in auto? Inoltre, sono disponibili parcheggi o servizi di ristorazione nelle vicinanze?', 0),
 (4, 'Solaire', 'Astora', NULL, 'solaire.astora@sample.std', '2024-12-27', 'Esempio di testo per una richiesta di informazioni', 1),
 (5, 'Francesca', 'Viola', '3385678901', 'francesca.viola@sample.std', '2025-01-10', 'Richiesta di informazioni sui costi.', 1),
 (6, 'Stefano', 'Blu', NULL, 'stefano.blu@sample.std', '2025-01-11', 'Richiesta urgente di prenotazione.', 0),
