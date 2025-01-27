@@ -52,7 +52,6 @@ b {
     top: 0;
     left: 0;
     width: 100%; /* Full width */
-    height: 80%; /* Adjust height for mobile */
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
@@ -62,6 +61,7 @@ b {
     transform-origin: 0% 0%; /* Set transform origin */
     transform: translateY(-100%); /* Initially hide the menu */
     padding-top: 65px; /* Add top padding */
+    padding-bottom: 65px; /* Add bottom padding */
     transition: transform 0.5s ease-in-out; /* Smooth transition when showing the menu */
   }
   
