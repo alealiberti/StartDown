@@ -1,19 +1,28 @@
-
+// Select the line progress element
 const lineProgress = document.querySelector<HTMLElement>('.line-progress');
+
+// Select all the steps elements
 const steps = document.querySelectorAll<HTMLElement>('.step');
+
+// Select all the form sections
 const sections = document.querySelectorAll<HTMLElement>('.form-section');
+
+// Select all the next buttons
 const nextButtons = document.querySelectorAll<HTMLButtonElement>('.next');
+
+// Select all the back buttons
 const backButtons = document.querySelectorAll<HTMLButtonElement>('.back');
 
+// Initialize the current section index
 let currentSectionIndex = 0;
 
-// Funzione per aggiornare la barra di progresso
+// Function to update the line progress bar
 const updateLineProgress = () => {
   const progressPercentage = (currentSectionIndex / (steps.length - 1)) * 100;
   if (lineProgress) lineProgress.style.width = `${progressPercentage}%`;
 };
 
-// Funzione per aggiornare i punti della progressione
+// Function to update the step points
 const updateStepPoints = () => {
   steps.forEach((step, index) => {
     if (index < currentSectionIndex) {
@@ -27,7 +36,7 @@ const updateStepPoints = () => {
   });
 };
 
-// Funzione per mostrare una sezione specifica
+// Function to show a specific section
 const showSection = (index: number) => {
   sections.forEach((section, i) => {
     if (i === index) {
@@ -46,7 +55,7 @@ const showSection = (index: number) => {
   });
 };
 
-// Funzione per la gestione del click sul pulsante "Prossimo"
+// Function to handle click on "Next" button
 nextButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -56,16 +65,36 @@ nextButtons.forEach((button) => {
       const inputs = currentSection.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('input, select, textarea');
       let isValid = true;
 
-      // Controllo validità degli input
+      // Check the validity of inputs
       inputs.forEach((input) => {
         if (!input.checkValidity()) {
           isValid = false;
-          input.classList.add('invalid'); // Evidenzia il campo non valido
-          input.addEventListener('input', () => input.classList.remove('invalid')); // Rimuovi l'indicazione di errore
+          input.classList.add('invalid'); // Highlight the invalid field
+          input.addEventListener('input', () => input.classList.remove('invalid')); // Remove the error indication
         }
       });
 
-      // Se tutti i campi sono validi, passa alla sezione successiva
+      // Specific check for name and surname
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      const surnameInput = document.getElementById('surname') as HTMLInputElement;
+
+      // Check the validity of name
+      if (nameInput && nameInput.value.trim() === '') {
+        isValid = false;
+        nameInput.classList.add('invalid');
+      } else {
+        nameInput.classList.remove('invalid');
+      }
+
+      // Check the validity of surname
+      if (surnameInput && surnameInput.value.trim() === '') {
+        isValid = false;
+        surnameInput.classList.add('invalid');
+      } else {
+        surnameInput.classList.remove('invalid');
+      }
+
+      // If all fields are valid, move to the next section
       if (isValid) {
         if (currentSectionIndex < sections.length - 1) {
           currentSectionIndex++;
@@ -74,7 +103,7 @@ nextButtons.forEach((button) => {
           updateStepPoints();
         }
       } else {
-        // Scrolla fino al primo campo non valido
+        // Scroll to the first invalid field
         const firstInvalid = currentSection.querySelector<HTMLElement>('.invalid');
         firstInvalid?.focus();
       }
@@ -82,7 +111,7 @@ nextButtons.forEach((button) => {
   });
 });
 
-// Funzione per la gestione del click sul pulsante "Indietro"
+// Function to handle click on "Back" button
 backButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
     e.preventDefault();
@@ -95,38 +124,46 @@ backButtons.forEach((button) => {
   });
 });
 
-// Inizializza la prima sezione visibile
+// Initialize the first visible section
 showSection(currentSectionIndex);
 updateLineProgress();
 updateStepPoints();
 
-
-// CONTORLLO PER NOME E COGNOME, SOLO LETTERE E SPAZI
+// CONTROL FOR NAME AND SURNAME, ONLY LETTERS AND SPACES
 const nameInput = document.getElementById('name') as HTMLInputElement;
 
-// Aggiungi l'evento input per controllare il valore in tempo reale
+// Add input event to check the value in real-time
 nameInput.addEventListener('input', () => {
-  // Rimuovi qualsiasi carattere che non sia una lettera o uno spazio
+  // Remove any character that is not a letter or a space
   nameInput.value = nameInput.value.replace(/[^A-Za-z ]/g, '');
 });
 
-// Se vuoi anche mostrare un messaggio di errore per l'input non valido
-nameInput.addEventListener('invalid', () => {
-  // Aggiungi qui la logica per mostrare il messaggio di errore
-  console.log("Il nome può contenere solo lettere e spazi.");
-});
-
-// Ottieni l'elemento dell'input del cognome
+// Get the surname input element
 const surnameInput = document.getElementById('surname') as HTMLInputElement;
 
-// Aggiungi l'evento input per controllare il valore in tempo reale
+// Add input event to check the value in real-time
 surnameInput.addEventListener('input', () => {
-  // Rimuovi qualsiasi carattere che non sia una lettera o uno spazio
+  // Remove any character that is not a letter or a space
   surnameInput.value = surnameInput.value.replace(/[^A-Za-z ]/g, '');
 });
 
-// Se vuoi anche mostrare un messaggio di errore per l'input non valido
-surnameInput.addEventListener('invalid', () => {
-  // Aggiungi qui la logica per mostrare il messaggio di errore
-  console.log("Il cognome può contenere solo lettere e spazi.");
+// Handle the selection of group type
+const typeGroupSelect = document.getElementById('typeGroup') as HTMLSelectElement;
+const visitorsInput = document.getElementById('visitors') as HTMLInputElement;
+
+// Add change event to the selector
+typeGroupSelect.addEventListener('change', () => {
+  if (typeGroupSelect.value === 'individuale') {
+    visitorsInput.value = '1'; // Set the value to 1
+  } else {
+    visitorsInput.value = ''; // Reset the field if it's not individual
+  }
+});
+
+// Add input event to the visitors field
+visitorsInput.addEventListener('input', () => {
+  if (typeGroupSelect.value === 'individuale' && parseInt(visitorsInput.value) > 1 || parseInt(visitorsInput.value) < 1) {
+    visitorsInput.value = '1'; // Set the value to 1 if it exceeds 1
+    alert("Il numero di visitatori non può essere diverso da 1 per la selezione 'Individuale'.");
+  }
 });
