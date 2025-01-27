@@ -219,8 +219,7 @@ b {
   }
 }
 
-/* For Desktop: Large View */
-@media (min-width: 992px) and (max-width: 1400px) {
+@media (min-width: 1300px) and (max-width: 1600px) {
   .menuToggle input, .menuToggle span {
     display: none; /* Hide the input and hamburger icon */
   }
@@ -249,6 +248,7 @@ b {
     width: 100%;
     height: 80px; /* Set height for desktop */
     background-color: var(--primary-color);
+    padding-right: 130px;
   }
   
   /* Navigation and social lists styling for desktop */
@@ -307,7 +307,182 @@ b {
   }
 }
 
-@media (min-width: 1400px) {
+
+@media (min-width: 992px) and (max-width: 1299px) {
+  /* Menu styles for mobile view */
+  .menu {
+    position: fixed; /* Fixed positioning to stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    background-color: var(--primary-color); /* Background color */
+    list-style-type: none; /* Remove default list styling */
+    -webkit-font-smoothing: antialiased; /* Smooth font rendering */
+    transform-origin: 0% 0%; /* Set transform origin */
+    transform: translateY(-100%); /* Initially hide the menu */
+    padding-top: 65px; /* Add top padding */
+    padding-bottom: 65px; /* Add bottom padding */
+    transition: transform 0.5s ease-in-out; /* Smooth transition when showing the menu */
+  }
+  
+  /* Navigation links styling */
+  .menuToggle ul.nav-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center; /* Center the items */
+    width: 100%;
+  }
+  
+  /* List item styling for navigation links */
+  .menuToggle ul.nav-list li {
+    width: 100%;
+  }
+  
+  /* Link styling in the menu */
+  .menuToggle a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none; /* Remove underline */
+    color: var(--secondary-color); /* Set link color */
+    padding: 10px 0; /* Vertical padding */
+    text-align: center; /* Center text */
+    transition: color 0.3s ease; /* Smooth color transition */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  /* Increase font size for mobile links */
+  .menuToggle ul.nav-list a {
+    font-size: 1.5rem;
+  }
+  
+  .menuToggle ul.nav-list li:last-child {
+    position: relative;
+    top: 30%;
+  }
+  
+  .menuToggle ul.nav-list li:last-child a{
+    font-size: 1rem;
+  }
+  
+  /* Hamburger input styling for mobile */
+  .menuToggle input {
+    display: block;
+    width: 90px; /* Set width of input */
+    height: 80px; /* Set height */
+    position: absolute;
+    top: -7px;
+    right: -5px;
+    cursor: pointer;
+    opacity: 0; /* Hide the input */
+    z-index: 115; 
+  }
+  
+  .menuToggle .hamburger-background {
+    display: block;
+  }
+  
+  .menuToggle .hamburger-background {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50% ;
+    background-color: #f5f5f54b;
+    z-index: 105; 
+  }
+  
+  /* Hamburger icon styling */
+  .menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: fixed;
+    right: 25px;
+    background: var(--secondary-color);
+    border-radius: 3px;
+    transform-origin: 4px 0px;
+    transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    z-index: 114;
+  }
+  
+  /* Position of the first hamburger span */
+  .menuToggle span:nth-of-type(1) {
+    top: 30px;
+  }
+  
+  /* Position of the second hamburger span */
+  .menuToggle span:nth-of-type(2) {
+    top: 40px;
+  }
+  
+  /* Position of the third hamburger span */
+  .menuToggle span:nth-of-type(3) {
+    top: 50px;
+  }
+  
+  /* Transform hamburger icon when menu is toggled */
+  .menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-6px, -15px); /* Rotate the icon */
+  }
+  
+  /* Hide the first hamburger span when menu is toggled */
+  .menuToggle input:checked ~ span:nth-last-of-type(2) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  /* Rotate the second hamburger span when menu is toggled */
+  .menuToggle input:checked ~ span:nth-last-of-type(3) {
+    transform: rotate(-45deg) translate(-12px, 18px);
+  }
+  
+  /* Show the menu when the checkbox is checked */
+  .menuToggle input:checked ~ div.menu {
+    transform: none;
+  }
+  
+  /* Class to disable scrolling when menu is active */
+  .no-scroll {
+    overflow: hidden;
+  }
+  
+  /* Background overlay styling when menu is active */
+  #sub-background {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.222);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 105; 
+  }
+  
+  /* Show background when menu is active */
+  #sub-background.show {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  
+  .menuToggle figure{
+    display: none;
+  }
+}
+
+@media (min-width: 1600px) {
   .menuToggle input, .menuToggle span {
     display: none; /* Hide the input and hamburger icon */
   }
@@ -363,7 +538,8 @@ b {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--secondary-color); /* Set link color */
+    color: var(--secondary-color); 
     font-size: 1rem;
   }
 }
+
