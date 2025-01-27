@@ -128,6 +128,7 @@ These are the main technologies used for this project. For all the Spring Boot d
 - `Spring Boot 3.4.1`: Provides a simplified, powerful framework for building the backend REST API.
 - `MariaDB 10.4.28`: Chosen for its compatibility with MySQL, it stores user data, card details, and deck configurations.
 - `Maven`: Manages project dependencies and builds processes for the Java backend.
+- `Postman`: Test tool for API requests.
 
 ## Installation Guide
 
