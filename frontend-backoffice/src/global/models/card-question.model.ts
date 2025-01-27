@@ -1,3 +1,4 @@
+// model type, of the quesion
 export interface CardQuestion {
     id: number,
     name: string,

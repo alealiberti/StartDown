@@ -25,7 +25,7 @@ public class InformationService {
     @Autowired
     private InformationDAO dao;
     @Autowired
-    private EmailService emailservice;
+    private HTMLEmailService emailservice;
     @Autowired
     private DateConverterService dateConverterService;
 
@@ -112,7 +112,7 @@ public class InformationService {
         
         information.setArchived(false);
 
-        emailservice.sendEmails(information.getEmail(), true);
+        emailservice.sendEmails(information.getEmail(), information);
 
         //Save the information
         return dao.save(information);

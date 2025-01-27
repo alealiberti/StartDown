@@ -2,24 +2,16 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-27
- * @description 
+ * @description contains the function to remove the archive icon from a template element
  */
 
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * removes the archive icon from the provided template
+ * @param {HTMLElement} template - the element from which the archive icon will be removed
  */
 export function removeIcon(template: HTMLElement) {
     const archiveIcon = template.querySelector(".archive") as HTMLElement;
     archiveIcon.remove();
 }
-
-
-
-
-

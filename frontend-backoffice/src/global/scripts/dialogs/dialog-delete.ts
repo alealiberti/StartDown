@@ -2,12 +2,11 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-17
- * @description 
+ * @description contains the functions to handle deletion dialogs for requests or reservations
  */
 
 import { loadTemplate } from "../../../utils/load-templates";
 import { closeDialogs } from "./close-dialogs";
-
 import { deleteRequest } from "../../../services/delete-request.api";
 import { createToastNotification } from "../toasts/toast-notification";
 
@@ -16,72 +15,66 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 
 
-
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * handles the deletion of a request or reservation
+ * @param {HTMLElement} overlay - the overlay element to be displayed during the process
+ * @param {CardQuestion | CardReservation} request - the request or reservation to be deleted
+ * @returns {Promise<void>} - returns a promise that resolves when the deletion process is complete
  */
-async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardReservation) {
+async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardReservation): Promise<void> {
 
-    // close all the dialog of elimination when confirm button is clicked
+    // closes the deletion dialog when the confirm button is clicked
     closeDialogs(overlay);
 
-    // this endpoint will contain the path of question/reservation delete, based on the type of the request
+    // determine the endpoint for deleting the request based on its type
     const endpoint =
         "text" in request
             ? "http://localhost:8080/cascina-caccia/informations/delete-information"
-            : "http://localhost:8080/cascina-caccia/reservations/delete-reservation"
+            : "http://localhost:8080/cascina-caccia/reservations/delete-reservation";
 
-    // call the "deleteRequest" function to authenticate the user trough DELETE FETCH, pass the path and the id of the request
+    // call the "deleteRequest" function to authenticate the user through DELETE FETCH, passing the endpoint and request ID
     try {
         await deleteRequest(endpoint, request.id);
 
-        // when fetch DELETE is completed, will appear a toast of message whit positive success
-        createToastNotification("Richiesta cancellata con successo!", "success");
+        // show a success toast message when the DELETE request completes
+        createToastNotification("Request successfully deleted!", "success");
         setTimeout(() => {
             location.reload();
         }, 2000);
 
     } catch (err) {
+        // show on error a toast message when the DELETE request fail!
         createToastNotification(err.message, "error");
     }
 }
 
 
-// ***-------------------------------------------------------------------------
-
-
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * opens the delete dialog and handles the actions for deleting a request or reservation
+ * @param {HTMLElement} overlay - the overlay element to be displayed behind the dialog
+ * @param {CardQuestion | CardReservation} request - the request or reservation to be deleted
+ * @param {Event} event - the event triggered by the delete action
+ * @returns {Promise<void>} - returns a promise that resolves when the dialog is set up
  */
-export async function deleteCardDialog(overlay: HTMLElement, request: CardQuestion | CardReservation, event: Event) {
+export async function deleteCardDialog(overlay: HTMLElement, request: CardQuestion | CardReservation, event: Event): Promise<void> {
 
-    // avoid the propagation of the event to the card container event listener openModal
+    // prevent the event from propagating to the card container event listener
     event.stopPropagation();
 
-    // show the overlay behind the dialog and stop the scroll on page
+    // display the overlay behind the dialog and prevent scrolling on the page
     overlay.style.display = "block";
     document.body.classList.add("hidden");
 
     await loadTemplate("/src/global/templates/dialogs/dialog-delete.html");
     const dialogDelete = document.querySelector(".dialogDeleteCard") as HTMLElement;
 
-
-    // Gestisci il pulsante "Conferma"
+    // handle the "Confirm" button
     dialogDelete.querySelector(".confirm")?.addEventListener("click", () => {
         handleDelete(overlay, request);
     });
 
-    // Gestisci il pulsante "Annulla"
+    // handle the "Cancel" button
     dialogDelete.querySelector(".cancel")?.addEventListener("click", () => {
         closeDialogs(overlay);
     });
-
 }

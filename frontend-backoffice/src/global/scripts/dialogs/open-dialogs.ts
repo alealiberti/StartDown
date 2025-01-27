@@ -2,14 +2,12 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-16
- * @description 
+ * @description script to handle opening dialogs for questions and reservations
  */
 
-import { loadTemplate } from "../../../utils/load-templates.ts"; // will be used again for load the templates of dialogs on pages interactions
-
+import { loadTemplate } from "../../../utils/load-templates.ts"; // utility to load dialog templates dynamically
 import { createDialogQuestion } from "./dialog-card-question.ts";
 import { createDialogReservation } from "./dialog-card-reservation.ts";
-
 import { closeDialogs } from "./close-dialogs.ts";
 import { deleteCardDialog } from "./dialog-delete.ts";
 import { archiveCardDialog } from "./dialog-archive.ts";
@@ -20,53 +18,53 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * opens dialogs based on user interactions with question or reservation cards
+ * @param {HTMLElement} card - the card element associated with the dialog
+ * @param {CardQuestion | CardReservation} request - the question or reservation object tied to the card
+ * @returns {void}
  */
 export function openDialogs(card: HTMLElement, request: CardQuestion | CardReservation): void {
 
-    // take from the DOM the overlay which will cover all the pages and block interaction whit all elements
+    // get the overlay element used to block interaction with the page while a dialog is open
     const overlay = document.querySelector(".overlay") as HTMLElement;
 
-    // if click on the overlay will close all the dialogs opened
+    // attach event to overlay to close all dialogs when clicked
     overlay.addEventListener("click", () => closeDialogs(overlay));
 
     // ---------------------------------------------------------------------
 
-    // events which on click will be showed a dialog of question/reservation based on the request parameter
+    // add click event to card to show the respective dialog based on the request type
     card.addEventListener("click", async () => {
 
-        // initially null, will be replace by the dialog element created/loaded on the DOM after click
+        // initially null, will be replaced by the dialog element created or loaded dynamically
         let dialog: HTMLElement | null = null;
 
+        // check if the request is a question and load the corresponding dialog template
         if ("text" in request) {
             await loadTemplate("/src/global/templates/dialogs/dialog-card-question.html");
             dialog = document.querySelector(".dialogQuestion") as HTMLElement;
             createDialogQuestion(overlay, dialog, request);
 
+            // check if the request is a reservation and load the corresponding dialog template
         } else if ("status" in request) {
             await loadTemplate("/src/global/templates/dialogs/dialog-card-reservation.html");
             dialog = document.querySelector(".dialogReservation") as HTMLElement;
             createDialogReservation(overlay, dialog, request);
         }
 
-        // if dialog is correctly created, will be showed the overlay and stop the scroll on the page while it is opened
+        // if dialog is created successfully, display the overlay and disable page scrolling
         if (dialog) {
             overlay.style.display = "block";
-            document.body.classList.add("hidden"); // will disable the scroll through style 
+            document.body.classList.add("hidden"); // disables page scroll while dialog is open
         }
     });
 
     // -----------------------------------------------------------
 
-    // event to open the elimination dialog directly by the card preview
+    // add event to open the delete confirmation dialog when the trash icon is clicked
     card.querySelector(".actions .trash")?.addEventListener("click", (event) => deleteCardDialog(overlay, request, event));
 
-    // event to open the archivation dialog directly by the card preview
+    // add event to open the archive confirmation dialog when the archive icon is clicked
     card.querySelector(".actions .archive")?.addEventListener("click", (event) => archiveCardDialog(overlay, request, event));
 
-    // -----------------------------------------------------------
 }

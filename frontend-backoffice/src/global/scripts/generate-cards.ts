@@ -2,7 +2,7 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-05
- * @description 
+ * @description script to generate question and reservation cards and append them to the main list
  */
 
 import { createCardQuestion } from "./cards/create-card-question";
@@ -14,41 +14,39 @@ import { type CardReservation } from "../models/card-reservation.model";
 
 
 
-
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * generates cards for questions and reservations and appends them to the main list
+ * @param {(CardQuestion | CardReservation)[]} datas - array of question or reservation objects to be processed
+ * @param {HTMLTemplateElement} [questionTemplate] - template element for rendering question cards
+ * @param {HTMLTemplateElement} [reservationTemplate] - template element for rendering reservation cards
+ * @returns {void}
  */
 export function generateCards(
-    datas: (CardQuestion | CardReservation)[],
+    requests: (CardQuestion | CardReservation)[],
     questionTemplate?: HTMLTemplateElement,
     reservationTemplate?: HTMLTemplateElement,
 ): void {
 
-    // list which will be filled whit the cards whit questions/reservations
+    // list which will be filled with the cards containing questions or reservations
     const listRequests = document.querySelector("section#requests") as HTMLElement;
 
-    datas.forEach((request) => {
+    requests.forEach((request) => {
 
-        // inital value of the card
+        // initial value of the card
         let card: HTMLElement | null = null;
 
-        /* check of the request if it is a question || reservation from the properties using: "in"
-        also say to typescript the type of the request using: "as" */
+        /* check if the request is a question or a reservation based on properties using "in"
+        also specify the type of the request to typescript using "as" */
         if ("text" in request && questionTemplate) {
             card = createCardQuestion(request, questionTemplate);
         } else if ("status" in request && reservationTemplate) {
             card = createCardReservation(request, reservationTemplate);
         }
 
-        // if card is created correctly, will be appended on the list of main page and add the events on it
+        // if card is created correctly, append it to the main list and add events to it
         if (card) {
             listRequests.appendChild(card);
             openDialogs(card, request);
         }
-
     });
-} 
+}
