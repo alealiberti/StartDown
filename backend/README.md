@@ -1,6 +1,6 @@
 # Cascina Caccia API Server
 
-This is a brief description of the Spring Boot Application. For more information on the overall backend project in the [Backend Docs file](../Docs/backend/README.md).
+This is a brief description of the Spring Boot Application. More information on the overall backend project in the [Backend Docs file](../Docs/backend/README.md).
 
 ## Developers
 
