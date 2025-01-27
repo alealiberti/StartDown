@@ -38,7 +38,7 @@ async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardRe
     // call the "deleteRequest" function to authenticate the user trough DELETE FETCH, pass the path and the id of the request
     try {
         await deleteRequest(endpoint, request.id);
-        console.log(`richiesta di ${request.name} eliminata con successo!`);
+
         // when fetch DELETE is completed, will appear a toast of message whit positive success
         createToastNotification("Richiesta cancellata con successo!", "success");
         setTimeout(() => {

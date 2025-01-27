@@ -22,21 +22,23 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    gap: 30px;
     position: relative;
     width: 85%;
+    max-width: 400px;
     min-height: 600px;
     background-color: var(--background-color-nav);
     box-shadow: 5px 10px 8px rgba(0, 0, 0, 0.4);
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
 }
 
+/* ----------------------------------- */
 
 /* logo admin placeholder || photo of the admin, positioned on the top of the container whit position: absolute */
-.adminLogo {
+.container .adminLogo {
     position: absolute;
     top: -90px;
     left: 50%;
@@ -45,97 +47,107 @@ body {
     height: 140px;
     background-color: var(--background-primary);
     border: 1px solid black;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
-h1 {
+/* ----------------------------------- */
+
+.container div h1 {
     color: var(--white-text-color);
-    text-align: center;
     font-size: 2rem;
+    text-align: center;
     font-family: var(--font-title);
     font-weight: bold;
     margin-bottom: 4px;
 }
 
-h2 {
+.container div h2 {
     color: var(--white-text-color);
     text-align: center;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     opacity: 0.6;
 }
 
 
 /* form flex which contain the fields label + input && the submit button */
-form {
+.container form {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    min-height: 350px;
+    height: 300px;
+}
+
+.container form .inputForms {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 200px;
 }
 
 /* container which contains the label and the input */
-.field {
+.container form .field {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 230px;
-    min-height: 130px;
+    width: 100%;
+    max-width: 250px;
+    gap: 5px;
 }
 
-.field label {
+/* labels descriptive of the inputs form */
+.container form .field label {
     color: var(--white-text-color);
-    font-size: 0.7rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: lighter;
+    font-size: 0.75rem;
 }
 
-input {
-    background-color: var(--background-primary);
-    border: 0px;
-    font-size: 0.7rem;
-    padding: 12px 10px;
-    border-radius: 5px;
+/* inputs of username and passoword */
+.container form .field input {
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color, #bfbfbf);
+    padding: 7px 5px;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container form .field input:focus {
+    border-color: var(--cascina-secondary);
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    outline: none;
 }
 
 /* button submit styling whit */
-button {
+.container form button {
     background-color: var(--background-primary);
     font-family: var(--font-title);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    padding: 5px 100px;
-    border: 0px;
+    padding: 9px 100px;
+    border: none;
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-    animation: borderLight 4s linear infinite;
-
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: borderLight 6s linear infinite;
 }
 
-button:hover {
+.container form button:hover {
     background-color: var(--background-secondary);
     transform: scale(1.02);
 }
 
 /* animation applied principaly to the borders of the elements */
 @keyframes borderLight {
-    0% {
+
+    0%,
+    100% {
         box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
     }
 
-    25% {
-        box-shadow: var(--cascina-secondary) 0 0 5px 2px;
-    }
-
-    50% {
-        box-shadow: var(--cascina-secondary-ligth) 0 0 7px 3px;
-    }
-
+    25%,
     75% {
         box-shadow: var(--cascina-secondary) 0 0 5px 2px;
     }
 
-    100% {
-        box-shadow: rgba(255, 255, 255, 0) 0 0 0 0;
+    50% {
+        box-shadow: var(--cascina-secondary-light) 0 0 8px 4px;
     }
 }

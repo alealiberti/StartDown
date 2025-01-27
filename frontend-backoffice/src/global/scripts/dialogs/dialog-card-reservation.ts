@@ -5,12 +5,13 @@
  * @description 
  */
 
-import { restructureDate } from "../restructure-date";
+import { restructureDate } from "../../../utils/restructure-date";
 import { deleteCardDialog } from "./dialog-delete";
 import { archiveCardDialog } from "./dialog-archive";
 import { updateStatusReservation } from "../../../services/update-status-reservation.api";
 import { closeDialogs } from "./close-dialogs";
 import { createToastNotification } from "../toasts/toast-notification";
+import { removeIcon } from "../../../utils/remove-icon";
 
 import { type CardReservation } from "../../models/card-reservation.model";
 
@@ -111,17 +112,24 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
     dialogReservation.querySelector(".dialogBody p.companions span")!.textContent += `${reservation.companions ?? "N/A"}`;
     // check the boolean if there are mobility problems or no
     dialogReservation.querySelector(".dialogBody p.mobilityProblems span")!.textContent += reservation.mobilityProblems ? "Yes" : "No";
+    dialogReservation.querySelector(".dialogBody .addiontalInfo p.request")!.textContent += reservation.additionalInfo ?? "";
+    // -----------------------------
 
-    // -------------------------------------------------------
+    // remove from the dialog DOM, the icon of archive if the question have already the state of archived: true
+    if (reservation.archived) {
+        removeIcon(dialogReservation);
+    }
 
-    //*** if the status is "nuova", so never opened, on the dialog reservation open, change the status through FETCH PUT
+    //*** ----------------------------------------------------------
+
+    //if the status is "nuova", so never opened, on the dialog reservation open, change the status through FETCH PUT
     if (reservation.status === "nuova") {
         updateStatus(reservation);
     }
 
     /*
-    *sets an event listener on the button "Accetta prenotazione", will change the status through FETCH PUT
-    *if the status of the reservation is "confermata", the button will be disable
+    sets an event listener on the button "Accetta prenotazione", will change the status through FETCH PUT
+    if the status of the reservation is "confermata", the button will be disable
     */
     const acceptButton = dialogReservation.querySelector(".dialogFooter .buttons .dialogAccept") as HTMLButtonElement;
     if (reservation.status === "confermata") {
@@ -135,7 +143,7 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
         });
     }
 
-    // -------------------------------------------------------
+    //*** -------------------------------------------------------
 
     // sets also inside the dialog the event listener for the delete of the reservation opened
     dialogReservation.querySelector(".actions .trash")?.addEventListener("click", (event) => {

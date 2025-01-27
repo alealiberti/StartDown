@@ -5,7 +5,8 @@
  * @description 
  */
 
-import { restructureDate } from "../restructure-date";
+import { restructureDate } from "../../../utils/restructure-date";
+import { removeIcon } from "../../../utils/remove-icon";
 import { type CardQuestion } from "../../models/card-question.model";
 
 
@@ -36,6 +37,13 @@ export function createCardQuestion(question: CardQuestion, template: HTMLTemplat
     // take the question content message, and cut it for the card preview
     const textBody: string = question.text.slice(0, 60).concat("...");
     cardQuestion.querySelector("p.cardBody")!.textContent = textBody;
+
+    // -------------------------------------
+
+    if (question.archived) {
+        removeIcon(cardQuestion);
+    }
+
 
     return cardQuestion;
 }

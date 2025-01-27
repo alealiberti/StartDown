@@ -5,8 +5,10 @@
  * @description 
  */
 
-import { restructureDate } from "../restructure-date";
+import { restructureDate } from "../../../utils/restructure-date";
+import { removeIcon } from "../../../utils/remove-icon";
 import { type CardReservation } from "../../models/card-reservation.model";
+
 
 
 /**
@@ -56,6 +58,13 @@ export function createCardReservation(reservation: CardReservation, template: HT
             CardReservation.querySelector(".state p.stateDescription")!.textContent = "???";
             break;
     }
+
+    // -------------------------------------
+
+    if (reservation.archived) {
+        removeIcon(CardReservation);
+    }
+
 
     return CardReservation;
 }

@@ -6,12 +6,12 @@ import "./global/styles/global.css";
 import "./global/styles/toasts/toast-notification.css";
 
 // local styles of the first page login admin
-import "./styles/form.css";
+import "./form-styles/form.css";
 
 
 
 //* -----------------------SCRIPTS IMPORTS-------------------------------------
 
 // local scripts of the dashboard for generate cards elements
-import "./scripts/scriptTry.ts";
-import "./scripts/form.ts";
+import "./form-scripts/script.ts";
+import "./form-scripts/form.ts";

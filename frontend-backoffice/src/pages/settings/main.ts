@@ -11,6 +11,7 @@ import "../../global/styles/dialogs/overlay-dialog.css";
 import "../../global/styles/dialogs/dialog-card-question.css";
 import "../../global/styles/dialogs/dialog-card-reservation.css";
 import "../../global/styles/dialogs/dialog-actions.css";
+import "../../global/styles/dialogs/dialog-password.css";
 import "../../global/styles/toasts/toast-notification.css";
 
 // local styles of the settings page

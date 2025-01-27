@@ -20,9 +20,9 @@ export function closeDialogs(overlay: HTMLElement): void {
     overlay.style.display = "none";
     document.body.classList.remove("hidden"); // re-able the scroll removing style
 
-    // REMOVE FROM THE DOM ALL THE DIALOGS OPENED (resolve problems of events listener accumulated!)
+    //get all dialogs by #id, and REMOVE FROM THE DOM ALL THE DIALOGS OPENED (resolve problems of events listener accumulated!)
     document.querySelectorAll("#dialog").forEach((dialog) => {
-        dialog.remove();
+        dialog.remove(); // remove the dialog from the DOM
     });
 
 }

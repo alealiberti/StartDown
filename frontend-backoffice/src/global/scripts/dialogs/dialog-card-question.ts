@@ -5,12 +5,14 @@
  * @description 
  */
 
-import { restructureDate } from "../restructure-date";
+import { restructureDate } from "../../../utils/restructure-date";
 import { deleteCardDialog } from "./dialog-delete";
 import { archiveCardDialog } from "./dialog-archive";
 import { closeDialogs } from "./close-dialogs";
+import { removeIcon } from "../../../utils/remove-icon";
 
 import { type CardQuestion } from "../../models/card-question.model";
+
 
 
 
@@ -30,7 +32,14 @@ export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLE
     dialogQuestion.querySelector(".dialogHeader p.dateSend")!.textContent = restructureDate(question.dateSend);
     dialogQuestion.querySelector(".dialogBody .request")!.textContent = question.text;
 
-    // --------------------------------------------------------------
+    // ------------------------
+
+    // remove from the dialog DOM, the icon of archive if the question have already the state of archived: true
+    if (question.archived) {
+        removeIcon(dialogQuestion);
+    }
+
+    //*** --------------------------------------------------------------
 
     // sets also inside the dialog the event listener for the delete of the question opened
     dialogQuestion.querySelector(".actions .trash")?.addEventListener("click", (event) => {

@@ -38,7 +38,7 @@ async function handleArchive(overlay: HTMLElement, request: CardQuestion | CardR
     // call the "archiveRequest" function to authenticate the user trough PUT FETCH, pass the path and the request
     try {
         await archiveRequest(endpoint, request);
-        console.log(`richiesta di ${request.name} archiviata con successo!`);
+
         // when fetch PUT is completed, will appear a toast of message whit positive success
         createToastNotification("Richiesta archiviata con successo!", "success");
         setTimeout(() => {

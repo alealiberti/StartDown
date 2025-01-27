@@ -3,7 +3,7 @@
 main h1 {
     color: var(--dark-text-color);
     font-family: var(--font-title);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: bold;
     text-align: center;
     margin-top: 30px;
@@ -38,7 +38,7 @@ main #buttonsActions button {
 
 main #buttonsActions button ion-icon {
     font-size: 1.2rem;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 /* image of bruno and caccia and a short description which offer the settings page */
@@ -47,7 +47,7 @@ main #buttonsActions div {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 main #buttonsActions img {

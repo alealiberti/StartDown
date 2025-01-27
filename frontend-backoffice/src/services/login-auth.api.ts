@@ -29,7 +29,7 @@ export async function loginAuth(username: string, password: string, path: string
     });
 
     if (!response.ok) {
-        throw new Error("Credenziali errate! riprova!");
+        throw new Error("Credenziali errate!");
     }
 
     return response.json(); // return the token response into JSON

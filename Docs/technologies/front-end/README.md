@@ -6,7 +6,6 @@
     - **Google LightHouse**
     - **Gooogle PageSpeed Insights**
     - **Google search console**
-    - **Google Ads (forse)**
 
 - ## Tools SEO 
     - [SemRush](https://www.semrush.com/analytics/overview/?searchType=domain)
