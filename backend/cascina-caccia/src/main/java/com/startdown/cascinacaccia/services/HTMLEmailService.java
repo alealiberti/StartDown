@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.nio.file.Files;
 
-// The EmailService class provides the methods to send emails to someone or to the admins
+// The HTMLEmailService class provides the methods to send emails to someone or to the admins
 @Service
 public class HTMLEmailService {
 
