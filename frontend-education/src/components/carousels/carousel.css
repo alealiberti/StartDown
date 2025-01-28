@@ -135,7 +135,7 @@ section.img-carousel .carousel .button {
     width: 40px;
     height: 40px;
     background-color: var(--yellow-color-logo); /* Button background color */
-    margin: 10px; /* Space around the button */
+    margin-top: 10px; /* Space around the button */
     border-radius: 3px; /* Rounded corners */
 }
 
@@ -145,6 +145,7 @@ section.img-carousel .button-container {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0;
 }
 
 /* Button styling within the carousel section */

@@ -41,6 +41,7 @@
 }
 
 * {
+  
   box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
 }
 
