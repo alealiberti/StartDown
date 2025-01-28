@@ -32,6 +32,6 @@ export async function deleteRequest(path: string, idRequest: number): Promise<an
     });
 
     if (!response.ok) {
-        throw new Error("error deleting the request");
+        throw new Error("errore tentativo cancellazione richiesta!");
     }
 }

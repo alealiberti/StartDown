@@ -37,7 +37,7 @@ async function handleArchive(overlay: HTMLElement, request: CardQuestion | CardR
         await archiveRequest(endpoint, request);
 
         // show a success toast message when the PUT request completes
-        createToastNotification("Request successfully archived!", "success");
+        createToastNotification("Richiesta archiviata con successo!", "success");
         setTimeout(() => {
             location.reload();
         }, 2000);

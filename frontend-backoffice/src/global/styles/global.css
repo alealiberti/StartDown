@@ -9,6 +9,12 @@ html {
     color: var(--black-text-color);
 }
 
+@media screen and (min-width: 960px) {
+    html {
+        font-size: 22px;
+    }
+}
+
 *,
 *::after,
 *::before {
@@ -48,6 +54,13 @@ main>h2 {
     -webkit-text-fill-color: transparent;
     margin-top: 30px;
     margin-bottom: 50px;
+}
+
+section#requests {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 main h1 strong {

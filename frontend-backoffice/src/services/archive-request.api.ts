@@ -36,6 +36,6 @@ export async function archiveRequest(path: string, request: CardQuestion | CardR
     });
 
     if (!response.ok) {
-        throw new Error("error archiving the request");
+        throw new Error("errore tentativo archiviazione richiesta!");
     }
 }

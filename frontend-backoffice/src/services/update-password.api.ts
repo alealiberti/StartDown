@@ -37,7 +37,7 @@ export async function updatePassword(path: string, oldPassword: string, newPassw
     });
 
     if (!response.ok) {
-        throw new Error("password change failed");
+        throw new Error("tentativo cambiamento password!");
     }
 
 }

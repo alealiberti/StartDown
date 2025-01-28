@@ -29,7 +29,7 @@ export async function loginAuth(username: string, password: string, path: string
     });
 
     if (!response.ok) {
-        throw new Error("invalid credentials");
+        throw new Error("credenziali invalide! riprova!");
     }
 
     return response.json(); // return the token response in JSON format

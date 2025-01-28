@@ -37,7 +37,7 @@ async function handleDelete(overlay: HTMLElement, request: CardQuestion | CardRe
         await deleteRequest(endpoint, request.id);
 
         // show a success toast message when the DELETE request completes
-        createToastNotification("Request successfully deleted!", "success");
+        createToastNotification("Richiesta cancellata con successo!", "success");
         setTimeout(() => {
             location.reload();
         }, 2000);

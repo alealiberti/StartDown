@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
     height: 140px;
     background-color: var(--background-primary);
     padding: 8px 7px;
@@ -36,6 +37,7 @@
 .cardQuestion p.cardBody {
     width: 65%;
     font-size: 0.7rem;
+    opacity: 0.8;
     text-decoration: underline;
 }
 
@@ -47,4 +49,14 @@
     font-size: 1.1rem;
     gap: 15px;
     cursor: pointer;
+}
+
+
+
+
+@media screen and (min-width: 960px) {
+    .cardQuestion {
+        width: calc(50% - 47px);
+        margin-bottom: 0px;
+    }
 }
