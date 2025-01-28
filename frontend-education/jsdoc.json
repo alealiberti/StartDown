@@ -1,0 +1,13 @@
+{
+    "source": {
+      "include": ["src"],
+      "includePattern": ".+\\.ts$",
+      "excludePattern": "(^|\\/|\\\\)node_modules"
+    },
+    "opts": {
+      "destination": "./docs",
+      "recurse": true,
+      "template": "default",
+      "encoding": "utf8"
+    }
+  }
