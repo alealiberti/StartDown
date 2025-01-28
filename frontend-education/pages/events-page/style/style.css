@@ -1,112 +1,133 @@
-
-/** --- HEADING SESSION --- */
+/**
+ * FILEPATH: /Users/andrea/Desktop/StartDown/frontend-education/pages/events-page/style/style.css
+ * 
+ * This CSS file contains styles for the events page of a website. It includes styles for the heading section,
+ * main content, articles, images, buttons, and various sections of the page.
+ * 
+ * --- HEADING SESSION ---
+ * The heading session styles the header section of the page, including the hero image and its responsiveness
+ * based on different screen sizes.
+ */
+ 
+/* Styles for the header section */
 @media (max-width: 992px) {
-    header.hero {
-      background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
-      background-size: cover;
-      background-position: center;
-      background-attachment: scroll;
-      height: 30vh;
-    }
+  header.hero {
+    background-image: url('/public/images/home-images/header/cascina-caccia-756px.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    height: 30vh;
   }
-  
-  @media (min-width: 992px) and (max-width: 1400px) {
-    header.hero {
-      background-image: url('/images/home-images/header/cascina-caccia-992px.webp');
-      background-size: cover;
-      background-position: center;
-      background-attachment: scroll;
-      height: 30vh;
-    }
-  }
-  
-  @media (min-width: 1400px) {
-    header.hero {
-      background-image: url('/images/home-images/header/cascina-caccia-1400px.webp');
-      background-size: cover; 
-      background-position: center; 
-      background-attachment: scroll;
-      height:30vh;
-    }
-  }
-  
-  header.hero .img-container {
-    width: 80%;
-    max-width: 610px;
-  }
-  
-  main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-
-  }
-  
-  article{
-    display: block;
-    margin: 40px 0px;
-    width: 100%;
-    max-width: 900px;
-  }
-  
-  article .img-container{
-    width: 100%;
-    max-width: 900px;
-  
-    figcaption{
-      display: none;
-    }
-  }
-
-  h1{
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    color: var(--primary-color);
-}
-  
-  
-  h2{
-    font-size: 1.5rem;
-    
-  }
-  
-  strong{
-    font-weight: bold;
-  }
-  
-  main p{
-    padding: 15px;
-    margin: 0;
-  }
-  
-  section.dark-style{
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-  }
-  
-  section.light-style{
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
 }
 
+@media (min-width: 992px) and (max-width: 1400px) {
+  header.hero {
+    background-image: url('/images/home-images/header/cascina-caccia-992px.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    height: 30vh;
+  }
+}
+
+@media (min-width: 1400px) {
+  header.hero {
+    background-image: url('/images/home-images/header/cascina-caccia-1400px.webp');
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: scroll;
+    height:30vh;
+  }
+}
+
+/* Styles for the image container within the header section */
+header.hero .img-container {
+  width: 80%;
+  max-width: 610px;
+}
+
+/* Styles for the main content section */
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Styles for the articles */
+article{
+  display: block;
+  margin: 40px 0px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Styles for the image container within the articles */
+article .img-container{
+  width: 100%;
+  max-width: 900px;
+
+  /* Hide the figcaption within the image container */
+  figcaption{
+    display: none;
+  }
+}
+
+/* Styles for the h1 headings */
+h1{
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* Styles for the h2 headings */
+h2{
+  font-size: 1.5rem;
+}
+
+/* Styles for the strong text */
+strong{
+  font-weight: bold;
+}
+
+/* Styles for the paragraphs */
+main p{
+  padding: 15px;
+  margin: 0;
+}
+
+/* Styles for the dark-style sections */
+section.dark-style{
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* Styles for the light-style sections */
+section.light-style{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Styles for the black-blur class */
 .black-blur{
   margin-top: 100px;
 }
 
+/* Styles for the horizontal rule */
 hr{
   width: 100%;
   margin: 20px auto;
   border: 1px solid var(--magenta-color-logo);
 }
 
+/* Styles for the h3 headings */
 h3{
   color: var(--orange-color-logo);
 }
 
-/* Button contattaci yellow*/
+/* Styles for the "Contattaci" button */
 .contattaci{
   background-color: var(--yellow-color-logo);
   font-family: var(--font-family-content);
@@ -119,14 +140,14 @@ h3{
   cursor: pointer;
 }
 
-
-/* Stile per la sezione */
+/* Styles for the text-only-article-section */
 .text-only-article-section {
   display: flex;
   justify-content: center;
   padding: 0px;
 }
 
+/* Styles for the articles within the text-only-article-section */
 .text-only-article-section article {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +155,7 @@ h3{
   align-items: flex-start;
 }
 
-/* Stile per l'immagine */
+/* Styles for the images within the text-only-article-section */
 .text-only-article-section img {
   flex: 1 1 300px; 
   max-width: 100%;
@@ -144,20 +165,21 @@ h3{
   object-fit: contain;
 }
 
-/* Stile per il contenuto di testo */
+/* Styles for the text content within the text-only-article-section */
 .text-only-article-section .text-content {
-  flex: 2 1 600px; /* Il testo occupa più spazio rispetto all'immagine */
+  flex: 2 1 600px; /* The text occupies more space compared to the image */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
+/* Styles for the h3 headings within the text-only-article-section */
 .text-only-article-section h3 {
   margin: 0;
   font-size: 1.5rem;
   color: #333;
 }
-
+/* Styles for the paragraphs within the text-only-article-section */
 .text-only-article-section p {
   margin: 10px 0;
   line-height: 1.6;
@@ -165,45 +187,35 @@ h3{
   color: #555;
 }
 
-/* Media query per dispositivi mobili */
+/* Media query for mobile devices */
 @media (max-width: 768px) {
+  /* Styles for the articles within the text-only-article-section in mobile view */
   .text-only-article-section article {
     flex-direction: column;
     align-items: center;
   }
 
+  /* Styles for the images within the text-only-article-section in mobile view */
   .text-only-article-section img {
     width: 100%;
   }
 
+  /* Styles for the text content within the text-only-article-section in mobile view */
   .text-only-article-section .text-content {
     text-align: center;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Stile per la sezione del titolo */
-.title-section {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
+/* Styles for the paragraph with class "armonia-p" */
+.armonia-p {
+  font-family: var(--font-family-content);
+  font-size: 15px;
+  color: #555;
+  margin-left: 0px !important;
+  padding-left: 0px !important;
 }
 
+/* Styles for the h3 headings within the title-section */
 .title-section h3 {
   margin: 0;
   font-size: 1.5rem;
@@ -211,74 +223,102 @@ h3{
   text-align: left;
 }
 
-/* Stile per la sezione dei contenuti */
+/* Styles for the content section */
 .content-section {
   display: flex;
-  align-items: flex-start;  /* Allineamento in alto per una disposizione più uniforme */
-  justify-content: space-between; /* Spazio tra le colonne */
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-/* Sezione immagine */
+/* Styles for the image section */
 .img-section {
-  flex: 2;  /* Aumentato per fare in modo che l'immagine prenda più spazio */
-  height: 100%;  /* Imposta un'altezza di 100% per riempire tutta la colonna */
+  flex: 2;
+  height: 100%;
 }
 
+/* Styles for the images within the image section */
 .img-section img {
-  width: 100%;  /* L'immagine si adatta alla larghezza del contenitore */
-  height: 100%;  /* L'immagine occupa tutta l'altezza del contenitore */
-  object-fit: cover;  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Sezione testo */
+/* Styles for the text section */
 .text-section {
-  flex: 3;  /* Più spazio per il testo */
+  flex: 3;
 }
 
-/* Stile per l'elenco puntato */
+/* Styles for the unordered list with class "text" */
 ul.text {
-  list-style-type: disc;  
-  padding-left: 50px;  
+  list-style-type: disc;
+  padding-left: 50px;
 }
 
+/* Styles for the list items */
 li {
   font-family: var(--font-family-content);
   font-size: 15px;
-  margin-bottom: 10px;  
-  color:#555;
+  margin-bottom: 10px;
+  color: #555;
 }
 
-.introduzione{
+/* Styles for the paragraph with class "introduzione" */
+.introduzione {
   font-family: var(--font-family-content);
   font-size: 15px;
-  color:#555;
-  margin-left: 0px
+  color: #555;
+  margin-left: 0px;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  /* Styles for paragraphs in mobile view */
+  p {
+    text-align: center;
+  }
 
+  /* Styles for the "Contattaci" button in mobile view */
+  .contattaci {
+    margin-left: 0px !important;
+  }
 
+  /* Styles for the h2 headings in mobile view */
+  h2 {
+    text-align: center;
+  }
 
-/* DA RIVEDERE */
+  /* Styles for the h3 headings in mobile view */
+  h3 {
+    text-align: center !important;
+  }
 
-@media (max-width: 900px) {
-  article {
-    display: flex;
-    flex-direction: column; 
+  /* Styles for the content section in mobile view */
+  .content-section {
+    flex-direction: column;
     align-items: center;
   }
 
-  article .img-container {
-    margin-top: 20px; 
+  /* Styles for the image section in mobile view */
+  .img-section {
     width: 100%;
+    margin-bottom: 20px;
   }
 
-  img.article {
-    width: 100%; 
-    height: auto; 
-    border-radius: 10px; 
+  /* Styles for the text section in mobile view */
+  .text-section {
+    width: 100%;
+    text-align: center !important;
   }
 
-  article .text-content {
-    text-align: center; 
+  /* Styles for the paragraph with class "introduzione" in mobile view */
+  .introduzione {
+    text-align: center;
+  }
+
+  /* Styles for the paragraph with class "armonia-p" in mobile view */
+  .armonia-p {
+    padding: 15px !important;
+    margin-left: 20px !important;
+    text-align: center !important;
   }
 }

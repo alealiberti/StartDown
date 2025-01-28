@@ -2,7 +2,7 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-21
- * @description 
+ * @description handles the update of the reservation status
  */
 
 import { type CardReservation } from "../global/models/card-reservation.model";
@@ -10,32 +10,32 @@ import { type CardReservation } from "../global/models/card-reservation.model";
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * function to update the status of a reservation
+ * @param {string} path - the API path for the reservation request
+ * @param {CardReservation} reservation - the reservation object to be updated
+ * @param {string} status - the new status of the reservation
+ * @returns {Promise<any>} - returns a promise indicating the success or failure of the update
  */
 export async function updateStatusReservation(path: string, reservation: CardReservation, status: string): Promise<any> {
 
-    // get the token of auth, and pass it to the Authorization
+    // get the auth token from localStorage and pass it to the Authorization header
     const token = localStorage.getItem("authToken");
 
     if (!token) {
-        console.log("Token di autenticazione non trovato nel localStorage");
+        console.log("authentication token not found in localStorage");
     }
 
-    // try to fetch PUT, for update the status of request selected, is archived to true
+    // attempt to send a PUT request to update the reservation status
     const response = await fetch(`${path}/${reservation.id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ ...reservation, status: `${status}` }) // let's pass the status which will updated
+        body: JSON.stringify({ ...reservation, status: `${status}` }) // update the status
     });
 
     if (!response.ok) {
-        throw new Error("Errore nell'aggiornamento stato della prenotazione!");
+        throw new Error("error updating reservation status");
     }
 }

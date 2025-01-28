@@ -3,8 +3,8 @@
 ## API Requests List
 
 The detailed list of the API requests with their descriptions can be fully seen by starting the server
-and going to the [swagger documentation page](http://localhost:8080/swagger-ui/index.html#/l).  
-It is possible to see all the requests and how they works, by importing the [collection](./cascina-caccia.postman_collection.json) to Postman.
+and going to the [swagger documentation page](http://localhost:8080/swagger-ui/index.html).  
+It is possible to see all the requests and how they work, by importing the [collection](./cascina-caccia.postman_collection.json) to Postman.
 All the requests will already have all the requirements to properly work, e.g. the bodies of the requests.
 To make everything work, the first step will be to use the login request to get the authorization token,
 then the token needs to be copied into the `Authorization` section of the `Cascina Caccia` folder.
@@ -20,7 +20,7 @@ In both the `Swagger documentation page` and the `Postman collection` there will
 ## Accessibility of the Requests
 
 The requests are not all accessible for everyone.
-There are some requests that can be accessed by everyone and others that are avaiable only after the login into the backoffice.  
+There are some requests that can be accessed by everyone and others that are available only after the login into the backoffice.  
 Only two external origins can access the requests and are:
 
 - `http://localhost:5173` (_the port of the main webpage_)
@@ -34,9 +34,9 @@ These requests are:
 - Forms related requests:
   - `POST: http://localhost:8080/cascina-caccia/informations/create-information`
   - `POST: http://localhost:8080/cascina-caccia/reservations/create-reservation`
-- Swagger Documentation related request:
+- Swagger Documentation Request:
   - `GET: http://localhost:8080/swagger-ui/index.html`
-- Login related request:
+- Login Request:
   - `POST: http://localhost:8080/auth/login`
 
 ### Backoffice Requests
@@ -45,12 +45,12 @@ The authentication is mandatory to use all the other requests. These requests ar
 to handle the different requests of information and reservation created by the people using the previously mentioned requests.  
 However, not every request is accessible by everyone who logs in.
 
-#### Authentication with default users
+#### Default User Authentication
 
-| Username/Email           | Password      | Role  | Avaiability                        |
+| Username/Email           | Password      | Role  | Availability                       |
 | ------------------------ | ------------- | ----- | ---------------------------------- |
-| startdownowner@gmail.com | Password123\* | OWNER | Present by creating the DB         |
-| startdownadm@gmail.com   | Password123\* | ADMIN | Present by importing the data dump |
+| startdownowner@gmail.com | Password123\* | OWNER | Created by default in the database |
+| startdownadm@gmail.com   | Password123\* | ADMIN | Created by importing the data dump |
 
 #### OWNER Accessible Requests
 
@@ -67,7 +67,7 @@ These requests are all related to the management of the users and are:
 
 #### OWNER and ADMIN Accessible Requests
 
-The remaining requests can be accessed by everyone who is authenticated in the backoffice page.
+The remaining requests can be accessed by any authenticated user in the backoffice.
 
 - User related requests:
   - `PUT: http://localhost:8080/cascina-caccia/users/update-user`

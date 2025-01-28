@@ -1,12 +1,3 @@
-/**
- * style.css
- *
- *
- * let's sets also the box-sizing property to border-box for all elements.
- *
- */
-
-
 .dialogDeleteCard,
 .dialogArchiveCard {
     display: flex;
@@ -17,8 +8,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70vw;
-    height: 25vh;
+    width: 75vw;
+    height: 30vh;
     background-color: var(--background-primary);
     box-shadow: 0 5px 8px rgba(255, 255, 255, 0.3);
     padding: 5px;
@@ -31,7 +22,7 @@
 .dialogDeleteCard h3,
 .dialogArchiveCard h3 {
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
 .dialogDeleteCard h3 strong,
@@ -60,8 +51,16 @@
 /* button CONFIRM DELETE */
 .dialogDeleteCard .dialogActions .confirm,
 .dialogArchiveCard .dialogActions .confirm {
+    display: flex;
+    align-items: center;
     background-color: #ff4d4d;
     color: var(--white-text-color);
+}
+
+.dialogDeleteCard .dialogActions .confirm ion-icon,
+.dialogArchiveCard .dialogActions .confirm ion-icon {
+    font-size: 1rem;
+    margin-left: 5px;
 }
 
 .dialogDeleteCard .dialogActions .confirm:hover,
@@ -73,6 +72,7 @@
 .dialogDeleteCard .dialogActions .cancel,
 .dialogArchiveCard .dialogActions .cancel {
     background-color: #f0f0f0;
+    border: 1px solid #ccc;
 }
 
 .dialogDeleteCard .dialogActions .cancel:hover,

@@ -2,7 +2,7 @@
  * @file        main.ts
  * @author      Gabriele Speciale
  * @date        2025-01-13
- * @description 
+ * @description contains functions for managing reservation dialogs and updating reservation status
  */
 
 import { restructureDate } from "../../../utils/restructure-date";
@@ -18,15 +18,13 @@ import { type CardReservation } from "../../models/card-reservation.model";
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * updates the status of the reservation to "accordare"
+ * @param {CardReservation} reservation - the reservation whose status is to be updated
+ * @returns {Promise<void>} - returns a promise that resolves when the update is complete
  */
-async function updateStatus(reservation: CardReservation) {
+async function updateStatus(reservation: CardReservation): Promise<void> {
 
-    // call the "updateStatusReservation" function for update the status of the reservation if is "nuova"
+    // call the "updateStatusReservation" function to update the status of the reservation if it's "nuova"
     try {
         await updateStatusReservation("http://localhost:8080/cascina-caccia/reservations/update-reservation",
             reservation, "accordare"
@@ -39,28 +37,30 @@ async function updateStatus(reservation: CardReservation) {
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * confirms the reservation by updating its status to "confermata"
+ * @param {HTMLElement} overlay - the overlay element to be hidden after confirmation
+ * @param {CardReservation} reservation - the reservation to be confirmed
+ * @returns {Promise<void>} - returns a promise that resolves when the confirmation process is complete
  */
-async function handleConfirm(overlay: HTMLElement, reservation: CardReservation) {
+async function handleConfirm(overlay: HTMLElement, reservation: CardReservation): Promise<void> {
 
-    // call the "updateStatusReservation" function for update the status on "confermata" when the button "Accetta prenotazione" is clicked
+    // call the "updateStatusReservation" function to update the status to "confermata" when the "Accetta prenotazione" button is clicked
     try {
         await updateStatusReservation("http://localhost:8080/cascina-caccia/reservations/update-reservation",
             reservation, "confermata"
         );
         closeDialogs(overlay);
-        createToastNotification("Prenotazione confermata!", "success");
+
+        // show a success toast message when the PUT of the status request completes, after 2 sec reload the page
+        createToastNotification("Reservation confirmed!", "success");
         setTimeout(() => {
             location.reload();
         }, 2000);
 
     } catch (err) {
+        // show an error toast message when the PUT of the status request failed!
         closeDialogs(overlay);
-        createToastNotification("Errore conferma prenotazione!", "error");
+        createToastNotification("Error confirming reservation!", "error");
     }
 }
 
@@ -69,24 +69,20 @@ async function handleConfirm(overlay: HTMLElement, reservation: CardReservation)
 
 
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * creates and fills the reservation dialog with the reservation details
+ * @param {HTMLElement} overlay - the overlay element to be shown during the process
+ * @param {HTMLElement} dialogReservation - the dialog element that will be populated with reservation data
+ * @param {CardReservation} reservation - the reservation whose details will be shown in the dialog
+ * @returns {void}
  */
 export function createDialogReservation(overlay: HTMLElement, dialogReservation: HTMLElement, reservation: CardReservation): void {
 
-    // sets all the datas of the reservation into the ELEMENT dialogReservation
+    // fill in the head of the reservation data into the dialogReservation element
     dialogReservation.querySelector(".dialogHeader h2.name")!.textContent = `${reservation.name} ${reservation.surname}`;
     dialogReservation.querySelector(".dialogHeader p.email")!.textContent = reservation.email;
     dialogReservation.querySelector(".dialogHeader p.dateSend")!.textContent = restructureDate(reservation.dateSend);
     dialogReservation.querySelector(".dialogHeader p.phone")!.textContent = reservation.phone ?? "N/A";
-
-    /* datas body of the reservations into the ELEMENT dialogReservation, (will be created checks bc datas can be NULL!)
-    for the datas which are none, the text content will be filled whit an "N/A" */
-
-    // check the status of the reservation and fill the color of the ellipse icon
+    // fill in the body of the reservation data (checks added for null values, will be filled whit "N/A")
     dialogReservation.querySelector(".dialogBody p.status strong")!.textContent += ` ${reservation.status} prenotazione`;
     const stateReservationIcon = dialogReservation.querySelector(".dialogBody p.status ion-icon") as HTMLElement;
     switch (true) {
@@ -107,33 +103,24 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
     dialogReservation.querySelector(".dialogBody p.hourStart span")!.textContent += reservation.hourStart ?? "N/A";
     dialogReservation.querySelector(".dialogBody p.hoursFinish span")!.textContent += reservation.hourFinish ?? "N/A";
     dialogReservation.querySelector(".dialogBody p.type span")!.textContent += reservation.typeGroup;
-    // visitors and companions are type:number, so must be converted into string type whit TEMPLATE LITERALS
     dialogReservation.querySelector(".dialogBody p.visitors span")!.textContent += `${reservation.visitors}`;
     dialogReservation.querySelector(".dialogBody p.companions span")!.textContent += `${reservation.companions ?? "N/A"}`;
-    // check the boolean if there are mobility problems or no
     dialogReservation.querySelector(".dialogBody p.mobilityProblems span")!.textContent += reservation.mobilityProblems ? "Yes" : "No";
     dialogReservation.querySelector(".dialogBody .addiontalInfo p.request")!.textContent += reservation.additionalInfo ?? "";
-    // -----------------------------
+    // change the mail to attribute whit the email of the emitter of the reservation
+    const mailtoResponse = dialogReservation.querySelector(".dialogFooter .dialogResponse a") as HTMLLinkElement;
+    mailtoResponse.href = `mailto:${reservation.email}`;
 
-    // remove from the dialog DOM, the icon of archive if the question have already the state of archived: true
-    if (reservation.archived) {
-        removeIcon(dialogReservation);
-    }
+    // ---------------------------------
 
-    //*** ----------------------------------------------------------
-
-    //if the status is "nuova", so never opened, on the dialog reservation open, change the status through FETCH PUT
+    // if the reservation status is "nuova", update the status through a PUT request
     if (reservation.status === "nuova") {
         updateStatus(reservation);
     }
 
-    /*
-    sets an event listener on the button "Accetta prenotazione", will change the status through FETCH PUT
-    if the status of the reservation is "confermata", the button will be disable
-    */
+    // set an event listener on the "Accetta prenotazione" button to change the status to "confermata"
     const acceptButton = dialogReservation.querySelector(".dialogFooter .buttons .dialogAccept") as HTMLButtonElement;
     if (reservation.status === "confermata") {
-        // disable the button and add an style for the admin to understand that reservation is already accepted
         acceptButton.disabled = true;
         acceptButton.style.cursor = "not-allowed";
         acceptButton.style.opacity = "0.6";
@@ -143,18 +130,23 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
         });
     }
 
-    //*** -------------------------------------------------------
+    // remove the archive icon from the dialog if the reservation is already archived
+    if (reservation.archived) {
+        removeIcon(dialogReservation);
+    }
 
-    // sets also inside the dialog the event listener for the delete of the reservation opened
+    //*** --------------------------------------------------------------
+
+    // set event listeners for the delete action inside the dialog reservation
     dialogReservation.querySelector(".actions .trash")?.addEventListener("click", (event) => {
-        closeDialogs(overlay);
+        closeDialogs(overlay); // close the actual dialog
         deleteCardDialog(overlay, reservation, event);
     });
 
-    // sets also inside the dialog the event listener for the archive of the reservation opened
+    // set event listeners for the archive action inside the dialog reservation
     dialogReservation.querySelector(".actions .archive")?.addEventListener("click", (event) => {
-        closeDialogs(overlay);
-        archiveCardDialog(overlay, reservation, event)
+        closeDialogs(overlay); // close the actual dialog
+        archiveCardDialog(overlay, reservation, event);
     });
 
 }

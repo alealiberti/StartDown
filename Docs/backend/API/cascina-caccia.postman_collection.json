@@ -203,7 +203,7 @@
           "name": "DELETE",
           "item": [
             {
-              "name": "New Request",
+              "name": "deleteUser",
               "request": {
                 "method": "DELETE",
                 "header": [],

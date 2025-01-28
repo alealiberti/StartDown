@@ -1,0 +1,145 @@
+/* is positioned on the left corner of the page fixed while scrolling, will be showed there only the icons of the pages */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 47px;
+    height: 100vh;
+    background-color: var(--background-color-nav);
+    overflow: hidden;
+    transition: width 0.1s ease-in-out;
+}
+
+
+/* button which onclick will expand the minimal sidebar of the page into a full page navigation */
+#sidebar .toggleBtn {
+    color: whitesmoke;
+    opacity: 0.8;
+    font-size: 2.1rem;
+    text-align: center;
+}
+
+
+/* list (ul) of the sections of the sidebar */
+#sidebar .navList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 370px;
+    text-align: center;
+}
+
+#sidebar .navList li {
+    padding: 10px 0;
+}
+
+#sidebar .navList li:hover {
+    background-color: rgb(65, 65, 65);
+    transition: background-color 0.5s ease-in-out;
+}
+
+#sidebar .navList li a {
+    text-decoration: none;
+    color: var(--white-text-color);
+}
+
+#sidebar .navList li a ion-icon {
+    font-size: 1.37rem;
+}
+
+/* color on the icon of the actual page "ACTIVED" */
+#sidebar .navList li.active a {
+    color: var(--cascina-secondary);
+}
+
+
+/* logout button will return the admin on the login page */
+#sidebar .logoutSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidebar .logoutBtn {
+    color: var(--white-text-color);
+    opacity: 0.8;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+/* initially the LABELS of the icons navigation will be hidden, on expand sidebar will be showed! */
+#sidebar .navLabel {
+    display: none;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+}
+
+
+
+/*** ---------------------------------------- EXPANDED NAVABR PROPERTIES ------------------------------------ ***/
+
+
+
+/* the sidebar view after the click on the ">", will expand it to full screen! */
+#sidebar.expanded {
+    width: 100vw;
+    gap: 0;
+}
+
+
+/* button which onclick will reduce the expanded sidebar of the page into a minimal sidebar whit only icons (will return the previou state!)*/
+#sidebar.expanded .toggleBtn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: var(--white-text-color);
+    font-size: 3rem;
+}
+
+#sidebar.expanded .toggleBtn ion-icon {
+    transform: rotateY(-180deg);
+}
+
+
+/* management of the lists links navigation combination label+icons of the sidebar when will be expanded */
+#sidebar.expanded .navList li {
+    margin-left: 25px;
+}
+
+#sidebar.expanded .navList li a {
+    display: flex;
+    align-items: center;
+}
+
+#sidebar.expanded .navList li a ion-icon {
+    font-size: 1.7rem;
+    margin-right: 15px;
+}
+
+
+/* redesign of the button on the bottom fo the navbar expanded for the logout of the admin */
+#sidebar.expanded .logoutSection .logoutBtn {
+    display: flex;
+    align-items: center;
+    background-color: var(--fourth-color);
+    padding: 5px 20px;
+    border: 2px solid #9C9898;
+    border-radius: 5px;
+}
+
+#sidebar.expanded .logoutSection .navLabel {
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+
+/* the labels of th icons navigation now will be showed on the sidebar expanded! */
+#sidebar.expanded .navLabel {
+    display: inline-block;
+}

@@ -1,8 +1,8 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-13
- * @description 
+ * @date        2025-01-02
+ * @description contains the function to create the dialog for a question with actions like delete and archive
  */
 
 import { restructureDate } from "../../../utils/restructure-date";
@@ -15,13 +15,11 @@ import { type CardQuestion } from "../../models/card-question.model";
 
 
 
-
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * creates a dialog with the details of a question
+ * @param {HTMLElement} overlay - the overlay element that covers the page
+ * @param {HTMLElement} dialogQuestion - the dialog element to display the question details
+ * @param {CardQuestion} question - the question object containing the details to display
  */
 export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLElement, question: CardQuestion): void {
 
@@ -31,6 +29,9 @@ export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLE
     dialogQuestion.querySelector(".dialogHeader p.phone")!.textContent = question.phone || "N/A";
     dialogQuestion.querySelector(".dialogHeader p.dateSend")!.textContent = restructureDate(question.dateSend);
     dialogQuestion.querySelector(".dialogBody .request")!.textContent = question.text;
+    // change the mail to attribute whit the email of the emitter of the question
+    const mailtoResponse = dialogQuestion.querySelector(".dialogFooter .dialogResponse a") as HTMLLinkElement;
+    mailtoResponse.href = `mailto:${question.email}`;
 
     // ------------------------
 
@@ -50,7 +51,7 @@ export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLE
     // sets also inside the dialog the event listener for the archive of the question opened
     dialogQuestion.querySelector(".actions .archive")?.addEventListener("click", (event) => {
         closeDialogs(overlay); // close the actual dialog
-        archiveCardDialog(overlay, question, event)
+        archiveCardDialog(overlay, question, event);
     });
 
-}   
+}

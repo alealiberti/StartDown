@@ -150,7 +150,7 @@ header .black-blur a:hover {
   transform: scale(1.1);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1300px) {
   header.hero .header-container {
     display: flex;
     justify-content: center;
@@ -223,7 +223,7 @@ section.list-pillars h2 {
   width: fit-content;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1300px) {
   section.list-pillars{
     align-items: center;
   }
@@ -283,14 +283,14 @@ section.list-pillars div.pillars-container article p {
 }
 
 /* Fixed background image for large screens */
-@media (min-width: 992px) {
+@media (min-width: 1300px) {
   .scroll-img {
     background-attachment: fixed; /* Fix the background on larger screens */
   }
 }
 
 /* Scrollable background for smaller screens */
-@media (max-width: 991px) {
+@media (max-width: 1300px) {
   .scroll-img {
     background-attachment: scroll; /* Enable scroll effect on smaller screens */
     background-size: cover;

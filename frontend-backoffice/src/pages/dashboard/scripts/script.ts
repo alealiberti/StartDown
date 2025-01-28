@@ -1,8 +1,7 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-20
- * @description 
+ * @date        2025-01-05
  */
 
 import { authGuard } from "../../../utils/auth-guard";
@@ -10,7 +9,7 @@ import { loadTemplate } from "../../../utils/load-templates";
 import { getRequests } from "../../../services/get-requests.api";
 import { newRequest } from "./new-requests";
 import { latestQuestionsReservations } from "./get-latest-request";
-import { generateCards } from "../../../global/scripts/generate-cards";
+import { generateCards } from "../../../global/scripts/cards/generate-cards";
 
 import { type CardQuestion } from "../../../global/models/card-question.model";
 import { type CardReservation } from "../../../global/models/card-reservation.model";
@@ -24,7 +23,7 @@ authGuard();
 document.addEventListener("DOMContentLoaded", async () => {
 
     try {
-        // await the response and recive from the fetch into the async function, the templates of question on the DOM
+        // await the response and recive from the fetch into the async function, the templates of question and reservation cards on the DOM
         await loadTemplate("/src/global/templates/cards/card-question.html");
         await loadTemplate("/src/global/templates/cards/card-reservation.html");
         await loadTemplate("/src/global/templates/toasts/toast-notification.html");
@@ -47,6 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const questionTemplate = document.querySelector("template#cardQuestionTemplate") as HTMLTemplateElement;
         const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
+        // generate the cards of questions and reservations whit the datas of latest requests
         generateCards(latestRequests, questionTemplate, reservationTemplate);
 
     } catch (err) {

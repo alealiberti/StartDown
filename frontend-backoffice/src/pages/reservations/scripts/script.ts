@@ -1,14 +1,14 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-21
- * @description 
+ * @date        2025-01-05
  */
+
 
 import { authGuard } from "../../../utils/auth-guard";
 import { loadTemplate } from "../../../utils/load-templates";
 import { getRequests } from "../../../services/get-requests.api";
-import { generateCards } from "../../../global/scripts/generate-cards";
+import { generateCards } from "../../../global/scripts/cards/generate-cards";
 
 import { type CardReservation } from "../../../global/models/card-reservation.model";
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // take form the DOM the template reservation loaded from the fetch() in `loadTemplates.ts`
         const reservationTemplate = document.querySelector("template#cardReservationTemplate") as HTMLTemplateElement;
 
-
+        // generate the cards of reservations whit the datas of the reservations
         generateCards(reservationsData, undefined, reservationTemplate);
 
     } catch (err) {

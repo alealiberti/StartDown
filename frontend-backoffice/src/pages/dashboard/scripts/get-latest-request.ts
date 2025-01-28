@@ -1,8 +1,8 @@
 /**
  * @file        main.ts
  * @author      Gabriele Speciale
- * @date        2025-01-22
- * @description 
+ * @date        2025-01-20
+ * @description function to mix and return the latest 5 questions and reservations based on the date
  */
 
 import { type CardQuestion } from "../../../global/models/card-question.model";
@@ -10,32 +10,27 @@ import { type CardReservation } from "../../../global/models/card-reservation.mo
 
 
 
-// Dati di esempi temporanei da utilizzzare per le ultime 5 questions/reservations mixate nella dashboard!
-// accetta come parametri i questionsData e reservationsData, verrà ritornato come valore nella funzione un array mixato tramite il destructuring e riordinato per data
-
 /**
- * Nome della funzione
- * Descrizione della funzione
- * @param {TipoInput1} NomeInput1 - DescrizioneInput1
- * @param {TipoInput2} NomeInput2 - DescrizioneInput2
- * @returns {TipoOutput} - DescrizioneOutput
+ * function to mix and return the latest 5 questions and reservations based on the most recent date
+ * @param {CardQuestion[]} questionsData - the array of question data
+ * @param {CardReservation[]} reservationsData - the array of reservation data
+ * @returns {(CardQuestion | CardReservation)[]} - an array of the latest 5 questions and reservations, sorted by date
  */
-export const latestQuestionsReservations = (questionsData: CardQuestion[], reservationsData: CardReservation[])
-    : (CardQuestion | CardReservation)[] => {
+export const latestQuestionsReservations = (questionsData: CardQuestion[], reservationsData: CardReservation[]): (CardQuestion | CardReservation)[] => {
 
-    // destructuring dei 2 array
+    // merge the two arrays (questions and reservations)
     const combinedRequests = [...questionsData, ...reservationsData];
 
-    // andiamo ad ordinare per `.dateSend` (dal più recente al meno recente) passando 2 ogetti di questions/reservations alla volta
+    // sort the combined array by the 'dateSend' property in descending order
     combinedRequests.sort((a, b) => {
 
-        // convertiamo la data in "ms" e riodiniamo in modo decrescente
+        // convert the date
         const dateA = new Date(a.dateSend).getTime();
         const dateB = new Date(b.dateSend).getTime();
 
-        return dateB - dateA; // scambio di posizione
+        return dateB - dateA; // reorder by date
     });
 
-    // restituiamo come array mixato ordinato per data le ultime 5 RICHIESTE
+    // return the latest 5 mixed requests sorted by date
     return combinedRequests.slice(0, 5);
 }

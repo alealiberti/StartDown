@@ -1,3 +1,4 @@
+// model type, of the reservation
 export interface CardReservation {
     id: number,
     name: string,
