@@ -29,6 +29,9 @@ export function createDialogQuestion(overlay: HTMLElement, dialogQuestion: HTMLE
     dialogQuestion.querySelector(".dialogHeader p.phone")!.textContent = question.phone || "N/A";
     dialogQuestion.querySelector(".dialogHeader p.dateSend")!.textContent = restructureDate(question.dateSend);
     dialogQuestion.querySelector(".dialogBody .request")!.textContent = question.text;
+    // change the mail to attribute whit the email of the emitter of the question
+    const mailtoResponse = dialogQuestion.querySelector(".dialogFooter .dialogResponse a") as HTMLLinkElement;
+    mailtoResponse.href = `mailto:${question.email}`;
 
     // ------------------------
 

@@ -2,132 +2,167 @@
 
 ## Author Details
 
-- **Name:** Speciale Gabriele   
+- **Name:** Speciale Gabriele  
 - **Contact:** gabriele.speciale@edu.itspiemonte.it  
 
 ---
 
 ## Project Overview
 
-Questa applicazione rappresenta un sistema di backoffice progettato per gestire richieste, prenotazioni e impostazioni tramite un'interfaccia user-friendly. Sviluppato con **TypeScript**, **HTML**, **CSS** e configurato tramite **Vite**.
+This application is a backoffice system designed to manage requests, reservations, and settings through a user-friendly interface. Developed with **TypeScript**, **HTML**, **CSS**, and configured using **Vite**.
 
 ---
 
 ## Directory Structure
 
-### **Root Files**
+### Root Files
 
-- **`.gitignore`**: Specifica i file e le directory da escludere dal versionamento Git.  
-- **`index.html`**: Pagina principale del login per accedere al backoffice.  
-- **`package.json` e `package-lock.json`**: File di configurazione di Node.js che specificano dipendenze e script.  
-- **`README.md`**: Descrizione del progetto.  
-- **`tsconfig.json`**: Configurazione per il compilatore TypeScript.  
-- **`vite.config.ts`**: Configurazione per il build system Vite.  
+- **`.gitignore`**: Specifies files and directories to exclude from Git version control.  
+- **`index.html`**: Main login page to access the backoffice.  
+- **`package.json` & `package-lock.json`**: Node.js configuration files that specify dependencies and scripts.  
+- **`README.md`**: Project description.  
+- **`tsconfig.json`**: Configuration for the TypeScript compiler.  
+- **`vite.config.ts`**: Configuration for the Vite build system.  
 
 ---
 
-### **SRC**
+## SRC
 
-#### **Main Files**
-- **`main.ts`**: Punto di ingresso dell'applicazione.  
-- **`vite-env.d.ts`**: Tipizzazioni ambientali per Vite.  
+- **`vite-env.d.ts`**: Environmental typings for Vite.  
 
-#### **Form**
-- **`form-scripts/form.ts` e `form-scripts/script.ts`**: Script per la gestione dei moduli.  
-- **`form-styles/form.css`**: Stili specifici per i moduli.  
+### **FORM**
+- **`form-scripts`**:  
+  - `script.ts`: Local script for the form used to load necessary templates for the form (e.g., toast notifications).  
+  - `form.ts`: Script to perform the POST API login, receiving the JWT TOKEN, which allows other API calls within the backoffice by adding it to the API authorization headers.  
+- **`form-styles`**:  
+  - `form.css`: Styles for the form.  
+- **`main.ts`**: Entry point for the form root page, containing global and local imports for scripts and styles.  
 
 ---
 
 ### **GLOBAL**
 
 #### **Models**
-- **`card-question.model.ts`**: Definisce l'interfaccia per le schede delle domande.  
-- **`card-reservation.model.ts`**: Definisce l'interfaccia per le schede delle prenotazioni.  
+- **`card-question.model.ts`**: Defines the interface for question objects (properties match the backend).  
+- **`card-reservation.model.ts`**: Defines the interface for reservation objects (properties match the backend).  
 
 #### **Scripts**
-- **`generate-cards.ts`**: Script principale per generare schede.  
-- **`cards`**: Contiene script per creare schede specifiche.  
-- **`dialogs`**: Contiene script per la gestione delle finestre di dialogo.  
-- **`navbar`**: Script per la gestione della barra di navigazione.  
-- **`toasts`**: Script per notifiche toast.  
+- **`cards`**: Contains scripts to create specific cards.  
+  - `generate-cards.ts`: Script that retrieves requests to display from local page scripts. It also contains functions to create both question and reservation cards and handles click events for opening dialogs and modals.  
+  - `create-card-question.ts`: Script to create question cards by dynamically populating the HTML fields with question data.  
+  - `create-card-reservation.ts`: Script to create reservation cards by dynamically populating the HTML fields with reservation data.  
+- **`dialogs`**: Contains scripts for managing dialog windows.  
+  - `open-dialog.ts`: Script to manage the opening of dialogs and modals, such as request creation modals, delete modals, and archive modals.  
+  - `close-dialog.ts`: Script to manage the closing of dialogs and modals and removing them from the DOM, including overlay closure.  
+  - `dialog-card-question.ts`: Script to create a dialog for a question, showing all its details.  
+  - `dialog-card-reservation.ts`: Script to create a dialog for a reservation, showing all its details.  
+  - `dialog-delete.ts`: Script to create a delete dialog when the trash icon is clicked on a request card or its expanded modal.  
+  - `dialog-archive.ts`: Script to create an archive dialog when the archive icon is clicked on a request card or its expanded modal.  
+- **`navbar`**: Script to manage the navigation bar.  
+  - `navbar.ts`: Script to attach events to navigation bar elements, such as expanding and collapsing the menu on mobile devices and logging out by removing the JWT token from localStorage.  
+- **`toasts`**: Script for toast notifications.  
+  - `toast-notification.ts`: Script to create toast notifications when API requests are performed (e.g., login, password change, reservation update).  
 
 #### **Styles**
 - **Global Styles**:  
-  - `global.css`: Stili generali.  
-  - `reset.css`: Reset per una base uniforme.  
-- **Cards**: Stili per le schede di domande e prenotazioni.  
-- **Dialogs**: Stili per le finestre di dialogo.  
-- **Navbar**: Stili per la barra di navigazione.  
-- **Toasts**: Stili per le notifiche toast.  
+  - `global.css`: General styles.  
+  - `reset.css`: Reset styles for a consistent base.  
+- **Cards**: Styles for question and reservation cards.  
+  - `card-question.css`: Styles for question cards.  
+  - `card-reservation.css`: Styles for reservation cards.  
+- **Dialogs**: Styles for dialog windows.  
+  - `overlay-dialog.css`: Styles for the overlay that appears when a dialog is opened.  
+  - `dialog-card-question.css`: Styles for question dialogs when expanded.  
+  - `dialog-card-reservation.css`: Styles for reservation dialogs when expanded.  
+  - `dialog-actions.css`: Styles for action dialogs like delete and archive when their icons are clicked.  
+- **Navbar**: Styles for the navigation bar.  
+  - `navbar.css`: Styles for the mobile-only navigation bar.  
+- **Toasts**: Styles for toast notifications.  
+  - `toast-notification.css`: Styles for toast notifications shown at the top-right corner during API requests.  
 
 #### **Templates**
-- **Cards**: Modelli HTML per le schede.  
-- **Dialogs**: Modelli HTML per le finestre di dialogo.  
-- **Toasts**: Modello HTML per notifiche toast.  
+- **Cards**: HTML templates for cards.  
+  - `card-question.html`: HTML template for question cards.  
+  - `card-reservation.html`: HTML template for reservation cards.  
+- **Dialogs**: HTML templates for dialog windows.  
+  - `dialog-card-question.html`: HTML template for question dialogs when expanded.  
+  - `dialog-card-reservation.html`: HTML template for reservation dialogs when expanded.  
+  - `dialog-delete.html`: HTML template for delete dialogs when the trash icon is clicked.  
+  - `dialog-archive.html`: HTML template for archive dialogs when the archive icon is clicked.  
+  - `dialog-password.html`: HTML template for password change dialogs from the settings page.  
+- **Toasts**: HTML template for toast notifications.  
+  - `toast-notification.html`: HTML template for toast notifications shown at the top-right corner during API requests.  
 
 ---
 
 ### **PAGES**
 
 #### **Dashboard**
-- **`index.html`**: Pagina principale del dashboard, viene mostrato un recap delle nuove domande (con stato non archiviato) e delle nuove prenotazioni (con stato "nuova" "accordare"), e la lista delle ultime 5 richieste mischiate in base alla data + recente.  
-- **Script:**  
-  - `get-latest-request.ts`: Recupera le ultime 5 richieste di domande e prenotazioni in ordine di data + recente.  
-  - `new-requests.ts`: Gestisce le nuove richieste.  
-  - `script.ts`: Script locale della dashboard che si collega agli script globali, al caricamento della pagina, vengono caricati i template necessari per essa, e le richieste di domande e prenotazioni.
-- **Style:**  
-  - `style.css`: Stile per la pagina della dashboard.  
+- **`index.html`**: Main dashboard page showing a recap of new questions (non-archived) and new reservations (status: "new" or "to agree"), along with a list of the latest 5 mixed requests by the most recent date.  
+- **Scripts:**  
+  - `get-latest-request.ts`: Retrieves the latest 5 requests (questions and reservations) ordered by the most recent date.  
+  - `new-requests.ts`: Fills the top boxes on the dashboard page, incrementing counts based on specific parameters:  
+    - *Questions*: New questions are those that are not archived.  
+    - *Reservations*: New reservations are those with the status "new"/"to agree" and not archived.  
+  - `script.ts`: Local dashboard script that connects to global scripts. On page load, it loads necessary templates and processes question and reservation requests.  
+- **Styles:**  
+  - `style.css`: Styles for the dashboard page.  
+- **`main.ts`**: Entry point for the dashboard page, containing global and local imports for scripts and styles used to dynamically create the page.  
 
 #### **Questions**
-- **`index.html`**: Pagina delle domande, vengono mostrate tutte le domande in ordine di data + recente.  
-- **Script:**  
-  - `script.ts`: Script locale della domande che si collega agli script globali, al caricamento della pagina, vengono caricati i template necessari per essa, e le richieste di domande.
-- **Style:**  
-  - `style.css`: Stile per la pagina delle domande.  
+- **`index.html`**: Page for displaying all questions, ordered by the most recent date.  
+- **Scripts:**  
+  - `script.ts`: Local script for the questions page that connects to global scripts. On page load, it loads necessary templates and processes question requests.  
+- **Styles:**  
+  - `style.css`: Styles for the questions page.  
+- **`main.ts`**: Entry point for the questions page, containing global and local imports for scripts and styles used to dynamically create the page.  
 
 #### **Reservations**
-- **`index.html`**: Pagina delle prenotazioni, vengono mostrate tutte le prenotazioni in ordine di data + recente.  
-- **Script:**  
-  - `script.ts`: Script locale della prenotazioni che si collega agli script globali, al caricamento della pagina, vengono caricati i template necessari per essa, e le richieste di prenotazione.
-- **Style:**  
-  - `style.css`: Stile per la pagina delle prenotazioni.  
+- **`index.html`**: Page for displaying all reservations, ordered by the most recent date.  
+- **Scripts:**  
+  - `script.ts`: Local script for the reservations page that connects to global scripts. On page load, it loads necessary templates and processes reservation requests.  
+- **Styles:**  
+  - `style.css`: Styles for the reservations page.  
+- **`main.ts`**: Entry point for the reservations page, containing global and local imports for scripts and styles used to dynamically create the page.  
 
 #### **Settings**
-- **`index.html`**: Pagina delle impostazioni, vengono mostrate i bottoni delle impostazioni per visualizzare le richiste di domande e prenotazioni archiviate, e la possibilità di cambiare la password.
-- **Script:**  
-  - `change-password.ts`: Cambia la password.  
-  - `script.ts`: Funzionalità generali.  
-- **Style:**  
-  - `style.css`: Stili per la pagina delle impostazioni.  
+- **`index.html`**: Page for settings, displaying buttons to view archived questions and reservations and the option to change the password.  
+- **Scripts:** 
+  - `create-header.ts`: Script to create the header for the settings page when the archived questions and reservations buttons are clicked (generate the specif header).
+  - `change-password.ts`: Script to perform a PUT API call for changing the admin password, including validations for the old and new passwords from the backend.  
+  - `script.ts`: Local script for the settings page that connects to global scripts. On page load, it loads necessary templates and processes settings requests.  
+- **Styles:**  
+  - `style.css`: Styles for the settings page.  
+  - `dialog-password.css`: Styles for the password change dialog.  
+- **`main.ts`**: Entry point for the settings page, containing global and local imports for scripts and styles used to dynamically create the page.  
 
 ---
 
 ### **Services**
 
-API per gestire funzionalità principali legate allo [SWAGGER](http://localhost:8080/swagger-ui/index.html) 
-- `login-auth.api.ts`: API per validare le credenziali admin, viene restiuto il TOKEN JWT per effettuare le altre operazioni API da inserire nell'autorizathion.  
-- `archive-request.api.ts`: API per cambiare lo stato delle richieste in "archiviate" quando selezionata icona dell'archivio.  
-- `delete-request.api.ts`: API per eleminare le richieste quando selezionata icona del cestino.  
-- `get-requests.api.ts`: API per ottenere qualsiasi tipo di richieste (archiviate, tutte, non archiviate).  
-- `update-password.api.ts`: API per aggiornare la password dell'utente.  
-- `update-status-reservation.api.ts`: API per aggiornare lo stato delle prenotazioni che possiedono 3 fasi:
-  - nuova
-  - accordare
-  - confermata  
+APIs for managing core functionalities, linked to [SWAGGER](http://localhost:8080/swagger-ui/index.html):  
+- `login-auth.api.ts`: API to validate admin credentials, returning a JWT TOKEN for authorization in other API operations.  
+- `archive-request.api.ts`: API to mark requests as "archived" when the archive icon is selected.  
+- `delete-request.api.ts`: API to delete requests when the trash icon is selected.  
+- `get-requests.api.ts`: API to fetch all types of requests (archived, all, non-archived).  
+- `update-password.api.ts`: API to update the user password.  
+- `update-status-reservation.api.ts`: API to update the status of reservations, which have three phases:  
+  - New  
+  - To Agree  
+  - Confirmed  
 
 ---
 
 ### **Utilities**
 
-- **`auth-guard.ts`**: Verifica i permessi di autenticazione prendendo il token, se non presente renderizza l'utente al login page.  
-- **`load-templates.ts`**: Carica template HTML nelle pagine della backoffice, per gestire i vari pezzi di modali/dialoghi e template di carte per questions e reservations.  
-- **`remove-icon.ts`**: Rimuove l'icona dell'archivio in caso siamo dentro l'archivio delle questions/reservations.  
-- **`restructure-date.ts`**: Riformatta le date in formato GG/MM/YYYY (vengono gestite nell'applicazione con MM/GG/YYYY).  
+- **`auth-guard.ts`**: Verifies authentication permissions by checking for the token. If not present, it redirects the user to the login page.  
+- **`load-templates.ts`**: Loads HTML templates into backoffice pages to manage modal/dialog pieces and card templates for questions and reservations.  
+- **`remove-icon.ts`**: Removes the archive icon when viewing the archive for questions or reservations.  
+- **`restructure-date.ts`**: Reformats dates into the format DD/MM/YYYY (managed as MM/DD/YYYY in the application).  
 
 ---
 
 ## Integrated Tools
 
-- **[Ionicons](https://ionic.io/ionicons)**: Libreria di icone.  
-
----
+- **[Ionicons](https://ionic.io/ionicons)**: Icon library.  
+- **[Vite](https://vitejs.dev/)**: Lightweight and fast build tool for web applications.  

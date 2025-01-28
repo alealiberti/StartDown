@@ -107,6 +107,9 @@ export function createDialogReservation(overlay: HTMLElement, dialogReservation:
     dialogReservation.querySelector(".dialogBody p.companions span")!.textContent += `${reservation.companions ?? "N/A"}`;
     dialogReservation.querySelector(".dialogBody p.mobilityProblems span")!.textContent += reservation.mobilityProblems ? "Yes" : "No";
     dialogReservation.querySelector(".dialogBody .addiontalInfo p.request")!.textContent += reservation.additionalInfo ?? "";
+    // change the mail to attribute whit the email of the emitter of the reservation
+    const mailtoResponse = dialogReservation.querySelector(".dialogFooter .dialogResponse a") as HTMLLinkElement;
+    mailtoResponse.href = `mailto:${reservation.email}`;
 
     // ---------------------------------
 

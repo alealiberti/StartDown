@@ -6,6 +6,7 @@
 
 import { authGuard } from "../../../utils/auth-guard";
 import { loadTemplate } from "../../../utils/load-templates";
+import { createHeader } from "./create-header";
 import { getRequests } from "../../../services/get-requests.api";
 import { generateCards } from "../../../global/scripts/cards/generate-cards";
 import { changePassword } from "./change-password";
@@ -13,6 +14,7 @@ import { closeDialogs } from "../../../global/scripts/dialogs/close-dialogs";
 
 import { type CardQuestion } from "../../../global/models/card-question.model";
 import { type CardReservation } from "../../../global/models/card-reservation.model";
+
 
 
 
@@ -36,6 +38,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // hide the initial button display
         buttonsActions.remove();
+        // create the header for describe the section opened is the achived questions
+        createHeader("Domande Archiviate");
 
         try {
             // take the question template loaded from `loadTemplates.ts`
@@ -57,6 +61,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // hide the initial button display
         buttonsActions.remove();
+        // create the header for describe the section opened is the achived reservations
+        createHeader("Prenotazioni Archiviate");
 
         try {
             // take the reservation template loaded from `loadTemplates.ts`

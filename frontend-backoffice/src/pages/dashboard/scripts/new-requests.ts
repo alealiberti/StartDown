@@ -21,8 +21,8 @@ export function newRequest(questionsData: CardQuestion[], reservationsData: Card
     // take from the dom the section which contains the box with info of the latest questions and reservations
     const sectionInfoToday = document.querySelector("#infoToday") as HTMLElement;
 
-    // filter the questions and return the length of a new array with questions where archived === false
-    const totalNewQuestions = questionsData.filter((question) => !question.archived).length;
+    // filter the questions and return the length of a new array with questions where archived === false (so all the questions on dashboard)
+    const totalNewQuestions = questionsData.length;
     sectionInfoToday.querySelector("p.total.questions")!.textContent = totalNewQuestions.toString();
 
     // filter the reservations and return the length of a new array with reservations where status === "nuova" || status === "accordare"

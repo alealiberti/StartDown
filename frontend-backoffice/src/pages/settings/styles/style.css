@@ -8,6 +8,17 @@ main h1 {
     margin-bottom: 50px;
 }
 
+section#requests h3 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    text-align: center;
+    background: linear-gradient(90deg, var(--cascina-secondary), var(--dark-text-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+}
+
+
 
 /* -------------------------------------------------------------- */
 
