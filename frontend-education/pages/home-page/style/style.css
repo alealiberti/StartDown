@@ -423,7 +423,7 @@ section.grey-section {
 /* FAQ styling */
 .faq {
   padding: 25px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   width: 100%;
   max-width: 900px;
 }
@@ -436,9 +436,8 @@ section.grey-section {
 }
 
 .faq-question {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
   padding: 15px;
-  padding-right: 15px;
   cursor: pointer;
   font-weight: bold;
   display: flex;
@@ -454,18 +453,20 @@ section.grey-section {
 .faq-answer {
   display: none;
   padding: 15px;
-  background-color: #F5F5F5;
-  transition: all 0.3s ease-out;
+  background-color: #f5f5f5;
+  transition: max-height 0.3s ease-out, padding-bottom 0.3s ease-out;
   overflow: hidden;
 }
 
 .faq-item.active .faq-answer {
   display: block;
-  max-height: none; 
-  padding-bottom: 20px; 
+  max-height: none;
+  padding-bottom: 20px;
 }
 
 .faq-question .faq-icon {
+  border: none;
+  background-color: transparent;
   font-size: 24px;
   transition: transform 0.3s ease;
 }
@@ -474,26 +475,22 @@ section.grey-section {
   transform: rotate(180deg);
 }
 
-.faq-icon {
-  font-size: 10px;
-}
-
 @media (max-width: 768px) {
   .faq {
-      padding: 15px;
-      width: 100%;
+    padding: 15px;
+    width: 100%;
   }
 
   .faq-item {
-      width: 100%;
-      padding: 10px;
+    padding: 10px;
   }
 
   .faq-question {
-      gap:22px
+    gap: 22px;
   }
 }
 
+/* Button styling */
 .button-container {
   display: flex;
   justify-content: center;
@@ -501,54 +498,52 @@ section.grey-section {
   margin: 20px;
 }
 
-a{
-text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.button-visita{
-  display: block;
-  justify-content: center;
-  color: var(--primary-color); /* Set the button text color */
-  display: block; /* Make the button a block element */
-  background-image: url('/images/button-background/button-background.png'); /* Add a background image */
-  background-size: contain; /* Scale the background image to fit */
-  background-repeat: no-repeat; /* Prevent the background from repeating */
-  background-position: center; /* Position the background image at the center */
-  width: 300px; /* Set a fixed width for the button */
-  text-align: center; /* Center the text inside the button */
-  margin: 20px; /* Add margin above the button */
-  padding: 15px; /* Add padding inside the button */
-  text-decoration: none; /* Remove underline from the text */
-  font-weight: bold; /* Make the text bold */
-  transition: transform 0.3s ease; /* Add a transition effect for button hover */
+.button-visita {
+  color: var(--primary-color);
+  background-image: url('/images/button-background/button-background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  text-align: center;
+  margin: 20px;
+  padding: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
 .button-visita:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
-.contact{
-width: 100%;
-text-align: center;
+.contact {
+  width: 100%;
+  text-align: center;
 }
 
 .questions {
-margin-top: 80px;
-font-size: 2rem;
-padding: 0px 20px;
-text-align: center;
+  margin-top: 80px;
+  font-size: 2rem;
+  padding: 0 20px;
+  text-align: center;
 }
 
-/* Button contattaci yellow*/
-.contattaci{
-background-color: var(--yellow-color-logo);
-font-family: var(--font-family-content);
-font-weight: bold;
-color: black;
-border-radius: 8px;
-padding:10px 20px;
-margin-left: 60px;
-border: none;
-cursor: pointer;
-margin: 20px;
+/* Button contattaci yellow */
+.contattaci {
+  background-color: var(--yellow-color-logo);
+  font-family: var(--font-family-content);
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
