@@ -251,8 +251,10 @@ form label.checkbox {
 
 .checkbox span {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  min-width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  max-height: 20px;
   border: 2px solid #aaa;
   border-radius: 50%;
   margin-right: 10px;
